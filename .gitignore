@@ -6,10 +6,11 @@ server/.vscode/
 
 # React (fly)
 flyinspectors/node_modules/
-flyinspectors/build/
+# flyinspectors/build/
 flyinspectors/.DS_Store
 flyinspectors/npm-debug.log
 flyinspectors/.vscode/
+flyinspectors/.env.local
 
 # React (meore)
 meore/node_modules/
