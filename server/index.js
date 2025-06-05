@@ -41,10 +41,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/api", router);
 
 // React ბილდის ფაილების სერვინგი
-app.use(express.static(path.join(__dirname, "../flyinspectors/build")));
+app.use(express.static(path.join(__dirname, "./../flyinspectors/build")));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../flyinspectors/build", "index.html"));
+  res.sendFile(path.join(__dirname, "./../flyinspectors/build", "index.html"));
 });
 
 // MongoDB კავშირი
