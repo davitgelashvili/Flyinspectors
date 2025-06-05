@@ -37,7 +37,7 @@ const emailSend = async (req, res) => {
         });
 
         const mailOptions = {
-            from: 'info@flyinspectors.com',
+            from: 'mailsend@flyinspectors.co.uk',
             replyTo: `${email}`,
             to: `team@flyinspectors.com`,
             subject: `Compensation Form - ${userId}`,

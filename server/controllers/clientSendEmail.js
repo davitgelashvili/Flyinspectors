@@ -22,7 +22,7 @@ const clientSendEmail = async (req, res) => {
         });
 
         const mailOptions = {
-            from: 'info@flyinspectors.com',
+            from: 'mailsend@flyinspectors.co.uk',
             to: email,
             subject: `flyinspectors.com`,
             html: text
