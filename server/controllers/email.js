@@ -29,15 +29,15 @@ const emailSend = async (req, res) => {
             port: 465, // 465 for SSL or 587 for STARTTLS
             secure: true, // Use true for 465, false for other ports
             auth: {
-                // user: 'mailsend@flyinspectors.com', // Your email
+                user: 'mailsend@flyinspectors.com', // Your email
                 // pass: 'ha5Pm!!7Y&!3', // Your email password or app password
-                user: 'mailsend@flyinspectors.co.uk', // Your email
+                // user: 'mailsend@flyinspectors.co.uk', // Your email
                 pass: '-VV6jcEThhWT', // Your email password or app password
             },
         });
 
         const mailOptions = {
-            from: 'mailsend@flyinspectors.co.uk',
+            from: 'mailsend@flyinspectors.com',
             replyTo: `${email}`,
             to: `team@flyinspectors.com`,
             subject: `Compensation Form - ${userId}`,
