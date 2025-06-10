@@ -29,8 +29,8 @@ const emailSend = async (req, res) => {
             port: 465,
             secure: true,
             auth: {
-                user: 'team@flyinspectors.com',
-                pass: 'jtzy fkpr iwab snfm ',
+                user: 'info@flyinspectors.com',
+                pass: 'rhri wubo gmks kizy',
                 // user: 'mailsend@flyinspectors.com', 
                 // pass: '-VV6jcEThhWT',
             },

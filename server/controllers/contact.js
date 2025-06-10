@@ -19,8 +19,8 @@ const contact = async (req, res) => {
             port: 465, // 465 for SSL or 587 for STARTTLS
             secure: true, // Use true for 465, false for other ports
             auth: {
-                user: 'team@flyinspectors.com',
-                pass: 'jtzy fkpr iwab snfm',
+                user: 'info@flyinspectors.com',
+                pass: 'rhri wubo gmks kizy',
                 // user: 'mailsend@flyinspectors.com', // Your email
                 // pass: '-VV6jcEThhWT', // Your email password or app password
             },
