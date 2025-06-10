@@ -30,14 +30,14 @@ const emailSend = async (req, res) => {
             secure: true,
             auth: {
                 user: 'team@flyinspectors.com',
-                pass: 'SimplePass2',
+                pass: 'jtzy fkpr iwab snfm ',
                 // user: 'mailsend@flyinspectors.com', 
                 // pass: '-VV6jcEThhWT',
             },
         });
 
         const mailOptions = {
-            from: 'team@flyinspectors.com',
+            from: 'info@flyinspectors.com',
             replyTo: `${email}`,
             to: `team@flyinspectors.com`,
             subject: `Compensation Form - ${userId}`,

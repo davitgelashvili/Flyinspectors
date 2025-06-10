@@ -15,14 +15,14 @@ const clientSendEmail = async (req, res) => {
             secure: true, // Use true for 465, false for other ports
             auth: {
                 user: 'team@flyinspectors.com',
-                pass: 'SimplePass2',
+                pass: 'jtzy fkpr iwab snfm',
                 // user: 'mailsend@flyinspectors.com', // Your email
                 // pass: '-VV6jcEThhWT', // Your email password or app password
             },
         });
 
         const mailOptions = {
-            from: 'team@flyinspectors.com',
+            from: 'info@flyinspectors.com',
             to: email,
             subject: `flyinspectors.com`,
             html: text

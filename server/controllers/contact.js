@@ -20,7 +20,7 @@ const contact = async (req, res) => {
             secure: true, // Use true for 465, false for other ports
             auth: {
                 user: 'team@flyinspectors.com',
-                pass: 'SimplePass2',
+                pass: 'jtzy fkpr iwab snfm',
                 // user: 'mailsend@flyinspectors.com', // Your email
                 // pass: '-VV6jcEThhWT', // Your email password or app password
             },
@@ -28,7 +28,7 @@ const contact = async (req, res) => {
 
         var mailOptions = {
             from: email,
-            to: `team@flyinspectors.com`,
+            to: `info@flyinspectors.com`,
             //   to: 'myfriend@yahoo.com, myotherfriend@yahoo.com',
             // text: text,
             subject: subject,
