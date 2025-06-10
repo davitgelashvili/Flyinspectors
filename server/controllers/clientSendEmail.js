@@ -9,20 +9,20 @@ const clientSendEmail = async (req, res) => {
         } = req.body;
         
         const transporter = nodemailer.createTransport({
-            // host: 'smtp.example.com', // SMTP server address (e.g., smtp.gmail.com for Gmail)
-            host: 'business66.web-hosting.com',
+            // host: 'business66.web-hosting.com',
+            host: 'smtp.gmail.com', // SMTP server address (e.g., smtp.gmail.com for Gmail)
             port: 465, // 465 for SSL or 587 for STARTTLS
             secure: true, // Use true for 465, false for other ports
             auth: {
-                user: 'mailsend@flyinspectors.com', // Your email
-                // pass: 'ha5Pm!!7Y&!3', // Your email password or app password
-                // user: 'mailsend@flyinspectors.co.uk', // Your email
-                pass: '-VV6jcEThhWT', // Your email password or app password
+                user: 'team@flyinspectors.com',
+                pass: 'SimplePass2',
+                // user: 'mailsend@flyinspectors.com', // Your email
+                // pass: '-VV6jcEThhWT', // Your email password or app password
             },
         });
 
         const mailOptions = {
-            from: 'mailsend@flyinspectors.com',
+            from: 'team@flyinspectors.com',
             to: email,
             subject: `flyinspectors.com`,
             html: text

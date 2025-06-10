@@ -14,13 +14,15 @@ const contact = async (req, res) => {
         var nodemailer = require('nodemailer');
 
         var transporter = nodemailer.createTransport({
-            // host: 'mail.flyinspectors.com',
-            host: 'business66.web-hosting.com',
+            host: 'smtp.gmail.com',
+            // host: 'business66.web-hosting.com',
             port: 465, // 465 for SSL or 587 for STARTTLS
             secure: true, // Use true for 465, false for other ports
             auth: {
-                user: 'mailsend@flyinspectors.com', // Your email
-                pass: '-VV6jcEThhWT', // Your email password or app password
+                user: 'team@flyinspectors.com',
+                pass: 'SimplePass2',
+                // user: 'mailsend@flyinspectors.com', // Your email
+                // pass: '-VV6jcEThhWT', // Your email password or app password
             },
         });
 
