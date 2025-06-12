@@ -23,7 +23,9 @@ const corsOptions = {
   origin: function (origin, callback) {
     if (!origin) return callback(null, true);
 
-    const allowed = allowedOrigins.some(allowedOrigin => origin.startsWith(allowedOrigin));
+    const allowed = allowedOrigins.some(allowedOrigin =>
+      origin.startsWith(allowedOrigin)
+    );
     if (allowed) {
       return callback(null, true);
     } else {
@@ -32,11 +34,12 @@ const corsOptions = {
     }
   },
   credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
 };
 
 // Middleware-ები
 app.use(cors(corsOptions));
-app.options("*", cors(corsOptions));
+app.options("*", cors(corsOptions)); // Handle preflight requests
 app.use(express.json({ limit: "100mb" }));
 app.use(express.urlencoded({ limit: "100mb", extended: true }));
 app.use(bodyParser.json());
