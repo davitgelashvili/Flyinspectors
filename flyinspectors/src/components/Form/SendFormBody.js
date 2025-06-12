@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import UploadWidget from "../UploadWidget/UploadWidget";
 import DisableUploadWidget from "../UploadWidget/DisableUploadWidget";
 import TextInput from "../UI/TextInput";
@@ -165,6 +165,13 @@ const SendFormBody = ({ value, setValue, uploadFile, accept, setAccept, setLoad,
       setValue({ ...value, [e.target.name]: e.target.value });
     }
   };
+
+  // useEffect(()=>{
+  //   if(ref){
+  //     setValue({...value, 'companyId': ref})
+  //   }
+  //   console.log(value, ref)
+  // }, [ref])
 
 
   // function encodeImageFileAsURL(element) {

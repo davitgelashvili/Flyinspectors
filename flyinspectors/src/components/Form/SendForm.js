@@ -3,8 +3,11 @@ import SendFormBody from "./SendFormBody"
 import PopUp from "./PopUp"
 import { useSelector } from "react-redux"
 import { useTranslation } from "react-i18next";
+import { useSearchParams } from "react-router-dom";
 
 const SendForm = ({setFormActive}) => {
+    const [searchParams] = useSearchParams();
+    const ref = searchParams.get('ref');
     const {t} = useTranslation()
     var newDate = new Date()
     var month = newDate.getMonth()
@@ -38,6 +41,7 @@ const SendForm = ({setFormActive}) => {
     })
     const [message, setMessage] = useState(false)
     const [value, setValue] = useState({
+        companyId: ref,
         passportImage: "",
         ticketImage: "",
         otherImage: "",

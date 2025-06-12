@@ -21,10 +21,14 @@ const allowedOrigins = [
 
 const corsOptions = {
   origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
+    if (!origin) return callback(null, true);
+
+    const allowed = allowedOrigins.some(allowedOrigin => origin.startsWith(allowedOrigin));
+    if (allowed) {
+      return callback(null, true);
     } else {
-      callback(new Error("Not allowed by CORS"));
+      console.error("Blocked by CORS:", origin);
+      return callback(new Error("Not allowed by CORS"));
     }
   },
   credentials: true,
@@ -32,6 +36,7 @@ const corsOptions = {
 
 // Middleware-ები
 app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 app.use(express.json({ limit: "100mb" }));
 app.use(express.urlencoded({ limit: "100mb", extended: true }));
 app.use(bodyParser.json());

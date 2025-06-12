@@ -19,6 +19,10 @@ const ClientSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    companyId: {
+        type: String,
+        required: false,
+    },
     userId: {
         type: String,
         required: true,

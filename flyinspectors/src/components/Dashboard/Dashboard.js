@@ -25,7 +25,7 @@ const Dashboard = () => {
                     <Link to={'/adminpanel/rate'}>rate</Link>
                     <Link to={'/adminpanel/contact'}>contact</Link>
                     <Link to={'/adminpanel/condition'}>condition</Link>
-                    {/* <Link to={'/adminpanel/company'}>company</Link> */}
+                    <Link to={'/adminpanel/company'}>company</Link>
                 </ul>
                 <Routes>
                     {/* <Route index element={<Dashboard />} /> */}
@@ -46,8 +46,8 @@ const Dashboard = () => {
                     <Route path={"/condition/:id"} element={<ConditionsEdit />} />
                     <Route path={"/condition/add"} element={<ConditionsAdd />} />
 
-                    {/* <Route path={"/company"} element={<Company />} /> */}
-                    {/* <Route path={"/company/add"} element={<CompanyAdd />} /> */}
+                    <Route path={"/company"} element={<Company />} />
+                    <Route path={"/company/add"} element={<CompanyAdd />} />
                 </Routes>
 
             </div>
