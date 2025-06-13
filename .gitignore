@@ -6,14 +6,17 @@ server/.vscode/
 
 # React (fly)
 flyinspectors/node_modules/
-# flyinspectors/build/
 flyinspectors/.DS_Store
 flyinspectors/npm-debug.log
 flyinspectors/.vscode/
 flyinspectors/.env.local
 
-# React (meore)
-meore/node_modules/
+# React (tourclaimcom)
+tourclaimcom/node_modules/
+tourclaimcom/.DS_Store
+tourclaimcom/npm-debug.log
+tourclaimcom/.vscode/
+tourclaimcom/.env.local
 
 node_modules
 

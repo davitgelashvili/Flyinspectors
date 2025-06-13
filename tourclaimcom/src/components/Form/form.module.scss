@@ -1,0 +1,115 @@
+.form {
+  max-width: 615px;
+  width: 100%;
+  background-color: #fff;
+  margin: auto;
+  border-radius: 11px;
+  overflow: hidden;
+
+  &__head {
+    display: flex;
+    align-items: center;
+
+    &--btn {
+      width: 50%;
+      padding: 13px;
+      font-size: 22px;
+      line-height: 44px;
+      font-weight: 700;
+      color: #fff;
+      background-color: #BBBBBB;
+      text-align: center;
+      cursor: pointer;
+
+      @media (max-width: 991px) {
+        padding: 9px;
+        font-size: 18px;
+      }
+
+      &.active {
+        background-color: #FD9B28;
+      }
+    }
+  }
+
+  &__body {
+    padding: 37px 32px;
+
+    @media (max-width: 991px) {
+      padding: 23px 18px;
+    }
+  }
+}
+
+
+.formContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  max-width: 100%;
+}
+
+.headerForm {
+  display: flex;
+  justify-content: center;
+  gap: 125px;
+  margin: 30px;
+}
+
+.bgColor {
+  background-color: #F8FAFD;
+}
+
+.formDiv {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .formContainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.problemSection {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.problemLabel {
+  width: 553px;
+  height: 161px;
+  margin-top: 10px;
+}
+
+
+.problemTextarea::placeholder {
+  font-weight: 700;
+}
+
+.problemTextarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.btnDiv {
+  display: flex;
+   justify-content: center;
+  align-items: center; 
+  gap: 250px;
+}
+
+.uploadSection {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  gap: 6px; 
+}
+
+.otherDoc {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  gap: 6px;
+}

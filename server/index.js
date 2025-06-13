@@ -13,10 +13,10 @@ const PORT = process.env.PORT || 8000;
 const allowedOrigins = [
   "http://localhost:3000",
   "http://localhost:3001",
-  "http://localhost:5001",
   "https://flyinspectors.ge",
   "https://flyinspectors.com",
   "https://flyinspectors.co.uk",
+  "https://tourclaim.com",
 ];
 
 // ✅ CORS კონფიგურაცია
