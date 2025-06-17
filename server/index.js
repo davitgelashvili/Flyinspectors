@@ -13,6 +13,7 @@ const PORT = process.env.PORT || 8000;
 const allowedOrigins = [
   "http://localhost:3000",
   "http://localhost:3001",
+  "http://10.84.182.89:3001",
   "https://flyinspectors.ge",
   "https://flyinspectors.com",
   "https://flyinspectors.co.uk",
@@ -28,7 +29,7 @@ const corsOptions = {
     const cleanedOrigin = origin.replace(/^https?:\/\/(www\.)?/, "https://");
     const allowed = allowedOrigins.includes(cleanedOrigin);
 
-    if (allowed) {
+    if (!allowed) {
       return callback(null, true);
     } else {
       console.error("❌ Blocked by CORS:", origin);

@@ -21,6 +21,7 @@ const { getClientByDateTime } = require('./controllers/getClientByDateTime');
 const { createCompany } = require('./controllers/createCompany');
 const { getCompany } = require('./controllers/getCompany');
 const { login } = require('./controllers/login');
+const { getClientsByCompanyId } = require('./controllers/getClientsByCompanyId');
 
 const router = require("express").Router();
 
@@ -32,6 +33,7 @@ router.get("/company", getCompany);
 router.post("/company", createCompany);
 router.post("/login", login);
 
+router.get("/clientbycompany", getClientsByCompanyId);
 router.post("/client", createClient);
 router.post("/email", emailSend);
 router.post("/sendtoclient", clientSendEmail);

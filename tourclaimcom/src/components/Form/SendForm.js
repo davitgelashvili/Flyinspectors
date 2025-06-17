@@ -6,8 +6,8 @@ import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
 
 const SendForm = ({setFormActive}) => {
-    const [searchParams] = useSearchParams();
-    const ref = searchParams.get('ref');
+    const [searchParams] = useSearchParams()
+    const ref = searchParams.get('ref')
     const {t} = useTranslation()
     var newDate = new Date()
     var month = newDate.getMonth()
