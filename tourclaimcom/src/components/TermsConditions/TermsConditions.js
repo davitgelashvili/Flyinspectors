@@ -29,7 +29,7 @@ export const TermsConditions = () => {
             {!load && data
                 .filter((item) => item.companyId === ref)
                 .map((item) => (
-                    <h1 key={item._id}>{item.document}</h1>
+                    <div key={item._id} dangerouslySetInnerHTML={{ __html: item.document}} />
                 ))
             }
         </div>
