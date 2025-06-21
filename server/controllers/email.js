@@ -9,6 +9,8 @@ const emailSend = async (req, res) => {
             otherImage,
             signature,
             userId,
+            companyName,
+            companyId,
             firstName,
             lastName,
             phone,
@@ -40,7 +42,7 @@ const emailSend = async (req, res) => {
             from: 'info@flyinspectors.com',
             replyTo: `${email}`,
             to: `team@flyinspectors.com`,
-            subject: `Compensation Form - ${userId}`,
+            subject: `Compensation Form - ${userId} - ${companyName}`,
             attachments: [
                 {
                     filename: 'pasport-image.jpg',
@@ -64,6 +66,10 @@ const emailSend = async (req, res) => {
                 <p>ID: ${userId}</p>
                 <p>First Name: ${firstName}</p>
                 <p>Last Name: ${lastName}</p>
+                <br />
+                <p>Company Name: ${companyName}</p>
+                <p>Company ID: ${companyId}</p>
+                <br />
                 <p>Phone: ${phone}</p>
                 <p>E-mail: ${email}</p>
                 <br />

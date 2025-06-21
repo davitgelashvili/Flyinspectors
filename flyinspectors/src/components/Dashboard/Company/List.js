@@ -5,11 +5,12 @@ import Item from "./Item";
 // import Controls from "./Controls";
 import Pagination from "./Pagination";
 // import { exportToExcel } from "../../../utils/exportExcel";
-import { fetchClientsByCompanyId, fetchClientById, fetchClientsByDate, deleteClient } from "./../../api/clientApi";
+import { fetchClientsByCompanyId, fetchClientById, fetchClientsByDate, deleteClient } from "./../../../api/clientApi";
 import { useSelector } from "react-redux";
-import Loading from "../Loading/Loading";
+import Loading from "../../Loading/Loading";
+import { useParams, useSearchParams } from "react-router-dom";
 
-const UserList = () => {
+const List = () => {
     const { userData } = useSelector(state => state.userData)
 
     const getFormattedDate = () => {
@@ -24,6 +25,7 @@ const UserList = () => {
 
     const [excelBody, setExcelBody] = useState([]);
     const [data, setData] = useState([]);
+    const [companyData, setCompanyData] = useState([]);
     const [searchText, setSearchText] = useState("");
     const [resetData, setResetData] = useState(true);
     const [load, setLoad] = useState(true);
@@ -33,6 +35,7 @@ const UserList = () => {
     const [limit, setLimit] = useState(3);
     const [totalPages, setTotalPages] = useState(1);
     const [reverse] = useState(true);
+    const { id } = useParams();
 
     const excelHeader = [
         '_id', 'passportImage', 'ticketImage', 'otherImage', 'signature',
@@ -45,10 +48,48 @@ const UserList = () => {
         page,
         limit,
         reverse,
-        companyId: userData.companyId
+        companyId: id
     }).toString();
 
+    // useEffect(() => {
+    //     setLoad(true)
+    //     fetch(`${process.env.REACT_APP_API_URL}/company`, {
+    //       method: "GET",
+    //       headers: {
+    //         "Content-type": "application/json",
+    //         "Access-Control-Allow-Origin": "*",
+    //       },
+    //     })
+    //       .then((res) => res.json())
+    //       .then((res) => {
+    //         console.log(res)
+    //         setCompanyData(res);
+    //       }).finally(() => {
+    //         setLoad(false)
+    //       })
+    //   }, []);
+
     useEffect(() => {
+        fetch(`${process.env.REACT_APP_API_URL}/company`, {
+            method: "GET",
+            headers: {
+                "Content-type": "application/json",
+                "Access-Control-Allow-Origin": "*",
+            },
+        })
+            .then((res) => res.json())
+            .then((res) => {
+                console.log(id)
+                res?.filter((item) => item.companyId === id)
+                    .map((item) => {
+                        console.log(item)
+                        setCompanyData(item)
+                    })
+            })
+    }, [id])
+
+    useEffect(() => {
+
         const loadClients = async () => {
             setLoad(true);
             setData([]);
@@ -139,16 +180,16 @@ const UserList = () => {
     return (
         <div className="container" style={{ marginBottom: "20px" }}>
             <div className="row">
-            <div className="col-3">
+                <div className="col-3">
                     <div>
-                        <p>name: {userData.title}</p>
-                        <p>ID: {userData.companyId}</p>
+                        <p>სახელი: {companyData.title}</p>
+                        <p>ID: {companyData.companyId}</p>
                     </div>
                 </div>
                 <div className="col-9">
                     <div>
-                        <p>username: {userData.userName}</p>
-                        <p>password: {userData.password}</p>
+                        <p>username: {companyData.userName}</p>
+                        <p>password: {companyData.password}</p>
                     </div>
                 </div>
                 {/* <DateFilter {...{ startDate, endDate, setStartDate, setEndDate, onSearch: clickSearchDate }} /> */}
@@ -164,4 +205,4 @@ const UserList = () => {
     );
 };
 
-export default UserList;
+export default List;

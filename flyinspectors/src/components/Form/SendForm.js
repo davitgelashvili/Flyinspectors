@@ -41,7 +41,7 @@ const SendForm = ({setFormActive}) => {
     })
     const [message, setMessage] = useState(false)
     const [value, setValue] = useState({
-        companyId: ref,
+        companyId: ref || "",
         passportImage: "",
         ticketImage: "",
         otherImage: "",

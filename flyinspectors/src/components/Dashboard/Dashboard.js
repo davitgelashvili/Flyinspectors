@@ -13,6 +13,7 @@ import ConditionsAdd from "./Conditions/Add";
 import Company from "./Company/Company";
 import CompanyAdd from "./Company/CompanyAdd";
 import styles from './Dashboard.module.scss'
+import List from "./Company/List";
 
 const Dashboard = () => {
 
@@ -47,6 +48,7 @@ const Dashboard = () => {
                     <Route path={"/condition/add"} element={<ConditionsAdd />} />
 
                     <Route path={"/company"} element={<Company />} />
+                    <Route path={"/company/:id"} element={<List />} />
                     <Route path={"/company/add"} element={<CompanyAdd />} />
                 </Routes>
 

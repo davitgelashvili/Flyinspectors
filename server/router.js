@@ -22,6 +22,7 @@ const { createCompany } = require('./controllers/createCompany');
 const { getCompany } = require('./controllers/getCompany');
 const { login } = require('./controllers/login');
 const { getClientsByCompanyId } = require('./controllers/getClientsByCompanyId');
+const { deleteCompany } = require('./controllers/deleteCompany');
 
 const router = require("express").Router();
 
@@ -32,6 +33,7 @@ router.get("/", (req, res) => {
 router.get("/company", getCompany);
 router.post("/company", createCompany);
 router.post("/login", login);
+router.put("/company/delete", deleteCompany);
 
 router.get("/clientbycompany", getClientsByCompanyId);
 router.post("/client", createClient);

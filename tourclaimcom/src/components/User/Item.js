@@ -59,20 +59,6 @@ const Item = ({ item, handleDelete, load }) => {
                         </h2>
                     )}
 
-                    {true && (
-                        <h2
-                            style={{
-                                fontSize: "16px",
-                                color: "green",
-                                marginBottom: "8px",
-                            }}
-                        >
-                            <strong>Company ID:</strong> {item.companyId}
-                        </h2>
-                    )}
-
-                    {console.log(item)}
-
                     {item.email && (
                         <p
                             style={{

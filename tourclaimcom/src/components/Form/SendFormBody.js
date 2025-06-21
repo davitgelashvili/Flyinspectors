@@ -169,34 +169,6 @@ const SendFormBody = ({ value, setValue, uploadFile, accept, setAccept, setLoad,
     }
   };
 
-  // useEffect(()=>{
-  //   if(ref){
-  //     setValue({...value, 'companyId': ref})
-  //   }
-  //   console.log(value, ref)
-  // }, [ref])
-
-
-  // function encodeImageFileAsURL(element) {
-  //   var file = element.files[0];
-  //   var reader = new FileReader();
-  //   reader.onloadend = function() {
-  //     console.log('RESULT', reader.result)
-  //   }
-  //   reader.readAsDataURL(file);
-  // }
-
-  // imageToBase64(value.ticketImage) // Path to the image
-  //     .then(
-  //         (response) => {
-  //             console.log(response); // "cGF0aC90by9maWxlLmpwZw=="
-  //         }
-  //     )
-  //     .catch(
-  //         (error) => {
-  //             console.log(error); // Logs an error if there was one
-  //         }
-  //     )
 
   return (
     <form>

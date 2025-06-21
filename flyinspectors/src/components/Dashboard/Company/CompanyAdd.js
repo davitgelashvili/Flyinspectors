@@ -20,7 +20,18 @@ export default function CompanyAdd() {
   };
 
   function addCompany(e) {
-    setLoad(true)
+    e.preventDefault();
+  
+    const { title, userName, password, document } = values;
+  
+    // ცარიელი ველების შემოწმება
+    if (!title.trim() || !userName.trim() || !password.trim() || !document.trim()) {
+      alert("❌ გთხოვ შეავსე ყველა ველი!");
+      return;
+    }
+  
+    setLoad(true);
+  
     fetch(`${process.env.REACT_APP_API_URL}/company`, {
       method: "POST",
       headers: {
@@ -29,11 +40,30 @@ export default function CompanyAdd() {
       },
       body: JSON.stringify(values),
     })
-      .then((res) => res.json())
+      .then(async (res) => {
+        const data = await res.json();
+  
+        if (res.ok) {
+          alert("✅ კომპანია წარმატებით დაემატა!");
+          setValues({
+            title: '',
+            userName: '',
+            password: '',
+            document: ''
+          });
+        } else {
+          alert(`❌ შეცდომა: ${data.message || "დამატება ვერ მოხერხდა."}`);
+        }
+      })
+      .catch((err) => {
+        alert("❌ ქსელური შეცდომა ან სერვერი მიუწვდომელია.");
+        console.error("დამატების შეცდომა:", err);
+      })
       .finally(() => {
-        setLoad(false)
+        setLoad(false);
       });
   }
+  
 
   return (
     <div className='container'>

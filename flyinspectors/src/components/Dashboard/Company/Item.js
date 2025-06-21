@@ -2,22 +2,21 @@ import { Link } from "react-router-dom";
 import Loading from "../../Loading/Loading";
 
 const Item = ({ item, handleDelete, load }) => {
-    console.log(item.companyId.length)
     return (
         <div className="col-lg-4">
             <div
                 style={{
                     marginBottom: "20px",
-                    width: "100%",
-                    border: item.companyId.length > 4 ? "1px solid green" : "2px solid ddd",
+                    display: "block",
+                    border: "1px solid #ddd",
                     borderRadius: "8px",
                     padding: "20px",
                     backgroundColor: "#f9f9f9",
                     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
                 }}
             >
-                <Link
-                    to={item.userId || "#"}
+                <div
+                    // to={item.userId || "#"}
                     style={{
                         textDecoration: "none",
                         color: "inherit",
@@ -57,30 +56,6 @@ const Item = ({ item, handleDelete, load }) => {
                             }}
                         >
                             <strong>User ID:</strong> {item.userId}
-                        </h2>
-                    )}
-
-                    {item.companyId && (
-                        <h2
-                            style={{
-                                fontSize: "16px",
-                                color: "green",
-                                marginBottom: "8px",
-                            }}
-                        >
-                            <strong>Company ID:</strong> {item.companyId}
-                        </h2>
-                    )}
-
-                    {item.companyName && (
-                        <h2
-                            style={{
-                                fontSize: "16px",
-                                color: "green",
-                                marginBottom: "8px",
-                            }}
-                        >
-                            <strong>Company Name:</strong> {item.companyName}
                         </h2>
                     )}
 
@@ -167,9 +142,9 @@ const Item = ({ item, handleDelete, load }) => {
                             <strong>Problem:</strong> {item.problem}
                         </p>
                     )}
-                </Link>
+                </div>
 
-                {load && <Loading />}
+                {/* {load && <Loading />}
 
                 <button
                     onClick={() => handleDelete(item)}
@@ -184,7 +159,7 @@ const Item = ({ item, handleDelete, load }) => {
                     }}
                 >
                     Delete
-                </button>
+                </button> */}
             </div>
         </div>
     );

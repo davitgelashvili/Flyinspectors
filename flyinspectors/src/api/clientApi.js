@@ -22,6 +22,12 @@ export const fetchClientById = async (userId) => {
     return response.json();
 };
 
+export const fetchClientsByCompanyId = async (queryParams) => {
+    const response = await fetch(`${API_BASE}/clientbycompany?${queryParams}`);
+    const data = await response.json();
+    return data;
+};
+
 export const fetchClientsByDate = async (startDate, endDate) => {
     const response = await fetch(`${API_BASE}/datetime`, {
         method: "POST",

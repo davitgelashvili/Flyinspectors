@@ -11,6 +11,7 @@ function App() {
     return (
         <Routes>
             <Route path={`/`} element={<Form />} />
+            <Route path={`/submit-claim`} element={<Form />} />
             <Route path={`/terms-and-conditions`} element={<TermsConditions/>} />
             <Route path={"/admin/*"} element={<AdminPanel />} />
         </Routes>

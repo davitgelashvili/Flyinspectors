@@ -111,6 +111,31 @@ const UserEdit = () => {
                     <h2 style={{ fontSize: "16px", color: "green", marginBottom: "8px" }}>
                         <strong>User ID:</strong> {data.userId}
                     </h2>
+
+                    {data.companyId && (
+                        <h2
+                            style={{
+                                fontSize: "16px",
+                                color: "green",
+                                marginBottom: "8px",
+                            }}
+                        >
+                            <strong>Company ID:</strong> {data.companyId}
+                        </h2>
+                    )}
+
+                    {data.companyName && (
+                        <h2
+                            style={{
+                                fontSize: "16px",
+                                color: "green",
+                                marginBottom: "8px",
+                            }}
+                        >
+                            <strong>Company Name:</strong> {data.companyName}
+                        </h2>
+                    )}
+
                     <p style={{ fontSize: "14px", marginBottom: "4px" }}><strong>Email:</strong> {data.email}</p>
                     <p style={{ fontSize: "14px", marginBottom: "4px" }}><strong>Phone:</strong> {data.phone}</p>
                     <p style={{ fontSize: "14px", marginBottom: "4px" }}><strong>Address:</strong> {data.address}</p>

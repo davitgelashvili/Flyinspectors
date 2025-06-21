@@ -2,7 +2,7 @@
   "name": "flyinspectors",
   "scripts": {
     "start:app1": "cd flyinspectors && npm start",
-    "start:app2": "cd meore && npm start",
+    "start:app2": "cd tourclaimcom && npm start",
     "start:app3": "cd server && npm start",
     "dev": "concurrently \"npm run start:app1\" \"npm run start:app2\" \"npm run start:app3\""
   },
