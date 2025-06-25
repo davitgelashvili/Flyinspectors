@@ -1,29 +1,15 @@
 import React from 'react'
 import styles from './styles.module.scss'
-import cover from './../../assetss/b3895926.jpg'
+import cover from './../../assetss/b3895926.jpeg'
 
 export const Landing = () => {
-    const windowUrl =  window.location.hostname
-    
+    const windowUrl = window.location.hostname
+
     return (
         <div className={styles.landing}>
-            <div className='container'>
-                <div className='row'>
-                    <div className='col-12 col-md-6'>
-                        <div className={styles.landing__text}>
-                            <p>
-                            თუ თქვენი ფრენა დაგვიანდა ან გაუქმდა, შესაძლებელია კომპენსაციის მიღება. ამისთვის გჭირდებათ სპეციალური ბმული.
-                            გთხოვთ, დაუკავშირდეთ თქვენს ტურისტულ კომპანიას — ისინი მოგაწვდიან ბმულს და დაგეხმარებიან მოთხოვნის პროცედურაში.
-                            </p>
-                        </div>
-                    </div>
-                    <div className='col-12 col-md-6'>
-                        <figure className={styles.landing__cover}>
-                            <img src={cover} alt='cover' />
-                        </figure>
-                    </div>
-                </div>
-            </div>
+            <figure className={styles.landing__cover}>
+                <img src={cover} alt='cover' />
+            </figure>
         </div>
     )
 }
