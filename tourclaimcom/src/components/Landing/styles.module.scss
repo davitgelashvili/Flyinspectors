@@ -13,12 +13,19 @@
         left: 0;
         bottom: 0;
         height: 200px;
+        @media (max-width: 991px) {
+            height: 100px;
+        }
     }
 
     &__women{
         right: 0;
         position: absolute;
         height: 100%;
+
+        @media (max-width: 991px) {
+            height: 230px;
+        }
     }
 
     // background-image: url('./../../assetss/b3895926.jpeg');
@@ -53,7 +60,6 @@
             left: 0;
             top: 50px;
             padding-left: 20px;
-            ;
         }
 
         h1 {
@@ -66,7 +72,7 @@
 
             p {
                 margin: 0;
-                line-height: 52px;
+                line-height: 32px;
             }
         }
     }
@@ -75,6 +81,10 @@
         font-size: 24px;
         margin: 0;
         margin-top: 20px;
+
+        @media (max-width: 991px) {
+            font-size: 18px;
+        }
     }
 
     &__btn {
@@ -86,5 +96,9 @@
         display: inline-block;
         border-radius: 8px;
         color: #fff;
+
+        @media (max-width: 991px) {
+            font-size: 16px;
+        }
     }
 }
