@@ -7,6 +7,15 @@ export const Landing = () => {
 
     return (
         <div className={styles.landing}>
+            <div className={styles.landing__text}>
+                <h1>
+                    <p>მიიღე</p>
+                    <p>კომპენსაცია დაგვიანებული / გაუქმებული</p>
+                    <p>ფრენის შემთხვევაში.</p>
+                </h1>
+                <p className={styles.landing__desc}>ბმულის მისაღებად დაუკავშირდით ტურისტულ კომპანიას.</p>
+                <p className={styles.landing__btn}>250-დან 600 ევრომდე</p>
+            </div>
             <figure className={styles.landing__cover}>
                 <img src={cover} alt='cover' />
             </figure>

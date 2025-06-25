@@ -3,11 +3,15 @@
   width: 100%;
   height: 100vh;
   overflow: auto;
-  background-color: #f5f7fa;
-  background-image: radial-gradient(closest-side at 50% 50%, rgba(0, 255, 216, .2) 0, transparent 100%), radial-gradient(closest-side at 50% 50%, rgba(250, 245, 16, .15) 0, transparent 100%), radial-gradient(closest-side at 50% 50%, rgba(255, 108, 0, .12) 0, transparent 100%);
-  background-position: calc(50% + 324px) calc(50% + 176px), calc(50% - 429px) calc(50% - 190px), calc(50% - 295px) calc(50% + 40px);
+  // background-color: #f5f7fa;
+  // background-image: radial-gradient(closest-side at 50% 50%, rgba(0, 255, 216, .2) 0, transparent 100%), radial-gradient(closest-side at 50% 50%, rgba(250, 245, 16, .15) 0, transparent 100%), radial-gradient(closest-side at 50% 50%, rgba(255, 108, 0, .12) 0, transparent 100%);
+  // background-position: calc(50% + 324px) calc(50% + 176px), calc(50% - 429px) calc(50% - 190px), calc(50% - 295px) calc(50% + 40px);
+  // background-repeat: no-repeat;
+  // background-size: 1280px 1280px, 930px 930px, 1338px 1338px;
+  background-image: url('./../../assetss/bg.jpeg');
+  background-position: center center;
+  background-size: cover;
   background-repeat: no-repeat;
-  background-size: 1280px 1280px, 930px 930px, 1338px 1338px;
 }
 
 .form {
@@ -107,21 +111,21 @@
 
 .btnDiv {
   display: flex;
-   justify-content: center;
-  align-items: center; 
+  justify-content: center;
+  align-items: center;
   gap: 250px;
 }
 
 .uploadSection {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   align-items: center;
-  gap: 6px; 
+  gap: 6px;
 }
 
 .otherDoc {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   align-items: center;
   gap: 6px;
 }
