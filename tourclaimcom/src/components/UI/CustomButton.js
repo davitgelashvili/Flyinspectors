@@ -4,7 +4,7 @@ export default function CustomButton({onClick, text}) {
     return (
         <button
             style={{
-                backgroundColor: "#0d6693",
+                backgroundColor: "#00a2ff",
                 color: "#fff",
                 border: "none",
                 padding: "10px 20px",

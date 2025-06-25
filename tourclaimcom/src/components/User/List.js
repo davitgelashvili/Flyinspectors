@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Item from "./Item";
 // import DateFilter from "./DateFilter";
-// import SearchUser from "./SearchUser";
+import SearchUser from "./SearchUser";
 // import Controls from "./Controls";
 import Pagination from "./Pagination";
 // import { exportToExcel } from "../../../utils/exportExcel";
@@ -9,7 +9,7 @@ import { fetchClientsByCompanyId, fetchClientById, fetchClientsByDate, deleteCli
 import { useSelector } from "react-redux";
 import Loading from "../Loading/Loading";
 
-const UserList = () => {
+const UserList = ({data, setData, load, setLoad, totalPages, setTotalPages, page, setPage}) => {
     const { userData } = useSelector(state => state.userData)
 
     const getFormattedDate = () => {
@@ -23,16 +23,16 @@ const UserList = () => {
     const fullDate = getFormattedDate();
 
     const [excelBody, setExcelBody] = useState([]);
-    const [data, setData] = useState([]);
+    // const [data, setData] = useState([]);
+    // const [load, setLoad] = useState(true);
     const [searchText, setSearchText] = useState("");
     const [resetData, setResetData] = useState(true);
-    const [load, setLoad] = useState(true);
     const [startDate, setStartDate] = useState(fullDate);
     const [endDate, setEndDate] = useState(fullDate);
-    const [page, setPage] = useState(1);
-    const [limit, setLimit] = useState(3);
-    const [totalPages, setTotalPages] = useState(1);
+    const [limit, setLimit] = useState(9);
     const [reverse] = useState(true);
+    // const [page, setPage] = useState(1);
+    // const [totalPages, setTotalPages] = useState(1);
 
     const excelHeader = [
         '_id', 'passportImage', 'ticketImage', 'otherImage', 'signature',
@@ -134,23 +134,12 @@ const UserList = () => {
 
     useEffect(() => {
         setExcelBody(data);
+        console.log(data)
     }, [data]);
 
     return (
         <div className="container" style={{ marginBottom: "20px" }}>
             <div className="row">
-            <div className="col-3">
-                    <div>
-                        <p>name: {userData.title}</p>
-                        <p>ID: {userData.companyId}</p>
-                    </div>
-                </div>
-                <div className="col-9">
-                    <div>
-                        <p>username: {userData.userName}</p>
-                        <p>password: {userData.password}</p>
-                    </div>
-                </div>
                 {/* <DateFilter {...{ startDate, endDate, setStartDate, setEndDate, onSearch: clickSearchDate }} /> */}
                 {/* <SearchUser {...{ searchText, setSearchText, onSearch: clickSearchText }} /> */}
                 {/* <Controls {...{ handleClear, handleDownloadExcel, limit, setLimit }} /> */}

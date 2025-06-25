@@ -228,41 +228,6 @@ const SendFormBody = ({ value, setValue, uploadFile, accept, setAccept, setLoad,
             valueName="otherImage"
           />
         </div>
-
-        {/* <div className="col-lg-6">
-          <TextInput
-            type={'file'}
-            value={''}
-            placeholder={'img'}
-            name={'passportImage'}
-            onChange={handleChange}
-            title={t('submitForm.passport')}
-            fileName={fileName}
-            setFileName={setFileName}
-          />
-        </div>
-        <div className="col-lg-6">
-          <TextInput
-            type={'file'}
-            value={''}
-            placeholder={'img'}
-            name={'ticketImage'}
-            onChange={handleChange}
-            title={t('submitForm.ticket')}
-            fileName={fileName}
-          />
-        </div>
-        <div className="col-lg-6">
-          <TextInput
-            type={'file'}
-            value={''}
-            placeholder={'img'}
-            name={'otherImage'}
-            onChange={handleChange}
-            title={t('submitForm.other')}
-            fileName={fileName}
-          />
-        </div> */}
         <div className="col-lg-12">
           <div className={styles.signature}>
             <div className={styles.signature__head}>
@@ -285,9 +250,9 @@ const SendFormBody = ({ value, setValue, uploadFile, accept, setAccept, setLoad,
             </div>
             <div>
               <button style={{
-                marginTop: '20px',
-                backgroundColor: '#4CAF4F',
-                padding: '7px 75px',
+                marginTop: '16px',
+                backgroundColor: '#0d669380',
+                padding: '3px 35px',
                 color: '#fff',
                 border: 'none',
                 cursor: 'pointer'
@@ -324,7 +289,7 @@ const SendFormBody = ({ value, setValue, uploadFile, accept, setAccept, setLoad,
               justifyContent: "center",  // Centers text horizontally
               textAlign: "center",       // Ensures the text is centered
               borderRadius: "6px",
-              backgroundColor: "#FD9B28",
+              backgroundColor: "#4CAF4F",
               color: "#FFFFFF",
               width: "100%",
               height: "40px",

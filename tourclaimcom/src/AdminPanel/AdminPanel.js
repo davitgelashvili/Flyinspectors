@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 import { useSelector } from "react-redux";
-import { Profile } from "../components/Profile/Profile";
+import { Admin } from "../components/Admin/Admin";
 import Login from "../components/Login/Login";
 
 const AdminPanel = () => {
@@ -9,7 +9,7 @@ const AdminPanel = () => {
     return (
         <>
             {user.logedIn ? (
-                <Profile />
+                <Admin />
             ) : (
                 <Routes>
                     <Route index element={<Login />} />

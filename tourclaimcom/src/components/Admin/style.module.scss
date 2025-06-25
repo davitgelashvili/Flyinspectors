@@ -1,21 +1,19 @@
-.login {
+.admin {
+    padding-top: 32px;
     width: 100%;
     height: 100vh;
-    padding-top: 100px;
+    overflow: auto;
     background-color: #f5f7fa;
     background-image: radial-gradient(closest-side at 50% 50%, rgba(0, 255, 216, .2) 0, transparent 100%), radial-gradient(closest-side at 50% 50%, rgba(250, 245, 16, .15) 0, transparent 100%), radial-gradient(closest-side at 50% 50%, rgba(255, 108, 0, .12) 0, transparent 100%);
     background-position: calc(50% + 324px) calc(50% + 176px), calc(50% - 429px) calc(50% - 190px), calc(50% - 295px) calc(50% + 40px);
     background-repeat: no-repeat;
     background-size: 1280px 1280px, 930px 930px, 1338px 1338px;
 
-    &__form {
+    &__content {
         width: 100%;
         background-color: #f9f9f9;
-        max-width: 500px;
-        margin: auto;
-        margin-bottom: 100px;
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        padding: 40px 20px;
+        padding: 20px 10px;
     }
 }
