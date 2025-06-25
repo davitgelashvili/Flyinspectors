@@ -10,8 +10,8 @@ export const Landing = () => {
         <div className={styles.landing}>
             <div className={styles.landing__text}>
                 <h1>
-                    <p>მიიღე</p>
-                    <p>კომპენსაცია დაგვიანებული / გაუქმებული</p>
+                    <p>მიიღე კომპენსაცია</p>
+                    <p>დაგვიანებული / გაუქმებული</p>
                     <p>ფრენის შემთხვევაში.</p>
                 </h1>
                 <p className={styles.landing__desc}>ბმულის მისაღებად დაუკავშირდით ტურისტულ კომპანიას.</p>

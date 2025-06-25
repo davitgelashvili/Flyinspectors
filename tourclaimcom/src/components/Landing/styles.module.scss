@@ -5,8 +5,8 @@
     position: relative;
     overflow: hidden;
     display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: flex-start;
 
     &__footer {
         position: absolute;
@@ -14,7 +14,7 @@
         bottom: 0;
         height: 200px;
         @media (max-width: 991px) {
-            height: 100px;
+            height: 150px;
         }
     }
 
@@ -22,9 +22,10 @@
         right: 0;
         position: absolute;
         height: 100%;
+        bottom: 0;
 
         @media (max-width: 991px) {
-            height: 230px;
+            height: 350px;
         }
     }
 
@@ -51,7 +52,6 @@
 
     &__text {
         position: absolute;
-        top: 200px;
         left: 20px;
         z-index: 1;
         width: 100%;
