@@ -17,7 +17,7 @@ const Item = ({ item, handleDelete, load }) => {
                 }}
             >
                 <Link
-                    to={item.userId || "#"}
+                    to={`/adminpanel/userlist/${item.userId}` || "#"}
                     style={{
                         textDecoration: "none",
                         color: "inherit",

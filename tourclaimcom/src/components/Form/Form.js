@@ -40,7 +40,7 @@ const Form = () => {
     }, [ref])
 
     return (
-        <>
+        <div className={`${styles['panel']}`}>
             {load && <div style={{marginTop: '52px'}}><Loading /></div>}
             {form && (
                 <div className="container" >
@@ -73,8 +73,8 @@ const Form = () => {
                     </div>
                 </div>
             )}
-            {/* {landing && <Landing />} */}
-        </>
+            {landing && <Landing />}
+        </div>
     )
 }
 

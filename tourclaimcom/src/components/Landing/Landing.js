@@ -1,7 +1,6 @@
 import React from 'react'
 import styles from './styles.module.scss'
 import cover from './../../assetss/b3895926.avif'
-import { Link } from 'react-router-dom'
 
 export const Landing = () => {
     const windowUrl =  window.location.hostname
@@ -13,12 +12,12 @@ export const Landing = () => {
                     <div className='col-12 col-md-6'>
                         <div className={styles.landing__text}>
                             <h1>
-                                <p>Join the</p>
-                                <p>affiliate program</p>
+                                <p>Contact your</p>
+                                <p>tourist office.</p>
                             </h1>
-                            <h2>
+                            {/* <h2>
                                 Earn up to 60% commission by promoting <strong>{windowUrl}</strong>
-                            </h2>
+                            </h2> */}
                             {/* <Link to={'/'}>Sign up now</Link> */}
                         </div>
                     </div>
