@@ -8,10 +8,23 @@
     align-items: flex-end;
     justify-content: flex-end;
 
-    background-image: url('./../../assetss/b3895926.jpeg');
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    &__footer {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 200px;
+    }
+
+    &__women{
+        right: 0;
+        position: absolute;
+        height: 100%;
+    }
+
+    // background-image: url('./../../assetss/b3895926.jpeg');
+    // background-position: center center;
+    // background-size: cover;
+    // background-repeat: no-repeat;
 
     // @media (max-width: 991px) {
     //     background-position: right
@@ -39,7 +52,8 @@
         @media (max-width: 991px) {
             left: 0;
             top: 50px;
-            padding-left: 20px;;
+            padding-left: 20px;
+            ;
         }
 
         h1 {
