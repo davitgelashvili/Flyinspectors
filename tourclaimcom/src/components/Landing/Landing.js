@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './styles.module.scss'
-import cover from './../../assetss/b3895926.avif'
+import cover from './../../assetss/b3895926.jpg'
 
 export const Landing = () => {
     const windowUrl =  window.location.hostname
@@ -11,14 +11,10 @@ export const Landing = () => {
                 <div className='row'>
                     <div className='col-12 col-md-6'>
                         <div className={styles.landing__text}>
-                            <h1>
-                                <p>Contact your</p>
-                                <p>tourist office.</p>
-                            </h1>
-                            {/* <h2>
-                                Earn up to 60% commission by promoting <strong>{windowUrl}</strong>
-                            </h2> */}
-                            {/* <Link to={'/'}>Sign up now</Link> */}
+                            <p>
+                            თუ თქვენი ფრენა დაგვიანდა ან გაუქმდა, შესაძლებელია კომპენსაციის მიღება. ამისთვის გჭირდებათ სპეციალური ბმული.
+                            გთხოვთ, დაუკავშირდეთ თქვენს ტურისტულ კომპანიას — ისინი მოგაწვდიან ბმულს და დაგეხმარებიან მოთხოვნის პროცედურაში.
+                            </p>
                         </div>
                     </div>
                     <div className='col-12 col-md-6'>

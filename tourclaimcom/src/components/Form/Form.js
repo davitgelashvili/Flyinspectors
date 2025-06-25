@@ -40,41 +40,44 @@ const Form = () => {
     }, [ref])
 
     return (
-        <div className={`${styles['panel']}`}>
-            {load && <div style={{marginTop: '52px'}}><Loading /></div>}
+        <>
+            {!load && <div style={{ marginTop: '52px' }}><Loading /></div>}
             {form && (
-                <div className="container" >
-                    <div className={`${styles['form']}`} style={{ marginTop: "20px", marginBottom: "40px" }}>
-                        <div className={`${styles['form__head']}`}>
-                            <div className={`${styles['form__head--btn']} ${formActive && styles['active']}`} onClick={() => setFormActive(true)}>
-                                {t('submitForm.name1')}
+                <div className={`${styles['panel']}`}>
+                    <div className="container" >
+                        <div className={`${styles['form']}`} style={{ marginTop: "20px", marginBottom: "40px" }}>
+                            <div className={`${styles['form__head']}`}>
+                                <div className={`${styles['form__head--btn']} ${formActive && styles['active']}`} onClick={() => setFormActive(true)}>
+                                    {t('submitForm.name1')}
+                                </div>
+                                <div className={`${styles['form__head--btn']} ${!formActive && styles['active']}`} onClick={() => setFormActive(false)}>
+                                    {t('submitForm.name2')}
+                                </div>
                             </div>
-                            <div className={`${styles['form__head--btn']} ${!formActive && styles['active']}`} onClick={() => setFormActive(false)}>
-                                {t('submitForm.name2')}
+                            <div className={`${styles['form__body']}`}>
+                                {
+                                    formActive ? (
+                                        <SendForm setFormActive={setFormActive} />
+                                    ) : (
+                                        <SearchForm />
+                                    )
+                                }
                             </div>
                         </div>
-                        <div className={`${styles['form__body']}`}>
-                            {
-                                formActive ? (
-                                    <SendForm setFormActive={setFormActive} />
-                                ) : (
-                                    <SearchForm />
-                                )
-                            }
-                        </div>
-                    </div>
-                    <div className="row" style={{ marginBottom: "40px" }}>
-                        <div className="col-lg-6">
-                            {/* <ContactSubmitPage /> */}
-                        </div>
-                        <div className="col-lg-6">
-                            {/* <Map /> */}
+                        <div className="row" style={{ marginBottom: "40px" }}>
+                            <div className="col-lg-6">
+                                {/* <ContactSubmitPage /> */}
+                            </div>
+                            <div className="col-lg-6">
+                                {/* <Map /> */}
+                            </div>
                         </div>
                     </div>
                 </div>
             )}
-            {landing && <Landing />}
-        </div>
+            {true && <Landing />}
+        </>
+
     )
 }
 
