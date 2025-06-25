@@ -17,6 +17,8 @@ const allowedOrigins = [
   "https://flyinspectors.com",
   "https://flyinspectors.co.uk",
   "https://tourclaim.com",
+  "https://tourclaims.com",
+  "https://tour.claims",
 ];
 
 // ✅ CORS კონფიგურაცია
