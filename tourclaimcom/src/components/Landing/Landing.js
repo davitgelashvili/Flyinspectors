@@ -16,9 +16,9 @@ export const Landing = () => {
                 <p className={styles.landing__desc}>ბმულის მისაღებად დაუკავშირდით ტურისტულ კომპანიას.</p>
                 <p className={styles.landing__btn}>250-დან 600 ევრომდე</p>
             </div>
-            <figure className={styles.landing__cover}>
+            {/* <figure className={styles.landing__cover}>
                 <img src={cover} alt='cover' />
-            </figure>
+            </figure> */}
         </div>
     )
 }

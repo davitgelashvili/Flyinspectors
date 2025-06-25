@@ -8,6 +8,15 @@
     align-items: flex-end;
     justify-content: flex-end;
 
+    background-image: url('./../../assetss/b3895926.jpeg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    // @media (max-width: 991px) {
+    //     background-position: right
+    // }
+
     &__cover {
         position: sticky;
         right: 0;
