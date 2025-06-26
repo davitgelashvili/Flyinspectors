@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from './styles.module.scss'
-import footer from './../../assetss/footer.png'
 import women from './../../assetss/women.png'
 
 export const Landing = () => {
@@ -17,7 +16,8 @@ export const Landing = () => {
                 <p className={styles.landing__desc}>ბმულის მისაღებად დაუკავშირდით ტურისტულ კომპანიას.</p>
                 <p className={styles.landing__btn}>250-დან 600 ევრომდე</p>
             </div>
-            <img className={styles.landing__footer} src={footer} alt='cover' />
+            <div className={styles.landing__footerfly}></div>
+            <div className={styles.landing__footerwindow}></div>
             <img className={styles.landing__women} src={women} alt='cover' />
             {/* <figure className={styles.landing__cover}>
                 <img src={cover} alt='cover' />
