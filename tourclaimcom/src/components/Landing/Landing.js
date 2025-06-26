@@ -7,6 +7,7 @@ export const Landing = () => {
 
     return (
         <div className={styles.landing}>
+            {/* <div className={styles.landing__cover}></div> */}
             <div className={styles.landing__text}>
                 <h1>
                     <p>მიიღე კომპენსაცია</p>
