@@ -15,13 +15,11 @@ export const Landing = () => {
                     <p>ფრენის შემთხვევაში.</p>
                 </h1>
                 <div className={styles.landing__desc}>ბმულის მისაღებად დაუკავშირდით 
-                {windowUrl == 'tour.claims' && ' თქვენს წარმომადგენელს.'}
-                {!windowUrl == 'tour.claims' && ' ტურისტულ კომპანიას.'}
-                    {/* {windowUrl == 'tour.claims' ? (
+                    {windowUrl == 'tour.claims' ? (
                         ' თქვენს წარმომადგენელს.'
                     ) : (
                         ' ტურისტულ კომპანიას.'
-                    )}   */}
+                    )}  
                 </div>
                 <p className={styles.landing__btn}>250-დან 600 ევრომდე</p>
             </div>
