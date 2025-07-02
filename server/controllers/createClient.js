@@ -1,5 +1,19 @@
 const ClientModal = require("./../jsonModels/clientModal");
 
+// ფუნქცია უნიკალური 5-ციფრიანი ID-სთვის
+const generateUniqueId = async () => {
+    let unique = false;
+    let newId;
+
+    while (!unique) {
+        newId = Math.floor(10000 + Math.random() * 90000).toString();
+        const existing = await ClientModal.findOne({ userId: newId });
+        if (!existing) unique = true;
+    }
+
+    return newId;
+};
+
 const createClient = async (req, res) => {
     try {
     
@@ -10,7 +24,6 @@ const createClient = async (req, res) => {
             signature,
             companyId,
             companyName,
-            userId,
             firstName,
             lastName,
             phone,
@@ -25,7 +38,8 @@ const createClient = async (req, res) => {
             oldStatus,
             createDate
         } = req.body;
-    
+
+        const userId = await generateUniqueId();  // უნიკალური 5-ციფრიანი ID
     
         const client = new ClientModal({
             passportImage: String(passportImage),

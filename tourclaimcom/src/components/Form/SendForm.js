@@ -29,13 +29,7 @@ const SendForm = ({ setFormActive }) => {
     const { language } = useSelector(state => state.translate)
     const [load, setLoad] = useState(false)
     const [popup, setPopup] = useState(false)
-    const [unicueID, setUnicueID] = useState(
-        Math.floor((Math.random() * 10) + 1) + '' +
-        Math.floor((Math.random() * 10) + 1) + '' +
-        Math.floor((Math.random() * 10) + 1) + '' +
-        Math.floor((Math.random() * 10) + 1) + '' +
-        Math.floor((Math.random() * 10) + 1)
-    )
+    const [unicueID, setUnicueID] = useState('')
     const [accept, setAccept] = useState({
         passport: false,
         ticket: false,
@@ -49,7 +43,6 @@ const SendForm = ({ setFormActive }) => {
         ticketImage: "",
         otherImage: "",
         signature: "",
-        userId: unicueID,
         firstName: "",
         lastName: "",
         phone: "",
@@ -135,6 +128,7 @@ const SendForm = ({ setFormActive }) => {
 
     const uploadFile = (e) => {
         e.preventDefault()
+
         if (
             value.firstName !== "" &&
             value.lastName !== "" &&
@@ -150,20 +144,38 @@ const SendForm = ({ setFormActive }) => {
         ) {
             setPopup(true)
             setLoad(true)
-            fetch(`${process.env.REACT_APP_API_URL}/email`, {
+
+            // ⬇️ ჯერ ვაგზავნით request-ს /client-ზე რათა მივიღოთ userId
+            fetch(`${process.env.REACT_APP_API_URL}/client`, {
                 method: "POST",
                 headers: {
                     'Content-type': 'application/json',
                     'Access-Control-Allow-Origin': '*'
                 },
                 body: JSON.stringify({
-                    ...value,
-
+                    ...value
                 })
             })
-                .then((res) => res.json())
-                .finally(() => {
-                    fetch(`${process.env.REACT_APP_API_URL}/sendtoclient`, {
+                .then(res => res.json())
+                .then(res => {
+                    const userId = res.userId
+                    setUnicueID(userId)
+
+                    // ⬇️ გავაგზავნოთ /email API
+                    fetch(`${process.env.REACT_APP_API_URL}/email`, {
+                        method: "POST",
+                        headers: {
+                            'Content-type': 'application/json',
+                            'Access-Control-Allow-Origin': '*'
+                        },
+                        body: JSON.stringify({
+                            ...value,
+                            userId: userId
+                        })
+                    })
+
+                    // ⬇️ გავაგზავნოთ /sendtoclient API
+                    return fetch(`${process.env.REACT_APP_API_URL}/sendtoclient`, {
                         method: "POST",
                         headers: {
                             'Content-type': 'application/json',
@@ -176,7 +188,7 @@ const SendForm = ({ setFormActive }) => {
                                     `
                                     <p>მოგესალმებით ${value.firstName}</p>
                                     <p>თქვენი განაცხადი მიღებულია Flyinspectors ში.</p>
-                                    <p>თქვენი საქმის ნომერია: <strong> ${value.userId}</strong></p>
+                                    <p>თქვენი საქმის ნომერია: <strong>${userId}</strong></p>
                                     <p>სტატუსი შეგიძლიათ შეამოწმოთ შემდეგ ბმულზე: www.${windowUrl}/submit-claim</p>
                                     <p>პატივისცემით</p>
                                     <p>Flyinspectors</p>
@@ -185,7 +197,7 @@ const SendForm = ({ setFormActive }) => {
                                     `
                                     <p>Dear ${value.firstName}</p>
                                     <p>We have successfully received your application.</p>
-                                    <p>Your case number is: <strong> ${value.userId}</strong></p>
+                                    <p>Your case number is: <strong>${userId}</strong></p>
                                     <p>You can check case status anytime to the following link: www.${windowUrl}/submit-claim</p>
                                     <p>Best regards</p>
                                     <p>Flyinspectors</p>
@@ -194,32 +206,21 @@ const SendForm = ({ setFormActive }) => {
                         `
                         })
                     })
-                        .then((res) => res.json())
-                        .finally(() => {
-                            fetch(`${process.env.REACT_APP_API_URL}/client`, {
-                                method: "POST",
-                                headers: {
-                                    'Content-type': 'application/json',
-                                    'Access-Control-Allow-Origin': '*'
-                                },
-                                body: JSON.stringify({
-                                    ...value
-                                })
-                            })
-                                .then((res) => res.json())
-                                .then(res => {
-                                    console.log("save data");
-                                }).finally(() => {
-                                    setLoad(false)
-                                    setValue(defaultValue)
-                                })
-                        })
                 })
+                .then(res => res.json())
+                .then(() => {
+                    setLoad(false)
+                    setValue(defaultValue)
+                })
+                .catch(error => {
+                    console.error("Error submitting form:", error)
+                    setLoad(false)
+                })
+
         } else {
             setMessage(true)
-            console.log('sheavse yvela forma')
+            console.log('შეავსე ყველა ველი')
         }
-
     }
     return (
         <>

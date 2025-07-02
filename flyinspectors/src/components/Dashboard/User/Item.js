@@ -2,14 +2,13 @@ import { Link } from "react-router-dom";
 import Loading from "../../Loading/Loading";
 
 const Item = ({ item, handleDelete, load }) => {
-    console.log(item.companyId.length)
     return (
         <div className="col-lg-4">
             <div
                 style={{
                     marginBottom: "20px",
                     width: "100%",
-                    border: item.companyId.length > 4 ? "1px solid green" : "2px solid ddd",
+                    border: item?.companyId?.length > 4 ? "1px solid green" : "2px solid ddd",
                     borderRadius: "8px",
                     padding: "20px",
                     backgroundColor: "#f9f9f9",
