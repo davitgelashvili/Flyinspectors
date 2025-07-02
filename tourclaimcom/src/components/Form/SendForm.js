@@ -74,7 +74,7 @@ const SendForm = ({ setFormActive }) => {
                     .map((item) => {
                         console.log(data)
                         setData(item)
-                        setValue({...value, 'companyName': item.title})
+                        setValue({ ...value, 'companyName': item.title })
                     })
             })
     }, [ref])
@@ -93,7 +93,7 @@ const SendForm = ({ setFormActive }) => {
             value.city !== "" &&
             value.address !== "" &&
             value.problem !== "" &&
-            value.fightNumber !== "" &&
+            value.flightNumber !== "" &&
             value.date !== "" &&
             value.select !== ""
         ) {
@@ -126,8 +126,8 @@ const SendForm = ({ setFormActive }) => {
         }
     }, [value])
 
-    const uploadFile = (e) => {
-        e.preventDefault()
+    const uploadFile = async (e) => {
+        e.preventDefault();
 
         if (
             value.firstName !== "" &&
@@ -137,91 +137,71 @@ const SendForm = ({ setFormActive }) => {
             value.city !== "" &&
             value.address !== "" &&
             value.problem !== "" &&
-            value.fightNumber !== "" &&
+            value.flightNumber !== "" && // ✅ შეცვლილია fightNumber → flightNumber
             value.date !== "" &&
             value.select !== "" &&
             value.signature !== ""
         ) {
-            setPopup(true)
-            setLoad(true)
+            setPopup(true);
+            setLoad(true);
 
-            // ⬇️ ჯერ ვაგზავნით request-ს /client-ზე რათა მივიღოთ userId
-            fetch(`${process.env.REACT_APP_API_URL}/client`, {
-                method: "POST",
-                headers: {
-                    'Content-type': 'application/json',
-                    'Access-Control-Allow-Origin': '*'
-                },
-                body: JSON.stringify({
-                    ...value
-                })
-            })
-                .then(res => res.json())
-                .then(res => {
-                    const userId = res.userId
-                    setUnicueID(userId)
+            try {
+                const clientRes = await fetch(`${process.env.REACT_APP_API_URL}/client`, {
+                    method: "POST",
+                    headers: {
+                        'Content-type': 'application/json',
+                    },
+                    body: JSON.stringify(value)
+                });
 
-                    // ⬇️ გავაგზავნოთ /email API
+                const clientData = await clientRes.json();
+                const userId = clientData.userId;
+                setUnicueID(userId);
+
+                // გაგზავნა ორივე მხარეს ერთდროულად
+                await Promise.all([
                     fetch(`${process.env.REACT_APP_API_URL}/email`, {
                         method: "POST",
-                        headers: {
-                            'Content-type': 'application/json',
-                            'Access-Control-Allow-Origin': '*'
-                        },
-                        body: JSON.stringify({
-                            ...value,
-                            userId: userId
-                        })
-                    })
-
-                    // ⬇️ გავაგზავნოთ /sendtoclient API
-                    return fetch(`${process.env.REACT_APP_API_URL}/sendtoclient`, {
+                        headers: { 'Content-type': 'application/json' },
+                        body: JSON.stringify({ ...value, userId })
+                    }),
+                    fetch(`${process.env.REACT_APP_API_URL}/sendtoclient`, {
                         method: "POST",
-                        headers: {
-                            'Content-type': 'application/json',
-                            'Access-Control-Allow-Origin': '*'
-                        },
+                        headers: { 'Content-type': 'application/json' },
                         body: JSON.stringify({
                             email: value.email,
-                            text: `
-                            ${language === 'ka' ? (
-                                    `
-                                    <p>მოგესალმებით ${value.firstName}</p>
-                                    <p>თქვენი განაცხადი მიღებულია Flyinspectors ში.</p>
-                                    <p>თქვენი საქმის ნომერია: <strong>${userId}</strong></p>
-                                    <p>სტატუსი შეგიძლიათ შეამოწმოთ შემდეგ ბმულზე: www.${windowUrl}/submit-claim</p>
-                                    <p>პატივისცემით</p>
-                                    <p>Flyinspectors</p>
-                                `
-                                ) : (
-                                    `
-                                    <p>Dear ${value.firstName}</p>
-                                    <p>We have successfully received your application.</p>
-                                    <p>Your case number is: <strong>${userId}</strong></p>
-                                    <p>You can check case status anytime to the following link: www.${windowUrl}/submit-claim</p>
-                                    <p>Best regards</p>
-                                    <p>Flyinspectors</p>
-                                `
-                                )}
-                        `
+                            text: language === 'ka'
+                                ? `
+                      <p>მოგესალმებით ${value.firstName}</p>
+                      <p>თქვენი განაცხადი მიღებულია Flyinspectors ში.</p>
+                      <p>თქვენი საქმის ნომერია: <strong>${userId}</strong></p>
+                      <p>სტატუსი შეგიძლიათ შეამოწმოთ შემდეგ ბმულზე: www.${windowUrl}/submit-claim</p>
+                      <p>პატივისცემით</p>
+                      <p>Flyinspectors</p>`
+                                : `
+                      <p>Dear ${value.firstName}</p>
+                      <p>We have successfully received your application.</p>
+                      <p>Your case number is: <strong>${userId}</strong></p>
+                      <p>You can check case status anytime to the following link: www.${windowUrl}/submit-claim</p>
+                      <p>Best regards</p>
+                      <p>Flyinspectors</p>`
                         })
                     })
-                })
-                .then(res => res.json())
-                .then(() => {
-                    setLoad(false)
-                    setValue(defaultValue)
-                })
-                .catch(error => {
-                    console.error("Error submitting form:", error)
-                    setLoad(false)
-                })
+                ]);
+
+                setLoad(false);
+                setValue(defaultValue);
+            } catch (error) {
+                console.error("Error submitting form:", error);
+                setLoad(false);
+            }
 
         } else {
-            setMessage(true)
-            console.log('შეავსე ყველა ველი')
+            setMessage(true);
+            console.log('შეავსე ყველა ველი');
         }
-    }
+    };
+
     return (
         <>
             <SendFormBody value={value} setValue={setValue} uploadFile={uploadFile} setAccept={setAccept} accept={accept} load={load} setLoad={setLoad} />
