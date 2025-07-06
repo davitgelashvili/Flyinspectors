@@ -2,55 +2,45 @@ const fs = require('node:fs');
 
 const contact = async (req, res) => {
     try {
-        const { 
-            
-            name,
-            email,
-            subject,
-            description,
-        } = req.body;
-        console.log(req.body)
+        const { name, email, subject, description } = req.body;
+        console.log(req.body);
 
-        var nodemailer = require('nodemailer');
+        const nodemailer = require("nodemailer");
 
-        var transporter = nodemailer.createTransport({
-            host: 'smtp.gmail.com',
-            // host: 'business66.web-hosting.com',
-            port: 465, // 465 for SSL or 587 for STARTTLS
-            secure: true, // Use true for 465, false for other ports
+        const transporter = nodemailer.createTransport({
+            host: "smtp.gmail.com",
+            port: 465,
+            secure: true,
             auth: {
-                user: 'info@flyinspectors.com',
-                pass: 'rhri wubo gmks kizy',
-                // user: 'mailsend@flyinspectors.com', // Your email
-                // pass: '-VV6jcEThhWT', // Your email password or app password
+                user: "info@flyinspectors.com",
+                pass: "rhri wubo gmks kizy", // App password
             },
         });
 
-        var mailOptions = {
+        const mailOptions = {
             from: email,
-            to: `info@flyinspectors.com`,
-            //   to: 'myfriend@yahoo.com, myotherfriend@yahoo.com',
-            // text: text,
+            to: "info@flyinspectors.com",
             subject: subject,
             html: `
-                <p>სახელი: ${name}</p>
-                <p>ემაილი: ${email}</p>
-                <p>სათური: ${subject}</p>
-                <p>აღწერა: ${description}</p>
-                `
+          <p>სახელი: ${name}</p>
+          <p>ემაილი: ${email}</p>
+          <p>სათაური: ${subject}</p>
+          <p>აღწერა: ${description}</p>
+        `,
         };
 
-        transporter.sendMail(mailOptions, function(error, info){
-        if (error) {
-            console.log(error);
-        } else {
-            console.log('Email sent: ' + info.response);
-        }
-        });
+        // ✅ await-ით გაგზავნა
+        const info = await transporter.sendMail(mailOptions);
+        console.log("Email sent:", info.response);
+
+        // ✅ აუცილებლად დაბრუნე პასუხი
+        return res.status(200).json({ message: "მაილი წარმატებით გაიგზავნა" });
+
     } catch (error) {
-        console.log(error)
-        return res.status(500).send("Something went wrong while getting cars!");
+        console.error("შეცდომა:", error);
+        return res.status(500).json({ message: "მეილის გაგზავნა ვერ მოხერხდა" });
     }
 };
 
-module.exports = {contact}
+
+module.exports = { contact }
