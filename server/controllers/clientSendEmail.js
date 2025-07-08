@@ -15,7 +15,7 @@ const clientSendEmail = async (req, res) => {
             secure: true, // Use true for 465, false for other ports
             auth: {
                 user: 'info@flyinspectors.com',
-                pass: 'rhri wubo gmks kizy',
+                pass: 'yliw hnny crif jqrq',
                 // user: 'mailsend@flyinspectors.com', // Your email
                 // pass: '-VV6jcEThhWT', // Your email password or app password
             },

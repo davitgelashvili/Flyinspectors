@@ -13,7 +13,7 @@ const contact = async (req, res) => {
             secure: true,
             auth: {
                 user: "info@flyinspectors.com",
-                pass: "rhri wubo gmks kizy", // App password
+                pass: "yliw hnny crif jqrq", // App password
             },
         });
 
