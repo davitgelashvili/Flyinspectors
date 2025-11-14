@@ -32,7 +32,7 @@ const emailSend = async (req, res) => {
             secure: true,
             auth: {
                 user: 'info@flyinspectors.com',
-                pass: 'yliw hnny crif jqrq',
+                pass: 'ancc rabt pvrt dhxi',
                 // user: 'mailsend@flyinspectors.com', 
                 // pass: '-VV6jcEThhWT',
             },
