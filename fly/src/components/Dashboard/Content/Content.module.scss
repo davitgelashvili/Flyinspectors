@@ -1,0 +1,47 @@
+.content {
+    display: block;
+
+    &__head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    &__title {
+        font-size: 22px;
+        margin: 0;
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    &__langs {
+        display: flex;
+        gap: 6px;
+        margin: 14px 0;
+    }
+
+    &__lang {
+        padding: 6px 16px;
+        border: 1px solid #CAD5E0;
+        border-radius: 4px;
+        background-color: #fff;
+        font-size: 14px;
+        cursor: pointer;
+
+        &.active {
+            background-color: #FD9B28;
+            border-color: #FD9B28;
+            color: #fff;
+        }
+    }
+
+    &__body {
+        display: block;
+    }
+}

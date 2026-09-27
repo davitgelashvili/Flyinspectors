@@ -1,0 +1,49 @@
+.services {
+    padding: 50px 0;
+
+}
+
+.mainDiv {
+    box-shadow: 0px 6px 6px 0px #0000000D;
+    border-radius: 5px;
+}
+
+.image {
+    width: 530px;
+    height: 330px;
+    // position: relative;
+}
+
+.header {
+    font-weight: 700;
+    background-color: #0D6693;
+    color: #ffffff;
+    padding: 20px;
+    margin: 0 0 15px 0;
+    border-radius: 9px 9px 0 0;
+    text-align: center;
+    font-size: 20px;
+}
+
+.item {
+    // padding: 0px 20px 70px 20px;
+}
+
+.item h4 {
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 22px;
+    color: #000000;
+    margin: 0;
+    cursor: default;
+}
+
+.item p {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    color: #4b4b4b;
+    margin: 0;
+    cursor: default;
+
+}

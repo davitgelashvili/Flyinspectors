@@ -1,0 +1,64 @@
+.accordion {
+  display: inline-block;
+  justify-content: center;
+  text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+  padding-bottom: 30px;
+  padding-top: 30px;
+
+  &__item {
+    padding-bottom: 30px;
+  }
+
+  &__header {
+    padding: 15px;
+    background-color: #0d6693;
+    color: #fff;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 700;
+    transition: background-color 0.3s;
+  }
+
+}
+
+.Faq {
+  background-image: url(../../Images/EarthPic.png);
+}
+
+.faqHeader {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 44px;
+  color: #0d6693;
+}
+
+.contentP {
+  text-align: start;
+  color: #717171;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 22px;
+}
+
+.accordion__header:hover {
+  background-color: #094f72;
+}
+
+.accordion__content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 15px;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.accordion__content.show {
+  max-height: 100%;
+  padding: 15px;
+}

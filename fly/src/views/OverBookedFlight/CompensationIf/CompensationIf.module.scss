@@ -1,0 +1,92 @@
+.services {
+    padding: 50px 0;
+    width: 99%;
+}
+
+.TextOfQuestion {
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 32px;
+    color: #000000;
+    text-align: start;
+    margin: 0;
+    cursor: default;
+    padding-left: 25px;
+}
+
+.headerOfQuestion {
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 32px;
+    color: #000000;
+    margin: 0;
+    cursor: default;
+    padding-bottom: 20px;
+    padding-left: 25px;
+}
+
+.headerOfBullet {
+    margin-top: 6px;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 22px;
+    color: #000000;
+    cursor: default;
+    padding-bottom: 20px;
+    // padding-left: 15px;
+}
+
+.bulletList {
+    list-style-type: disc;
+
+
+    li {
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 22px;
+        color: #000000;
+        margin: 0;
+        cursor: default;
+        margin-bottom: 10px;
+    }
+}
+
+
+
+.table {
+    width: 99%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 9px 9px 0 0;
+    overflow: hidden;
+    text-align: start;
+    border: 1px solid #6E7491;
+    cursor: default;
+    box-shadow: 0px 4px 4px 0px #00000017
+}
+
+.header {
+    background-color: #0d6693;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 15px 23px 20px 8px;
+    border: 1px solid #6E7491;
+}
+
+.cell {
+    padding: 13px 20px 13px 8px;
+    border: 1px solid #6E7491;
+    background-color: #ffffff;
+    color: #717171;
+}
+
+.cellLast {
+    padding: 13px 20px 28px 8px;
+    border: 1px solid #6E7491;
+    background-color: #ffffff;
+    color: #717171;
+}
+
+.table tr:hover {
+    background-color: #f1f1f1;
+}

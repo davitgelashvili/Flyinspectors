@@ -1,0 +1,746 @@
+/*!****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[3]!./node_modules/swiper/swiper.css ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * Swiper 11.2.10
+ * Most modern mobile touch slider and framework with hardware accelerated transitions
+ * https://swiperjs.com
+ *
+ * Copyright 2014-2025 Vladimir Kharlampidi
+ *
+ * Released under the MIT License
+ *
+ * Released on: June 28, 2025
+ */
+
+/* FONT_START */
+@font-face {
+  font-family: 'swiper-icons';
+  src: url('data:application/font-woff;charset=utf-8;base64, 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');
+  font-weight: 400;
+  font-style: normal;
+}
+/* FONT_END */
+:root {
+  --swiper-theme-color: #007aff;
+  /*
+  --swiper-preloader-color: var(--swiper-theme-color);
+  --swiper-wrapper-transition-timing-function: initial;
+  */
+}
+:host {
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
+}
+.swiper {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+  list-style: none;
+  padding: 0;
+  /* Fix of Webkit flickering */
+  z-index: 1;
+  display: block;
+}
+.swiper-vertical > .swiper-wrapper {
+  flex-direction: column;
+}
+.swiper-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  transition-property: transform;
+  transition-timing-function: var(--swiper-wrapper-transition-timing-function, initial);
+  box-sizing: content-box;
+}
+.swiper-android .swiper-slide,
+.swiper-ios .swiper-slide,
+.swiper-wrapper {
+  transform: translate3d(0px, 0, 0);
+}
+.swiper-horizontal {
+  touch-action: pan-y;
+}
+.swiper-vertical {
+  touch-action: pan-x;
+}
+.swiper-slide {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition-property: transform;
+  display: block;
+}
+.swiper-slide-invisible-blank {
+  visibility: hidden;
+}
+/* Auto Height */
+.swiper-autoheight,
+.swiper-autoheight .swiper-slide {
+  height: auto;
+}
+.swiper-autoheight .swiper-wrapper {
+  align-items: flex-start;
+  transition-property: transform, height;
+}
+.swiper-backface-hidden .swiper-slide {
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+/* 3D Effects */
+.swiper-3d.swiper-css-mode .swiper-wrapper {
+  perspective: 1200px;
+}
+.swiper-3d .swiper-wrapper {
+  transform-style: preserve-3d;
+}
+.swiper-3d {
+  perspective: 1200px;
+}
+.swiper-3d .swiper-slide,
+.swiper-3d .swiper-cube-shadow {
+  transform-style: preserve-3d;
+}
+/* CSS Mode */
+.swiper-css-mode > .swiper-wrapper {
+  overflow: auto;
+  scrollbar-width: none;
+  /* For Firefox */
+  -ms-overflow-style: none;
+  /* For Internet Explorer and Edge */
+}
+.swiper-css-mode > .swiper-wrapper::-webkit-scrollbar {
+  display: none;
+}
+.swiper-css-mode > .swiper-wrapper > .swiper-slide {
+  scroll-snap-align: start start;
+}
+.swiper-css-mode.swiper-horizontal > .swiper-wrapper {
+  scroll-snap-type: x mandatory;
+}
+.swiper-css-mode.swiper-vertical > .swiper-wrapper {
+  scroll-snap-type: y mandatory;
+}
+.swiper-css-mode.swiper-free-mode > .swiper-wrapper {
+  scroll-snap-type: none;
+}
+.swiper-css-mode.swiper-free-mode > .swiper-wrapper > .swiper-slide {
+  scroll-snap-align: none;
+}
+.swiper-css-mode.swiper-centered > .swiper-wrapper::before {
+  content: '';
+  flex-shrink: 0;
+  order: 9999;
+}
+.swiper-css-mode.swiper-centered > .swiper-wrapper > .swiper-slide {
+  scroll-snap-align: center center;
+  scroll-snap-stop: always;
+}
+.swiper-css-mode.swiper-centered.swiper-horizontal > .swiper-wrapper > .swiper-slide:first-child {
+  -webkit-margin-start: var(--swiper-centered-offset-before);
+          margin-inline-start: var(--swiper-centered-offset-before);
+}
+.swiper-css-mode.swiper-centered.swiper-horizontal > .swiper-wrapper::before {
+  height: 100%;
+  min-height: 1px;
+  width: var(--swiper-centered-offset-after);
+}
+.swiper-css-mode.swiper-centered.swiper-vertical > .swiper-wrapper > .swiper-slide:first-child {
+  -webkit-margin-before: var(--swiper-centered-offset-before);
+          margin-block-start: var(--swiper-centered-offset-before);
+}
+.swiper-css-mode.swiper-centered.swiper-vertical > .swiper-wrapper::before {
+  width: 100%;
+  min-width: 1px;
+  height: var(--swiper-centered-offset-after);
+}
+/* Slide styles start */
+/* 3D Shadows */
+.swiper-3d .swiper-slide-shadow,
+.swiper-3d .swiper-slide-shadow-left,
+.swiper-3d .swiper-slide-shadow-right,
+.swiper-3d .swiper-slide-shadow-top,
+.swiper-3d .swiper-slide-shadow-bottom,
+.swiper-3d .swiper-slide-shadow,
+.swiper-3d .swiper-slide-shadow-left,
+.swiper-3d .swiper-slide-shadow-right,
+.swiper-3d .swiper-slide-shadow-top,
+.swiper-3d .swiper-slide-shadow-bottom {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+.swiper-3d .swiper-slide-shadow {
+  background: rgba(0, 0, 0, 0.15);
+}
+.swiper-3d .swiper-slide-shadow-left {
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+}
+.swiper-3d .swiper-slide-shadow-right {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+}
+.swiper-3d .swiper-slide-shadow-top {
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+}
+.swiper-3d .swiper-slide-shadow-bottom {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+}
+.swiper-lazy-preloader {
+  width: 42px;
+  height: 42px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -21px;
+  margin-top: -21px;
+  z-index: 10;
+  transform-origin: 50%;
+  box-sizing: border-box;
+  border: 4px solid var(--swiper-preloader-color, var(--swiper-theme-color));
+  border-radius: 50%;
+  border-top-color: transparent;
+}
+.swiper:not(.swiper-watch-progress) .swiper-lazy-preloader,
+.swiper-watch-progress .swiper-slide-visible .swiper-lazy-preloader {
+  animation: swiper-preloader-spin 1s infinite linear;
+}
+.swiper-lazy-preloader-white {
+  --swiper-preloader-color: #fff;
+}
+.swiper-lazy-preloader-black {
+  --swiper-preloader-color: #000;
+}
+@keyframes swiper-preloader-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* Slide styles end */
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/Common/Slider/Slider.module.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.Slider_slider__nk6mk {
+  display: block;
+  min-height: 200px;
+  height: 100%;
+  max-height: calc(100vh - 200px);
+}
+.Slider_slider__item__RwXwp {
+  display: block;
+  min-height: 200px;
+  height: 100%;
+  max-height: calc(100vh - 200px);
+}
+.Slider_slider__item--cover__PiBBC {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.Slider_link__Wk6Nv {
+  padding: 10px 34px;
+  position: absolute;
+  z-index: 1;
+  bottom: 50px;
+  font-size: 18px;
+}
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/UI/SubmitLink.module.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.SubmitLink_link__uP2_F {
+  border: none;
+  line-height: 24px;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  border-radius: 14px;
+  background-color: #FD9B28;
+  color: #FFFFFF;
+  text-decoration: none;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .SubmitLink_link__uP2_F {
+    border-radius: 10px;
+  }
+}
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/Knows Your Rights/components/BeAware.module.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.BeAware_services___pmKW {
+  margin-top: 60px;
+  margin-bottom: 150px;
+}
+.BeAware_services__header__yFbam {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 44px;
+  text-align: center;
+  color: #FD9B28;
+}
+
+.BeAware_mainDiv__5i_86 {
+  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.0509803922);
+  border-radius: 5px;
+}
+
+.BeAware_header__A5Spo {
+  font-weight: 700;
+  background-color: #0D6693;
+  color: #ffffff;
+  padding: 20px;
+  margin: 0 0 15px 0;
+  border-radius: 9px 9px 0 0;
+  text-align: start;
+  font-size: 20px;
+}
+
+.BeAware_item__V_K3K {
+  padding: 0px 0px 4px 20px;
+}
+
+.BeAware_item__V_K3K p {
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+  padding-top: 9px;
+  padding-right: 12px;
+  margin: 0;
+  cursor: default;
+  overflow: auto;
+  max-height: 200px;
+}
+
+.BeAware_container__UWYFQ {
+  border-radius: 9px;
+  background-color: #0D6693;
+  display: flex;
+  gap: 20px;
+}
+.BeAware_container__options__MOmQ8 {
+  display: flex;
+  flex-direction: column;
+}
+.BeAware_container__option__s_El_ {
+  padding: 10px 20px;
+  background: #c7cdd9;
+  color: #606e8d;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.BeAware_container__option__s_El_:first-child {
+  border-top-left-radius: 9px;
+}
+.BeAware_container__option__s_El_:last-child {
+  border-bottom-left-radius: 9px;
+}
+.BeAware_container__option__s_El_:hover {
+  background-color: #0d6693;
+  color: #ffffff; /* Change color on hover */
+}
+.BeAware_container__option__s_El_.BeAware_active__duHS0 {
+  background-color: #0d6693;
+  color: #ffffff; /* Active button text color */
+}
+.BeAware_container__infoarea__6r4O_ {
+  flex-grow: 1;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #0D6693;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+}
+.BeAware_container__info__Xvh19 {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  height: 100%;
+  width: 100%;
+  color: #ffffff;
+}
+.BeAware_container__info__Xvh19 p {
+  color: #ffffff;
+}
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/Main/FaqSection/FaqSection.module.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.FaqSection_accordion__A3MKv {
+  display: inline-block;
+  justify-content: center;
+  text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+.FaqSection_accordion__item__fv3rX {
+  padding-bottom: 30px;
+}
+.FaqSection_accordion__header__VYkWr {
+  padding: 15px;
+  background-color: #0d6693;
+  color: #fff;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 700;
+  transition: background-color 0.3s;
+}
+
+.FaqSection_Faq__WmxSA {
+  background-image: url(/_next/static/media/EarthPic.9d54772b.png);
+}
+
+.FaqSection_faqHeader__DFOxO {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 44px;
+  color: #0d6693;
+}
+
+.FaqSection_contentP__PxEju {
+  text-align: start;
+  color: #717171;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 22px;
+}
+
+.FaqSection_accordion__header__VYkWr:hover {
+  background-color: #094f72;
+}
+
+.FaqSection_accordion__content__SP11n {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 15px;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.FaqSection_accordion__content__SP11n.FaqSection_show__1MSSi {
+  max-height: 100%;
+  padding: 15px;
+}
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/OptionsSection/OptionsSection.module.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.OptionsSection_title__NbpVp {
+  margin-bottom: 64px;
+  text-align: center;
+  color: #0D6693;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 44px;
+}
+
+.OptionsSection_OptionsSection__MXuNI {
+  padding-bottom: 18px;
+}
+
+.OptionsSection_item__ikj3v {
+  width: 100%;
+  margin-bottom: 40px;
+  background-color: #FFFFFF;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  padding: 16px 20px;
+  border-radius: 5px;
+}
+.OptionsSection_item__head__thweE {
+  height: 80px;
+  border-bottom: 2px solid #0D6693;
+}
+.OptionsSection_item__icon__rXZ73 {
+  width: 100%;
+  min-width: 50px;
+  max-width: 50px;
+  height: 50px;
+  background-color: #0D6693;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  margin: 0;
+  margin-right: 15px;
+}
+.OptionsSection_item__icon--img__6unZ0 {
+  display: block;
+}
+.OptionsSection_item__title__Z3ctV {
+  width: -webkit-fill-available;
+  text-align: center;
+  font-size: 16px;
+  color: #4D4D4D;
+  font-weight: 700;
+  line-height: 22px;
+}
+.OptionsSection_item__desc__kzStL {
+  margin-top: 14px;
+  font-size: 15px;
+  line-height: 20px;
+  color: #717171;
+  font-weight: 400;
+}
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/ServicesOptions/ServicesOptions.module.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.ServicesOptions_services__NxCF_ {
+  text-align: center;
+  margin-bottom: 72px;
+}
+
+.ServicesOptions_services__NxCF_ h3 {
+  margin: 0;
+  font-size: 30px;
+  line-height: 44px;
+  font-weight: 700;
+}
+
+.ServicesOptions_services__NxCF_ h3:first-of-type {
+  color: #0D6693;
+}
+
+.ServicesOptions_services__NxCF_ h3:first-of-type span {
+  color: #FD9B28;
+  font-weight: bold;
+}
+
+.ServicesOptions_services__NxCF_ h3:last-of-type {
+  color: #FD9B28;
+}
+
+.ServicesOptions_mainContainer__1iE4M {
+  padding-top: 40px;
+  padding-bottom: 75px;
+  position: relative;
+  overflow: hidden;
+}
+.ServicesOptions_mainContainer__cover__m8Alh {
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 85%;
+  top: 15%;
+}
+@media (max-width: 994px) {
+  .ServicesOptions_mainContainer__cover__m8Alh {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.ServicesOptions_item__MbaEs {
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  background-color: #ffffff;
+  margin-bottom: 30px;
+}
+.ServicesOptions_item__MbaEs:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+.ServicesOptions_item__head__rB6iQ {
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.ServicesOptions_item__title__AQBdW {
+  margin: 0;
+  background-color: #0D6693;
+  color: #ffffff;
+  border-radius: 5px 5px 0 0;
+  padding: 30px 0;
+  font-weight: 700;
+  line-height: 22px;
+  font-size: 20px;
+  text-align: center;
+}
+.ServicesOptions_item__desc__mJr4t {
+  margin: 0;
+  color: #717171;
+  padding: 25px;
+  font-size: 15px;
+  line-height: 22px;
+}
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/SectionTextAndCover/SectionTextAndCover.module.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.SectionTextAndCover_cover__RE3RW {
+  width: 100%;
+  max-height: unset;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+@media (max-width: 991px) {
+  .SectionTextAndCover_cover__RE3RW {
+    max-height: 200px;
+  }
+}
+.SectionTextAndCover_cover__img__bH5Aq {
+  max-width: 100%;
+  max-height: unset;
+}
+@media (max-width: 991px) {
+  .SectionTextAndCover_cover__img__bH5Aq {
+    max-height: 200px;
+  }
+}
+
+.SectionTextAndCover_text__cdFKs {
+  width: 100%;
+  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.0509803922);
+  border-radius: 5px;
+  height: max-content;
+}
+.SectionTextAndCover_text__title__3DmAg {
+  font-weight: 700;
+  background-color: #0D6693;
+  color: #ffffff;
+  padding: 20px;
+  margin: 0;
+  border-radius: 9px 9px 0 0;
+  text-align: center;
+  font-size: 20px;
+}
+.SectionTextAndCover_text__body__u7KJD {
+  padding: 20px;
+}
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/WeGivesYou/WeGivesYou.module.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.WeGivesYou_item__lODlB {
+  width: 100%;
+  background-color: #0D6693;
+  border-radius: 5px;
+  padding: 45px 15px;
+}
+@media (max-width: 991px) {
+  .WeGivesYou_item__lODlB {
+    margin-bottom: 24px;
+  }
+}
+.WeGivesYou_item__cover__tmeo9 {
+  width: 100%;
+  height: 116px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.WeGivesYou_item__icon__jNkLp {
+  max-height: 100%;
+  max-width: 100%;
+}
+.WeGivesYou_item__title__ic5ui {
+  margin: 0;
+  margin-bottom: 15px;
+  font-size: 20PX;
+  font-weight: 700;
+  line-height: 24px;
+  height: 24px;
+  color: #ffffff;
+  text-align: center;
+}
+.WeGivesYou_item__subtitle__FMpqP {
+  margin: 0;
+  font-size: 18PX;
+  font-weight: 700;
+  line-height: 24px;
+  height: 72px;
+  color: #3f3f3f;
+  text-align: center;
+  padding-bottom: 5px;
+}
+.WeGivesYou_item__list__THgLG {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 300px;
+  margin-left: 15px;
+}
+@media (max-width: 768px) {
+  .WeGivesYou_item__list__THgLG {
+    list-style: none;
+  }
+}
+.WeGivesYou_item__list__THgLG li {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.5%;
+  padding-top: 7px;
+  color: #fff0f0;
+}
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/WhyWe/WhyWe.module.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.WhyWe_services__saNpb {
+  padding: 40px 0;
+  background-color: #fff;
+}
+.WhyWe_services__cover__zgCbC {
+  max-width: 100%;
+}
+@media (max-width: 994px) {
+  .WhyWe_services__cover__zgCbC {
+    width: 100%;
+  }
+}
+
+.WhyWe_mainDiv__hKJeF {
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px 5px 0 0;
+}
+.WhyWe_mainDiv__hKJeF p {
+  background-color: #fff;
+  padding: 20px;
+  margin: 0;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 22px;
+  color: #717171;
+}
+
+.WhyWe_header__VRDU0 {
+  margin: 0;
+  font-weight: 700;
+  background-color: #0D6693;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 9px 9px 0 0;
+  text-align: start;
+  font-size: 20px;
+}

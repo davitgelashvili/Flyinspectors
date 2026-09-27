@@ -1,0 +1,7 @@
+{
+  "/adminpanel/[[...slug]]/page": "app/adminpanel/[[...slug]]/page.js",
+  "/[lang]/page": "app/[lang]/page.js",
+  "/[lang]/page/[slug]/page": "app/[lang]/page/[slug]/page.js",
+  "/[lang]/about-us/blog/page": "app/[lang]/about-us/blog/page.js",
+  "/[lang]/contact-us/page": "app/[lang]/contact-us/page.js"
+}

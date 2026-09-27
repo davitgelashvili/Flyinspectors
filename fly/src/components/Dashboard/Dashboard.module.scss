@@ -1,0 +1,20 @@
+.dashboard {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+
+    @media (max-width: 991px) {
+        flex-direction: column;
+    }
+
+    &__content {
+        flex: 1;
+        min-width: 0;
+        padding: 24px;
+        background-color: #F8FAFD;
+
+        @media (max-width: 991px) {
+            padding: 16px;
+        }
+    }
+}

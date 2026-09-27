@@ -1,0 +1,357 @@
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/Common/Footer/Footer.module.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.Footer_footer__tpYv3 {
+  padding: 20px;
+  background-color: #394149;
+}
+.Footer_footer__left__HefT5 {
+  width: 100%;
+}
+.Footer_footer__logo__9Z1zP {
+  display: block;
+}
+@media (max-width: 991px) {
+  .Footer_footer__logo__9Z1zP {
+    width: 300px;
+  }
+}
+.Footer_footer__logo--img__gOVln {
+  width: 100%;
+}
+
+.Footer_viber__bE_hT {
+  width: 36px;
+  height: 36px;
+}
+
+.Footer_socmedia__Uc6ox {
+  width: 100%;
+}
+.Footer_socmedia__title__gsYNM {
+  font-size: 20px;
+  line-height: 22px;
+  margin: 0;
+  margin-top: 10px;
+  color: #FFFFFF;
+}
+.Footer_socmedia__list__uYWCd {
+  padding: 0;
+  list-style: none;
+  width: 100%;
+}
+.Footer_socmedia__list--item__tMx4F {
+  list-style: none;
+}
+.Footer_socmedia__list--link__MebiP {
+  text-decoration: none;
+}
+
+.Footer_MainDiv__QdWei ul.Footer_List__Nt00D {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #FFFFFF;
+}
+.Footer_MainDiv__QdWei .Footer_List__link__mRonG {
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 22px;
+  color: inherit;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+.Footer_MainDiv__QdWei .Footer_List__link__mRonG:hover {
+  color: #007bff;
+}
+
+.Footer_SocialMedia__iBC0f {
+  text-align: center;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 22px;
+}
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/Common/Header/Logo/Logo.module.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.Logo_logo__iOy2e {
+  max-width: 150px;
+  margin: 0;
+}
+.Logo_logo__iOy2e a {
+  display: block;
+}
+.Logo_logo__img__gawWr {
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .Logo_logo__iOy2e {
+    max-width: 100px;
+  }
+}
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/Common/Header/Header.module.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.Header_header__Ig0iA {
+  display: block;
+  background-color: #fff;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 5;
+}
+@media (max-width: 768px) {
+  .Header_header__Ig0iA {
+    padding: 15px 0;
+  }
+}
+.Header_header__content__QOML0 {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.Header_header__Ig0iA .Header_container__iRNc_ {
+  padding: 0 16px;
+}
+.Header_header__right__fU6zJ {
+  display: flex;
+  align-items: center;
+}
+.Header_header__submitlink__Tt2Po {
+  padding: 6px 31px;
+  font-size: 1rem;
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+.Header_header__submitlink__Tt2Po:hover {
+  background-color: #0056b3;
+}
+@media (max-width: 500px) {
+  .Header_header__submitlink__Tt2Po {
+    padding: 6px 14px;
+    font-size: 14px;
+  }
+}
+.Header_header__burger__c98uj {
+  margin-left: 15px;
+  cursor: pointer;
+  display: none;
+}
+.Header_header__burger__c98uj img {
+  height: 20px;
+}
+@media (max-width: 991px) {
+  .Header_header__burger__c98uj {
+    display: block;
+  }
+}
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/UI/SubmitLink.module.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.SubmitLink_link__uP2_F {
+  border: none;
+  line-height: 24px;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  border-radius: 14px;
+  background-color: #FD9B28;
+  color: #FFFFFF;
+  text-decoration: none;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .SubmitLink_link__uP2_F {
+    border-radius: 10px;
+  }
+}
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/Common/Header/Menu/BurgerMenu.module.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.BurgerMenu_nav__KPEE2 {
+  list-style: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.BurgerMenu_nav_item__eyNQ9 {
+  padding: 0 12px;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 500;
+  line-height: 44px;
+}
+
+.BurgerMenu_active__ucSmR {
+  color: #fd9b28;
+}
+.BurgerMenu_active__ucSmR .BurgerMenu_pages__QOYvy {
+  color: #fd9b28;
+}
+
+.BurgerMenu_languageToggle__Pl6ey {
+  display: none;
+}
+
+.BurgerMenu_pages__QOYvy {
+  text-decoration: none;
+  color: black;
+}
+
+.BurgerMenu_nav_item__eyNQ9 {
+  position: relative;
+}
+
+.BurgerMenu_dropdown__ii6vM {
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-15px) rotateX(-15deg);
+  transform-origin: top center;
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+  z-index: 10;
+  flex-direction: column;
+}
+
+.BurgerMenu_nav_item__eyNQ9:hover .BurgerMenu_dropdown__ii6vM {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) rotateX(0deg);
+}
+
+.BurgerMenu_arrow__DQNZt {
+  display: none;
+}
+
+.BurgerMenu_dropdown_item__cdQzp {
+  text-decoration: none;
+  color: #530000;
+  display: block;
+  font-size: 14px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 4px;
+  text-align: start;
+  padding-left: 15px;
+}
+.BurgerMenu_dropdown_item__cdQzp:hover {
+  color: #0d6693;
+  background-color: #f0f0f0;
+}
+
+.BurgerMenu_logo__img__vGc9A {
+  flex: 1 1;
+  text-align: center;
+  width: 81px;
+  height: 44px;
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .BurgerMenu_container__Uyaga {
+    margin: 10px 0 10px 0;
+  }
+  .BurgerMenu_container__Uyaga .BurgerMenu_nav__KPEE2 {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: absolute;
+    width: 100%;
+    height: 35vh;
+    top: -800px;
+    right: 0;
+    z-index: 10;
+  }
+  .BurgerMenu_nav__KPEE2.BurgerMenu_open__pM4V6 {
+    top: 100%;
+  }
+  .BurgerMenu_nav_item__eyNQ9 {
+    margin: 0 10px 0 10px;
+    border-radius: 5px;
+    background-color: #606E8D;
+    text-align: start;
+  }
+  .BurgerMenu_nav_item__eyNQ9.BurgerMenu_active__ucSmR {
+    background-color: #0d6693;
+  }
+  .BurgerMenu_pages__QOYvy {
+    font-size: 20px;
+    color: #fff;
+  }
+  .BurgerMenu_dropdown__ii6vM {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #0d6693;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+  }
+  .BurgerMenu_dropdown_item__cdQzp {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    font-size: 19px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 0;
+    text-align: start;
+    margin-left: 12px;
+    padding: 10px 0;
+  }
+  .BurgerMenu_active__ucSmR {
+    color: #fff;
+  }
+  .BurgerMenu_active__ucSmR .BurgerMenu_pages__QOYvy {
+    color: #fff;
+  }
+  .BurgerMenu_dropdownTrigger__g0KTP {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .BurgerMenu_dropdownTrigger__g0KTP .BurgerMenu_arrow__DQNZt {
+    width: 10px;
+    height: 16px;
+  }
+}
+@media (max-width: 991px) and (max-width: 768px) {
+  .BurgerMenu_dropdownTrigger__g0KTP .BurgerMenu_arrow__DQNZt {
+    display: inline-block;
+  }
+}
+@media (max-width: 991px) {
+  .BurgerMenu_languageToggle__Pl6ey {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Center horizontally */
+    margin-top: 10px;
+    /* Add spacing if needed */
+  }
+  .BurgerMenu_languageToggle__Pl6ey img {
+    width: 30px;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+}

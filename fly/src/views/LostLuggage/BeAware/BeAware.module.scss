@@ -1,0 +1,58 @@
+.services {
+    padding: 50px 0;
+    background-color: #F8FAFD;
+}
+
+.image {
+    width: 369px;
+    height: 379px;
+    position: relative;
+}
+
+.mainDiv {
+    margin-top: 30px;
+    width: 100%;
+    box-shadow: 0px 6px 6px 0px #0000000D;
+    border-radius: 5px;
+}
+
+.header {
+    font-weight: 700;
+    background-color: #0D6693;
+    color: #ffffff;
+    padding: 20px;
+    margin: 0 0 15px 0;
+    border-radius: 9px 9px 0 0;
+    text-align: start;
+    font-size: 20px;
+}
+
+.item {
+    padding: 0px 20px 70px 20px;
+}
+
+
+.headerOfBullet {
+    margin-top: 50px;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 22px;
+    color: #000000;
+    cursor: default;
+    padding-bottom: 20px;
+}
+
+.bulletList {
+    list-style-type: disc;
+
+
+    li {
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 22px;
+        color: #000000;
+        margin: 0;
+        cursor: default;
+        margin-bottom: 10px;
+    }
+}

@@ -1,0 +1,293 @@
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/views/Contact Us/Contact Us Section/ContactUs.module.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.ContactUs_services__fnBS_ {
+  padding: 29px 0;
+  background-color: #F8FAFD;
+}
+
+.ContactUs_item__ON0c4 {
+  margin-bottom: 38px;
+}
+
+.ContactUs_icon__Y3RUN {
+  min-width: 40px;
+  height: 40px;
+  background-color: #0d6693;
+  padding: 11px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.ContactUs_title__Xxqrp {
+  margin: 0;
+}
+
+.ContactUs_desc__6eFUX {
+  margin: 0;
+}
+
+.ContactUs_mainDiv__UEO44 {
+  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.0509803922);
+  border-radius: 5px;
+}
+.ContactUs_mainDiv__header__E9uCH {
+  font-weight: 700;
+  background-color: #0d6693;
+  color: #ffffff;
+  padding: 20px;
+  margin: 0 0 15px 0;
+  border-radius: 9px 9px 0 0;
+  text-align: center;
+  font-size: 20px;
+}
+.ContactUs_mainDiv__item__X3iaT .ContactUs_row__JtONL {
+  margin: 0;
+}
+.ContactUs_mainDiv__item__X3iaT .ContactUs_col-6__FkdOH {
+  padding: 10px;
+}
+.ContactUs_mainDiv__item__X3iaT .ContactUs_col-6__FkdOH .ContactUs_countryHeader__CLRoJ {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.ContactUs_section__YShXA {
+  display: flex;
+  flex-direction: column;
+}
+
+.ContactUs_cardContainer__4cPdC {
+  display: flex;
+  flex-direction: column;
+}
+
+.ContactUs_card__OTv96 h5 {
+  margin: 0;
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 600;
+  color: #000000;
+}
+.ContactUs_card__OTv96 p {
+  margin: 0;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 22px;
+  color: #000000;
+}
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/SectionTextAndCover/SectionTextAndCover.module.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.SectionTextAndCover_cover__RE3RW {
+  width: 100%;
+  max-height: unset;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+@media (max-width: 991px) {
+  .SectionTextAndCover_cover__RE3RW {
+    max-height: 200px;
+  }
+}
+.SectionTextAndCover_cover__img__bH5Aq {
+  max-width: 100%;
+  max-height: unset;
+}
+@media (max-width: 991px) {
+  .SectionTextAndCover_cover__img__bH5Aq {
+    max-height: 200px;
+  }
+}
+
+.SectionTextAndCover_text__cdFKs {
+  width: 100%;
+  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.0509803922);
+  border-radius: 5px;
+  height: max-content;
+}
+.SectionTextAndCover_text__title__3DmAg {
+  font-weight: 700;
+  background-color: #0D6693;
+  color: #ffffff;
+  padding: 20px;
+  margin: 0;
+  border-radius: 9px 9px 0 0;
+  text-align: center;
+  font-size: 20px;
+}
+.SectionTextAndCover_text__body__u7KJD {
+  padding: 20px;
+}
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/UI/TextInput.module.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+.TextInput_textlabel__ZBBTN {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border: 1px solid #0D6693;
+  border-radius: 6px;
+  background-color: #fff;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.TextInput_textlabel__icon__0r1ZU {
+  margin-left: 13px;
+}
+.TextInput_textlabel__input__M_ng8 {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 9px;
+}
+.TextInput_textlabel__textarea__ZN0QQ {
+  background-color: #F5F5F5;
+}
+
+.TextInput_textInput__textarea__QdE47 {
+  min-height: 100px; /* საკმარისი სივრცე მრავალსტრიქონიანი ტექსტისთვის */
+  padding: 8px; /* ტექსტისთვის სივრცის დასამატებლად */
+  resize: vertical; /* სურვილისამებრ: ვერტიკალური ზომის შეცვლის ნებართვა */
+}
+
+.TextInput_textarea__V3e9y {
+  width: 100%;
+  min-height: 120px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  background-color: #F5F5F5;
+}
+
+.TextInput_uploadwidget__09kXk {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.TextInput_uploadwidget__title__7uLrj {
+  margin: 0;
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 44px;
+}
+.TextInput_uploadwidget__input__o4n_c {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+.TextInput_uploadwidget__btn__8mvYj {
+  width: 100%;
+  padding: 11px;
+  text-align: center;
+  background-color: rgba(13, 102, 147, 0.5);
+  color: #fff;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 1;
+}
+.TextInput_uploadwidget__btn__8mvYj.TextInput_disable__GFW__ {
+  cursor: no-drop;
+  opacity: 0.5;
+}
+.TextInput_uploadwidget__btn__8mvYj.TextInput_file__zAhi_ {
+  background-color: orange;
+  cursor: default;
+  opacity: 1;
+}
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/views/Contact Us/Feedback Form/FeedBack.module.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.FeedBack_mainDiv__oC802 {
+  padding-bottom: 40px;
+}
+
+.FeedBack_inputlist__p1lC0 {
+  width: 100%;
+}
+
+.FeedBack_textarea__k_F0x {
+  margin-top: 50px;
+  width: 100%;
+  height: 220px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  color: #333;
+  resize: vertical;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.FeedBack_textarea__k_F0x:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+  background-color: #fff;
+}
+.FeedBack_textarea__k_F0x::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+.FeedBack_submit__ODomb {
+  padding: 9px 32px;
+  line-height: 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: #0D6693;
+  color: #fff;
+  height: 42px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.FeedBack_submit__ODomb:hover {
+  background-color: #095074;
+  transform: scale(1.05);
+}
+.FeedBack_submit__ODomb:active {
+  transform: scale(1);
+}
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/Loading/Loading.module.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.Loading_loading__zKVig {
+  display: flex;
+  justify-content: center;
+}
+.Loading_loading__zKVig div {
+  width: 1rem;
+  height: 1rem;
+  background: #FD9B28;
+  border-radius: 50%;
+  animation: 0.9s Loading_bounce__kVlwJ infinite alternate;
+}
+.Loading_loading__zKVig div:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.Loading_loading__zKVig div:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes Loading_bounce__kVlwJ {
+  to {
+    opacity: 0.3;
+    transform: translate3d(0, -1rem, 0);
+  }
+}

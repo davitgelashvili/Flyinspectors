@@ -1,0 +1,40 @@
+.services {
+    padding: 40px 0;
+    background-color: #fff;
+
+    &__cover {
+        max-width: 100%;
+
+        @media (max-width: 994px) {
+            width: 100%;
+        }
+    }
+}
+
+.mainDiv {
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px 5px 0 0;
+
+    p {
+        background-color: #fff;
+        padding: 20px;
+        margin: 0;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 22px;
+        color: #717171;
+    }
+}
+
+.header {
+    margin: 0;
+    font-weight: 700;
+    background-color: #0D6693;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 9px 9px 0 0;
+    text-align: start;
+    font-size: 20px;
+}
