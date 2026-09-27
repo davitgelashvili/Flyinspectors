@@ -1,0 +1,24 @@
+.custominput {
+    display: block;
+    margin: 13px 0;
+
+    &__title {
+        font-size: 14px;
+        margin: 0 0 3px 0;
+    }
+
+    &__input {
+        width: 100%;
+        display: block;
+        padding: 11px;
+        border: 1px solid #CAD5E0;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+
+    &__error {
+        margin: 4px 0 0 0;
+        font-size: 13px;
+        color: #c0392b;
+    }
+}

@@ -1,0 +1,146 @@
+.users {
+    display: block;
+
+    &__head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    &__title {
+        font-size: 22px;
+        margin: 0;
+    }
+
+    &__add {
+        padding: 9px 18px;
+        border-radius: 4px;
+        background-color: #FD9B28;
+        color: #fff;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    &__error {
+        margin: 12px 0;
+        padding: 9px 12px;
+        border-radius: 4px;
+        background-color: #fdeaea;
+        color: #c0392b;
+        font-size: 14px;
+    }
+
+    &__table {
+        margin-top: 18px;
+        background-color: #fff;
+        border: 1px solid #e3e9f0;
+        border-radius: 6px;
+        overflow-x: auto;
+    }
+
+    &__row {
+        display: grid;
+        grid-template-columns: 2fr 1.5fr 1fr auto;
+        gap: 12px;
+        align-items: center;
+        padding: 12px 16px;
+        border-bottom: 1px solid #eef2f6;
+        font-size: 14px;
+        min-width: 620px;
+
+        &:last-child {
+            border-bottom: 0;
+        }
+    }
+
+    &__row_head {
+        font-weight: 600;
+        background-color: #f6f8fb;
+    }
+
+    &__role_admin { color: #c0392b; font-weight: 600; }
+    &__role_editor { color: #b9770e; font-weight: 600; }
+    &__role_user { color: #5d6d7e; }
+
+    &__done {
+        margin: 12px 0;
+        padding: 9px 12px;
+        border-radius: 4px;
+        background-color: #eafaf1;
+        color: #1e8449;
+        font-size: 14px;
+    }
+
+    &__hint {
+        margin: 22px 0 6px 0;
+        padding-top: 16px;
+        border-top: 1px solid #eef2f6;
+        font-size: 13px;
+        color: #5d6d7e;
+    }
+
+    &__form {
+        margin-top: 18px;
+        max-width: 480px;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #e3e9f0;
+        border-radius: 6px;
+    }
+
+    &__field {
+        margin: 13px 0;
+    }
+
+    &__label {
+        font-size: 14px;
+        margin: 0 0 3px 0;
+    }
+
+    &__select {
+        width: 100%;
+        padding: 11px;
+        border: 1px solid #CAD5E0;
+        border-radius: 4px;
+        font-size: 14px;
+        background-color: #fff;
+    }
+
+    &__submit {
+        margin-top: 8px;
+        padding: 11px 24px;
+        border: 0;
+        border-radius: 4px;
+        background-color: #FD9B28;
+        color: #fff;
+        font-size: 15px;
+        cursor: pointer;
+
+        &:disabled {
+            opacity: 0.6;
+            cursor: default;
+        }
+    }
+
+    &__actions {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+
+        a {
+            color: #2471a3;
+            font-size: 13px;
+        }
+
+        button {
+            border: 0;
+            background: transparent;
+            color: #c0392b;
+            font-size: 13px;
+            cursor: pointer;
+            padding: 0;
+        }
+    }
+}

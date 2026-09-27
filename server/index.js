@@ -9,16 +9,19 @@ require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT || 8000;
 
-// ✅ CORS whitelist (ფრონტენდ მისამართები)
-const allowedOrigins = [
-  "http://localhost:3000",
-  "http://localhost:3001",
-  "https://flyinspectors.ge",
-  "https://flyinspectors.com",
-  "https://flyinspectors.co.uk",
-  "https://tourclaim.com",
-  "https://tourclaims.com",
-  "https://tour.claims",
+// ✅ CORS whitelist (ფრონტენდ ჰოსტები — პროტოკოლისა და www-ს გარეშე)
+const allowedHosts = [
+  "localhost:3000",
+  "localhost:3001",
+  "127.0.0.1:3000",
+  "127.0.0.1:3001",
+  "flyinspectors.ge",
+  "flyinspectors.com",
+  "flyinspectors.co.uk",
+  "test.flyinspectors.com",
+  "tourclaim.com",
+  "tourclaims.com",
+  "tour.claims",
 ];
 
 // ✅ CORS კონფიგურაცია
@@ -26,16 +29,20 @@ const corsOptions = {
   origin: function (origin, callback) {
     if (!origin) return callback(null, true); // Server-to-server calls
 
-    // www-ს გათვალისწინება
-    const cleanedOrigin = origin.replace(/^https?:\/\/(www\.)?/, "https://");
-    const allowed = allowedOrigins.includes(cleanedOrigin);
-
-    if (allowed) {
-      return callback(null, true);
-    } else {
-      console.error("❌ Blocked by CORS:", origin);
+    let host;
+    try {
+      host = new URL(origin).host.replace(/^www\./, "");
+    } catch {
+      console.error("❌ Blocked by CORS (invalid origin):", origin);
       return callback(new Error("Not allowed by CORS"));
     }
+
+    if (allowedHosts.includes(host)) {
+      return callback(null, true);
+    }
+
+    console.error("❌ Blocked by CORS:", origin);
+    return callback(new Error("Not allowed by CORS"));
   },
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],

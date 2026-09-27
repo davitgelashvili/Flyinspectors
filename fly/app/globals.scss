@@ -1,0 +1,46 @@
+@import url('https://free.bboxtype.com/embedfonts/?family=FiraGO:300,400,500,600,700,900');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #F8FAFD;
+  font-family: 'FiraGO', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.row>* {
+  display: flex;
+}
+
+/* ფიქსირებული საჯარო Header-ის ასარიდებლად. ადმინს Header არ აქვს,
+   ამიტომ body-ზე აღარ ვდებთ — თორემ სვეტის თავზე 70px ხვრელი დარჩება. */
+.site-shell {
+  padding-top: 70px;
+}
+
+.message {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 150px;
+
+  &__item {
+    border-radius: 22px;
+    padding: 24px 48px;
+    background-color: #fff;
+    box-shadow: 0px 0px 63px -22px #2a2a2a;
+  }
+}

@@ -1,0 +1,61 @@
+.services {
+    padding-top: 60px;
+    width: 99%;
+
+    &__header {
+
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 48px;
+        color: #232536;
+    }
+}
+
+
+.mainDiv {
+    display: flex;
+    align-self: center;
+    margin-top: 10px;
+    margin-bottom: 150px;
+
+    &__text {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 28px;
+        color: #6d6e76;
+    }
+
+    &__image {
+        max-width: 100%;
+        max-height: 100%;
+
+        @media (max-width: 768px) {
+            max-width: 100%;
+            width: 100%;
+        }
+    }
+}
+
+.button {
+    margin-top: 20px;
+    background-color: #FD9B28;
+    color: white;
+    display: flex;
+    padding: 4px 25px 4px 25px;
+    justify-content: center;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #e68921;
+}
+
+.cardText {
+    font-size: 11px;
+    line-height: 20px;
+    color: #6d6e76;
+}

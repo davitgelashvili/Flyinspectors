@@ -1,0 +1,46 @@
+.services {
+    width: 100%;
+    overflow-x: hidden;
+    background-color: #0D6693;
+    border-radius: 6px;
+}
+
+.rowContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 82px;
+    padding-bottom: 80px;
+    padding-left: 80px;
+
+}
+
+.casesCompleted {
+    margin-left: 20px;
+}
+
+
+.happyCustomers {
+    margin-left: 40px;
+}
+
+.cardNumber {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    color: #ffffff;
+    margin: 0;
+}
+
+.description {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 20px;
+    color: #ffffff;
+    margin-left: 0;
+}
+
+.image {
+    width: 60%;
+    margin-left: 40px;
+}
