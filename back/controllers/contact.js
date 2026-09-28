@@ -1,4 +1,5 @@
 const fs = require('node:fs');
+const { getMailPassword } = require('../utils/mailer');
 
 const contact = async (req, res) => {
     try {
@@ -13,14 +14,19 @@ const contact = async (req, res) => {
             secure: true,
             auth: {
                 user: "info@flyinspectors.com",
-                pass: "ancc rabt pvrt dhxi", // App password
+                pass: await getMailPassword(), // აპლიკაციის პაროლი ბაზიდან
             },
         });
 
         const mailOptions = {
-            from: email,
+            // from ყოველთვის საკუთარი, ავთენტიფიცირებული დომენია — თორემ ვიზიტორის
+            // მისამართით გაგზავნა SPF/DKIM-ს არღვევს და დომენს spam-ში აგდებს.
+            // ვიზიტორის მისამართი replyTo-ში მიდის, რომ პასუხი პირდაპირ მას მისწვდეს.
+            from: '"Flyinspectors" <info@flyinspectors.com>',
+            replyTo: email,
             to: "info@flyinspectors.com",
             subject: subject,
+            text: `სახელი: ${name}\nემაილი: ${email}\nსათაური: ${subject}\nაღწერა: ${description}`,
             html: `
           <p>სახელი: ${name}</p>
           <p>ემაილი: ${email}</p>

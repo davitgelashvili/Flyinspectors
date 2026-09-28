@@ -1,13 +1,19 @@
 const fs = require('fs');
 const nodemailer = require('nodemailer');
+const { getMailPassword } = require('../utils/mailer');
 
 const clientSendEmail = async (req, res) => {
     try {
-        const { 
+        const {
             email,
-            text
+            text,
+            subject,
         } = req.body;
-        
+
+        // HTML-ის გარეშე უბრალო ტექსტიც უნდა იყოს — მხოლოდ-HTML წერილს
+        // Gmail/Outlook ეჭვით უყურებს და spam-ში უფრო ადვილად აგდებს.
+        const plainText = String(text || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+
         const transporter = nodemailer.createTransport({
             // host: 'business66.web-hosting.com',
             host: 'smtp.gmail.com', // SMTP server address (e.g., smtp.gmail.com for Gmail)
@@ -15,17 +21,21 @@ const clientSendEmail = async (req, res) => {
             secure: true, // Use true for 465, false for other ports
             auth: {
                 user: 'info@flyinspectors.com',
-                pass: 'ancc rabt pvrt dhxi',
+                pass: await getMailPassword(),
                 // user: 'mailsend@flyinspectors.com', // Your email
                 // pass: '-VV6jcEThhWT', // Your email password or app password
             },
         });
 
         const mailOptions = {
-            from: 'info@flyinspectors.com',
+            // ჩანს "Flyinspectors", არა შიშველი მისამართი — ეს ნდობას მატებს
+            from: '"Flyinspectors" <info@flyinspectors.com>',
             to: email,
-            subject: `flyinspectors.com`,
-            html: text
+            // შინაარსობრივი subject — "flyinspectors.com"-ის მაგივრად, რომელსაც
+            // სპამ-ფილტრი დაბალ ქულას აძლევდა
+            subject: subject || "Flyinspectors — თქვენი განაცხადი / Your claim",
+            text: plainText,
+            html: text,
         };
 
         transporter.sendMail(mailOptions, function(error, info){

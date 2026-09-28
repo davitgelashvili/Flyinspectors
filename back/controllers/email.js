@@ -1,5 +1,6 @@
 const fs = require('fs');
 const nodemailer = require('nodemailer');
+const { getMailPassword } = require('../utils/mailer');
 
 const emailSend = async (req, res) => {
     try {
@@ -32,14 +33,14 @@ const emailSend = async (req, res) => {
             secure: true,
             auth: {
                 user: 'info@flyinspectors.com',
-                pass: 'ancc rabt pvrt dhxi',
+                pass: await getMailPassword(),
                 // user: 'mailsend@flyinspectors.com', 
                 // pass: '-VV6jcEThhWT',
             },
         });
 
         const mailOptions = {
-            from: 'info@flyinspectors.com',
+            from: '"Flyinspectors" <info@flyinspectors.com>',
             replyTo: `${email}`,
             to: `team@flyinspectors.com`,
             subject: `Compensation Form - ${userId} - ${companyName}`,

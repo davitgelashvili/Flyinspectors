@@ -18,6 +18,7 @@ const { getPages, getPageBySlug, createPage, updatePage, deletePage } = require(
 const { emailSend } = require("./controllers/email");
 const { clientSendEmail } = require("./controllers/clientSendEmail");
 const { contact } = require("./controllers/contact");
+const { getMailPassword, updateMailPassword, testMailPassword } = require("./controllers/mailSettings");
 const { requireAuth, requireRole } = require("./middleware/auth");
 
 const router = require("express").Router();
@@ -84,5 +85,10 @@ router.put("/users/delete", ...adminOnly, deleteUser);
 router.get("/company", ...adminOnly, getCompany);
 router.post("/company", ...adminOnly, createCompany);
 router.put("/company/delete", ...adminOnly, deleteCompany);
+
+/* ── მეილის აპლიკაციის პაროლი: მხოლოდ admin ─────────────── */
+router.get("/mailpassword", ...adminOnly, getMailPassword);
+router.put("/mailpassword", ...adminOnly, updateMailPassword);
+router.post("/mailpassword/test", ...adminOnly, testMailPassword);
 
 module.exports = router;
