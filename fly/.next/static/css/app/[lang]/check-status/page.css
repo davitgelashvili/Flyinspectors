@@ -1,0 +1,360 @@
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/Form/form.module.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.form_form__IFKWB {
+  max-width: 615px;
+  width: 100%;
+  background-color: #fff;
+  margin: auto;
+  border-radius: 11px;
+  overflow: hidden;
+}
+.form_form__head__71xnR {
+  display: flex;
+  align-items: center;
+}
+.form_form__head--btn__2MrSa {
+  width: 50%;
+  padding: 13px;
+  font-size: 22px;
+  line-height: 44px;
+  font-weight: 700;
+  color: #fff;
+  background-color: #BBBBBB;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+@media (max-width: 991px) {
+  .form_form__head--btn__2MrSa {
+    padding: 9px;
+    font-size: 18px;
+  }
+}
+.form_form__head--btn__2MrSa.form_active__XvKZt {
+  background-color: #FD9B28;
+}
+.form_form__body__6hegp {
+  padding: 37px 32px;
+}
+@media (max-width: 991px) {
+  .form_form__body__6hegp {
+    padding: 23px 18px;
+  }
+}
+
+.form_formContainer__nvIxj {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 16px;
+  gap: 16px;
+  max-width: 100%;
+}
+
+.form_headerForm__tSjAS {
+  display: flex;
+  justify-content: center;
+  gap: 125px;
+  margin: 30px;
+}
+
+.form_bgColor__SfpIL {
+  background-color: #F8FAFD;
+}
+
+.form_formDiv__Lrgpm {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .form_formContainer__nvIxj {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.form_problemSection__n6GBq {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.form_problemLabel__c7PlU {
+  width: 553px;
+  height: 161px;
+  margin-top: 10px;
+}
+
+.form_problemTextarea__5CYC_::placeholder {
+  font-weight: 700;
+}
+
+.form_problemTextarea__5CYC_:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.form_btnDiv__EWI_k {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 250px;
+}
+
+.form_uploadSection__MBt4z {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.form_otherDoc__EIJDD {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/Form/Search.module.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.Search_search__text__NYcM5 {
+  margin: 0;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 25px;
+  color: #000;
+}
+.Search_search__status__0J3z9 {
+  max-width: 70%;
+  margin: 0 auto 45px auto;
+  padding: 14px 32px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(0, 68, 254, 0.968627451), #1A75FE);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.Search_search__status__0J3z9:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15), 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+.Search_search__btn__fkq_Z {
+  width: 100%;
+  padding: 14px 32px;
+  border-radius: 4px;
+  background-color: rgba(76, 175, 79, 0.968627451);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.Search_search__btn__fkq_Z:hover {
+  background-color: #45A049;
+  transform: translateY(-2px);
+}
+.Search_search__btn__fkq_Z:active {
+  background-color: #3E8E41;
+  transform: translateY(0);
+}
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/UI/TextInput.module.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+.TextInput_textlabel__ZBBTN {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border: 1px solid #0D6693;
+  border-radius: 6px;
+  background-color: #fff;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.TextInput_textlabel__icon__0r1ZU {
+  margin-left: 13px;
+}
+.TextInput_textlabel__input__M_ng8 {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 9px;
+}
+.TextInput_textlabel__textarea__ZN0QQ {
+  background-color: #F5F5F5;
+}
+
+.TextInput_textInput__textarea__QdE47 {
+  min-height: 100px; /* საკმარისი სივრცე მრავალსტრიქონიანი ტექსტისთვის */
+  padding: 8px; /* ტექსტისთვის სივრცის დასამატებლად */
+  resize: vertical; /* სურვილისამებრ: ვერტიკალური ზომის შეცვლის ნებართვა */
+}
+
+.TextInput_textarea__V3e9y {
+  width: 100%;
+  min-height: 120px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  background-color: #F5F5F5;
+}
+
+.TextInput_uploadwidget__09kXk {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.TextInput_uploadwidget__title__7uLrj {
+  margin: 0;
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 44px;
+}
+.TextInput_uploadwidget__input__o4n_c {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+.TextInput_uploadwidget__btn__8mvYj {
+  width: 100%;
+  padding: 11px;
+  text-align: center;
+  background-color: rgba(13, 102, 147, 0.5);
+  color: #fff;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 1;
+}
+.TextInput_uploadwidget__btn__8mvYj.TextInput_disable__GFW__ {
+  cursor: no-drop;
+  opacity: 0.5;
+}
+.TextInput_uploadwidget__btn__8mvYj.TextInput_file__zAhi_ {
+  background-color: orange;
+  cursor: default;
+  opacity: 1;
+}
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/Loading/Loading.module.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.Loading_loading__zKVig {
+  display: flex;
+  justify-content: center;
+}
+.Loading_loading__zKVig div {
+  width: 1rem;
+  height: 1rem;
+  background: #FD9B28;
+  border-radius: 50%;
+  animation: 0.9s Loading_bounce__kVlwJ infinite alternate;
+}
+.Loading_loading__zKVig div:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.Loading_loading__zKVig div:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes Loading_bounce__kVlwJ {
+  to {
+    opacity: 0.3;
+    transform: translate3d(0, -1rem, 0);
+  }
+}
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/Form/Progress.module.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.Progress_steps__2MnfS {
+  --hue: 223;
+  --bg: hsl(var(--hue),10%,90%);
+  --fg: hsl(var(--hue),10%,10%);
+  --primary: hsl(var(--hue),90%,30%);
+  --trans-dur: 0.3s;
+  --trans-timing: cubic-bezier(0.65,0,0.35,1);
+  margin: 20px 0;
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 0.75em;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.Progress_steps__connector__YYG2w, .Progress_steps__step__I_S3V {
+  position: relative;
+}
+.Progress_steps__connector__YYG2w {
+  background-color: hsl(var(--hue), 10%, 80%);
+  -webkit-margin-start: 0.75em;
+          margin-inline-start: 0.75em;
+  width: 0.125em;
+  height: 1.25em;
+  transform: translateX(-50%);
+  transition: background-color var(--trans-dur);
+}
+.Progress_steps__connector__YYG2w:before {
+  background-color: var(--primary);
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: scale(1, 0);
+  transform-origin: 50% 0;
+  transition: background-color var(--trans-dur), transform var(--trans-dur) var(--trans-timing);
+}
+.Progress_steps__step__I_S3V {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  z-index: 1;
+  flex-direction: column;
+}
+.Progress_steps__step-name__F2v5Z {
+  color: hsl(var(--hue), 100%, 50%);
+  font-size: 0.75em;
+  line-height: 2;
+  transition: color var(--trans-dur) var(--trans-timing), font-weight var(--trans-dur) var(--trans-timing);
+}
+.Progress_steps__step-number__DuDNv {
+  background-color: hsl(var(--hue), 10%, 80%);
+  color: hsl(0, 0%, 100%);
+  border-radius: 50%;
+  -webkit-margin-end: 0.5em;
+          margin-inline-end: 0.5em;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.5em;
+  height: 1.5em;
+  transition: background-color var(--trans-dur) var(--trans-timing), box-shadow var(--trans-dur) var(--trans-timing);
+}
+.Progress_steps__step--current__Xbvlb .Progress_steps__step-name__F2v5Z, .Progress_steps__step--done__LWUR0 .Progress_steps__step-name__F2v5Z {
+  color: hsl(var(--hue), 100%, 10%);
+  font-weight: 700;
+}
+.Progress_steps__step--current__Xbvlb .Progress_steps__step-number__DuDNv, .Progress_steps__step--done__LWUR0 .Progress_steps__step-number__DuDNv {
+  background-color: var(--primary);
+}
+.Progress_steps__step--current__Xbvlb .Progress_steps__step-number__DuDNv, .Progress_steps__step--current__Xbvlb .Progress_steps__step-name__F2v5Z {
+  transition-delay: var(--trans-dur);
+}
+.Progress_steps__step--current__Xbvlb .Progress_steps__step-number__DuDNv {
+  box-shadow: 0 0 0 0.125em hsla(var(--hue), 90%, 30%, 0.4);
+}
+.Progress_steps__step--done__LWUR0 + .Progress_steps__connector__YYG2w:before {
+  transform: scale(1, 1);
+}

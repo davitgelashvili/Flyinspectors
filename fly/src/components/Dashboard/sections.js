@@ -15,6 +15,7 @@ export const SECTIONS = [
     { title: 'წესები და პირობები', path: '/condition', roles: ['admin', 'editor'] },
     { title: 'კომპანიები', path: '/company', roles: ['admin'] },
     { title: 'მომხმარებლები', path: '/users', roles: ['admin'] },
+    { title: 'მეილის პაროლი', path: '/mailpassword', roles: ['admin'] },
     { title: 'ჩემი მონაცემები', path: '/profile', roles: ['admin', 'editor', 'user'] },
 ]
 

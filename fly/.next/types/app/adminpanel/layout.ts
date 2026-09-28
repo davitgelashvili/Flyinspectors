@@ -1,4 +1,4 @@
-// File: /Users/davit/Desktop/Flyinspectors/fly/app/adminpanel/layout.js
+// File: D:\Flyinspectors\fly\app\adminpanel\layout.js
 import * as entry from '../../../../app/adminpanel/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

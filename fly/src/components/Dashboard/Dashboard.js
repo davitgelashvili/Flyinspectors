@@ -25,6 +25,7 @@ import Company from "./Company/Company";
 import CompanyAdd from "./Company/CompanyAdd";
 import styles from './Dashboard.module.scss'
 import List from "./Company/List";
+import MailSettings from "./MailSettings/MailSettings";
 import { canAccess, defaultPath } from "./sections";
 
 function getSection(path) {
@@ -51,6 +52,8 @@ function getSection(path) {
     if (path === '/condition') return <ConditionsList />
     if (path === '/condition/add') return <ConditionsAdd />
     if (path.startsWith('/condition/')) return <ConditionsEdit />
+
+    if (path === '/mailpassword') return <MailSettings />
 
     if (path === '/company') return <Company />
     if (path === '/company/add') return <CompanyAdd />

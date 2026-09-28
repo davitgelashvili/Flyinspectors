@@ -1,4 +1,4 @@
-// File: /Users/davit/Desktop/Flyinspectors/fly/app/[lang]/page/[slug]/page.js
+// File: D:\Flyinspectors\fly\app\[lang]\page\[slug]\page.js
 import * as entry from '../../../../../../app/[lang]/page/[slug]/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

@@ -1,0 +1,517 @@
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/views/Contact Us/Contact Us Section/ContactUs.module.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.ContactUs_services__fnBS_ {
+  padding: 29px 0;
+  background-color: #F8FAFD;
+}
+
+.ContactUs_item__ON0c4 {
+  margin-bottom: 38px;
+}
+
+.ContactUs_icon__Y3RUN {
+  min-width: 40px;
+  height: 40px;
+  background-color: #0d6693;
+  padding: 11px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.ContactUs_title__Xxqrp {
+  margin: 0;
+}
+
+.ContactUs_desc__6eFUX {
+  margin: 0;
+}
+
+.ContactUs_mainDiv__UEO44 {
+  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.0509803922);
+  border-radius: 5px;
+}
+.ContactUs_mainDiv__header__E9uCH {
+  font-weight: 700;
+  background-color: #0d6693;
+  color: #ffffff;
+  padding: 20px;
+  margin: 0 0 15px 0;
+  border-radius: 9px 9px 0 0;
+  text-align: center;
+  font-size: 20px;
+}
+.ContactUs_mainDiv__item__X3iaT .ContactUs_row__JtONL {
+  margin: 0;
+}
+.ContactUs_mainDiv__item__X3iaT .ContactUs_col-6__FkdOH {
+  padding: 10px;
+}
+.ContactUs_mainDiv__item__X3iaT .ContactUs_col-6__FkdOH .ContactUs_countryHeader__CLRoJ {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.ContactUs_section__YShXA {
+  display: flex;
+  flex-direction: column;
+}
+
+.ContactUs_cardContainer__4cPdC {
+  display: flex;
+  flex-direction: column;
+}
+
+.ContactUs_card__OTv96 h5 {
+  margin: 0;
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 600;
+  color: #000000;
+}
+.ContactUs_card__OTv96 p {
+  margin: 0;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 22px;
+  color: #000000;
+}
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/Form/ContactSubmitPage.module.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.ContactSubmitPage_mainDiv__icQxw {
+  width: 100%;
+  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.0509803922);
+  border-radius: 5px;
+}
+
+.ContactSubmitPage_header__utaiA {
+  font-weight: 700;
+  background-color: #0d6693;
+  color: #ffffff;
+  padding: 20px;
+  margin: 0 0 15px 0;
+  border-radius: 9px 9px 0 0;
+  text-align: start;
+  font-size: 20px;
+}
+
+.ContactSubmitPage_item__VAX0d {
+  padding: 0 15px;
+}
+
+.ContactSubmitPage_item__VAX0d h4 {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 22px;
+  color: #000000;
+  margin: 0;
+  cursor: default;
+}
+
+.ContactSubmitPage_item__VAX0d p {
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+  color: #4b4b4b;
+  margin: 0;
+  cursor: default;
+}
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/Form/form.module.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.form_form__IFKWB {
+  max-width: 615px;
+  width: 100%;
+  background-color: #fff;
+  margin: auto;
+  border-radius: 11px;
+  overflow: hidden;
+}
+.form_form__head__71xnR {
+  display: flex;
+  align-items: center;
+}
+.form_form__head--btn__2MrSa {
+  width: 50%;
+  padding: 13px;
+  font-size: 22px;
+  line-height: 44px;
+  font-weight: 700;
+  color: #fff;
+  background-color: #BBBBBB;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+@media (max-width: 991px) {
+  .form_form__head--btn__2MrSa {
+    padding: 9px;
+    font-size: 18px;
+  }
+}
+.form_form__head--btn__2MrSa.form_active__XvKZt {
+  background-color: #FD9B28;
+}
+.form_form__body__6hegp {
+  padding: 37px 32px;
+}
+@media (max-width: 991px) {
+  .form_form__body__6hegp {
+    padding: 23px 18px;
+  }
+}
+
+.form_formContainer__nvIxj {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 16px;
+  gap: 16px;
+  max-width: 100%;
+}
+
+.form_headerForm__tSjAS {
+  display: flex;
+  justify-content: center;
+  gap: 125px;
+  margin: 30px;
+}
+
+.form_bgColor__SfpIL {
+  background-color: #F8FAFD;
+}
+
+.form_formDiv__Lrgpm {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .form_formContainer__nvIxj {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.form_problemSection__n6GBq {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.form_problemLabel__c7PlU {
+  width: 553px;
+  height: 161px;
+  margin-top: 10px;
+}
+
+.form_problemTextarea__5CYC_::placeholder {
+  font-weight: 700;
+}
+
+.form_problemTextarea__5CYC_:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.form_btnDiv__EWI_k {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 250px;
+}
+
+.form_uploadSection__MBt4z {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.form_otherDoc__EIJDD {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/Form/Map.module.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.Map_map__iUrHF {
+  width: 100%;
+  height: 294px;
+}
+@media (max-width: 768px) {
+  .Map_map__iUrHF {
+    height: 200px;
+  }
+}
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/UploadWidget/UploadWidget.module.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.UploadWidget_uploadwidget__YfRyC {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.UploadWidget_uploadwidget__title__Qc3dC {
+  margin: 0;
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 44px;
+}
+.UploadWidget_uploadwidget__input__YDagv {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+.UploadWidget_uploadwidget__btn__8xrRe {
+  width: 100%;
+  padding: 11px;
+  text-align: center;
+  background-color: rgba(13, 102, 147, 0.5);
+  color: #fff;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 1;
+}
+.UploadWidget_uploadwidget__btn__8xrRe.UploadWidget_disable__B0O03 {
+  cursor: no-drop;
+  opacity: 0.5;
+}
+.UploadWidget_uploadwidget__btn__8xrRe.UploadWidget_file__DV3JZ {
+  background-color: orange;
+  cursor: default;
+  opacity: 1;
+}
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/Loading/Loading.module.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.Loading_loading__zKVig {
+  display: flex;
+  justify-content: center;
+}
+.Loading_loading__zKVig div {
+  width: 1rem;
+  height: 1rem;
+  background: #FD9B28;
+  border-radius: 50%;
+  animation: 0.9s Loading_bounce__kVlwJ infinite alternate;
+}
+.Loading_loading__zKVig div:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.Loading_loading__zKVig div:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes Loading_bounce__kVlwJ {
+  to {
+    opacity: 0.3;
+    transform: translate3d(0, -1rem, 0);
+  }
+}
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/UI/TextInput.module.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+.TextInput_textlabel__ZBBTN {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border: 1px solid #0D6693;
+  border-radius: 6px;
+  background-color: #fff;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.TextInput_textlabel__icon__0r1ZU {
+  margin-left: 13px;
+}
+.TextInput_textlabel__input__M_ng8 {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 9px;
+}
+.TextInput_textlabel__textarea__ZN0QQ {
+  background-color: #F5F5F5;
+}
+
+.TextInput_textInput__textarea__QdE47 {
+  min-height: 100px; /* საკმარისი სივრცე მრავალსტრიქონიანი ტექსტისთვის */
+  padding: 8px; /* ტექსტისთვის სივრცის დასამატებლად */
+  resize: vertical; /* სურვილისამებრ: ვერტიკალური ზომის შეცვლის ნებართვა */
+}
+
+.TextInput_textarea__V3e9y {
+  width: 100%;
+  min-height: 120px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  background-color: #F5F5F5;
+}
+
+.TextInput_uploadwidget__09kXk {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.TextInput_uploadwidget__title__7uLrj {
+  margin: 0;
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 44px;
+}
+.TextInput_uploadwidget__input__o4n_c {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+.TextInput_uploadwidget__btn__8mvYj {
+  width: 100%;
+  padding: 11px;
+  text-align: center;
+  background-color: rgba(13, 102, 147, 0.5);
+  color: #fff;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 1;
+}
+.TextInput_uploadwidget__btn__8mvYj.TextInput_disable__GFW__ {
+  cursor: no-drop;
+  opacity: 0.5;
+}
+.TextInput_uploadwidget__btn__8mvYj.TextInput_file__zAhi_ {
+  background-color: orange;
+  cursor: default;
+  opacity: 1;
+}
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/Form/Signature.module.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.Signature_signature__x4RGr {
+  width: 100%;
+  margin-top: 10px;
+}
+.Signature_signature__head__X43uL {
+  margin-bottom: 9px;
+}
+.Signature_signature__head--title__3x8HK {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 44px;
+}
+.Signature_signature__head--desc__u28kN {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 44px;
+}
+.Signature_signature__body__vA7i_ {
+  width: 100%;
+  height: 200px;
+  background-color: silver;
+  border-radius: 6px;
+}
+.Signature_signature__clear__ao8yA {
+  max-width: 193px;
+  width: 100%;
+  padding: 7px;
+  margin-top: 20px;
+  background-color: #4CAF4F;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #fff;
+  border: none;
+  outline: none;
+}
+
+.Signature_custombutton__Sg23i {
+  border: none;
+  line-height: 24px;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  border-radius: 14px;
+  background-color: #FD9B28;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/Form/PopUp.module.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.PopUp_popup__bCmfF {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 200px;
+}
+.PopUp_popup__bg__dZssq {
+  background-color: #000;
+  opacity: 0.74;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+}
+.PopUp_popup__content__UIGSZ {
+  width: 100%;
+  max-width: 553px;
+  background-color: #fff;
+  display: block;
+  position: relative;
+  padding: 32px 45px;
+  border-radius: 16px;
+}
+.PopUp_popup__title__9JSYG {
+  text-align: center;
+  margin-bottom: 8px;
+  font-size: 22px;
+  line-height: 44px;
+  font-weight: 700;
+  color: #FD9B28;
+}
+.PopUp_popup__text__halRW {
+  text-align: center;
+  margin-bottom: 49px;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 600;
+  color: #000;
+}
+.PopUp_popup__id__LQGhu {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 600;
+  color: #000;
+}
