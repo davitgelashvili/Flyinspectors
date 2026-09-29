@@ -1,0 +1,411 @@
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/views/FlightDelay/BeAware/BeAware.module.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.BeAware_services__9SfkL {
+  padding: 50px 0;
+}
+
+.BeAware_mainDiv__HonAP {
+  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.0509803922);
+  border-radius: 5px;
+}
+
+.BeAware_image__xQb2F {
+  position: relative;
+  width: 493px;
+  height: 400px;
+}
+
+.BeAware_header__cDQfF {
+  font-weight: 700;
+  background-color: #0D6693;
+  color: #ffffff;
+  padding: 20px;
+  margin: 0 0 15px 0;
+  border-radius: 9px 9px 0 0;
+  text-align: start;
+  font-size: 20px;
+}
+
+.BeAware_item__kKb49 h4 {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 22px;
+  color: #000000;
+  margin: 0;
+  cursor: default;
+}
+
+.BeAware_item__kKb49 p {
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+  color: #4b4b4b;
+  margin: 0;
+  cursor: default;
+}
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/SectionTextAndCover/SectionTextAndCover.module.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.SectionTextAndCover_cover__RE3RW {
+  width: 100%;
+  max-height: unset;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+@media (max-width: 991px) {
+  .SectionTextAndCover_cover__RE3RW {
+    max-height: 200px;
+  }
+}
+.SectionTextAndCover_cover__img__bH5Aq {
+  max-width: 100%;
+  max-height: unset;
+}
+@media (max-width: 991px) {
+  .SectionTextAndCover_cover__img__bH5Aq {
+    max-height: 200px;
+  }
+}
+
+.SectionTextAndCover_text__cdFKs {
+  width: 100%;
+  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.0509803922);
+  border-radius: 5px;
+  height: max-content;
+}
+.SectionTextAndCover_text__title__3DmAg {
+  font-weight: 700;
+  background-color: #0D6693;
+  color: #ffffff;
+  padding: 20px;
+  margin: 0;
+  border-radius: 9px 9px 0 0;
+  text-align: center;
+  font-size: 20px;
+}
+.SectionTextAndCover_text__body__u7KJD {
+  padding: 20px;
+}
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/views/FlightDelay/CompensationHowMuch/CompensationHowMuch.module.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.CompensationHowMuch_services__nJ4EZ {
+  padding: 120px 0;
+  width: 100%;
+  background-color: #F8FAFD;
+}
+
+.CompensationHowMuch_headerOfBullet__zbnQ6 {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 32px;
+  color: #000000;
+  margin: 0;
+  cursor: default;
+  padding-bottom: 20px;
+  padding-left: 15px;
+}
+
+.CompensationHowMuch_table__vW2Ja {
+  width: 99%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 9px 9px 0 0;
+  overflow: hidden;
+  text-align: start;
+  border: 1px solid #6E7491;
+  cursor: default;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.0901960784);
+}
+
+.CompensationHowMuch_header__AqtQJ {
+  background-color: #0d6693;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 15px 23px 20px 8px;
+  border-top: 1px solid #6E7491;
+}
+
+.CompensationHowMuch_headerLg__BfQPi {
+  background-color: #0d6693;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 15px 23px 20px 8px;
+  margin-left: 30px;
+  border: 1px solid #6E7491;
+}
+
+.CompensationHowMuch_cell__Z4V_4 {
+  padding: 13px 20px 13px 8px;
+  border: 1px solid #6E7491;
+  background-color: #ffffff;
+  color: #717171;
+}
+
+.CompensationHowMuch_cellLast__CKntA {
+  padding: 13px 28px 20px 8px;
+  border: 1px solid #6E7491;
+  background-color: #ffffff;
+  color: #717171;
+}
+
+.CompensationHowMuch_table__vW2Ja tr:hover {
+  background-color: #f1f1f1;
+}
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/Tables/tabletwo/CompensationHowMuch.module.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.CompensationHowMuch_services__5Ajk1 {
+  padding: 120px 0;
+  width: 100%;
+  background-color: #F8FAFD;
+}
+
+.CompensationHowMuch_headerOfBullet__0ChFN {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 32px;
+  color: #000000;
+  margin: 0;
+  cursor: default;
+  padding-bottom: 20px;
+  padding-left: 15px;
+}
+
+.CompensationHowMuch_table__2GO_0 {
+  width: 99%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 9px 9px 0 0;
+  overflow: hidden;
+  text-align: start;
+  border: 1px solid #6E7491;
+  cursor: default;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.0901960784);
+}
+
+.CompensationHowMuch_header__xMe_W {
+  background-color: #0d6693;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 15px 23px 20px 8px;
+  border-top: 1px solid #6E7491;
+}
+
+.CompensationHowMuch_headerLg__ZjZCH {
+  background-color: #0d6693;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 15px 23px 20px 8px;
+  margin-left: 30px;
+  border: 1px solid #6E7491;
+}
+
+.CompensationHowMuch_cell__wNMOo {
+  padding: 13px 20px 13px 8px;
+  border: 1px solid #6E7491;
+  background-color: #ffffff;
+  color: #717171;
+}
+
+.CompensationHowMuch_cellLast__b_sMm {
+  padding: 13px 28px 20px 8px;
+  border: 1px solid #6E7491;
+  background-color: #ffffff;
+  color: #717171;
+}
+
+.CompensationHowMuch_table__2GO_0 tr:hover {
+  background-color: #f1f1f1;
+}
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/views/FlightDelay/CompensationIf/CompensationIf.module.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.CompensationIf_services__jgQnM {
+  padding: 50px 0;
+  width: 100%;
+}
+
+.CompensationIf_headerOfBullet__oDvzm {
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 32px;
+  color: #000000;
+  margin: 0;
+  cursor: default;
+  padding-bottom: 20px;
+  padding-left: 15px;
+}
+
+.CompensationIf_bulletList__w_hIB {
+  list-style-type: disc;
+}
+.CompensationIf_bulletList__w_hIB li {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 22px;
+  color: #000000;
+  margin: 0;
+  cursor: default;
+  margin-bottom: 10px;
+}
+
+.CompensationIf_table__3eGe8 {
+  width: 99%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 9px 9px 0 0;
+  overflow: hidden;
+  text-align: start;
+  border: 1px solid #6E7491;
+  cursor: default;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.0901960784);
+}
+
+.CompensationIf_header__JK3rG {
+  background-color: #0d6693;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 15px 23px 20px 8px;
+  border: 1px solid #6E7491;
+}
+
+.CompensationIf_cell__hoIrw {
+  padding: 13px 20px 13px 8px;
+  border: 1px solid #6E7491;
+  background-color: #ffffff;
+  color: #717171;
+}
+
+.CompensationIf_cellLast__WqltS {
+  padding: 13px 20px 28px 8px;
+  border: 1px solid #6E7491;
+  background-color: #ffffff;
+  color: #717171;
+}
+
+.CompensationIf_table__3eGe8 tr:hover {
+  background-color: #f1f1f1;
+}
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/Tables/tableone/CompensationIf.module.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.CompensationIf_services__Uy8pf {
+  padding: 50px 0;
+  width: 100%;
+}
+
+.CompensationIf_headerOfBullet__Z4PDO {
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 32px;
+  color: #000000;
+  margin: 0;
+  cursor: default;
+  padding-bottom: 20px;
+  padding-left: 15px;
+}
+
+.CompensationIf_bulletList__psJRL {
+  list-style-type: disc;
+}
+.CompensationIf_bulletList__psJRL li {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 22px;
+  color: #000000;
+  margin: 0;
+  cursor: default;
+  margin-bottom: 10px;
+}
+
+.CompensationIf_table__xCLLH {
+  width: 99%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 9px 9px 0 0;
+  overflow: hidden;
+  text-align: start;
+  border: 1px solid #6E7491;
+  cursor: default;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.0901960784);
+}
+
+.CompensationIf_header__zoyFJ {
+  background-color: #0d6693;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 15px 23px 20px 8px;
+  border: 1px solid #6E7491;
+}
+
+.CompensationIf_cell__whIpE {
+  padding: 13px 20px 13px 8px;
+  border: 1px solid #6E7491;
+  background-color: #ffffff;
+  color: #717171;
+}
+
+.CompensationIf_cellLast__2UEgD {
+  padding: 13px 20px 28px 8px;
+  border: 1px solid #6E7491;
+  background-color: #ffffff;
+  color: #717171;
+}
+
+.CompensationIf_table__xCLLH tr:hover {
+  background-color: #f1f1f1;
+}
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/views/FlightDelay/CompensationInfo/CompensationInfo.module.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.CompensationInfo_services__QgB8S {
+  padding: 50px 0;
+}
+
+.CompensationInfo_mainDiv__MhGg7 {
+  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.0509803922);
+  border-radius: 5px;
+}
+
+.CompensationInfo_image__JCWC7 {
+  width: 530px;
+  height: 330px;
+}
+
+.CompensationInfo_header__FEv0Q {
+  font-weight: 700;
+  background-color: #0D6693;
+  color: #ffffff;
+  padding: 20px;
+  margin: 0 0 15px 0;
+  border-radius: 9px 9px 0 0;
+  text-align: center;
+  font-size: 20px;
+}
+
+.CompensationInfo_item__ppbWd h4 {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 22px;
+  color: #000000;
+  margin: 0;
+  cursor: default;
+}
+
+.CompensationInfo_item__ppbWd p {
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+  color: #4b4b4b;
+  margin: 0;
+  cursor: default;
+}
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/views/FlightDelay/FlightDelay.module.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.FlightDelay_MainContainer__BJ0DT {
+  background: #fff;
+}

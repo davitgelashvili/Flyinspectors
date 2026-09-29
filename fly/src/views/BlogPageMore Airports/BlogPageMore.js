@@ -1,4 +1,3 @@
-import Slider from "../../components/Common/Slider/Slider";
 import AirportList from "./Airportlist/AirportList";
 import China from "./China/China";
 import Hamad from "./Hamad Airport/Hamad";
@@ -11,7 +10,6 @@ import Usa from "./USA/Usa";
 function BlogPageMoreAirports() {
   return (
     <div>
-      <Slider />
       <AirportList />
       <Hamad />
       <Munich />

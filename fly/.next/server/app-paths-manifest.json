@@ -1,6 +1,9 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/[lang]/page/[slug]/page": "app/[lang]/page/[slug]/page.js",
   "/adminpanel/[[...slug]]/page": "app/adminpanel/[[...slug]]/page.js",
-  "/[lang]/page": "app/[lang]/page.js"
+  "/[lang]/page": "app/[lang]/page.js",
+  "/[lang]/about-us/faq/page": "app/[lang]/about-us/faq/page.js",
+  "/[lang]/about-us/blog/page": "app/[lang]/about-us/blog/page.js",
+  "/[lang]/your-rights/flight-delay/page": "app/[lang]/your-rights/flight-delay/page.js",
+  "/[lang]/page/[slug]/page": "app/[lang]/page/[slug]/page.js"
 }

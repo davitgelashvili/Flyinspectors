@@ -51,6 +51,39 @@
   text-decoration: none;
   display: block;
 }
+.Sidebar_sidebar__group__zyLOD {
+  padding-bottom: 0;
+}
+.Sidebar_sidebar__group--toggle__dJoGx {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+.Sidebar_sidebar__group--arrow__F64za {
+  color: #91A4B7;
+  font-size: 14px;
+  transition: transform 0.2s ease;
+}
+.Sidebar_sidebar__group--arrow__F64za.Sidebar_open__C9K0L {
+  transform: rotate(180deg);
+}
+.Sidebar_sidebar__group--list__bkuqR {
+  margin: 0 0 6px;
+  padding: 0;
+}
+.Sidebar_sidebar__group--list__bkuqR > li {
+  margin: 4px 0;
+  background-color: #0D1829;
+}
+.Sidebar_sidebar__group--list__bkuqR > li.Sidebar_active__q1Pbh {
+  background-color: #FD9B28;
+}
 .Sidebar_sidebar__logout__mEHkj {
   margin-top: 12px;
   padding: 9px;
@@ -533,6 +566,81 @@
 }
 .Content_content__body__BkPxA {
   display: block;
+}
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/Dashboard/ListForm/ListForm.module.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.ListForm_hint__vE_0W {
+  margin: 0 0 16px;
+  font-size: 13px;
+  color: #6b6f85;
+}
+
+.ListForm_card__z5OkR {
+  margin-bottom: 16px;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #e2e3ea;
+  border-radius: 10px;
+}
+.ListForm_card__head__eBNx9 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.ListForm_card__number__yNd5j {
+  font-size: 14px;
+  font-weight: 700;
+  color: #232536;
+}
+.ListForm_card__actions__2tZ5M {
+  display: flex;
+  gap: 8px;
+}
+.ListForm_card__actions__2tZ5M button {
+  padding: 6px 12px;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  background: #f6f6f8;
+  border: 1px solid #d4d6e0;
+  border-radius: 6px;
+}
+.ListForm_card__actions__2tZ5M button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.ListForm_card__remove__qQSrM {
+  color: #b3261e;
+}
+
+.ListForm_label__Tvh4B {
+  margin: 12px 0 6px;
+  font-size: 14px;
+}
+
+.ListForm_textarea__297Fx {
+  width: 100%;
+  padding: 10px 12px;
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+  resize: vertical;
+  border: 1px solid #d4d6e0;
+  border-radius: 6px;
+}
+
+.ListForm_add__Ad0Qd {
+  padding: 10px 18px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  color: #0056b3;
+  background: transparent;
+  border: 1px dashed #0056b3;
+  border-radius: 8px;
 }
 /*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/UI/TextInput.module.scss ***!

@@ -1,27 +1,10 @@
 {
   "pages": {
-    "/adminpanel/[[...slug]]/page": [
+    "/[lang]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/adminpanel/[[...slug]]/page.css",
-      "static/chunks/app/adminpanel/[[...slug]]/page.js"
-    ],
-    "/adminpanel/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/adminpanel/layout.js"
-    ],
-    "/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/layout.css",
-      "static/chunks/app/layout.js"
-    ],
-    "/[lang]/submit-claim/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/[lang]/submit-claim/page.css",
-      "static/chunks/app/[lang]/submit-claim/page.js"
+      "static/css/app/[lang]/page.css",
+      "static/chunks/app/[lang]/page.js"
     ],
     "/[lang]/layout": [
       "static/chunks/webpack.js",
@@ -35,11 +18,53 @@
       "static/css/app/[lang]/check-status/page.css",
       "static/chunks/app/[lang]/check-status/page.js"
     ],
-    "/[lang]/page": [
+    "/[lang]/submit-claim/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/[lang]/page.css",
-      "static/chunks/app/[lang]/page.js"
+      "static/css/app/[lang]/submit-claim/page.css",
+      "static/chunks/app/[lang]/submit-claim/page.js"
+    ],
+    "/[lang]/about-us/blog/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/[lang]/about-us/blog/page.css",
+      "static/chunks/app/[lang]/about-us/blog/page.js"
+    ],
+    "/[lang]/contact-us/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/[lang]/contact-us/page.css",
+      "static/chunks/app/[lang]/contact-us/page.js"
+    ],
+    "/adminpanel/[[...slug]]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/adminpanel/[[...slug]]/page.css",
+      "static/chunks/app/adminpanel/[[...slug]]/page.js"
+    ],
+    "/adminpanel/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/adminpanel/layout.css",
+      "static/chunks/app/adminpanel/layout.js"
+    ],
+    "/[lang]/about-us/faq/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/[lang]/about-us/faq/page.css",
+      "static/chunks/app/[lang]/about-us/faq/page.js"
+    ],
+    "/[lang]/your-rights/flight-delay/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/[lang]/your-rights/flight-delay/page.css",
+      "static/chunks/app/[lang]/your-rights/flight-delay/page.js"
+    ],
+    "/[lang]/your-rights/flight-cancellation/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/[lang]/your-rights/flight-cancellation/page.css",
+      "static/chunks/app/[lang]/your-rights/flight-cancellation/page.js"
     ],
     "/[lang]/page/[slug]/page": [
       "static/chunks/webpack.js",

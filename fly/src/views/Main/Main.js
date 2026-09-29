@@ -9,10 +9,10 @@ import FaqSection from "../../components/Main/FaqSection/FaqSection";
 function Main({ lang }) {
   return (
     <main>
-      <Slider />
-      <OptionsSection />
+      <Slider lang={lang} />
+      <OptionsSection lang={lang} />
       <ServicesOptions lang={lang} />
-      <WhyWe />
+      <WhyWe lang={lang} />
       <FaqSection />
       <WeGivesYou />
       <KnowsYourRights />

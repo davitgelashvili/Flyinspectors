@@ -1,0 +1,21 @@
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+self["webpackHotUpdate_N_E"]("app/[lang]/layout",{
+
+/***/ "(app-pages-browser)/./src/components/Common/Header/Menu/BurgerMenu.module.scss":
+/*!******************************************************************!*\
+  !*** ./src/components/Common/Header/Menu/BurgerMenu.module.scss ***!
+  \******************************************************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+eval(__webpack_require__.ts("// extracted by mini-css-extract-plugin\nmodule.exports = {\"nav\":\"BurgerMenu_nav__KPEE2\",\"nav_item\":\"BurgerMenu_nav_item__eyNQ9\",\"active\":\"BurgerMenu_active__ucSmR\",\"pages\":\"BurgerMenu_pages__QOYvy\",\"languageToggle\":\"BurgerMenu_languageToggle__Pl6ey\",\"dropdown\":\"BurgerMenu_dropdown__ii6vM\",\"arrow\":\"BurgerMenu_arrow__DQNZt\",\"dropdown_item\":\"BurgerMenu_dropdown_item__cdQzp\",\"logo__img\":\"BurgerMenu_logo__img__vGc9A\",\"container\":\"BurgerMenu_container__Uyaga\",\"open\":\"BurgerMenu_open__pM4V6\",\"dropdownTrigger\":\"BurgerMenu_dropdownTrigger__g0KTP\",\"hasDropdown\":\"BurgerMenu_hasDropdown__kSyuz\",\"activeDropdownItem\":\"BurgerMenu_activeDropdownItem__p_T9b\"};\n    if(true) {\n      // 1790688429628\n      var cssReload = __webpack_require__(/*! ./node_modules/next/dist/compiled/mini-css-extract-plugin/hmr/hotModuleReplacement.js */ \"(app-pages-browser)/./node_modules/next/dist/compiled/mini-css-extract-plugin/hmr/hotModuleReplacement.js\")(module.id, {\"publicPath\":\"/_next/\",\"esModule\":false,\"locals\":true});\n      module.hot.dispose(cssReload);\n      \n    }\n  \nmodule.exports.__checksum = \"a279fa072279\"\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwcC1wYWdlcy1icm93c2VyKS8uL3NyYy9jb21wb25lbnRzL0NvbW1vbi9IZWFkZXIvTWVudS9CdXJnZXJNZW51Lm1vZHVsZS5zY3NzIiwibWFwcGluZ3MiOiJBQUFBO0FBQ0Esa0JBQWtCO0FBQ2xCLE9BQU8sSUFBVTtBQUNqQjtBQUNBLHNCQUFzQixtQkFBTyxDQUFDLHdNQUEwRyxjQUFjLHNEQUFzRDtBQUM1TSxNQUFNLFVBQVU7QUFDaEI7QUFDQTtBQUNBO0FBQ0EseUJBQXlCIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vX05fRS8uL3NyYy9jb21wb25lbnRzL0NvbW1vbi9IZWFkZXIvTWVudS9CdXJnZXJNZW51Lm1vZHVsZS5zY3NzPzIwMTUiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gZXh0cmFjdGVkIGJ5IG1pbmktY3NzLWV4dHJhY3QtcGx1Z2luXG5tb2R1bGUuZXhwb3J0cyA9IHtcIm5hdlwiOlwiQnVyZ2VyTWVudV9uYXZfX0tQRUUyXCIsXCJuYXZfaXRlbVwiOlwiQnVyZ2VyTWVudV9uYXZfaXRlbV9fZXlOUTlcIixcImFjdGl2ZVwiOlwiQnVyZ2VyTWVudV9hY3RpdmVfX3VjU21SXCIsXCJwYWdlc1wiOlwiQnVyZ2VyTWVudV9wYWdlc19fUU9ZdnlcIixcImxhbmd1YWdlVG9nZ2xlXCI6XCJCdXJnZXJNZW51X2xhbmd1YWdlVG9nZ2xlX19QbDZleVwiLFwiZHJvcGRvd25cIjpcIkJ1cmdlck1lbnVfZHJvcGRvd25fX2lpNnZNXCIsXCJhcnJvd1wiOlwiQnVyZ2VyTWVudV9hcnJvd19fRFFOWnRcIixcImRyb3Bkb3duX2l0ZW1cIjpcIkJ1cmdlck1lbnVfZHJvcGRvd25faXRlbV9fY2RRenBcIixcImxvZ29fX2ltZ1wiOlwiQnVyZ2VyTWVudV9sb2dvX19pbWdfX3ZHYzlBXCIsXCJjb250YWluZXJcIjpcIkJ1cmdlck1lbnVfY29udGFpbmVyX19VeWFnYVwiLFwib3BlblwiOlwiQnVyZ2VyTWVudV9vcGVuX19wTTRWNlwiLFwiZHJvcGRvd25UcmlnZ2VyXCI6XCJCdXJnZXJNZW51X2Ryb3Bkb3duVHJpZ2dlcl9fZzBLVFBcIixcImhhc0Ryb3Bkb3duXCI6XCJCdXJnZXJNZW51X2hhc0Ryb3Bkb3duX19rU3l1elwiLFwiYWN0aXZlRHJvcGRvd25JdGVtXCI6XCJCdXJnZXJNZW51X2FjdGl2ZURyb3Bkb3duSXRlbV9fcF9UOWJcIn07XG4gICAgaWYobW9kdWxlLmhvdCkge1xuICAgICAgLy8gMTc5MDY4ODQyOTYyOFxuICAgICAgdmFyIGNzc1JlbG9hZCA9IHJlcXVpcmUoXCJEOi9GbHlpbnNwZWN0b3JzL2ZseS9ub2RlX21vZHVsZXMvbmV4dC9kaXN0L2NvbXBpbGVkL21pbmktY3NzLWV4dHJhY3QtcGx1Z2luL2htci9ob3RNb2R1bGVSZXBsYWNlbWVudC5qc1wiKShtb2R1bGUuaWQsIHtcInB1YmxpY1BhdGhcIjpcIi9fbmV4dC9cIixcImVzTW9kdWxlXCI6ZmFsc2UsXCJsb2NhbHNcIjp0cnVlfSk7XG4gICAgICBtb2R1bGUuaG90LmRpc3Bvc2UoY3NzUmVsb2FkKTtcbiAgICAgIFxuICAgIH1cbiAgXG5tb2R1bGUuZXhwb3J0cy5fX2NoZWNrc3VtID0gXCJhMjc5ZmEwNzIyNzlcIlxuIl0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(app-pages-browser)/./src/components/Common/Header/Menu/BurgerMenu.module.scss\n"));
+
+/***/ })
+
+});

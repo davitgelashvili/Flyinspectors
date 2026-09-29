@@ -201,3 +201,94 @@
         cursor: pointer;
     }
 }
+
+// ---- Desktop (v2 დიზაინი) ----
+@media (min-width: 992px) {
+    .container {
+        height: 100%;
+    }
+
+    .container nav {
+        height: 100%;
+    }
+
+    .nav {
+        display: flex;
+        align-items: center;
+        gap: 26px;
+        height: 100%;
+    }
+
+    .nav_item {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        padding: 0;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    .pages {
+        color: #fff;
+        transition: color 0.2s ease;
+
+        &:hover {
+            color: #fd9b28;
+        }
+    }
+
+    .dropdownTrigger {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .hasDropdown::after {
+        content: "▾";
+        font-size: 12px;
+        color: #fff;
+        transition: color 0.2s ease;
+    }
+
+    .nav_item:hover .hasDropdown::after,
+    .active .hasDropdown::after {
+        color: #fd9b28;
+    }
+
+    .dropdown {
+        top: calc(100% + 3px); // header-ის 3px ქვედა ხაზის ქვემოთ
+        min-width: 240px;
+        padding: 8px;
+        border-radius: 12px;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+
+        // ხაზზე გადასვლისას hover არ უნდა გაწყდეს
+        &::before {
+            content: "";
+            position: absolute;
+            top: -3px;
+            left: 0;
+            right: 0;
+            height: 3px;
+        }
+    }
+
+    .dropdown_item {
+        padding: 10px 14px;
+        border-radius: 8px;
+        color: #232536;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: normal;
+
+        &:hover {
+            color: #0056b3;
+            background-color: #f6f6f8;
+        }
+    }
+
+    .activeDropdownItem .dropdown_item {
+        color: #0056b3;
+    }
+}

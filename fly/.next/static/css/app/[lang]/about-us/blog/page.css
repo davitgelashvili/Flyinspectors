@@ -1,0 +1,383 @@
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/views/Blog page/About Pilots/AboutPilots.module.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.AboutPilots_services__C91YN {
+  padding-top: 60px;
+  width: 100%;
+  padding-bottom: 120px;
+}
+.AboutPilots_services__header__uXaQQ {
+  margin-left: 20px;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 48px;
+  color: #232536;
+}
+@media (max-width: 768px) {
+  .AboutPilots_services__header__uXaQQ {
+    margin-left: 20px;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 18px;
+    color: #232536;
+  }
+}
+
+@media (max-width: 768px) {
+  .AboutPilots_mainDiv__Mp1qR {
+    display: flex;
+    flex-direction: column;
+  }
+  .AboutPilots_mainDiv__textArea__Br9EG {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+.AboutPilots_mainDiv__Mp1qR {
+  display: flex;
+  max-width: 100%;
+  margin-bottom: 50px;
+}
+.AboutPilots_mainDiv__text__TPbny {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  color: #6d6e76;
+  margin-left: 20px;
+}
+.AboutPilots_mainDiv__image__06vBZ {
+  padding-top: 30px;
+  height: 318px;
+  width: 550px;
+}
+@media (max-width: 768px) {
+  .AboutPilots_mainDiv__text__TPbny {
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 20px;
+    color: #6d6e76;
+    margin-left: 20px;
+  }
+  .AboutPilots_mainDiv__image__06vBZ {
+    margin-top: 20px;
+    max-height: 100%;
+    max-width: 100%;
+  }
+}
+
+.AboutPilots_link___Mt5z {
+  text-decoration: none;
+  color: inherit;
+}
+
+.AboutPilots_button__5mN2L {
+  margin-left: 20px;
+  background-color: #FD9B28;
+  color: white;
+  display: flex;
+  padding: 4px 25px 4px 25px;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.AboutPilots_button__5mN2L:hover {
+  background-color: #e68921;
+}
+
+.AboutPilots_cardText__GqZcI {
+  font-size: 11px;
+  line-height: 20px;
+  color: #6d6e76;
+}
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/views/Blog page/CancelledFlights/CancelledFlights.module.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.CancelledFlights_services__C4f6F {
+  padding-top: 120px;
+  width: 100%;
+}
+.CancelledFlights_services__header__AoBBe {
+  margin-left: 20px;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 48px;
+  color: #232536;
+}
+@media (max-width: 768px) {
+  .CancelledFlights_services__header__AoBBe {
+    margin-top: 30px;
+    margin-left: 20px;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 18px;
+    color: #232536;
+  }
+}
+
+.CancelledFlights_mainDiv__Rz4G8 {
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+}
+.CancelledFlights_mainDiv__text__ROm2Y {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  color: #6d6e76;
+  margin-left: 20px;
+}
+.CancelledFlights_mainDiv__image__DdidM {
+  padding-top: 30px;
+  height: 318px;
+  width: 550px;
+}
+@media (max-width: 768px) {
+  .CancelledFlights_mainDiv__text__ROm2Y {
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 20px;
+    color: #6d6e76;
+    margin-left: 20px;
+  }
+  .CancelledFlights_mainDiv__image__DdidM {
+    margin-top: 20px;
+    max-height: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .CancelledFlights_mainDiv__Rz4G8 {
+    display: flex;
+    flex-direction: column;
+  }
+  .CancelledFlights_mainDiv__textArea__Fza3E {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+.CancelledFlights_link__6ERkx {
+  text-decoration: none;
+  color: inherit;
+}
+
+.CancelledFlights_button__lx1ZK {
+  margin-left: 20px;
+  background-color: #FD9B28;
+  color: white;
+  display: flex;
+  padding: 4px 25px 4px 25px;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.CancelledFlights_button__lx1ZK:hover {
+  background-color: #e68921;
+}
+
+.CancelledFlights_cardText__K2KMf {
+  font-size: 11px;
+  line-height: 20px;
+  color: #6d6e76;
+}
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/views/Blog page/Mechanical Issues/MechanicalIssues.module.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.MechanicalIssues_services__aoRfA {
+  padding-top: 60px;
+  width: 100%;
+  padding-bottom: 120px;
+}
+.MechanicalIssues_services__header__eXzUb {
+  margin-left: 20px;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 48px;
+  color: #232536;
+}
+@media (max-width: 768px) {
+  .MechanicalIssues_services__header__eXzUb {
+    margin-left: 20px;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 18px;
+    color: #232536;
+  }
+}
+
+@media (max-width: 768px) {
+  .MechanicalIssues_mainDiv__D15Oe {
+    display: flex;
+    flex-direction: column;
+  }
+  .MechanicalIssues_mainDiv__textArea__w59ml {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+.MechanicalIssues_mainDiv__D15Oe {
+  display: flex;
+  max-width: 100%;
+  margin-top: 80px;
+}
+.MechanicalIssues_mainDiv__text__rEJVa {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  color: #6d6e76;
+  margin-left: 20px;
+}
+.MechanicalIssues_mainDiv__image__hmsNd {
+  padding-top: 30px;
+  height: 318px;
+  width: 550px;
+}
+@media (max-width: 768px) {
+  .MechanicalIssues_mainDiv__text__rEJVa {
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 20px;
+    color: #6d6e76;
+    margin-left: 20px;
+  }
+  .MechanicalIssues_mainDiv__image__hmsNd {
+    margin-top: 20px;
+    max-height: 100%;
+    max-width: 100%;
+  }
+}
+
+.MechanicalIssues_link__aAXvx {
+  text-decoration: none;
+  color: inherit;
+}
+
+.MechanicalIssues_button__YnAg0 {
+  margin-left: 20px;
+  background-color: #FD9B28;
+  color: white;
+  display: flex;
+  padding: 4px 25px 4px 25px;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.MechanicalIssues_button__YnAg0:hover {
+  background-color: #e68921;
+}
+
+.MechanicalIssues_cardText__kPHcw {
+  font-size: 11px;
+  line-height: 20px;
+  color: #6d6e76;
+}
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/views/Blog page/Pets in planes/PetsInPlanes.module.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.PetsInPlanes_services__5Ygay {
+  padding-top: 60px;
+  width: 100%;
+  padding-bottom: 120px;
+}
+.PetsInPlanes_services__header__e6lg4 {
+  margin-left: 20px;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 48px;
+  color: #232536;
+}
+@media (max-width: 768px) {
+  .PetsInPlanes_services__header__e6lg4 {
+    margin-left: 20px;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 18px;
+    color: #232536;
+  }
+}
+
+@media (max-width: 768px) {
+  .PetsInPlanes_mainDiv__Q5YFA {
+    display: flex;
+    flex-direction: column;
+  }
+  .PetsInPlanes_mainDiv__textArea___KKYV {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+.PetsInPlanes_mainDiv__Q5YFA {
+  display: flex;
+  max-width: 100%;
+}
+.PetsInPlanes_mainDiv__text__bZKY4 {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  color: #6d6e76;
+  margin-left: 20px;
+}
+.PetsInPlanes_mainDiv__image___e_pE {
+  padding-top: 30px;
+  height: 318px;
+  width: 550px;
+}
+@media (max-width: 768px) {
+  .PetsInPlanes_mainDiv__text__bZKY4 {
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 20px;
+    color: #6d6e76;
+    margin-left: 20px;
+  }
+  .PetsInPlanes_mainDiv__image___e_pE {
+    margin-top: 20px;
+    max-height: 100%;
+    max-width: 100%;
+  }
+}
+
+.PetsInPlanes_link__hK9ai {
+  text-decoration: none;
+  color: inherit;
+}
+
+.PetsInPlanes_button__DboXh {
+  margin-left: 20px;
+  background-color: #FD9B28;
+  color: white;
+  display: flex;
+  padding: 4px 25px 4px 25px;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.PetsInPlanes_button__DboXh:hover {
+  background-color: #e68921;
+}
+
+.PetsInPlanes_cardText__d5LM7 {
+  font-size: 11px;
+  line-height: 20px;
+  color: #6d6e76;
+}

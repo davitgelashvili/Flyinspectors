@@ -77,7 +77,7 @@ const BurgerMenu = ({IsOpen, setIsOpen}) => {
                 onMouseLeave={() => item.dropdown && setShowDropdown(false)}
                 onClick={() => setShowDropdown(!showDropdown)}
               >
-                <div className={styles.dropdownTrigger}>
+                <div className={`${styles.dropdownTrigger} ${item.dropdown ? styles.hasDropdown : ""}`}>
                   <Link className={styles.pages} href={item.link || '#'}>
                     {item.title}
                   </Link>
