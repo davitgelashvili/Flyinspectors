@@ -2,17 +2,14 @@
 
 import { useDispatch } from "react-redux";
 import { usePathname, useRouter } from "next/navigation";
-import engFlag from "../../../../assetss/images/brtsh.jpg";
-import geoFlag from "../../../../assetss/images/geo.jpg";
 import { siteTranslateAction } from "../../../../store/translate";
 import { withLocale } from "@/i18n/locales";
+import styles from "./Language.module.scss";
 
-const flagStyle = {
-    cursor: "pointer",
-    height: "20px",
-    border: "1px solid #ccc",
-    borderRadius: "3px",
-};
+const LANGS = [
+    { code: "ka", label: "KA" },
+    { code: "en", label: "EN" },
+];
 
 const Language = ({ language }) => {
     const dispatch = useDispatch();
@@ -20,27 +17,24 @@ const Language = ({ language }) => {
     const pathname = usePathname();
 
     const switchTo = (lang) => {
+        if (lang === language) return;
         dispatch(siteTranslateAction.changeLanguage(lang));
         router.push(withLocale(pathname, lang));
     };
 
     return (
-        <div style={{ marginLeft: "15px" }}>
-            {language === "ka" ? (
-                <img
-                    src={engFlag}
-                    alt="English"
-                    onClick={() => switchTo("en")}
-                    style={flagStyle}
-                />
-            ) : (
-                <img
-                    src={geoFlag}
-                    alt="Georgian"
-                    onClick={() => switchTo("ka")}
-                    style={flagStyle}
-                />
-            )}
+        <div className={styles.language}>
+            {LANGS.map(({ code, label }) => (
+                <button
+                    key={code}
+                    type="button"
+                    aria-pressed={language === code}
+                    onClick={() => switchTo(code)}
+                    className={`${styles.language__btn} ${language === code ? styles["language__btn--active"] : ""}`}
+                >
+                    {label}
+                </button>
+            ))}
         </div>
     );
 };

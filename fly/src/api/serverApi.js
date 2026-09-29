@@ -14,6 +14,10 @@ async function getJson(path, fallback) {
 export const getServices = () => getJson('/services', []);
 export const getConditions = () => getJson('/conditions', []);
 export const getRates = () => getJson('/rate', []);
+export const getHero = () => getJson('/hero', null);
+export const getOptions = () => getJson('/options', null);
+export const getHow = () => getJson('/how', null);
+export const getWhy = () => getJson('/why', null);
 
 export const getPages = () => getJson('/pages', []);
 

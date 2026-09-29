@@ -25,7 +25,6 @@ function Header() {
     useEffect(() => {
         dispatch(siteTranslateAction.changeLanguage(locale))
         i18n.changeLanguage(locale)
-        document.documentElement.lang = locale
     }, [dispatch, locale])
 
     const toggleMenu = () => {
@@ -35,17 +34,17 @@ function Header() {
     return (
         <>
             <header className={styles.header}>
-                <div className={styles.container}>
+                <div className={styles.header__container}>
                     <div className={styles.header__content}>
                         <Logo />
-                        <BurgerMenu setIsOpen={setIsOpen} IsOpen={IsOpen} />
                         <div className={styles.header__right} >
-                            <SubmitLink className={styles.header__submitlink} />
+                            <BurgerMenu setIsOpen={setIsOpen} IsOpen={IsOpen} />
                             {
                                 languageBtn && (
-                                    <Language language={locale}/>
+                                    <Language language={locale} />
                                 )
                             }
+                            <SubmitLink className={styles.header__submitlink} />
                             <div className={styles.header__burger} onClick={toggleMenu}>
                                 <img src={iconMenu} alt="Menu" className={styles.iconMenu} />
                             </div>

@@ -2,7 +2,6 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import header from '../components/Common/Header/header.module'
 import opensectionModule from "../components/OptionsSection/opensection.module";
-import whyweModule from "../components/WhyWe/whywe.module";
 import FaqSectionModule from "../components/Main/FaqSection/FaqSection.module";
 import WeGivesYouModule from "../components/WeGivesYou/WeGivesYou.module";
 import KnowsYourRightsModule from "../components/Knows Your Rights/components/KnowsYourRights.module";
@@ -40,6 +39,7 @@ import tablefourModule from "../components/Tables/tablefour/tablefour.module";
 import TablefiveModule from "../components/Tables/tablefive/Tablefive.module";
 
 import SubmitLinkModule from "../components/UI/SubmitLink.module";
+import SliderModule from "../components/Common/Slider/Slider.module";
 import FormModule from "../components/Form/Form.module";
 import AboutPilots from "../views/Blog page/About Pilots/aboutpilots.module";
 import cancelledflightsModule from "../views/Blog page/CancelledFlights/cancelledflights.module";
@@ -59,7 +59,6 @@ i18n
                 translation: {
                     ...header.en,
                     ...opensectionModule.en,
-                    ...whyweModule.en,
                     ...FaqSectionModule.en,
                     ...WeGivesYouModule.en,
                     ...KnowsYourRightsModule.en,
@@ -99,6 +98,7 @@ i18n
                     ...TablefiveModule.en,
 
                     ...SubmitLinkModule.en,
+                    ...SliderModule.en,
                     ...FormModule.en,
 
 
@@ -118,7 +118,6 @@ i18n
                 translation: {
                     ...header.ka,
                     ...opensectionModule.ka,
-                    ...whyweModule.ka,
                     ...FaqSectionModule.ka,
                     ...WeGivesYouModule.ka,
                     ...KnowsYourRightsModule.ka,
@@ -158,6 +157,7 @@ i18n
                     ...TablefiveModule.ka,
 
                     ...SubmitLinkModule.ka,
+                    ...SliderModule.ka,
                     ...FormModule.ka,
 
 

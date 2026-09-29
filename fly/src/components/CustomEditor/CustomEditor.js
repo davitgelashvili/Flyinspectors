@@ -9,7 +9,13 @@ const Editor = dynamic(
     { ssr: false }
 );
 
-const CustomEditor = ({ onChange, name, section, title, value }) => {
+const DEFAULT_OPTIONS = [
+    'inline', 'blockType', 'fontSize', 'list',
+    'textAlign', 'colorPicker', 'link', 'emoji',
+    'remove', 'history', 'image'
+];
+
+const CustomEditor = ({ onChange, name, section, title, value, options = DEFAULT_OPTIONS }) => {
     const [editorState, setEditorState] = useState(null);
     const [initialized, setInitialized] = useState(false);
     const [draftModules, setDraftModules] = useState(null);
@@ -77,11 +83,7 @@ const CustomEditor = ({ onChange, name, section, title, value }) => {
                 editorState={editorState}
                 onEditorStateChange={handleEditorChange}
                 toolbar={{
-                    options: [
-                        'inline', 'blockType', 'fontSize', 'list',
-                        'textAlign', 'colorPicker', 'link', 'emoji',
-                        'remove', 'history', 'image'
-                    ],
+                    options,
                     image: {
                         uploadEnabled: true,
                         uploadCallback: uploadImageCallBack,

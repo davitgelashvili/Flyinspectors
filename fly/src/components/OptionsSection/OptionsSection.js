@@ -1,63 +1,57 @@
-'use client'
-
-import { useTranslation } from "react-i18next";
-import Item from "./Item";
+import { getOptions } from '@/api/serverApi';
+import { LOCALES, DEFAULT_LOCALE } from '@/i18n/locales';
+import translations from './opensection.module';
+import Item from './Item';
 import styles from './OptionsSection.module.scss';
 
-const OptionsSection = () => {
-    const { t } = useTranslation();
+// ნაგულისხმევი ბარათები: თარგმანის ფაილში არსებული რიგით
+const DEFAULT_KEYS = [
+    'delay',
+    'compensation',
+    'missedconnectioncompensation',
+    'overbookingcompensation',
+    'compensationfordeniedboarding',
+    'delayedbaggagecompensation',
+];
 
-    // Static data with keys for translation
-    const data = [
-        {
-            title: 'opensection.delay.title',
-            desc: 'opensection.delay.desc',
-            icon: "https://res.cloudinary.com/dluqxr8lw/image/upload/v1732476179/ic_schedule_24px_1_tanbbs.svg"
-        },
-        {
-            title: 'opensection.compensation.title',
-            desc: 'opensection.compensation.desc',
-            icon: "https://res.cloudinary.com/dluqxr8lw/image/upload/v1732476178/ic_event_24px_d9o56u.svg"
-        },
-        {
-            title: "opensection.missedconnectioncompensation.title",
-            desc: "opensection.missedconnectioncompensation.desc",
-            icon: "https://res.cloudinary.com/dluqxr8lw/image/upload/v1732476178/ic_local_airport_24px_1_usunmk.svg"
-        },
-        {
-            title: "opensection.overbookingcompensation.title",
-            desc: "opensection.overbookingcompensation.desc",
-            icon: "https://res.cloudinary.com/dluqxr8lw/image/upload/v1732476178/ic_group_24px_kortma.svg"
-        },
-        {
-            title: "opensection.compensationfordeniedboarding.title",
-            desc: "opensection.compensationfordeniedboarding.desc",
-            icon: "https://res.cloudinary.com/dluqxr8lw/image/upload/v1732476179/ic_not_interested_24px_cgrdlv.svg"
-        },
-        {
-            title: "opensection.delayedbaggagecompensation.title",
-            desc: "opensection.delayedbaggagecompensation.desc",
-            icon: "https://res.cloudinary.com/dluqxr8lw/image/upload/v1732476180/ic_work_24px_kobici.svg"
-        },
-    ];
+// სერვერ კომპონენტია: ტექსტი ბაზიდან სერვერზე იკითხება და მზა HTML-ში ჩაისმება,
+// ამიტომ Google-ი მას JavaScript-ის გარეშე ხედავს. შედეგი 60 წამით იკეშება.
+// ბაზა თუ ცარიელია (ან ბექი მიუწვდომელია), იგივე ბარათები თარგმანებიდან ჩანს.
+const OptionsSection = async ({ lang }) => {
+    const locale = LOCALES.includes(lang) ? lang : DEFAULT_LOCALE;
+    const defaults = translations[locale].opensection;
+    const saved = await getOptions();
+
+    // ბარათი, რომელსაც ამ ენაზე სათაური არ აქვს, ამ ენის გვერდზე არ ჩანს
+    const savedItems = (Array.isArray(saved?.items) ? saved.items : [])
+        .map((item) => ({
+            key: item._id,
+            title: item.title?.[locale]?.trim(),
+            desc: item.desc?.[locale]?.trim(),
+        }))
+        .filter((item) => item.title);
+
+    const items = savedItems.length
+        ? savedItems
+        : DEFAULT_KEYS.map((key) => ({
+            key,
+            title: defaults[key].title,
+            desc: defaults[key].desc,
+        }));
+
+    const sectionTitle = saved?.sectionTitle?.[locale]?.trim() || defaults.sectionTitle;
 
     return (
-        <div className={styles.OptionsSection}>
-            <h3 className={styles.title}>{t('opensection.sectionTitle')}</h3>
-            <div className="container">
-                <div className="row">
-                    {data.map((item, index) => (
-                        <div className="col-lg-4" key={index}>
-                            <Item
-                                title={t(item.title)}
-                                desc={t(item.desc)}
-                                icon={item.icon}
-                            />
-                        </div>
+        <section className={styles.OptionsSection}>
+            <div className={styles.OptionsSection__inner}>
+                <h2 className={styles.title}>{sectionTitle}</h2>
+                <div className={styles.grid}>
+                    {items.map((item) => (
+                        <Item key={item.key} title={item.title} desc={item.desc} />
                     ))}
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

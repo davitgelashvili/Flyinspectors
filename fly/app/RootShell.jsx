@@ -1,23 +1,14 @@
+// ორივე root layout-ის (საიტი და ადმინი) საერთო გარსი. lang იმ layout-იდან მოდის, რომელიც
+// ამ გარსს იყენებს — ასე <html lang> სერვერზე სწორი ენით იხატება (SEO), JS-ის გარეშეც.
 import Script from 'next/script'
 import Providers from './providers'
 import ScrollToTop from './ScrollToTop'
 import 'bootstrap/dist/css/bootstrap-grid.min.css'
 import './globals.scss'
 
-export const metadata = {
-  icons: {
-    icon: '/favicon.png',
-    apple: '/favicon.png',
-  },
-  other: {
-    'facebook-domain-verification': 'zmft3mvrj1aqht2us3b9a8svelegtx',
-  },
-  metadataBase: new URL('https://flyinspectors.com'),
-}
-
-export default function RootLayout({ children }) {
+export default function RootShell({ lang, children }) {
   return (
-    <html lang="en">
+    <html lang={lang}>
       <head>
         <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
         <Script

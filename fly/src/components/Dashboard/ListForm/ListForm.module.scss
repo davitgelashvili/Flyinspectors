@@ -1,0 +1,78 @@
+.hint {
+    margin: 0 0 16px;
+    font-size: 13px;
+    color: #6b6f85;
+}
+
+.card {
+    margin-bottom: 16px;
+    padding: 16px;
+    background: #fff;
+    border: 1px solid #e2e3ea;
+    border-radius: 10px;
+
+    &__head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 12px;
+    }
+
+    &__number {
+        font-size: 14px;
+        font-weight: 700;
+        color: #232536;
+    }
+
+    &__actions {
+        display: flex;
+        gap: 8px;
+
+        button {
+            padding: 6px 12px;
+            font: inherit;
+            font-size: 13px;
+            cursor: pointer;
+            background: #f6f6f8;
+            border: 1px solid #d4d6e0;
+            border-radius: 6px;
+
+            &:disabled {
+                opacity: 0.4;
+                cursor: default;
+            }
+        }
+    }
+
+    &__remove {
+        color: #b3261e;
+    }
+}
+
+.label {
+    margin: 12px 0 6px;
+    font-size: 14px;
+}
+
+.textarea {
+    width: 100%;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 14px;
+    line-height: 1.5;
+    resize: vertical;
+    border: 1px solid #d4d6e0;
+    border-radius: 6px;
+}
+
+.add {
+    padding: 10px 18px;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    color: #0056b3;
+    background: transparent;
+    border: 1px dashed #0056b3;
+    border-radius: 8px;
+}

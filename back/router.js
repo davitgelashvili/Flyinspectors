@@ -15,6 +15,10 @@ const { getRateSection, createRateSection, editRateSection } = require("./contro
 const { getContactList, createContact, editContactList } = require("./controllers/contactList");
 const { getConditions, createConditions, editConditions } = require("./controllers/conditions");
 const { getPages, getPageBySlug, createPage, updatePage, deletePage } = require("./controllers/pages");
+const { getHero, updateHero } = require("./controllers/hero");
+const { getOptions, updateOptions } = require("./controllers/options");
+const { getHow, updateHow } = require("./controllers/how");
+const { getWhy, updateWhy } = require("./controllers/why");
 const { emailSend } = require("./controllers/email");
 const { clientSendEmail } = require("./controllers/clientSendEmail");
 const { contact } = require("./controllers/contact");
@@ -39,6 +43,10 @@ router.get("/services", getServices);
 router.get("/rate", getRateSection);
 router.get("/contactlist", getContactList);
 router.get("/conditions", getConditions);
+router.get("/hero", getHero);
+router.get("/options", getOptions);
+router.get("/how", getHow);
+router.get("/why", getWhy);
 router.get("/pages", getPages);            // ?all=true — ადმინისთვის, გამოუქვეყნებლებთან ერთად
 router.get("/pages/:slug", getPageBySlug);
 
@@ -62,6 +70,11 @@ router.put("/contactlist", ...editor, editContactList);
 
 router.post("/conditions", ...editor, createConditions);
 router.put("/conditions", ...editor, editConditions);
+
+router.put("/hero", ...editor, updateHero);
+router.put("/options", ...editor, updateOptions);
+router.put("/how", ...editor, updateHow);
+router.put("/why", ...editor, updateWhy);
 
 router.post("/pages", ...editor, createPage);
 router.put("/pages", ...editor, updatePage);

@@ -6,6 +6,10 @@ import UsersList from "./Users/List"
 import UsersForm from "./Users/Form"
 import PagesList from "./Pages/List"
 import PagesForm from "./Pages/Form"
+import HeroForm from "./Hero/Hero"
+import OptionsForm from "./Options/Options"
+import HowForm from "./How/How"
+import WhyForm from "./Why/Why"
 import Profile from "./Profile/Profile"
 import { useDispatch, useSelector } from "react-redux"
 import { userAction } from "../../store/userData"
@@ -33,6 +37,11 @@ function getSection(path) {
 
     if (path === '/users') return <UsersList />
     if (path.startsWith('/users/')) return <UsersForm />
+
+    if (path === '/hero') return <HeroForm />
+    if (path === '/options') return <OptionsForm />
+    if (path === '/how') return <HowForm />
+    if (path === '/why') return <WhyForm />
 
     if (path === '/pages') return <PagesList />
     if (path.startsWith('/pages/')) return <PagesForm />
