@@ -3,12 +3,11 @@
     color: #fff;
 
     &__inner {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 88px 24px;
+        // ბუტსტრაპის .container სიგანესა და ჰორიზონტალურ დაშორებას აგვარებს; აქ მხოლოდ ვერტიკალურია
+        padding-block: 88px;
 
         @media (max-width: 768px) {
-            padding: 56px 16px;
+            padding-block: 56px;
         }
     }
 

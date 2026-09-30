@@ -2,16 +2,15 @@
     background-color: #f6f6f8;
 
     &__inner {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 88px 24px;
+        // ბუტსტრაპის .container სიგანესა და ჰორიზონტალურ დაშორებას აგვარებს; აქ მხოლოდ ვერტიკალურია
+        padding-block: 88px;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
         gap: 56px;
         align-items: start;
 
         @media (max-width: 768px) {
-            padding: 56px 16px;
+            padding-block: 56px;
             gap: 40px;
         }
     }

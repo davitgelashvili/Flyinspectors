@@ -1,42 +1,12 @@
-import Section from "./Section"
+import { getFaqs } from "@/api/serverApi";
+import FaqList from "@/components/Faq/FaqList";
 
-const Faq = () => {
-    const data = [
-        {
-          sectionTitle: "section 1",
-          list: [
-            {
-              title: 'ra xdeba?',
-              body: 'ar vici ra xdeba',
-            },
-            {
-              title: 'ra xdeba 2?',
-              body: 'arc es vici ra xdeba',
-            }
-          ]
-        },
-        {
-          sectionTitle: "section 2",
-          list: [
-            {
-              title: 'ra xdeba?',
-              body: 'ar vici ra xdeba',
-            },
-            {
-              title: 'ra xdeba 2?',
-              body: 'arc es vici ra xdeba',
-            }
-          ]
-        }
-    ]
+// FAQ გვერდი: ყველა კითხვა ბაზიდან (მთავარზე მონიშვნისგან დამოუკიდებლად).
+// სათაური აქ <h1>-ია, რადგან გვერდზე სხვა h1 არ არის.
+const Faq = async ({ locale }) => {
+    const faqs = await getFaqs();
 
-    return (
-        <div>
-            {data.map((item) => {
-                <Section item={item}/>
-            })}
-        </div>
-    )
-}
+    return <FaqList faqs={faqs} locale={locale} as="h1" />;
+};
 
-export default Faq
+export default Faq;

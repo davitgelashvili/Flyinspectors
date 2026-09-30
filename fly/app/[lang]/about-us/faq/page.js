@@ -5,6 +5,6 @@ export function generateMetadata({ params }) {
   return buildMetadata('/about-us/faq', params.lang)
 }
 
-export default function FaqRoute() {
-  return <FaqPage />
+export default function FaqRoute({ params }) {
+  return <FaqPage lang={params.lang} />
 }

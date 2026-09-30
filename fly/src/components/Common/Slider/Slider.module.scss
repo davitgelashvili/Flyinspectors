@@ -3,16 +3,15 @@
     color: #fff;
 
     &__inner {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 72px 24px 88px;
+        // ბუტსტრაპის .container სიგანესა და ჰორიზონტალურ დაშორებას აგვარებს; აქ მხოლოდ ვერტიკალურია
+        padding-block: 72px 88px;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
         gap: 56px;
         align-items: center;
 
         @media (max-width: 768px) {
-            padding: 48px 16px 56px;
+            padding-block: 48px 56px;
             gap: 40px;
         }
     }
@@ -29,15 +28,6 @@
     &__accent {
         color: #fd9b28;
     }
-}
-
-.text {
-    margin: 0 0 36px;
-    max-width: 540px;
-    font-size: 16px;
-    line-height: 1.7;
-    color: #fff;
-    text-wrap: pretty;
 }
 
 .actions {

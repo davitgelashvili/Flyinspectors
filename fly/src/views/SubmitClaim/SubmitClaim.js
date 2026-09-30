@@ -1,8 +1,8 @@
 import Form from "../../components/Form/Form";
 
-function SubmitClaim() {
+function SubmitClaim({ lang }) {
     return (
-        <Form />
+        <Form lang={lang} />
     )
 }
 

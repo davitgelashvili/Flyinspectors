@@ -5,6 +5,7 @@ import CustomInput from '../../UI/CustomInput'
 import Content from '../Content/Content'
 import Loading from '../../Loading/Loading'
 import adminFetch from '../../../api/adminFetch'
+import revalidateSite from '../../../api/revalidateSite'
 import pagesStyles from '../Pages/Pages.module.scss'
 import styles from './ListForm.module.scss'
 
@@ -28,10 +29,8 @@ const withIds = (data) => ({
  * "სათაური + ბარათების სია" სექციის ადმინი (ბექში: controllers/sectionList.js).
  *
  * endpoint    — ბექის მისამართი, მაგ. 'options' ან 'how'
- * getDefaults — ბაზა ცარიელია → ფორმა ამით ივსება, რომ რედაქტირება არსებულიდან დაიწყოს
- * getFallback — არასავალდებულო async ფუნქცია: ცარიელ ბაზაზე ჯერ ის სცადოს
- *               (მაგ. ძველი ტექსტი სხვა API-დან), მერე getDefaults
- * ორივე აბრუნებს { sectionTitle: {ka, en}, items: [{ title, desc }] }
+ *
+ * ყველა ტექსტი ბაზიდან იკითხება; ბაზა თუ ცარიელია, ფორმა ცარიელი იხსნება.
  */
 export default function ListForm({
     heading,
@@ -40,8 +39,6 @@ export default function ListForm({
     addLabel = '+ ბარათის დამატება',
     titleLabel = 'სექციის სათაური',
     titlePlaceholder = '',
-    getDefaults,
-    getFallback,
 }) {
     const url = `${process.env.NEXT_PUBLIC_API_URL}/${endpoint}`
 
@@ -61,16 +58,11 @@ export default function ListForm({
     useEffect(() => {
         let active = true
 
-        ;(async () => {
-            const res = await adminFetch(url)
-            if (!res.ok) throw new Error(await res.text())
-            const saved = await res.json()
-
-            if (Array.isArray(saved.items) && saved.items.length) return saved
-
-            const fallback = getFallback ? await getFallback().catch(() => null) : null
-            return fallback?.items?.length ? fallback : getDefaults()
-        })()
+        adminFetch(url)
+            .then(async (res) => {
+                if (!res.ok) throw new Error(await res.text())
+                return res.json()
+            })
             .then(data => { if (active) apply(data) })
             .catch(e => { if (active) setError(e.message || 'ჩატვირთვა ვერ მოხერხდა') })
             .finally(() => { if (active) setLoad(false) })
@@ -118,6 +110,7 @@ export default function ListForm({
 
             // ბექის მიერ შენახული მონაცემი ვაჩვენოთ (გასუფთავებული, ახალი id-ებით)
             apply(await res.json())
+            await revalidateSite(endpoint)
             setDone('შენახულია')
         } catch (e) {
             setError(e.message || 'შენახვა ვერ მოხერხდა')

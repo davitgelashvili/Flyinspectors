@@ -1,10 +1,6 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import header from '../components/Common/Header/header.module'
-import opensectionModule from "../components/OptionsSection/opensection.module";
-import FaqSectionModule from "../components/Main/FaqSection/FaqSection.module";
-import WeGivesYouModule from "../components/WeGivesYou/WeGivesYou.module";
-import KnowsYourRightsModule from "../components/Knows Your Rights/components/KnowsYourRights.module";
 import CompensationInfoModule from "../views/FlightDelay/CompensationInfo/CompensationInfo.module";
 import CompensationIfModule from "../views/FlightDelay/CompensationIf/CompensationIf.module";
 import CompensationHowMuchModule from "../views/FlightDelay/CompensationHowMuch/CompensationHowMuch.module";
@@ -16,7 +12,6 @@ import FlightCancellationBeAware from "../views/FlightCancellation/BeAware/BeAwa
 
 import AboutUsSectionModule from "../views/About Us/ABout Us Section/AboutUsSection.module";
 import OurCoreValuesModule from "../views/About Us/Our core values/OurCoreValues.module";
-import ContactUsSectionModule from "../views/Contact Us/Contact Us Section/ContactUsSection.module";
 import FeedBackCompModule from "../views/Contact Us/Feedback Form/FeedBackComp.module";
 
 import OverBookedCompensationInfo from "../views/OverBookedFlight/CompensationInfo/CompensationInfo.module";
@@ -30,7 +25,6 @@ import MissedConnectionCompensationUSAModule from "../views/MissedConnection/Com
 import MissedConnectionCompensationEUModule from "../views/MissedConnection/CompensationEU/CompensationEU.module";
 import MissedConnectionBeAwareModule from "../views/MissedConnection/BeAware/BeAware.module";
 import LostLuggageModule from "../views/LostLuggage/LostLuggage.module";
-import footerModule from "../components/Common/Footer/footer.module";
 
 import tableoneModule from "../components/Tables/tableone/tableone.module";
 import tabletwoModule from "../components/Tables/tabletwo/tabletwo.module";
@@ -39,16 +33,11 @@ import tablefourModule from "../components/Tables/tablefour/tablefour.module";
 import TablefiveModule from "../components/Tables/tablefive/Tablefive.module";
 
 import SubmitLinkModule from "../components/UI/SubmitLink.module";
-import SliderModule from "../components/Common/Slider/Slider.module";
 import FormModule from "../components/Form/Form.module";
 import AboutPilots from "../views/Blog page/About Pilots/aboutpilots.module";
 import cancelledflightsModule from "../views/Blog page/CancelledFlights/cancelledflights.module";
 import MechanicalIssues from "../views/Blog page/Mechanical Issues/machanical.module";
 import PetsInPlanes from "../views/Blog page/Pets in planes/petsinplanes.module";
-import SubmitClaimModule from "../views/FAQ page/SubmitClaim/SubmitClaim.module";
-import DocprivacyModule from "../views/FAQ page/Documents and privacy/Docprivacy.module";
-import PassModule from "../views/FAQ page/Air passenger Law/Pass.module";
-import FeesandPayoutModule from "../views/FAQ page/Fees and payout methods/FeesandPayout.module";
 
 i18n
     .use(initReactI18next)
@@ -58,10 +47,6 @@ i18n
             en: {
                 translation: {
                     ...header.en,
-                    ...opensectionModule.en,
-                    ...FaqSectionModule.en,
-                    ...WeGivesYouModule.en,
-                    ...KnowsYourRightsModule.en,
 
                     ...CompensationInfoModule.en,
                     ...CompensationIfModule.en,
@@ -75,7 +60,6 @@ i18n
 
                     ...AboutUsSectionModule.en,
                     ...OurCoreValuesModule.en,
-                    ...ContactUsSectionModule.en,
                     ...FeedBackCompModule.en,
 
                     ...OverBookedCompensationInfo.en,
@@ -89,7 +73,6 @@ i18n
                     ...MissedConnectionCompensationEUModule.en,
                     ...MissedConnectionBeAwareModule.en,
                     ...LostLuggageModule.en,
-                    ...footerModule.en,
 
                     ...tableoneModule.en,
                     ...tabletwoModule.en,
@@ -98,7 +81,6 @@ i18n
                     ...TablefiveModule.en,
 
                     ...SubmitLinkModule.en,
-                    ...SliderModule.en,
                     ...FormModule.en,
 
 
@@ -106,21 +88,13 @@ i18n
                     ...cancelledflightsModule.en,
                     ...MechanicalIssues.en,
                     ...PetsInPlanes.en,
-                    ...SubmitClaimModule.en,
-                    ...DocprivacyModule.en,
-                    ...PassModule.en,
 
-                    ...FeesandPayoutModule.en,
 
                 }
             },
             ka: {
                 translation: {
                     ...header.ka,
-                    ...opensectionModule.ka,
-                    ...FaqSectionModule.ka,
-                    ...WeGivesYouModule.ka,
-                    ...KnowsYourRightsModule.ka,
 
                     ...CompensationInfoModule.ka,
                     ...CompensationIfModule.ka,
@@ -134,7 +108,6 @@ i18n
 
                     ...AboutUsSectionModule.ka,
                     ...OurCoreValuesModule.ka,
-                    ...ContactUsSectionModule.ka,
                     ...FeedBackCompModule.ka,
 
                     ...OverBookedCompensationInfo.ka,
@@ -148,7 +121,6 @@ i18n
                     ...MissedConnectionCompensationEUModule.ka,
                     ...MissedConnectionBeAwareModule.ka,
                     ...LostLuggageModule.ka,
-                    ...footerModule.ka,
 
                     ...tableoneModule.ka,
                     ...tabletwoModule.ka,
@@ -157,7 +129,6 @@ i18n
                     ...TablefiveModule.ka,
 
                     ...SubmitLinkModule.ka,
-                    ...SliderModule.ka,
                     ...FormModule.ka,
 
 
@@ -165,10 +136,6 @@ i18n
                     ...cancelledflightsModule.ka,
                     ...MechanicalIssues.ka,
                     ...PetsInPlanes.ka,
-                    ...SubmitClaimModule.ka,
-                    ...DocprivacyModule.ka,
-                    ...PassModule.ka,
-                    ...FeesandPayoutModule.ka,
 
                 }
             }

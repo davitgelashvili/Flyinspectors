@@ -6,10 +6,10 @@ export function generateMetadata({ params }) {
   return buildMetadata('/submit-claim', params.lang)
 }
 
-export default function SubmitClaimPage() {
+export default function SubmitClaimPage({ params }) {
   return (
     <Suspense>
-      <SubmitClaim />
+      <SubmitClaim lang={params.lang} />
     </Suspense>
   )
 }

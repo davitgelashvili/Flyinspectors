@@ -9,6 +9,7 @@ import UploadWidget from '../../UploadWidget/UploadWidget'
 import Content from '../Content/Content'
 import Loading from '../../Loading/Loading'
 import adminFetch from '../../../api/adminFetch'
+import revalidateSite from '../../../api/revalidateSite'
 import styles from './Pages.module.scss'
 
 const EMPTY = {
@@ -76,6 +77,7 @@ export default function PagesForm() {
             if (!res.ok) throw new Error(await res.text())
 
             const saved = await res.json()
+            await revalidateSite('pages')
             setDone(isEdit ? 'შენახულია' : 'გვერდი შეიქმნა')
             if (!isEdit) router.push(`/adminpanel/pages/${saved._id}`)
         } catch (e) {

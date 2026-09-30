@@ -5,6 +5,6 @@ export function generateMetadata({ params }) {
   return buildMetadata('/contact-us', params.lang)
 }
 
-export default function ContactUsPage() {
-  return <ContactUs />
+export default function ContactUsPage({ params }) {
+  return <ContactUs lang={params.lang} />
 }

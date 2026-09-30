@@ -25,9 +25,8 @@
         }
     }
 
+    // სიგანეს ბუტსტრაპის .container განსაზღვრავს (მაქს. 1200px), სტატია მთელ მას იყენებს
     &__article {
-        max-width: 820px;
-        margin: 0 auto;
         padding: 40px 0 0 0;
 
         @media (max-width: 991px) {

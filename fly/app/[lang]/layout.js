@@ -59,7 +59,7 @@ export default function LangLayout({ children, params }) {
         <div className="site-shell">
           <Header />
           {children}
-          <Footer />
+          <Footer lang={lang} />
         </div>
       </I18nProvider>
     </RootShell>

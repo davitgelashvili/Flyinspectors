@@ -1,19 +1,13 @@
-import FeesAndPayout from "./Fees and payout methods/FeesAndPayout";
-import SubmitClaim from "./SubmitClaim/SubmitClaim";
-import DocPrivacy from "./Documents and privacy/DocPrivacy";
-import PassLaw from "./Air passenger Law/PassLaw";
+import { LOCALES, DEFAULT_LOCALE } from "@/i18n/locales";
 import Faq from "./Faq";
 
-
-function FaqPage() {
+// FAQ გვერდი: ყველა კითხვა ბაზიდან (ადმინი → ხშირად დასმული კითხვები).
+function FaqPage({ lang }) {
+  const locale = LOCALES.includes(lang) ? lang : DEFAULT_LOCALE;
 
   return (
     <div>
-      <Faq />
-      <FeesAndPayout />
-      <SubmitClaim />
-      <DocPrivacy/>
-      <PassLaw/>
+      <Faq locale={locale} />
     </div>
   );
 }
