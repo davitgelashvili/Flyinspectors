@@ -6,14 +6,8 @@ import CustomEditor from '../../CustomEditor/CustomEditor'
 import Content from '../Content/Content'
 import Loading from '../../Loading/Loading'
 import adminFetch from '../../../api/adminFetch'
+import revalidateSite from '../../../api/revalidateSite'
 import styles from '../Pages/Pages.module.scss'
-
-// ბექი სურათებს არ ინახავს (base64 ბაზას ბერავს) — ღილაკიც არ ვაჩვენოთ
-const EDITOR_OPTIONS = [
-    'inline', 'blockType', 'fontSize', 'list',
-    'textAlign', 'colorPicker', 'link', 'emoji',
-    'remove', 'history',
-]
 
 const blank = () => ({ ka: '', en: '' })
 
@@ -23,18 +17,15 @@ const blank = () => ({ ka: '', en: '' })
  *
  * endpoint    — ბექის მისამართი, მაგ. 'hero' ან 'why'
  * fields      — [{ name, label, placeholder, editor }]; editor: true → ტექსტ-რედაქტორი
- * getDefaults — ბაზა ცარიელია → ფორმა ამით ივსება, რომ რედაქტირება ახლანდელი
- *               (საიტზე ჩანს) ტექსტიდან დაიწყოს. აბრუნებს { [name]: { ka, en } }
+ *
+ * ყველა ტექსტი ბაზიდან იკითხება; ბაზა თუ ცარიელია, ფორმა ცარიელი იხსნება.
  */
-export default function RichForm({ heading, endpoint, fields, getDefaults }) {
+export default function RichForm({ heading, endpoint, fields }) {
     const url = `${process.env.NEXT_PUBLIC_API_URL}/${endpoint}`
     const names = fields.map(f => f.name)
 
     const normalize = (data) =>
         Object.fromEntries(names.map(name => [name, { ...blank(), ...data?.[name] }]))
-
-    const isEmpty = (data) =>
-        names.every(name => !data?.[name]?.ka?.trim() && !data?.[name]?.en?.trim())
 
     const [values, setValues] = useState(() => normalize({}))
     const [language, setLanguage] = useState('ka')
@@ -49,7 +40,7 @@ export default function RichForm({ heading, endpoint, fields, getDefaults }) {
             .then(async (res) => {
                 if (!res.ok) throw new Error(await res.text())
                 const saved = await res.json()
-                if (active) setValues(normalize(isEmpty(saved) && getDefaults ? getDefaults() : saved))
+                if (active) setValues(normalize(saved))
             })
             .catch(e => { if (active) setError(e.message || 'ჩატვირთვა ვერ მოხერხდა') })
             .finally(() => { if (active) setLoad(false) })
@@ -77,6 +68,7 @@ export default function RichForm({ heading, endpoint, fields, getDefaults }) {
 
             // ბექი HTML-ს ასუფთავებს — ვაჩვენოთ ის, რაც რეალურად შეინახა
             setValues(normalize(await res.json()))
+            await revalidateSite(endpoint)
             setDone('შენახულია')
         } catch (e) {
             setError(e.message || 'შენახვა ვერ მოხერხდა')
@@ -108,7 +100,6 @@ export default function RichForm({ heading, endpoint, fields, getDefaults }) {
                                     value={values[field.name][language]}
                                     onChange={(section, name, html) => setValue(field.name)(html)}
                                     title={field.label}
-                                    options={EDITOR_OPTIONS}
                                 />
                             )
                         ) : (

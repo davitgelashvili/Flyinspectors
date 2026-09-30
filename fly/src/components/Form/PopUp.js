@@ -9,9 +9,9 @@ const PopUp = ({load, unicueID, onClose}) => {
                 <Loading />
             ) : (
                 <div className={styles.popup__content}>
-                    <h1 className={styles.popup__title}>
+                    <h2 className={styles.popup__title}>
                     Your application has been sent successfully
-                    </h1>
+                    </h2>
                     <p className={styles.popup__text}>
                     Please check your email and save the application ID to check the status.
                     </p>

@@ -1,0 +1,21 @@
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+self["webpackHotUpdate_N_E"]("app/[lang]/page",{
+
+/***/ "(app-pages-browser)/./src/components/Common/Slider/Slider.module.scss":
+/*!*********************************************************!*\
+  !*** ./src/components/Common/Slider/Slider.module.scss ***!
+  \*********************************************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+eval(__webpack_require__.ts("// extracted by mini-css-extract-plugin\nmodule.exports = {\"slider\":\"Slider_slider__nk6mk\",\"slider__inner\":\"Slider_slider__inner__1jt0G\",\"title\":\"Slider_title__dTsRw\",\"title__accent\":\"Slider_title__accent__sggmI\",\"actions\":\"Slider_actions__uzzyc\",\"actions__claim\":\"Slider_actions__claim__TgeLV\",\"actions__status\":\"Slider_actions__status___K9pW\",\"card\":\"Slider_card__cDH7W\",\"card__title\":\"Slider_card__title__D2uoC\",\"card__list\":\"Slider_card__list__o3c4z\",\"card__row\":\"Slider_card__row__7SjXe\",\"card__range\":\"Slider_card__range___2bbm\",\"card__amount\":\"Slider_card__amount__nadwQ\",\"card__note\":\"Slider_card__note__qaZz0\",\"richText\":\"Slider_richText__T__Rc\"};\n    if(true) {\n      // 1790749153518\n      var cssReload = __webpack_require__(/*! ./node_modules/next/dist/compiled/mini-css-extract-plugin/hmr/hotModuleReplacement.js */ \"(app-pages-browser)/./node_modules/next/dist/compiled/mini-css-extract-plugin/hmr/hotModuleReplacement.js\")(module.id, {\"publicPath\":\"/_next/\",\"esModule\":false,\"locals\":true});\n      module.hot.dispose(cssReload);\n      \n    }\n  \nmodule.exports.__checksum = \"5bcc94647c55\"\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwcC1wYWdlcy1icm93c2VyKS8uL3NyYy9jb21wb25lbnRzL0NvbW1vbi9TbGlkZXIvU2xpZGVyLm1vZHVsZS5zY3NzIiwibWFwcGluZ3MiOiJBQUFBO0FBQ0Esa0JBQWtCO0FBQ2xCLE9BQU8sSUFBVTtBQUNqQjtBQUNBLHNCQUFzQixtQkFBTyxDQUFDLHdNQUEwRyxjQUFjLHNEQUFzRDtBQUM1TSxNQUFNLFVBQVU7QUFDaEI7QUFDQTtBQUNBO0FBQ0EseUJBQXlCIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vX05fRS8uL3NyYy9jb21wb25lbnRzL0NvbW1vbi9TbGlkZXIvU2xpZGVyLm1vZHVsZS5zY3NzPzA5M2MiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gZXh0cmFjdGVkIGJ5IG1pbmktY3NzLWV4dHJhY3QtcGx1Z2luXG5tb2R1bGUuZXhwb3J0cyA9IHtcInNsaWRlclwiOlwiU2xpZGVyX3NsaWRlcl9fbms2bWtcIixcInNsaWRlcl9faW5uZXJcIjpcIlNsaWRlcl9zbGlkZXJfX2lubmVyX18xanQwR1wiLFwidGl0bGVcIjpcIlNsaWRlcl90aXRsZV9fZFRzUndcIixcInRpdGxlX19hY2NlbnRcIjpcIlNsaWRlcl90aXRsZV9fYWNjZW50X19zZ2dtSVwiLFwiYWN0aW9uc1wiOlwiU2xpZGVyX2FjdGlvbnNfX3V6enljXCIsXCJhY3Rpb25zX19jbGFpbVwiOlwiU2xpZGVyX2FjdGlvbnNfX2NsYWltX19UZ2VMVlwiLFwiYWN0aW9uc19fc3RhdHVzXCI6XCJTbGlkZXJfYWN0aW9uc19fc3RhdHVzX19fSzlwV1wiLFwiY2FyZFwiOlwiU2xpZGVyX2NhcmRfX2NESDdXXCIsXCJjYXJkX190aXRsZVwiOlwiU2xpZGVyX2NhcmRfX3RpdGxlX19EMnVvQ1wiLFwiY2FyZF9fbGlzdFwiOlwiU2xpZGVyX2NhcmRfX2xpc3RfX28zYzR6XCIsXCJjYXJkX19yb3dcIjpcIlNsaWRlcl9jYXJkX19yb3dfXzdTalhlXCIsXCJjYXJkX19yYW5nZVwiOlwiU2xpZGVyX2NhcmRfX3JhbmdlX19fMmJibVwiLFwiY2FyZF9fYW1vdW50XCI6XCJTbGlkZXJfY2FyZF9fYW1vdW50X19uYWR3UVwiLFwiY2FyZF9fbm90ZVwiOlwiU2xpZGVyX2NhcmRfX25vdGVfX3FhWnowXCIsXCJyaWNoVGV4dFwiOlwiU2xpZGVyX3JpY2hUZXh0X19UX19SY1wifTtcbiAgICBpZihtb2R1bGUuaG90KSB7XG4gICAgICAvLyAxNzkwNzQ5MTUzNTE4XG4gICAgICB2YXIgY3NzUmVsb2FkID0gcmVxdWlyZShcIkQ6L0ZseWluc3BlY3RvcnMvZmx5L25vZGVfbW9kdWxlcy9uZXh0L2Rpc3QvY29tcGlsZWQvbWluaS1jc3MtZXh0cmFjdC1wbHVnaW4vaG1yL2hvdE1vZHVsZVJlcGxhY2VtZW50LmpzXCIpKG1vZHVsZS5pZCwge1wicHVibGljUGF0aFwiOlwiL19uZXh0L1wiLFwiZXNNb2R1bGVcIjpmYWxzZSxcImxvY2Fsc1wiOnRydWV9KTtcbiAgICAgIG1vZHVsZS5ob3QuZGlzcG9zZShjc3NSZWxvYWQpO1xuICAgICAgXG4gICAgfVxuICBcbm1vZHVsZS5leHBvcnRzLl9fY2hlY2tzdW0gPSBcIjViY2M5NDY0N2M1NVwiXG4iXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///(app-pages-browser)/./src/components/Common/Slider/Slider.module.scss\n"));
+
+/***/ })
+
+});

@@ -70,6 +70,16 @@ code {
   padding-top: 70px;
 }
 
+// ბუტსტრაპის .container ყველაზე ფართო ეკრანზე (≥1400px) 1320px-ია; საჯარო საიტზე მაქსიმუმ 1200px.
+// ვიწრო ეკრანების ბუტსტრაპისეული ზომები (540/720/960/1140) უცვლელია. ადმინის .container არ იცვლება
+// (.site-shell მხოლოდ საჯარო ნაწილს ფარავს). განაცხადის ფორმის კონტეინერი (components/Form/Form.js)
+// განზრახ გამორიცხულია და ბუტსტრაპის ზომას ინარჩუნებს.
+@media (min-width: 1400px) {
+  .site-shell .container:not(:has(> [class*="form_form__"])) {
+    max-width: 1200px;
+  }
+}
+
 .message {
   position: fixed;
   left: 50%;
@@ -81,5 +91,163 @@ code {
     padding: 24px 48px;
     background-color: #fff;
     box-shadow: 0px 0px 63px -22px #2a2a2a;
+  }
+}
+
+// ადმინის რედაქტორიდან (TipTap) მოსული HTML-ის ელემენტები, რომლებიც ერთნაირად უნდა გამოჩნდეს
+// ყველგან, სადაც ასეთი ტექსტი იხატება (hero, "რატომ ჩვენ", FAQ, წესები და პირობები, გვერდები).
+// ტიპოგრაფია (აბზაცი, სათაურები, სია) თითოეული სექციის საკუთარ სტილშია; აქ მხოლოდ საერთო ბლოკებია.
+// ფერები გამჭვირვალეა, რომ ღია და მუქ ფონზეც (hero) იკითხებოდეს.
+.rich-content {
+  // მცურავი სურათები კონტეინერს არ გასცდეს
+  display: flow-root;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: top; // ტექსტი სურათის ზედა კიდიდან იწყება და არა სიმაღლის შუიდან
+    border-radius: 8px;
+  }
+
+  // სურათის ზომა (პროცენტი) და გასწორება; გვერდით ტექსტი სურათს გარს უვლის
+  img[data-size="25"] { width: 25%; }
+  img[data-size="33"] { width: 33%; }
+  img[data-size="50"] { width: 50%; }
+  img[data-size="75"] { width: 75%; }
+  img[data-size="100"] { width: 100%; }
+
+  img[data-align="left"] { float: left; margin: 4px 20px 12px 0; }
+  img[data-align="right"] { float: right; margin: 4px 0 12px 20px; }
+  img[data-align="center"] { display: block; margin: 12px auto; }
+
+  // ვიწრო ეკრანზე მცურავი სურათი ტექსტთან ერთად ვერ ეტევა: ცალკე ხაზზე გადადის
+  @media (max-width: 600px) {
+    img[data-align="left"],
+    img[data-align="right"] {
+      display: block;
+      float: none;
+      margin: 12px auto;
+    }
+  }
+
+  li > p {
+    margin: 0 0 4px;
+  }
+
+  // display: block — ვიწრო ეკრანზე ცხრილი გვერდით სქროლდება; tbody კი display: table + width: 100%-ია,
+  // რომ ცხრილი კონტეინერის/სვეტის მთელ სიგანეს იკავებდეს (რედაქტორშიც ასეა)
+  table {
+    display: block;
+    max-width: 100%;
+    margin: 0 0 16px;
+    overflow-x: auto;
+  }
+
+  table > tbody,
+  table > thead,
+  table > tfoot {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    min-width: 80px;
+    padding: 8px 12px;
+    vertical-align: top;
+    text-align: left;
+    border: 1px solid rgba(128, 128, 128, 0.4);
+  }
+
+  th {
+    font-weight: 700;
+    background: rgba(128, 128, 128, 0.12);
+  }
+
+  td > p,
+  th > p {
+    margin: 0;
+  }
+
+  hr {
+    margin: 24px 0;
+    border: 0;
+    border-top: 2px solid rgba(128, 128, 128, 0.35);
+  }
+
+  pre {
+    margin: 0 0 16px;
+    padding: 12px 14px;
+    overflow-x: auto;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #e8eaf0;
+    background: #232536;
+    border-radius: 6px;
+  }
+
+  pre code {
+    padding: 0;
+    color: inherit;
+    background: none;
+  }
+
+  code {
+    padding: 2px 5px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    background: rgba(128, 128, 128, 0.18);
+    border-radius: 3px;
+  }
+
+  mark {
+    padding: 0 2px;
+    color: #232536;
+    border-radius: 2px;
+  }
+
+  // ორი სვეტი: თითოეულში ნებისმიერი შიგთავსი. data-ratio — მარცხენა სვეტის წილი (33 | 50 | 67).
+  div[data-columns] {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin: 0 0 16px;
+    align-items: start;
+  }
+
+  div[data-columns][data-ratio="33"] { grid-template-columns: 1fr 2fr; }
+  div[data-columns][data-ratio="67"] { grid-template-columns: 2fr 1fr; }
+
+  div[data-columns] > div[data-column] {
+    min-width: 0; // ცხრილი/ვიდეო სვეტს არ გაწელავს
+  }
+
+  div[data-columns] > div[data-column] > :last-child {
+    margin-bottom: 0;
+  }
+
+  // ვიწრო ეკრანზე სვეტები ერთმანეთის ქვეშ გადადის
+  @media (max-width: 768px) {
+    div[data-columns],
+    div[data-columns][data-ratio="33"],
+    div[data-columns][data-ratio="67"] {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+
+  div[data-youtube-video] {
+    max-width: 720px;
+    margin: 0 0 16px;
+
+    iframe {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      border-radius: 8px;
+    }
   }
 }

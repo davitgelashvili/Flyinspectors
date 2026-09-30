@@ -1,129 +1,82 @@
-/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/views/Contact Us/Contact Us Section/ContactUs.module.scss ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-.ContactUs_services__fnBS_ {
-  padding: 29px 0;
-  background-color: #F8FAFD;
-}
-
-.ContactUs_item__ON0c4 {
-  margin-bottom: 38px;
-}
-
-.ContactUs_icon__Y3RUN {
-  min-width: 40px;
-  height: 40px;
-  background-color: #0d6693;
-  padding: 11px;
-  border-radius: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 10px;
-}
-
-.ContactUs_title__Xxqrp {
-  margin: 0;
-}
-
-.ContactUs_desc__6eFUX {
-  margin: 0;
-}
-
-.ContactUs_mainDiv__UEO44 {
-  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.0509803922);
-  border-radius: 5px;
-}
-.ContactUs_mainDiv__header__E9uCH {
-  font-weight: 700;
-  background-color: #0d6693;
-  color: #ffffff;
-  padding: 20px;
-  margin: 0 0 15px 0;
-  border-radius: 9px 9px 0 0;
-  text-align: center;
-  font-size: 20px;
-}
-.ContactUs_mainDiv__item__X3iaT .ContactUs_row__JtONL {
-  margin: 0;
-}
-.ContactUs_mainDiv__item__X3iaT .ContactUs_col-6__FkdOH {
-  padding: 10px;
-}
-.ContactUs_mainDiv__item__X3iaT .ContactUs_col-6__FkdOH .ContactUs_countryHeader__CLRoJ {
-  font-size: 18px;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-.ContactUs_section__YShXA {
-  display: flex;
-  flex-direction: column;
-}
-
-.ContactUs_cardContainer__4cPdC {
-  display: flex;
-  flex-direction: column;
-}
-
-.ContactUs_card__OTv96 h5 {
-  margin: 0;
-  font-size: 15px;
-  line-height: 22px;
-  font-weight: 600;
-  color: #000000;
-}
-.ContactUs_card__OTv96 p {
-  margin: 0;
-  font-weight: 600;
-  font-size: 13px;
-  line-height: 22px;
-  color: #000000;
-}
 /*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/SectionTextAndCover/SectionTextAndCover.module.scss ***!
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/views/Contact Us/Contact Us Section/ContactOffices.module.scss ***!
   \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-.SectionTextAndCover_cover__RE3RW {
-  width: 100%;
-  max-height: unset;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+.ContactOffices_contact__8A0hM {
+  background-color: #f6f6f8;
 }
-@media (max-width: 991px) {
-  .SectionTextAndCover_cover__RE3RW {
-    max-height: 200px;
+.ContactOffices_contact__inner__kO3_T {
+  padding-block: 72px 56px;
+}
+@media (max-width: 768px) {
+  .ContactOffices_contact__inner__kO3_T {
+    padding-block: 48px 40px;
   }
 }
-.SectionTextAndCover_cover__img__bH5Aq {
-  max-width: 100%;
-  max-height: unset;
+.ContactOffices_contact__title__WcpKd {
+  margin: 0 0 40px;
+  color: #232536;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.4px;
 }
-@media (max-width: 991px) {
-  .SectionTextAndCover_cover__img__bH5Aq {
-    max-height: 200px;
-  }
+.ContactOffices_contact__grid__A9NBP {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  grid-gap: 20px;
+  gap: 20px;
 }
 
-.SectionTextAndCover_text__cdFKs {
-  width: 100%;
-  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.0509803922);
-  border-radius: 5px;
-  height: max-content;
+.ContactOffices_office__QUWwt {
+  padding: 28px;
+  background-color: #fff;
+  border: 1px solid #e2e3ea;
+  border-radius: 16px;
 }
-.SectionTextAndCover_text__title__3DmAg {
-  font-weight: 700;
-  background-color: #0D6693;
-  color: #ffffff;
-  padding: 20px;
-  margin: 0;
-  border-radius: 9px 9px 0 0;
-  text-align: center;
+.ContactOffices_office__bar__m4cLg {
+  width: 44px;
+  height: 6px;
+  margin-bottom: 22px;
+  border-radius: 3px;
+  background-color: #fd9b28;
+}
+.ContactOffices_office__country__5Cpxx {
+  margin: 0 0 20px;
   font-size: 20px;
+  font-weight: 700;
+  color: #0d6693;
 }
-.SectionTextAndCover_text__body__u7KJD {
-  padding: 20px;
+.ContactOffices_office__details___Wr1G {
+  margin: 0;
+  font-style: normal;
+}
+.ContactOffices_office__list__OLWY3 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+}
+.ContactOffices_office__label__DOzSB {
+  margin: 0 0 2px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: #6b6f85;
+}
+.ContactOffices_office__value__iHLwO {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #232536;
+  overflow-wrap: anywhere;
+}
+.ContactOffices_office__link__FyslP {
+  color: #0056b3;
+  text-decoration: none;
+}
+.ContactOffices_office__link__FyslP:hover {
+  text-decoration: underline;
 }
 /*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/UI/TextInput.module.scss ***!

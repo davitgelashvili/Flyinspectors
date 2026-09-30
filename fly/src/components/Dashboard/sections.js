@@ -1,3 +1,5 @@
+import { META_PAGES } from '@/i18n/metaPages'
+
 // Sidebar-ისა და როუტინგის ერთი საერთო წყარო. ორ ადგილას რომ გვედო,
 // ერთში ცვლილება მეორეში დაგვავიწყდებოდა და მენიუ აჩვენებდა გვერდს,
 // რომელსაც როუტერი კრძალავს (ან პირიქით).
@@ -22,10 +24,20 @@ export const SECTIONS = [
             { title: 'რატომ ჩვენ', path: '/why', roles: ['admin', 'editor'] },
         ],
     },
-    { title: 'გვერდები', path: '/pages', roles: ['admin', 'editor'] },
+    {
+        title: 'მეტა თეგები',
+        // გვერდების სია ერთ ადგილას იმართება (i18n/metaPages.js)
+        children: META_PAGES.map((page) => ({
+            title: page.label,
+            path: `/meta/${page.slug}`,
+            roles: ['admin', 'editor'],
+        })),
+    },
+    { title: 'ხშირად დასმული კითხვები', path: '/faq', roles: ['admin', 'editor'] },
+    { title: 'გვერდის შექმნა', path: '/pages', roles: ['admin', 'editor'] },
     { title: 'რეიტინგი', path: '/rate', roles: ['admin', 'editor'] },
     { title: 'საკონტაქტო', path: '/contact', roles: ['admin', 'editor'] },
-    { title: 'წესები და პირობები', path: '/condition', roles: ['admin', 'editor'] },
+    { title: 'წესები და პირობები', path: '/terms', roles: ['admin', 'editor'] },
     { title: 'კომპანიები', path: '/company', roles: ['admin'] },
     { title: 'მომხმარებლები', path: '/users', roles: ['admin'] },
     { title: 'მეილის პაროლი', path: '/mailpassword', roles: ['admin'] },

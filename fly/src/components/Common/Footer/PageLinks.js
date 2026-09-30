@@ -1,134 +1,64 @@
-'use client'
-
-import React from "react";
-import Link from '@/components/UI/LocaleLink'
-import { useTranslation } from "react-i18next";
+import Link from "next/link";
+import { getPages } from "@/api/serverApi";
+import translations from "./footer.module";
 import styles from "./Footer.module.scss";
 
-const PageLinks = () => {
-  const { t } = useTranslation();
+// მე-3 სვეტში ამდენი დინამიური გვერდი ეტევა; დანარჩენი მე-4 სვეტში გადადის
+const PAGES_PER_COLUMN = 4;
+
+// სერვერ კომპონენტია: ყველა ბმული მზა HTML-შია (<a href>), ამიტომ Google-ი მათ JavaScript-ის
+// გარეშე ხედავს და გვერდებს ერთმანეთთან აკავშირებს.
+//
+// სვეტები: 1) მთავარი, განაცხადი, სტატუსი, ხდკ   2) ჩვენს შესახებ, წესები, ბლოგი, კონტაქტი
+//          3) ადმინიდან შექმნილი გვერდები (პირველი 4)   4) დანარჩენი გვერდები, თუ 4-ზე მეტია
+const PageLinks = async ({ locale }) => {
+  const t = translations[locale];
+  const prefix = `/${locale}`;
+
+  const columns = [
+    [
+      { href: prefix, label: t.main.home },
+      { href: `${prefix}/submit-claim`, label: t.main.submitclaim },
+      { href: `${prefix}/check-status`, label: t.main.checkstatus },
+      { href: `${prefix}/about-us/faq`, label: t.main.faq },
+    ],
+    [
+      { href: `${prefix}/about-us`, label: t.info.aboutus },
+      { href: `${prefix}/terms-and-conditions`, label: t.info.termsandconditions },
+      { href: `${prefix}/about-us/blog`, label: t.info.blog },
+      { href: `${prefix}/contact-us`, label: t.info.contactus },
+    ],
+  ];
+
+  // ბექი გამოქვეყნებულებს ახალი → ძველი რიგით აბრუნებს; ფუტერში შექმნის რიგი გვჭირდება,
+  // რომ ახალი გვერდი არსებულებს სვეტებს არ გადაუწყობდეს. ამ ენაზე სათაურის გარეშე გვერდი არ ჩანს.
+  const pages = (await getPages())
+    .filter((page) => page.published !== false)
+    .map((page) => ({
+      href: `${prefix}/page/${page.slug}`,
+      label: page.title?.[locale]?.trim(),
+    }))
+    .filter((page) => page.label)
+    .reverse();
+
+  // სვეტები მხოლოდ 4 გვაქვს: მე-3-ში პირველი 4 გვერდი, მე-4-ში ყველა დანარჩენი
+  // (ცარიელი სვეტი არ ჩანს)
+  columns.push(pages.slice(0, PAGES_PER_COLUMN), pages.slice(PAGES_PER_COLUMN));
 
   return (
-    <div className={`${styles.MainDiv}`}>
-      <div className="row">
-        {/* Column 1 */}
-        <div className="col-lg-3 col-6">
-          <ul className={`nav flex-column ${styles.List}`}>
-            <li className={`nav-item mb-2 ${styles.List__item}`}>
-              <Link href="/" className={`nav-link ${styles.List__link}`}>
-                {t('footer.home')}
+    <nav aria-label={t.label} className={styles.links}>
+      {columns.filter((links) => links.length).map((links, index) => (
+        <ul className={styles.links__column} key={index}>
+          {links.map((link) => (
+            <li key={link.href}>
+              <Link href={link.href} className={styles.links__link}>
+                {link.label}
               </Link>
             </li>
-            <li className={`nav-item mb-2 ${styles.List__item}`}>
-              <Link
-                href="/submit-claim"
-                className={`nav-link ${styles.List__link}`}
-              >
-                {t('footer.submitclaim')}
-              </Link>
-            </li>
-            <li className={`nav-item mb-2 ${styles.List__item}`}>
-              <Link
-                href="/contact-us"
-                className={`nav-link ${styles.List__link}`}
-              >
-                {t('footer.contactus')}
-              </Link>
-            </li>
-          </ul>
-        </div>
-
-        {/* Column 2 */}
-        <div className="col-lg-3 col-6">
-          <ul className={`nav flex-column ${styles.List}`}>
-            <li className={`nav-item mb-2 ${styles.List__item}`}>
-              <Link
-                href="/about-us"
-                className={`nav-link ${styles.List__link}`}
-              >
-                {t('footer.aboutus')}
-              </Link>
-            </li>
-            <li className={`nav-item mb-2 ${styles.List__item}`}>
-              <Link
-                href="/your-rights/flight-delay"
-                className={`nav-link ${styles.List__link}`}
-              >
-                {t('footer.flightdelay')}
-              </Link>
-            </li>
-            <li className={`nav-item mb-2 ${styles.List__item}`}>
-              <Link
-                href="/your-rights/flight-cancellation"
-                className={`nav-link ${styles.List__link}`}
-              >
-                {t('footer.flightcancellation')}
-              </Link>
-            </li>
-          </ul>
-        </div>
-
-        {/* Column 3 */}
-        <div className="col-lg-3 col-6">
-          <ul className={`nav flex-column ${styles.List}`}>
-            <li className={`nav-item mb-2 ${styles.List__item}`}>
-              <Link
-                href="/your-rights/overbooked-flight"
-                className={`nav-link ${styles.List__link}`}
-              >
-                {t('footer.overBookedflight')}
-              </Link>
-            </li>
-            <li className={`nav-item mb-2 ${styles.List__item}`}>
-              <Link
-                href="/your-rights/missed-connection"
-                className={`nav-link ${styles.List__link}`}
-              >
-                {t('footer.missedconnection')}
-              </Link>
-            </li>
-            <li className={`nav-item mb-2 ${styles.List__item}`}>
-              <Link
-                href="/your-rights/lost-luggage"
-                className={`nav-link ${styles.List__link}`}
-              >
-                {t('footer.lostluggage')}
-              </Link>
-            </li>
-          </ul>
-        </div>
-
-        {/* Column 4 */}
-        <div className="col-lg-3 col-6">
-          <ul className={`nav flex-column ${styles.List}`}>
-            <li className={`nav-item mb-2 ${styles.List__item}`}>
-              <Link
-                href="/about-us/blog"
-                className={`nav-link ${styles.List__link}`}
-              >
-                {t('footer.blog')}
-              </Link>
-            </li>
-            <li className={`nav-item mb-2 ${styles.List__item}`}>
-              <Link
-                href="/terms-and-conditions"
-                className={`nav-link ${styles.List__link}`}
-              >
-                {t('footer.termsandconditions')}
-              </Link>
-            </li>
-            <li className={`nav-item mb-2 ${styles.List__item}`}>
-              <Link
-                href="/about-us/faq"
-                className={`nav-link ${styles.List__link}`}
-              >
-                {t('footer.faq')}
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+          ))}
+        </ul>
+      ))}
+    </nav>
   );
 };
 

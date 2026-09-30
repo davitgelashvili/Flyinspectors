@@ -10,21 +10,19 @@ import HeroForm from "./Hero/Hero"
 import OptionsForm from "./Options/Options"
 import HowForm from "./How/How"
 import WhyForm from "./Why/Why"
+import TermsForm from "./Terms/Terms"
+import ContactForm from "./Contact/Contact"
+import FaqList from "./Faq/List"
+import FaqForm from "./Faq/Form"
+import MetaForm from "./Meta/Meta"
 import Profile from "./Profile/Profile"
 import { useDispatch, useSelector } from "react-redux"
 import { userAction } from "../../store/userData"
 import adminFetch from "../../api/adminFetch"
 import UserList from "./User/List";
 import UserEdit from "./User/Edit";
-import ServicesList from "./Services/List";
-import ServicesEdit from "./Services/Edit";
 import RateList from "./Rate/List";
 import RateEdit from "./Rate/Edit";
-import ContactList from "./ContactList/List";
-import ContactEdit from "./ContactList/Edit";
-import ConditionsList from "./Conditions/List";
-import ConditionsEdit from "./Conditions/Edit";
-import ConditionsAdd from "./Conditions/Add";
 import Company from "./Company/Company";
 import CompanyAdd from "./Company/CompanyAdd";
 import styles from './Dashboard.module.scss'
@@ -43,24 +41,25 @@ function getSection(path) {
     if (path === '/how') return <HowForm />
     if (path === '/why') return <WhyForm />
 
+    if (path === '/faq') return <FaqList />
+    if (path.startsWith('/faq/')) return <FaqForm />
+
+    if (path.startsWith('/meta/')) return <MetaForm />
+
     if (path === '/pages') return <PagesList />
     if (path.startsWith('/pages/')) return <PagesForm />
 
     if (path === '/userlist') return <UserList />
     if (path.startsWith('/userlist/')) return <UserEdit />
 
-    if (path === '/services') return <ServicesList />
-    if (path.startsWith('/services/')) return <ServicesEdit />
-
     if (path === '/rate') return <RateList />
     if (path.startsWith('/rate/')) return <RateEdit />
 
-    if (path === '/contact') return <ContactList />
-    if (path === '/contact/edit') return <ContactEdit />
 
-    if (path === '/condition') return <ConditionsList />
-    if (path === '/condition/add') return <ConditionsAdd />
-    if (path.startsWith('/condition/')) return <ConditionsEdit />
+
+    if (path === '/terms') return <TermsForm />
+
+    if (path === '/contact') return <ContactForm />
 
     if (path === '/mailpassword') return <MailSettings />
 

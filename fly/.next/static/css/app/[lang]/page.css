@@ -6,9 +6,7 @@
   color: #fff;
 }
 .Slider_slider__inner__1jt0G {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 72px 24px 88px;
+  padding-block: 72px 88px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
   grid-gap: 56px;
@@ -17,7 +15,7 @@
 }
 @media (max-width: 768px) {
   .Slider_slider__inner__1jt0G {
-    padding: 48px 16px 56px;
+    padding-block: 48px 56px;
     gap: 40px;
   }
 }
@@ -32,15 +30,6 @@
 }
 .Slider_title__accent__sggmI {
   color: #fd9b28;
-}
-
-.Slider_text__OR_FE {
-  margin: 0 0 36px;
-  max-width: 540px;
-  font-size: 16px;
-  line-height: 1.7;
-  color: #fff;
-  text-wrap: pretty;
 }
 
 .Slider_actions__uzzyc {
@@ -170,171 +159,6 @@
 .Slider_richText__T__Rc > :last-child {
   margin-bottom: 0;
 }
-/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/Knows Your Rights/components/BeAware.module.scss ***!
-  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-.BeAware_services___pmKW {
-  margin-top: 60px;
-  margin-bottom: 150px;
-}
-.BeAware_services__header__yFbam {
-  font-size: 30px;
-  font-weight: 700;
-  line-height: 44px;
-  text-align: center;
-  color: #FD9B28;
-}
-
-.BeAware_mainDiv__5i_86 {
-  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.0509803922);
-  border-radius: 5px;
-}
-
-.BeAware_header__A5Spo {
-  font-weight: 700;
-  background-color: #0D6693;
-  color: #ffffff;
-  padding: 20px;
-  margin: 0 0 15px 0;
-  border-radius: 9px 9px 0 0;
-  text-align: start;
-  font-size: 20px;
-}
-
-.BeAware_item__V_K3K {
-  padding: 0px 0px 4px 20px;
-}
-
-.BeAware_item__V_K3K p {
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 22px;
-  padding-top: 9px;
-  padding-right: 12px;
-  margin: 0;
-  cursor: default;
-  overflow: auto;
-  max-height: 200px;
-}
-
-.BeAware_container__UWYFQ {
-  border-radius: 9px;
-  background-color: #0D6693;
-  display: flex;
-  gap: 20px;
-}
-.BeAware_container__options__MOmQ8 {
-  display: flex;
-  flex-direction: column;
-}
-.BeAware_container__option__s_El_ {
-  padding: 10px 20px;
-  background: #c7cdd9;
-  color: #606e8d;
-  border: none;
-  cursor: pointer;
-  text-align: left;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-.BeAware_container__option__s_El_:first-child {
-  border-top-left-radius: 9px;
-}
-.BeAware_container__option__s_El_:last-child {
-  border-bottom-left-radius: 9px;
-}
-.BeAware_container__option__s_El_:hover {
-  background-color: #0d6693;
-  color: #ffffff; /* Change color on hover */
-}
-.BeAware_container__option__s_El_.BeAware_active__duHS0 {
-  background-color: #0d6693;
-  color: #ffffff; /* Active button text color */
-}
-.BeAware_container__infoarea__6r4O_ {
-  flex-grow: 1;
-  padding: 10px;
-  border-radius: 5px;
-  background-color: #0D6693;
-  height: 100%;
-  width: 100%;
-  overflow-y: auto;
-}
-.BeAware_container__info__Xvh19 {
-  margin: 0;
-  font-size: 16px;
-  line-height: 1.5;
-  white-space: pre-wrap;
-  height: 100%;
-  width: 100%;
-  color: #ffffff;
-}
-.BeAware_container__info__Xvh19 p {
-  color: #ffffff;
-}
-/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/Main/FaqSection/FaqSection.module.scss ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-.FaqSection_accordion__A3MKv {
-  display: inline-block;
-  justify-content: center;
-  text-align: center;
-  border-radius: 8px;
-  overflow: hidden;
-  margin: 20px auto;
-  font-family: Arial, sans-serif;
-  padding-bottom: 30px;
-  padding-top: 30px;
-}
-.FaqSection_accordion__item__fv3rX {
-  padding-bottom: 30px;
-}
-.FaqSection_accordion__header__VYkWr {
-  padding: 15px;
-  background-color: #0d6693;
-  color: #fff;
-  cursor: pointer;
-  font-size: 15px;
-  line-height: 22px;
-  font-weight: 700;
-  transition: background-color 0.3s;
-}
-
-.FaqSection_Faq__WmxSA {
-  background-image: url(/_next/static/media/EarthPic.9d54772b.png);
-}
-
-.FaqSection_faqHeader__DFOxO {
-  font-weight: 700;
-  font-size: 30px;
-  line-height: 44px;
-  color: #0d6693;
-}
-
-.FaqSection_contentP__PxEju {
-  text-align: start;
-  color: #717171;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 22px;
-}
-
-.FaqSection_accordion__header__VYkWr:hover {
-  background-color: #094f72;
-}
-
-.FaqSection_accordion__content__SP11n {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease;
-  padding: 0 15px;
-  background-color: #f9f9f9;
-  color: #333;
-}
-
-.FaqSection_accordion__content__SP11n.FaqSection_show__1MSSi {
-  max-height: 100%;
-  padding: 15px;
-}
 /*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/OptionsSection/OptionsSection.module.scss ***!
   \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
@@ -342,13 +166,11 @@
   background-color: #f6f6f8;
 }
 .OptionsSection_OptionsSection__inner__Hsd8r {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 88px 24px;
+  padding-block: 88px;
 }
 @media (max-width: 768px) {
   .OptionsSection_OptionsSection__inner__Hsd8r {
-    padding: 56px 16px;
+    padding-block: 56px;
   }
 }
 
@@ -400,13 +222,11 @@
   color: #fff;
 }
 .ServicesOptions_how__inner__d6EPY {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 88px 24px;
+  padding-block: 88px;
 }
 @media (max-width: 768px) {
   .ServicesOptions_how__inner__d6EPY {
-    padding: 56px 16px;
+    padding-block: 56px;
   }
 }
 .ServicesOptions_how__title__3B19T {
@@ -448,71 +268,6 @@
   line-height: 1.7;
   color: #fff;
 }
-/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/WeGivesYou/WeGivesYou.module.scss ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-.WeGivesYou_item__lODlB {
-  width: 100%;
-  background-color: #0D6693;
-  border-radius: 5px;
-  padding: 45px 15px;
-}
-@media (max-width: 991px) {
-  .WeGivesYou_item__lODlB {
-    margin-bottom: 24px;
-  }
-}
-.WeGivesYou_item__cover__tmeo9 {
-  width: 100%;
-  height: 116px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-}
-.WeGivesYou_item__icon__jNkLp {
-  max-height: 100%;
-  max-width: 100%;
-}
-.WeGivesYou_item__title__ic5ui {
-  margin: 0;
-  margin-bottom: 15px;
-  font-size: 20PX;
-  font-weight: 700;
-  line-height: 24px;
-  height: 24px;
-  color: #ffffff;
-  text-align: center;
-}
-.WeGivesYou_item__subtitle__FMpqP {
-  margin: 0;
-  font-size: 18PX;
-  font-weight: 700;
-  line-height: 24px;
-  height: 72px;
-  color: #3f3f3f;
-  text-align: center;
-  padding-bottom: 5px;
-}
-.WeGivesYou_item__list__THgLG {
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  max-width: 300px;
-  margin-left: 15px;
-}
-@media (max-width: 768px) {
-  .WeGivesYou_item__list__THgLG {
-    list-style: none;
-  }
-}
-.WeGivesYou_item__list__THgLG li {
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 24px;
-  letter-spacing: 0.5%;
-  padding-top: 7px;
-  color: #fff0f0;
-}
 /*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/WhyWe/WhyWe.module.scss ***!
   \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
@@ -520,9 +275,7 @@
   background-color: #f6f6f8;
 }
 .WhyWe_why__inner__RB3yS {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 88px 24px;
+  padding-block: 88px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
   grid-gap: 56px;
@@ -531,7 +284,7 @@
 }
 @media (max-width: 768px) {
   .WhyWe_why__inner__RB3yS {
-    padding: 56px 16px;
+    padding-block: 56px;
     gap: 40px;
   }
 }
@@ -613,4 +366,124 @@
   font-size: 16px;
   line-height: 1.65;
   font-weight: 600;
+}
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/Faq/Faq.module.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+.Faq_faq__eX5TU {
+  background-color: #fff;
+}
+.Faq_faq__inner___192p {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 88px 24px;
+}
+@media (max-width: 768px) {
+  .Faq_faq__inner___192p {
+    padding: 56px 16px;
+  }
+}
+.Faq_faq__title__Uub9T {
+  margin: 0 0 40px;
+  color: #232536;
+  font-size: clamp(25px, 3.2vw, 36px);
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+.Faq_faq__list__o49kk {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.Faq_item__G_IIm {
+  overflow: hidden;
+  background-color: #f6f6f8;
+  border: 1px solid #e2e3ea;
+  border-radius: 14px;
+}
+.Faq_item__question__0Eygu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 24px;
+  cursor: pointer;
+  list-style: none;
+}
+.Faq_item__question__0Eygu::-webkit-details-marker {
+  display: none;
+}
+.Faq_item__question__0Eygu:focus-visible {
+  outline: 2px solid #0056b3;
+  outline-offset: -2px;
+}
+@media (max-width: 500px) {
+  .Faq_item__question__0Eygu {
+    padding: 16px;
+  }
+}
+.Faq_item__title__Jd_Vn {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #232536;
+}
+.Faq_item__icon__y0YfF {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #0056b3;
+  color: #fff;
+  font-size: 16px;
+  line-height: 1;
+}
+.Faq_item__icon__y0YfF::before {
+  content: "+";
+}
+.Faq_item__G_IIm[open] .Faq_item__icon__y0YfF::before {
+  content: "−";
+}
+.Faq_item__answer__cVAHT {
+  padding: 0 24px 22px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #4a4d63;
+}
+@media (max-width: 500px) {
+  .Faq_item__answer__cVAHT {
+    padding: 0 16px 18px;
+  }
+}
+.Faq_item__answer__cVAHT p {
+  margin: 0 0 12px;
+}
+.Faq_item__answer__cVAHT strong {
+  color: #232536;
+}
+.Faq_item__answer__cVAHT h1, .Faq_item__answer__cVAHT h2, .Faq_item__answer__cVAHT h3, .Faq_item__answer__cVAHT h4, .Faq_item__answer__cVAHT h5, .Faq_item__answer__cVAHT h6 {
+  margin: 0 0 10px;
+  color: #232536;
+  line-height: 1.3;
+}
+.Faq_item__answer__cVAHT ul, .Faq_item__answer__cVAHT ol {
+  margin: 0 0 12px;
+  padding-left: 24px;
+}
+.Faq_item__answer__cVAHT blockquote {
+  margin: 0 0 12px;
+  padding-left: 16px;
+  border-left: 3px solid #fd9b28;
+}
+.Faq_item__answer__cVAHT a {
+  color: #0056b3;
+  text-decoration: underline;
+}
+.Faq_item__answer__cVAHT > :last-child {
+  margin-bottom: 0;
 }

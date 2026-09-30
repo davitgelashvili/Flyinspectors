@@ -1,0 +1,176 @@
+.faq {
+    padding: 20px;
+
+    &__head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-bottom: 18px;
+
+        a {
+            color: #2471a3;
+            font-size: 14px;
+        }
+    }
+
+    &__title {
+        margin: 0;
+        font-size: 22px;
+        color: #0D1829;
+    }
+
+    &__add {
+        padding: 9px 18px;
+        border-radius: 4px;
+        background-color: #FD9B28;
+        color: #fff !important;
+        font-size: 14px;
+        text-decoration: none;
+    }
+
+    &__error {
+        margin: 0 0 14px;
+        padding: 10px 14px;
+        border-radius: 4px;
+        background-color: #fdecea;
+        color: #b3261e;
+        font-size: 14px;
+    }
+
+    &__done {
+        margin: 0 0 14px;
+        padding: 10px 14px;
+        border-radius: 4px;
+        background-color: #e8f5e9;
+        color: #2e7d32;
+        font-size: 14px;
+    }
+
+    /* სია */
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    &__row {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 12px 14px;
+        background-color: #fff;
+        border: 1px solid #e3e9f0;
+        border-radius: 6px;
+
+        @media (max-width: 600px) {
+            flex-wrap: wrap;
+        }
+    }
+
+    &__order {
+        flex: none;
+        min-width: 28px;
+        text-align: center;
+        font-size: 13px;
+        font-weight: 700;
+        color: #5d6d7e;
+    }
+
+    &__body {
+        flex: 1;
+        min-width: 0;
+    }
+
+    &__name {
+        margin: 0 0 4px;
+        font-size: 15px;
+        color: #0D1829;
+        overflow-wrap: anywhere;
+    }
+
+    &__badges {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    &__home,
+    &__warn {
+        padding: 2px 8px;
+        border-radius: 3px;
+        font-size: 12px;
+    }
+
+    &__home {
+        background-color: #e3f0fb;
+        color: #1f5f99;
+    }
+
+    &__warn {
+        background-color: #fdf2e3;
+        color: #b9770e;
+    }
+
+    &__actions {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+
+        a {
+            color: #2471a3;
+            font-size: 13px;
+        }
+
+        button {
+            border: 0;
+            background: transparent;
+            color: #c0392b;
+            font-size: 13px;
+            cursor: pointer;
+            padding: 0;
+        }
+    }
+
+    &__empty {
+        color: #5d6d7e;
+        font-size: 14px;
+    }
+
+    /* ფორმა */
+    &__form {
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #e3e9f0;
+        border-radius: 6px;
+    }
+
+    &__check {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0 0 16px;
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+    &__submit {
+        margin-top: 18px;
+        padding: 11px 26px;
+        border: 0;
+        border-radius: 4px;
+        background-color: #FD9B28;
+        color: #fff;
+        font-size: 15px;
+        cursor: pointer;
+
+        &:disabled {
+            opacity: 0.6;
+            cursor: default;
+        }
+    }
+}

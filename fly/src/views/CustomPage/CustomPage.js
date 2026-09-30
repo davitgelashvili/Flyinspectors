@@ -19,7 +19,7 @@ export default function CustomPage({ page, locale }) {
                     {/* კონტენტი ადმინის რედაქტორიდან მოდის HTML-ად.
                         გვერდის შექმნა მხოლოდ admin/editor როლებს შეუძლიათ. */}
                     <div
-                        className={styles.page__content}
+                        className={`${styles.page__content} rich-content`}
                         dangerouslySetInnerHTML={{ __html: content }}
                     />
                 </article>

@@ -34,7 +34,7 @@ function Header() {
     return (
         <>
             <header className={styles.header}>
-                <div className={styles.header__container}>
+                <div className={`container ${styles.header__container}`}>
                     <div className={styles.header__content}>
                         <Logo />
                         <div className={styles.header__right} >

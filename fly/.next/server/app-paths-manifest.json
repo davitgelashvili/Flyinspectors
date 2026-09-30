@@ -1,9 +1,12 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
   "/adminpanel/[[...slug]]/page": "app/adminpanel/[[...slug]]/page.js",
+  "/[lang]/your-rights/flight-cancellation/page": "app/[lang]/your-rights/flight-cancellation/page.js",
+  "/[lang]/page/[slug]/page": "app/[lang]/page/[slug]/page.js",
+  "/[lang]/terms-and-conditions/page": "app/[lang]/terms-and-conditions/page.js",
+  "/adminpanel/revalidate/route": "app/adminpanel/revalidate/route.js",
   "/[lang]/page": "app/[lang]/page.js",
+  "/[lang]/your-rights/overbooked-flight/page": "app/[lang]/your-rights/overbooked-flight/page.js",
   "/[lang]/about-us/faq/page": "app/[lang]/about-us/faq/page.js",
-  "/[lang]/about-us/blog/page": "app/[lang]/about-us/blog/page.js",
-  "/[lang]/your-rights/flight-delay/page": "app/[lang]/your-rights/flight-delay/page.js",
-  "/[lang]/page/[slug]/page": "app/[lang]/page/[slug]/page.js"
+  "/[lang]/contact-us/page": "app/[lang]/contact-us/page.js"
 }

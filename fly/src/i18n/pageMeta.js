@@ -1,4 +1,6 @@
+import { getMeta } from '@/api/serverApi'
 import { LOCALES, DEFAULT_LOCALE } from './locales'
+import { META_PAGES } from './metaPages'
 
 const OG_IMAGE = {
   en: 'https://res.cloudinary.com/dluqxr8lw/image/upload/v1734813470/meta_en_zr0fxe.jpg',
@@ -8,16 +10,6 @@ const OG_IMAGE = {
 const OG_LOCALE = { en: 'en_US', ka: 'ka_GE' }
 
 export const PAGE_META = {
-  '/': {
-    en: {
-      title: 'Flight Compensation up to €600 — Flyinspectors',
-      description: 'Claim flight compensation of up to €600 for delays, cancellations, missed connections, denied boarding or lost luggage. Check if you qualify.',
-    },
-    ka: {
-      title: 'ფრენის კომპენსაცია 600 ევრომდე — Flyinspectors',
-      description: 'მიიღეთ ფრენის კომპენსაცია 600 ევრომდე დაგვიანების, გაუქმების, დამაკავშირებელი რეისის გამოტოვების ან ბარგის დაკარგვის შემთხვევაში.',
-    },
-  },
   '/submit-claim': {
     en: {
       title: 'Submit a Claim — Flyinspectors',
@@ -48,26 +40,6 @@ export const PAGE_META = {
       description: 'ხელი მოაწერეთ ფრენის კომპენსაციის განაცხადს ელექტრონულად.',
     },
   },
-  '/contact-us': {
-    en: {
-      title: 'Contact Us — Flyinspectors',
-      description: 'Get in touch with Flyinspectors. Offices in Tbilisi, Georgia and London, United Kingdom — phone, email and address.',
-    },
-    ka: {
-      title: 'დაგვიკავშირდით — Flyinspectors',
-      description: 'დაუკავშირდით Flyinspectors-ს. ოფისები თბილისსა და ლონდონში — ტელეფონი, ელფოსტა და მისამართი.',
-    },
-  },
-  '/terms-and-conditions': {
-    en: {
-      title: 'Terms and Conditions — Flyinspectors',
-      description: 'The agreement between the passenger and Flyinspectors LTD, covering services, fees and the claim process.',
-    },
-    ka: {
-      title: 'წესები და პირობები — Flyinspectors',
-      description: 'ხელშეკრულება მგზავრსა და შპს ფლაიინსპექტორს შორის — მომსახურება, საკომისიო და განაცხადის პროცესი.',
-    },
-  },
   '/about-us': {
     en: {
       title: 'About Us — Flyinspectors',
@@ -86,16 +58,6 @@ export const PAGE_META = {
     ka: {
       title: 'ბლოგი — Flyinspectors',
       description: 'სტატიები მგზავრთა უფლებების, ფრენის გაუქმებისა და დაგვიანების, აეროპორტებისა და მოგზაურობის შესახებ.',
-    },
-  },
-  '/about-us/faq': {
-    en: {
-      title: 'Frequently Asked Questions — Flyinspectors',
-      description: 'Answers about our 25% service fee, payout methods, claim timelines and how to check your claim status.',
-    },
-    ka: {
-      title: 'ხშირად დასმული კითხვები — Flyinspectors',
-      description: 'პასუხები 25%-იან საკომისიოზე, თანხის მიღების გზებზე, ვადებსა და განაცხადის სტატუსის შემოწმებაზე.',
     },
   },
   '/about-us/blog-page-more': {
@@ -190,21 +152,55 @@ export const PAGE_META = {
   },
 }
 
+// გვერდები, რომელთა ტექსტი ბაზიდანაა (ადმინი → მეტა თეგები). დანარჩენი ჯერ ზემოთ PAGE_META-შია.
+const DB_PATHS = new Set(META_PAGES.map((page) => page.path))
+const HOME_PATH = '/'
+
+// ბაზიდან: ტექსტი ამ გვერდის ჩანაწერიდან; ფოტო — გვერდისა, თუ ცარიელია — მთავარი გვერდისა.
+// ყველა გვერდის მეტა ერთი მოთხოვნითაა (იკეშება და ადმინში შენახვისას მყისიერად ახლდება).
+async function metaFromDb(path, locale) {
+  const all = await getMeta()
+  const list = Array.isArray(all) ? all : []
+  const page = list.find((m) => m.path === path)
+  const home = list.find((m) => m.path === HOME_PATH)
+  const pick = (record, field) => record?.[field]?.[locale]?.trim() || ''
+
+  return {
+    title: pick(page, 'title'),
+    description: pick(page, 'description'),
+    image: pick(page, 'image') || pick(home, 'image'),
+  }
+}
+
 function localePath(path, locale) {
   return `/${locale}${path === '/' ? '' : path}`
 }
 
-export function buildMetadata(path, lang) {
+export async function buildMetadata(path, lang) {
   const locale = LOCALES.includes(lang) ? lang : DEFAULT_LOCALE
-  const meta = PAGE_META[path]?.[locale] ?? PAGE_META[path]?.[DEFAULT_LOCALE]
-  if (!meta) return {}
+
+  let meta
+  if (DB_PATHS.has(path)) {
+    meta = await metaFromDb(path, locale)
+  } else {
+    const fixed = PAGE_META[path]?.[locale] ?? PAGE_META[path]?.[DEFAULT_LOCALE]
+    if (!fixed) return {}
+    meta = { ...fixed, image: OG_IMAGE[locale] }
+  }
 
   const url = localePath(path, locale)
   const languages = Object.fromEntries(LOCALES.map((l) => [l, localePath(path, l)]))
+  const images = meta.image ? [meta.image] : undefined
+
+  // ცარიელ ველს არ ვაგზავნით: ფოტოს გარეშე ბარათი "summary" უნდა იყოს და სათაურის გარეშე
+  // გვერდს layout-ის ნაგულისხმევი სათაური დარჩება
+  const text = {
+    ...(meta.title && { title: meta.title }),
+    ...(meta.description && { description: meta.description }),
+  }
 
   return {
-    title: meta.title,
-    description: meta.description,
+    ...text,
     alternates: {
       canonical: url,
       languages: { ...languages, 'x-default': localePath(path, DEFAULT_LOCALE) },
@@ -213,15 +209,14 @@ export function buildMetadata(path, lang) {
       type: 'website',
       url,
       locale: OG_LOCALE[locale],
-      title: meta.title,
-      description: meta.description,
-      images: [OG_IMAGE[locale]],
+      siteName: 'Flyinspectors',
+      ...text,
+      ...(images && { images }),
     },
     twitter: {
-      card: 'summary_large_image',
-      title: meta.title,
-      description: meta.description,
-      images: [OG_IMAGE[locale]],
+      card: images ? 'summary_large_image' : 'summary',
+      ...text,
+      ...(images && { images }),
     },
   }
 }

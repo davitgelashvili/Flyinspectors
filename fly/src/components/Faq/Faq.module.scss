@@ -1,0 +1,132 @@
+.faq {
+    background-color: #fff;
+
+    &__inner {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 88px 24px;
+
+        @media (max-width: 768px) {
+            padding: 56px 16px;
+        }
+    }
+
+    &__title {
+        margin: 0 0 40px;
+        color: #232536;
+        font-size: clamp(25px, 3.2vw, 36px);
+        font-weight: 800;
+        letter-spacing: -0.3px;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+
+.item {
+    overflow: hidden;
+    background-color: #f6f6f8;
+    border: 1px solid #e2e3ea;
+    border-radius: 14px;
+
+    &__question {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 20px 24px;
+        cursor: pointer;
+        list-style: none; // სტანდარტული სამკუთხედი
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+
+        &:focus-visible {
+            outline: 2px solid #0056b3;
+            outline-offset: -2px;
+        }
+
+        @media (max-width: 500px) {
+            padding: 16px;
+        }
+    }
+
+    &__title {
+        margin: 0;
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 1.5;
+        color: #232536;
+    }
+
+    &__icon {
+        flex: none;
+        display: grid;
+        place-items: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background-color: #0056b3;
+        color: #fff;
+        font-size: 16px;
+        line-height: 1;
+
+        &::before {
+            content: "+";
+        }
+    }
+
+    &[open] &__icon::before {
+        content: "\2212"; // −
+    }
+
+    // ადმინის რედაქტორიდან მოსული HTML
+    &__answer {
+        padding: 0 24px 22px;
+        font-size: 14px;
+        line-height: 1.7;
+        color: #4a4d63;
+
+        @media (max-width: 500px) {
+            padding: 0 16px 18px;
+        }
+
+        p {
+            margin: 0 0 12px;
+        }
+
+        strong {
+            color: #232536;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            margin: 0 0 10px;
+            color: #232536;
+            line-height: 1.3;
+        }
+
+        ul, ol {
+            margin: 0 0 12px;
+            padding-left: 24px;
+        }
+
+        blockquote {
+            margin: 0 0 12px;
+            padding-left: 16px;
+            border-left: 3px solid #fd9b28;
+        }
+
+        a {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        > :last-child {
+            margin-bottom: 0;
+        }
+    }
+}

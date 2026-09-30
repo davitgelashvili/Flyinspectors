@@ -16,7 +16,7 @@ async function Slider({ lang }) {
 
     return (
         <section className={styles.slider} aria-labelledby="hero-title">
-            <div className={styles.slider__inner}>
+            <div className={`container ${styles.slider__inner}`}>
                 <HeroText hero={hero} locale={locale} />
                 <CompensationCard locale={locale} />
             </div>

@@ -1,7 +1,8 @@
 .header {
     display: block;
     background-color: #232536;
-    border-bottom: 3px solid #0056b3;
+    // border-bottom: 3px solid #0056b3;
+    border-bottom: 3px solid #fd9b28;
     position: fixed;
     width: 100%;
     height: 70px; // .site-shell-ის padding-top-ს უნდა ემთხვეოდეს
@@ -19,14 +20,8 @@
     }
 
     &__container {
-        max-width: 1200px;
+        // სიგანეს და ჰორიზონტალურ დაშორებას ბუტსტრაპის .container აგვარებს
         height: 100%;
-        margin: 0 auto;
-        padding: 0 24px;
-
-        @media (max-width: 768px) {
-            padding: 0 16px;
-        }
     }
 
     &__right {

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Loading from '../../Loading/Loading'
 import adminFetch from '../../../api/adminFetch'
+import revalidateSite from '../../../api/revalidateSite'
 import styles from './Pages.module.scss'
 
 export default function PagesList() {
@@ -35,6 +36,7 @@ export default function PagesList() {
                 body: JSON.stringify({ _id }),
             })
             if (!res.ok) throw new Error(await res.text())
+            await revalidateSite('pages')
             setReload(n => n + 1)
         } catch (e) {
             setError(e.message || 'წაშლა ვერ მოხერხდა')

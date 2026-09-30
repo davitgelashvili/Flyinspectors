@@ -1,0 +1,88 @@
+.contact {
+    background-color: #f6f6f8;
+
+    &__inner {
+        // ბუტსტრაპის .container სიგანესა და ჰორიზონტალურ დაშორებას აგვარებს; აქ მხოლოდ ვერტიკალურია
+        padding-block: 72px 56px;
+
+        @media (max-width: 768px) {
+            padding-block: 48px 40px;
+        }
+    }
+
+    &__title {
+        margin: 0 0 40px;
+        color: #232536;
+        font-size: clamp(28px, 4vw, 42px);
+        font-weight: 800;
+        line-height: 1.2;
+        letter-spacing: -0.4px;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+        gap: 20px;
+    }
+}
+
+.office {
+    padding: 28px;
+    background-color: #fff;
+    border: 1px solid #e2e3ea;
+    border-radius: 16px;
+
+    &__bar {
+        width: 44px;
+        height: 6px;
+        margin-bottom: 22px;
+        border-radius: 3px;
+        background-color: #fd9b28;
+    }
+
+    &__country {
+        margin: 0 0 20px;
+        font-size: 20px;
+        font-weight: 700;
+        color: #0d6693;
+    }
+
+    // <address> ბრაუზერში ნაგულისხმევად დახრილია
+    &__details {
+        margin: 0;
+        font-style: normal;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin: 0;
+    }
+
+    &__label {
+        margin: 0 0 2px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+        color: #6b6f85;
+    }
+
+    &__value {
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #232536;
+        overflow-wrap: anywhere;
+    }
+
+    &__link {
+        color: #0056b3;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

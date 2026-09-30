@@ -1,0 +1,191 @@
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/views/About Us/ABout Us Section/AboutUsSection.module.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.AboutUsSection_services__mtA7A {
+  padding-top: 60px;
+}
+.AboutUsSection_services__image__f7a3i {
+  max-width: 100%;
+}
+
+.AboutUsSection_mainDiv__eb_WG {
+  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.0509803922);
+  border-radius: 5px;
+}
+.AboutUsSection_mainDiv__header__iT_34 {
+  font-weight: 700;
+  background-color: #0D6693;
+  color: #ffffff;
+  padding: 20px;
+  margin: 0 0 15px 0;
+  border-radius: 9px 9px 0 0;
+  text-align: center;
+  font-size: 20px;
+}
+.AboutUsSection_mainDiv__item__SQpWk h4 {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 40px;
+  color: #000000;
+  text-align: center;
+  margin: 0;
+  cursor: default;
+}
+.AboutUsSection_mainDiv__item__SQpWk p {
+  margin-top: 30px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 29px;
+  color: #000000;
+  text-align: center;
+  cursor: default;
+}
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/SectionTextAndCover/SectionTextAndCover.module.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.SectionTextAndCover_cover__RE3RW {
+  width: 100%;
+  max-height: unset;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+@media (max-width: 991px) {
+  .SectionTextAndCover_cover__RE3RW {
+    max-height: 200px;
+  }
+}
+.SectionTextAndCover_cover__img__bH5Aq {
+  max-width: 100%;
+  max-height: unset;
+}
+@media (max-width: 991px) {
+  .SectionTextAndCover_cover__img__bH5Aq {
+    max-height: 200px;
+  }
+}
+
+.SectionTextAndCover_text__cdFKs {
+  width: 100%;
+  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.0509803922);
+  border-radius: 5px;
+  height: max-content;
+}
+.SectionTextAndCover_text__title__3DmAg {
+  font-weight: 700;
+  background-color: #0D6693;
+  color: #ffffff;
+  padding: 20px;
+  margin: 0;
+  border-radius: 9px 9px 0 0;
+  text-align: center;
+  font-size: 20px;
+}
+.SectionTextAndCover_text__body__u7KJD {
+  padding: 20px;
+}
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/views/About Us/Our core values/OurCoreValues.module.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.OurCoreValues_title__Tu10r {
+  padding-bottom: 64px;
+  text-align: center;
+  color: #0D6693;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 44px;
+}
+
+.OurCoreValues_OptionsSection__w9oPJ {
+  padding-bottom: 18px;
+  margin-top: 90px;
+  margin-bottom: 140px;
+}
+
+.OurCoreValues_item__FqCIA {
+  width: 100%;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px;
+  background-color: #0D6693;
+  border-radius: 7px;
+}
+.OurCoreValues_item__icon__7ZRZU {
+  width: 100%;
+  min-width: 50px;
+  max-width: 50px;
+  height: 50px;
+  background-color: #0D6693;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  margin-right: 7px;
+  margin-left: -8px;
+}
+.OurCoreValues_item__icon--img__0qVpA {
+  display: block;
+}
+.OurCoreValues_item__title__69AZ6 {
+  width: -webkit-fill-available;
+  text-align: center;
+  font-size: 16px;
+  color: white;
+  font-weight: 700;
+  line-height: 22px;
+}
+.OurCoreValues_item__desc__o91PQ {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 20px;
+  color: black;
+  font-weight: 400;
+}
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/views/About Us/RateSection/RateSection.module.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.RateSection_services__ZPo6g {
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #0D6693;
+  border-radius: 6px;
+}
+
+.RateSection_rowContainer__65_cN {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-top: 82px;
+  padding-bottom: 80px;
+  padding-left: 80px;
+}
+
+.RateSection_casesCompleted__i2Hwp {
+  margin-left: 20px;
+}
+
+.RateSection_happyCustomers__mRghn {
+  margin-left: 40px;
+}
+
+.RateSection_cardNumber___R6um {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 40px;
+  color: #ffffff;
+  margin: 0;
+}
+
+.RateSection_description__LeHLS {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 20px;
+  color: #ffffff;
+  margin-left: 0;
+}
+
+.RateSection_image__fE_Eg {
+  width: 60%;
+  margin-left: 40px;
+}

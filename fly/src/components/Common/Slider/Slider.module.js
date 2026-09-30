@@ -1,9 +1,8 @@
+// hero-ს სტატიკური ნაწილი: ღილაკი და კომპენსაციის ბარათი.
+// სათაური, ნარინჯისფერი ფრაზა და აღწერა ადმინიდან იცვლება და ბაზიდან მოდის (/api/hero).
 module.exports = {
     en: {
         SliderHero: {
-            title: "Flight Compensation",
-            accent: "up to €600",
-            sub: "Claim flight compensation for delays, cancellations, missed connections, denied boarding or lost luggage. Check if you qualify.",
             statusLink: "Check Status",
             cardTitle: "Compensation by flight distance",
             tier1: "Up to 1500 km",
@@ -14,9 +13,6 @@ module.exports = {
     },
     ka: {
         SliderHero: {
-            title: "ფრენის კომპენსაცია",
-            accent: "600 ევრომდე",
-            sub: "მოითხოვეთ კომპენსაცია რეისის დაგვიანების, გაუქმების, სატრანზიტო რეისის გაცდენის, ჩასხდომაზე უარისა და ბარგის დაკარგვის შემთხვევაში. შეამოწმეთ, გეკუთვნით თუ არა.",
             statusLink: "სტატუსის შემოწმება",
             cardTitle: "კომპენსაცია რეისის მანძილის მიხედვით",
             tier1: "1500 კმ-მდე",
