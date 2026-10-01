@@ -271,7 +271,7 @@ const SendFormBody = ({ value, setValue, uploadFile, accept, setAccept, setLoad,
           <label>
             <input type="checkbox" />
             <span>
-              {t('submitForm.iagree')} <Link target="_blank" href={'/terms-and-conditions'}>{t('submitForm.terms')}</Link>
+              {t('submitForm.iagree')} <Link className="text-link" target="_blank" href={'/terms-and-conditions'}>{t('submitForm.terms')}</Link>
             </span>
           </label>
         </div>

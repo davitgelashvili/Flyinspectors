@@ -1,6 +1,6 @@
 import { getMeta } from '@/api/serverApi'
-import { LOCALES, DEFAULT_LOCALE } from './locales'
-import { META_PAGES } from './metaPages'
+import { LOCALES, DEFAULT_LOCALE, X_DEFAULT_LOCALE } from './locales'
+import { META_PAGES, GLOBAL_OG_PATH } from './metaPages'
 
 const OG_IMAGE = {
   en: 'https://res.cloudinary.com/dluqxr8lw/image/upload/v1734813470/meta_en_zr0fxe.jpg',
@@ -156,19 +156,20 @@ export const PAGE_META = {
 const DB_PATHS = new Set(META_PAGES.map((page) => page.path))
 const HOME_PATH = '/'
 
-// ბაზიდან: ტექსტი ამ გვერდის ჩანაწერიდან; ფოტო — გვერდისა, თუ ცარიელია — მთავარი გვერდისა.
+// ბაზიდან: ტექსტი ამ გვერდის ჩანაწერიდან; ფოტო — გვერდისა, თუ ცარიელია — გლობალური, მერე მთავარი გვერდისა.
 // ყველა გვერდის მეტა ერთი მოთხოვნითაა (იკეშება და ადმინში შენახვისას მყისიერად ახლდება).
 async function metaFromDb(path, locale) {
   const all = await getMeta()
   const list = Array.isArray(all) ? all : []
   const page = list.find((m) => m.path === path)
   const home = list.find((m) => m.path === HOME_PATH)
+  const global = list.find((m) => m.path === GLOBAL_OG_PATH)
   const pick = (record, field) => record?.[field]?.[locale]?.trim() || ''
 
   return {
     title: pick(page, 'title'),
     description: pick(page, 'description'),
-    image: pick(page, 'image') || pick(home, 'image'),
+    image: pick(page, 'image') || pick(global, 'image') || pick(home, 'image'),
   }
 }
 
@@ -176,17 +177,27 @@ function localePath(path, locale) {
   return `/${locale}${path === '/' ? '' : path}`
 }
 
-export async function buildMetadata(path, lang) {
+// ადმინში მითითებული გლობალური გაზიარების ფოტო (ცარიელია → '')
+export async function getGlobalOgImage(lang) {
   const locale = LOCALES.includes(lang) ? lang : DEFAULT_LOCALE
+  const all = await getMeta()
+  const record = (Array.isArray(all) ? all : []).find((m) => m.path === GLOBAL_OG_PATH)
+  return record?.image?.[locale]?.trim() || ''
+}
 
-  let meta
-  if (DB_PATHS.has(path)) {
-    meta = await metaFromDb(path, locale)
-  } else {
-    const fixed = PAGE_META[path]?.[locale] ?? PAGE_META[path]?.[DEFAULT_LOCALE]
-    if (!fixed) return {}
-    meta = { ...fixed, image: OG_IMAGE[locale] }
-  }
+// გვერდის სათაური, აღწერა და ფოტო (ბაზიდან ან PAGE_META-დან) — მეტა ტეგებისთვისაც და schema.org-ისთვისაც
+export async function getPageSeo(path, lang) {
+  const locale = LOCALES.includes(lang) ? lang : DEFAULT_LOCALE
+  if (DB_PATHS.has(path)) return { locale, meta: await metaFromDb(path, locale) }
+
+  const fixed = PAGE_META[path]?.[locale] ?? PAGE_META[path]?.[DEFAULT_LOCALE]
+  if (!fixed) return { locale, meta: null }
+  return { locale, meta: { ...fixed, image: (await getGlobalOgImage(locale)) || OG_IMAGE[locale] } }
+}
+
+export async function buildMetadata(path, lang) {
+  const { locale, meta } = await getPageSeo(path, lang)
+  if (!meta) return {}
 
   const url = localePath(path, locale)
   const languages = Object.fromEntries(LOCALES.map((l) => [l, localePath(path, l)]))
@@ -203,7 +214,7 @@ export async function buildMetadata(path, lang) {
     ...text,
     alternates: {
       canonical: url,
-      languages: { ...languages, 'x-default': localePath(path, DEFAULT_LOCALE) },
+      languages: { ...languages, 'x-default': localePath(path, X_DEFAULT_LOCALE) },
     },
     openGraph: {
       type: 'website',

@@ -6,9 +6,14 @@
 //   slug  — ადმინის მისამართში (/adminpanel/meta/<slug>)
 //   path  — საიტის მისამართი ენის გარეშე
 //   label — ადმინის მენიუში
+// გლობალური გაზიარების ფოტო: გვერდებისთვის, რომლებსაც საკუთარი ფოტო არ აქვთ.
+// ეს ჩანაწერი მხოლოდ ფოტოს ინახავს (imageOnly) — საიტის გვერდი არ არის.
+export const GLOBAL_OG_PATH = '/default-og'
+
 export const META_PAGES = [
   { slug: 'home', path: '/', label: 'მთავარი გვერდი' },
   { slug: 'faq', path: '/about-us/faq', label: 'ხშირად დასმული კითხვები' },
   { slug: 'terms', path: '/terms-and-conditions', label: 'წესები და პირობები' },
   { slug: 'contact', path: '/contact-us', label: 'კონტაქტი' },
+  { slug: 'global', path: GLOBAL_OG_PATH, label: 'გლობალური OG სურათი', imageOnly: true },
 ]

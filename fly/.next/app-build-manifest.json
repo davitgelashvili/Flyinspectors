@@ -12,6 +12,41 @@
       "static/css/app/[lang]/layout.css",
       "static/chunks/app/[lang]/layout.js"
     ],
+    "/[lang]/[slug]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/[lang]/[slug]/page.css",
+      "static/chunks/app/[lang]/[slug]/page.js"
+    ],
+    "/[lang]/[slug]/not-found": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/[lang]/[slug]/not-found.css",
+      "static/chunks/app/[lang]/[slug]/not-found.js"
+    ],
+    "/[lang]/about-us/faq/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/[lang]/about-us/faq/page.css",
+      "static/chunks/app/[lang]/about-us/faq/page.js"
+    ],
+    "/[lang]/contact-us/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/[lang]/contact-us/page.css",
+      "static/chunks/app/[lang]/contact-us/page.js"
+    ],
+    "/[lang]/[...rest]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[lang]/[...rest]/page.js"
+    ],
+    "/[lang]/[...rest]/not-found": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/[lang]/[...rest]/not-found.css",
+      "static/chunks/app/[lang]/[...rest]/not-found.js"
+    ],
     "/adminpanel/[[...slug]]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -23,12 +58,6 @@
       "static/chunks/main-app.js",
       "static/css/app/adminpanel/layout.css",
       "static/chunks/app/adminpanel/layout.js"
-    ],
-    "/[lang]/submit-claim/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/[lang]/submit-claim/page.css",
-      "static/chunks/app/[lang]/submit-claim/page.js"
     ],
     "/[lang]/your-rights/flight-delay/page": [
       "static/chunks/webpack.js",
@@ -42,41 +71,11 @@
       "static/css/app/[lang]/your-rights/flight-cancellation/page.css",
       "static/chunks/app/[lang]/your-rights/flight-cancellation/page.js"
     ],
-    "/[lang]/about-us/faq/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/[lang]/about-us/faq/page.css",
-      "static/chunks/app/[lang]/about-us/faq/page.js"
-    ],
-    "/[lang]/terms-and-conditions/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/[lang]/terms-and-conditions/page.css",
-      "static/chunks/app/[lang]/terms-and-conditions/page.js"
-    ],
-    "/[lang]/check-status/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/[lang]/check-status/page.css",
-      "static/chunks/app/[lang]/check-status/page.js"
-    ],
     "/[lang]/about-us/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/[lang]/about-us/page.css",
       "static/chunks/app/[lang]/about-us/page.js"
-    ],
-    "/[lang]/contact-us/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/[lang]/contact-us/page.css",
-      "static/chunks/app/[lang]/contact-us/page.js"
-    ],
-    "/[lang]/page/[slug]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/[lang]/page/[slug]/page.css",
-      "static/chunks/app/[lang]/page/[slug]/page.js"
     ],
     "/[lang]/about-us/blog/page": [
       "static/chunks/webpack.js",
@@ -84,28 +83,23 @@
       "static/css/app/[lang]/about-us/blog/page.css",
       "static/chunks/app/[lang]/about-us/blog/page.js"
     ],
-    "/[lang]/your-rights/overbooked-flight/page": [
+    "/[lang]/submit-claim/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/[lang]/your-rights/overbooked-flight/page.css",
-      "static/chunks/app/[lang]/your-rights/overbooked-flight/page.js"
+      "static/css/app/[lang]/submit-claim/page.css",
+      "static/chunks/app/[lang]/submit-claim/page.js"
     ],
-    "/[lang]/your-rights/missed-connection/page": [
+    "/[lang]/about-us/blog-page-more/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/[lang]/your-rights/missed-connection/page.css",
-      "static/chunks/app/[lang]/your-rights/missed-connection/page.js"
+      "static/css/app/[lang]/about-us/blog-page-more/page.css",
+      "static/chunks/app/[lang]/about-us/blog-page-more/page.js"
     ],
-    "/[lang]/your-rights/lost-luggage/page": [
+    "/[lang]/check-status/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/[lang]/your-rights/lost-luggage/page.css",
-      "static/chunks/app/[lang]/your-rights/lost-luggage/page.js"
-    ],
-    "/_not-found/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
+      "static/css/app/[lang]/check-status/page.css",
+      "static/chunks/app/[lang]/check-status/page.js"
     ]
   }
 }

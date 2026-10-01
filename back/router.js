@@ -15,6 +15,7 @@ const { getRateSection, createRateSection, editRateSection } = require("./contro
 const { getContactList, createContact, editContactList } = require("./controllers/contactList");
 const { getConditions, createConditions, editConditions } = require("./controllers/conditions");
 const { getPages, getPageBySlug, createPage, updatePage, deletePage } = require("./controllers/pages");
+const { getActiveRedirects, getAllRedirects, createRedirect, updateRedirect, deleteRedirect } = require("./controllers/redirects");
 const { getHero, updateHero } = require("./controllers/hero");
 const { getOptions, updateOptions } = require("./controllers/options");
 const { getHow, updateHow } = require("./controllers/how");
@@ -57,6 +58,7 @@ router.get("/terms", getTerms);
 router.get("/offices", getOffices);
 router.get("/pages", getPages);            // ?all=true — ადმინისთვის, გამოუქვეყნებლებთან ერთად
 router.get("/pages/:slug", getPageBySlug);
+router.get("/redirects", getActiveRedirects);   // მხოლოდ ჩართულები — საიტის middleware იყენებს
 
 /* ── საჯარო: მომხმარებლის ფორმები ──────────────────────── */
 router.post("/client", createClient);           // განაცხადის შევსება
@@ -95,6 +97,11 @@ router.put("/offices", ...editor, updateOffices);
 router.post("/pages", ...editor, createPage);
 router.put("/pages", ...editor, updatePage);
 router.put("/pages/delete", ...editor, deletePage);
+
+router.get("/redirects/all", ...editor, getAllRedirects);
+router.post("/redirects", ...editor, createRedirect);
+router.put("/redirects", ...editor, updateRedirect);
+router.put("/redirects/delete", ...editor, deleteRedirect);
 
 /* ── განაცხადები: მხოლოდ admin ─────────────────────────── */
 const adminOnly = [requireAuth, requireRole()];

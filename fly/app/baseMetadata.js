@@ -7,5 +7,5 @@ export const baseMetadata = {
   other: {
     'facebook-domain-verification': 'zmft3mvrj1aqht2us3b9a8svelegtx',
   },
-  metadataBase: new URL('https://flyinspectors.com'),
+  metadataBase: new URL('https://flyinspectors.ge'),
 }

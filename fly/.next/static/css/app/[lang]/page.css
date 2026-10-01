@@ -134,6 +134,8 @@
   font-size: 16px;
   line-height: 1.7;
   color: #fff;
+  --link-color: #FD9B28;
+  --link-color-hover: #fff;
   text-wrap: pretty;
 }
 .Slider_richText__T__Rc p {

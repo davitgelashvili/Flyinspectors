@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // ბოლო '/'-ს middleware.js ასწორებს, რომ ზედმეტი '/'-ები ერთი redirect-ით მოიხსნას
+  skipTrailingSlashRedirect: true,
   sassOptions: {},
   images: {
     disableStaticImages: true,

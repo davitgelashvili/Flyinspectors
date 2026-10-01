@@ -15,7 +15,7 @@ const SocialMedia = ({ locale }) => {
           <a
             href="https://www.facebook.com/FlyinspectorsEng"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="nofollow noopener noreferrer"
           >
             <img src={Facebook} alt="Facebook" />
           </a>
@@ -24,7 +24,7 @@ const SocialMedia = ({ locale }) => {
           <a
             href="viber://chat?number=593000394"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="nofollow noopener noreferrer"
           >
             <img className={styles.viber} src={Viber} alt="Viber" />
           </a>
@@ -33,7 +33,7 @@ const SocialMedia = ({ locale }) => {
           <a
             href="https://Wa.me/+995593000394?text=I'm%20interested"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="nofollow noopener noreferrer"
           >
             <img src={Whatsapp} alt="WhatsApp" />
           </a>

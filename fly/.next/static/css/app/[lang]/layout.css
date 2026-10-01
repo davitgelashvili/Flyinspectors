@@ -132,6 +132,15 @@ code {
 .rich-content li > p {
   margin: 0 0 4px;
 }
+.rich-content a {
+  color: var(--link-color, #0d6693);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.15s;
+}
+.rich-content a:hover, .rich-content a:focus-visible {
+  color: var(--link-color-hover, #FD9B28);
+}
 .rich-content table {
   display: block;
   max-width: 100%;
@@ -232,6 +241,16 @@ code {
   aspect-ratio: 16/9;
   border: 0;
   border-radius: 8px;
+}
+
+.text-link {
+  color: #0d6693;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.15s;
+}
+.text-link:hover, .text-link:focus-visible {
+  color: #FD9B28;
 }
 /*!****************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[3]!./node_modules/bootstrap/dist/css/bootstrap-grid.min.css ***!

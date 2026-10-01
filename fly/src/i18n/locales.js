@@ -1,5 +1,7 @@
 export const LOCALES = ['en', 'ka']
 export const DEFAULT_LOCALE = 'en'
+// hreflang="x-default" — მთავარი დომენი (.ge) ქართულია, ამიტომ ენის არჩევის გარეშე მომხმარებელს ka ვუჩვენებთ
+export const X_DEFAULT_LOCALE = 'ka'
 
 export function localeFromHost(hostname = '') {
   return hostname.includes('flyinspectors.ge') ? 'ka' : DEFAULT_LOCALE

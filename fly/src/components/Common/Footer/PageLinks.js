@@ -35,7 +35,7 @@ const PageLinks = async ({ locale }) => {
   const pages = (await getPages())
     .filter((page) => page.published !== false)
     .map((page) => ({
-      href: `${prefix}/page/${page.slug}`,
+      href: `${prefix}/${page.slug}`,
       label: page.title?.[locale]?.trim(),
     }))
     .filter((page) => page.label)

@@ -1024,6 +1024,122 @@
 .Content_content__body__BkPxA {
   display: block;
 }
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/Dashboard/Redirects/Redirects.module.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.Redirects_row__row35 {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.Redirects_field__9C2aZ {
+  flex: 1 1 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.Redirects_field__small__e3UEG {
+  flex: 0 1 180px;
+}
+
+.Redirects_label__83fZ6 {
+  font-size: 13px;
+  color: #5d6d7e;
+}
+
+.Redirects_input__GkDY_ {
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid #d5dde6;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #fff;
+}
+
+.Redirects_hint__XuWEc {
+  margin: 12px 0 0;
+  font-size: 13px;
+  color: #5d6d7e;
+  line-height: 1.5;
+}
+.Redirects_hint__XuWEc code {
+  background-color: #f2f5f9;
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+.Redirects_buttons__fNZpp {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.Redirects_cancel__aTr9K {
+  margin-top: 18px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #5d6d7e;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.Redirects_tablewrap__9Gb_E {
+  margin-top: 18px;
+  overflow-x: auto;
+}
+
+.Redirects_table__w1nZM {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border: 1px solid #e3e9f0;
+  font-size: 14px;
+}
+.Redirects_table__w1nZM th,
+.Redirects_table__w1nZM td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #eef2f6;
+  vertical-align: middle;
+}
+.Redirects_table__w1nZM th {
+  font-size: 12px;
+  color: #5d6d7e;
+  background-color: #f7f9fb;
+}
+.Redirects_table__w1nZM code {
+  font-size: 13px;
+  word-break: break-all;
+}
+
+.Redirects_off__77d6K {
+  opacity: 0.55;
+}
+
+.Redirects_actions__ONj7K {
+  white-space: nowrap;
+  text-align: right;
+}
+
+.Redirects_link__KQoIM,
+.Redirects_remove__2u6N3 {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.Redirects_link__KQoIM {
+  color: #2471a3;
+}
+
+.Redirects_remove__2u6N3 {
+  margin-left: 14px;
+  color: #c0392b;
+}
 /*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./src/components/Dashboard/ListForm/ListForm.module.scss ***!
   \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/

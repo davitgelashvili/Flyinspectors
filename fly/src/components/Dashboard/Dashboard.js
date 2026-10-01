@@ -6,6 +6,7 @@ import UsersList from "./Users/List"
 import UsersForm from "./Users/Form"
 import PagesList from "./Pages/List"
 import PagesForm from "./Pages/Form"
+import Redirects from "./Redirects/Redirects"
 import HeroForm from "./Hero/Hero"
 import OptionsForm from "./Options/Options"
 import HowForm from "./How/How"
@@ -46,6 +47,7 @@ function getSection(path) {
 
     if (path.startsWith('/meta/')) return <MetaForm />
 
+    if (path === '/redirects') return <Redirects />
     if (path === '/pages') return <PagesList />
     if (path.startsWith('/pages/')) return <PagesForm />
 
