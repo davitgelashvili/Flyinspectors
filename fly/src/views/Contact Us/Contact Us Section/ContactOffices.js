@@ -1,50 +1,16 @@
 import { normalizeOffices, telHref } from "@/components/Offices/officeUtils";
-import { baseMetadata } from "../../../../app/baseMetadata";
 import content from "./ContactOffices.content";
 import styles from "./ContactOffices.module.scss";
-
-const SITE_URL = baseMetadata.metadataBase.origin;
 
 // სერვერ კომპონენტია: ოფისები ბაზიდან სერვერზე იკითხება და მზა HTML-ში ჩაისმება, ამიტომ
 // Google-ი ნომრებს, ელფოსტას და მისამართს JavaScript-ის გარეშე ხედავს.
 //  - <h1> — გვერდის სათაური, <h2> — თითო ქვეყანა, <address> + tel:/mailto: ბმულები
-//  - ContactPage + Organization JSON-LD (contactPoint თითო ოფისზე)
+//  - schema.org (ContactPage + Organization) layout-სა და route-შია: src/seo/jsonLd.js
 // ოფისების რიგი ადმინში განისაზღვრება. ოფისი, რომელსაც არაფერი აქვს შევსებული, არ ჩანს.
 const ContactOffices = ({ offices, locale }) => {
     const labels = content[locale];
 
     const items = normalizeOffices(offices, locale);
-
-    // "<" ვაესკეიპებთ, რომ ტექსტმა <script> ვერ დახუროს
-    const jsonLd = JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "ContactPage",
-        name: labels.title,
-        inLanguage: locale,
-        mainEntity: {
-            "@type": "Organization",
-            name: "Flyinspectors",
-            url: SITE_URL,
-            contactPoint: items
-                .filter((o) => o.phone || o.email)
-                .map((o) => ({
-                    "@type": "ContactPoint",
-                    contactType: "customer service",
-                    ...(o.country && { areaServed: o.country }),
-                    ...(o.phone && { telephone: o.phone }),
-                    ...(o.email && { email: o.email }),
-                    availableLanguage: ["ka", "en"],
-                })),
-            location: items
-                .filter((o) => o.address)
-                .map((o) => ({
-                    "@type": "Place",
-                    ...(o.country && { name: o.country }),
-                    address: o.address,
-                    ...(o.phone && { telephone: o.phone }),
-                })),
-        },
-    }).replace(/</g, "\\u003c");
 
     return (
         <section className={styles.contact} aria-labelledby="contact-title">
@@ -87,7 +53,6 @@ const ContactOffices = ({ offices, locale }) => {
                     ))}
                 </div>
             </div>
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
         </section>
     );
 };

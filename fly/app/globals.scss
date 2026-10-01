@@ -134,6 +134,20 @@ code {
     margin: 0 0 4px;
   }
 
+  // ბმულები ტექსტისგან ფერითაც და ხაზგასმითაც გამოიყოფა. ფერი --link-color-ით იცვლება
+  // (მუქ ფონზე, მაგ. hero-ზე, ღია ფერი უნდა).
+  a {
+    color: var(--link-color, #0d6693);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.15s;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--link-color-hover, #FD9B28);
+    }
+  }
+
   // display: block — ვიწრო ეკრანზე ცხრილი გვერდით სქროლდება; tbody კი display: table + width: 100%-ია,
   // რომ ცხრილი კონტეინერის/სვეტის მთელ სიგანეს იკავებდეს (რედაქტორშიც ასეა)
   table {
@@ -249,5 +263,18 @@ code {
       border: 0;
       border-radius: 8px;
     }
+  }
+}
+
+// ტექსტში ჩაწერილი ბმული (მაგ. "ვეთანხმები წესებსა და პირობებს") — rich-content-ის ბმულის იდენტური სტილი
+.text-link {
+  color: #0d6693;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.15s;
+
+  &:hover,
+  &:focus-visible {
+    color: #FD9B28;
   }
 }

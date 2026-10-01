@@ -109,8 +109,8 @@ export default function PagesForm() {
                     onChange={(e) => setValues(v => ({ ...v, slug: e.target.value }))}
                 />
                 <p className={styles.pages__url}>
-                    მისამართი: <code>/ka/page/{values.slug || 'your-slug'}</code> და{' '}
-                    <code>/en/page/{values.slug || 'your-slug'}</code>
+                    მისამართი: <code>/ka/{values.slug || 'your-slug'}</code> და{' '}
+                    <code>/en/{values.slug || 'your-slug'}</code>
                 </p>
 
                 <UploadWidget

@@ -76,7 +76,7 @@ export default function PagesList() {
 
                         <div className={styles.pages__actions}>
                             <Link href={`/adminpanel/pages/${item._id}`}>რედაქტირება</Link>
-                            <a href={`/ka/page/${item.slug}`} target="_blank" rel="noreferrer">ნახვა</a>
+                            <a href={`/ka/${item.slug}`} target="_blank" rel="noreferrer">ნახვა</a>
                             <button type="button" onClick={() => remove(item._id, item.slug)}>წაშლა</button>
                         </div>
                     </div>

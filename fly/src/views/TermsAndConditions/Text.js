@@ -2,6 +2,7 @@ import { getTerms } from "@/api/serverApi";
 import { LOCALES, DEFAULT_LOCALE } from "@/i18n/locales";
 import content from "./Terms.content";
 import styles from "./Terms.module.scss";
+import { externalLinks } from '@/utils/externalLinks'
 
 // რედაქტორი ცარიელზეც აბრუნებს "<p></p>"-ს — ტეგების გარეშე ვამოწმებთ
 const hasContent = (html) =>
@@ -50,7 +51,7 @@ async function Text({ lang }) {
 
                 {showText && (
                     // ბექი HTML-ს შენახვისას ასუფთავებს (back/utils/sanitizeHtml.js)
-                    <div className={`${styles.terms__text} rich-content`} dangerouslySetInnerHTML={{ __html: text }} />
+                    <div className={`${styles.terms__text} rich-content`} dangerouslySetInnerHTML={{ __html: externalLinks(text) }} />
                 )}
             </div>
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />

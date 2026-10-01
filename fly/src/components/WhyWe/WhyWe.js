@@ -2,6 +2,7 @@ import { getWhy } from "@/api/serverApi";
 import { LOCALES, DEFAULT_LOCALE } from "@/i18n/locales";
 import content from "./WhyWe.content";
 import styles from "./WhyWe.module.scss";
+import { externalLinks } from '@/utils/externalLinks'
 
 // რედაქტორი ცარიელზეც აბრუნებს "<p></p>"-ს — ტეგების გარეშე ვამოწმებთ
 const hasContent = (html) =>
@@ -27,7 +28,7 @@ const WhyWe = async ({ lang }) => {
         {(title || showText) && (
           <div>
             {title && <h2 id="why-title" className={styles.why__title}>{title}</h2>}
-            {showText && <div className={`${styles.richText} rich-content`} dangerouslySetInnerHTML={{ __html: text }} />}
+            {showText && <div className={`${styles.richText} rich-content`} dangerouslySetInnerHTML={{ __html: externalLinks(text) }} />}
           </div>
         )}
 

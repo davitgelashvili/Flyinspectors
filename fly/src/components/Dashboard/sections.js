@@ -35,6 +35,7 @@ export const SECTIONS = [
     },
     { title: 'ხშირად დასმული კითხვები', path: '/faq', roles: ['admin', 'editor'] },
     { title: 'გვერდის შექმნა', path: '/pages', roles: ['admin', 'editor'] },
+    { title: 'გადამისამართებები', path: '/redirects', roles: ['admin', 'editor'] },
     { title: 'რეიტინგი', path: '/rate', roles: ['admin', 'editor'] },
     { title: 'საკონტაქტო', path: '/contact', roles: ['admin', 'editor'] },
     { title: 'წესები და პირობები', path: '/terms', roles: ['admin', 'editor'] },

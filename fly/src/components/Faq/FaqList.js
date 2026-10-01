@@ -1,5 +1,6 @@
 import content from './Faq.content'
 import styles from './Faq.module.scss'
+import { externalLinks } from '@/utils/externalLinks'
 
 // რედაქტორი ცარიელზეც აბრუნებს "<p></p>"-ს — ტეგების გარეშე ვამოწმებთ
 const hasContent = (html) =>
@@ -66,7 +67,7 @@ export default function FaqList({ faqs, locale, as: Heading = 'h2' }) {
                             </summary>
                             {hasContent(item.answer) && (
                                 // ბექი HTML-ს შენახვისას ასუფთავებს (back/utils/sanitizeHtml.js)
-                                <div className={`${styles.item__answer} rich-content`} dangerouslySetInnerHTML={{ __html: item.answer }} />
+                                <div className={`${styles.item__answer} rich-content`} dangerouslySetInnerHTML={{ __html: externalLinks(item.answer) }} />
                             )}
                         </details>
                     ))}

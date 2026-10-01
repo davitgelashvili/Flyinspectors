@@ -29,6 +29,8 @@ export default function MetaForm() {
     const slug = pathname.split('/').pop()
     const page = META_PAGES.find((p) => p.slug === slug)
     const isHome = page?.path === '/'
+    // გლობალური OG სურათი: მხოლოდ ფოტოს ველი, ტექსტი და პრევიუ არ სჭირდება
+    const imageOnly = Boolean(page?.imageOnly)
 
     const [values, setValues] = useState(() => normalize({}))
     const [language, setLanguage] = useState('ka')
@@ -66,7 +68,7 @@ export default function MetaForm() {
             const res = await adminFetch(`${process.env.NEXT_PUBLIC_API_URL}/meta`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ path: page.path, ...values }),
+                body: JSON.stringify(imageOnly ? { path: page.path, image: values.image } : { path: page.path, ...values }),
             })
 
             if (!res.ok) throw new Error(await res.text())
@@ -84,15 +86,17 @@ export default function MetaForm() {
     const title = values.title[language]
     const description = values.description[language]
     const image = values.image[language]
-    const siteUrl = `flyinspectors.com/${language}${page.path === '/' ? '' : page.path}`
+    const siteUrl = `flyinspectors.ge/${language}${page.path === '/' ? '' : page.path}`
 
     return (
         <div className={pagesStyles.pages}>
             <div className={pagesStyles.pages__head}>
-                <h1 className={pagesStyles.pages__title}>მეტა თეგები: {page.label}</h1>
-                <a href={`/${language}${page.path === '/' ? '' : page.path}`} target="_blank" rel="noreferrer">
-                    გვერდის ნახვა ↗
-                </a>
+                <h1 className={pagesStyles.pages__title}>{imageOnly ? page.label : `მეტა თეგები: ${page.label}`}</h1>
+                {!imageOnly && (
+                    <a href={`/${language}${page.path === '/' ? '' : page.path}`} target="_blank" rel="noreferrer">
+                        გვერდის ნახვა ↗
+                    </a>
+                )}
             </div>
 
             {error && <p className={pagesStyles.pages__error}>{error}</p>}
@@ -101,6 +105,7 @@ export default function MetaForm() {
             <div className={pagesStyles.pages__form}>
                 <Content title="" language={language} setLanguage={setLanguage}>
                     <div lang={language} key={language}>
+                        {!imageOnly && (<>
                         <CustomInput
                             title="სათაური (title)"
                             name="title"
@@ -123,6 +128,7 @@ export default function MetaForm() {
                         <p className={`${styles.counter} ${description.length > DESCRIPTION_HINT ? styles.counter__over : ''}`}>
                             {description.length} / ~{DESCRIPTION_HINT} სიმბოლო
                         </p>
+                        </>)}
 
                         <UploadWidget
                             title="გაზიარების ფოტო (Facebook, Viber, Twitter...) — რეკომენდებული 1200×630"
@@ -130,8 +136,11 @@ export default function MetaForm() {
                             setValue={(next) => setField('image', next.image)}
                             valueName="image"
                         />
-                        {!isHome && !image && (
-                            <p className={styles.hint}>ფოტოს გარეშე მთავარი გვერდის ფოტო გამოიყენება.</p>
+                        {imageOnly && (
+                            <p className={styles.hint}>ამ ფოტოს გამოიყენებს ყველა გვერდი, რომელსაც საკუთარი გაზიარების ფოტო არ აქვს (ენების მიხედვით).</p>
+                        )}
+                        {!imageOnly && !isHome && !image && (
+                            <p className={styles.hint}>ფოტოს გარეშე გლობალური (ან მთავარი გვერდის) ფოტო გამოიყენება.</p>
                         )}
                         {image && (
                             <div className={styles.image}>
@@ -142,6 +151,7 @@ export default function MetaForm() {
                             </div>
                         )}
 
+                        {!imageOnly && (<>
                         <p className={styles.label}>პრევიუ</p>
                         <div className={styles.preview}>
                             <div className={styles.google}>
@@ -155,12 +165,13 @@ export default function MetaForm() {
                                     ? <img src={image} alt="" className={styles.social__image} />
                                     : <div className={styles.social__noimage}>{isHome ? 'ფოტო არ არის' : 'მთავარის ფოტო'}</div>}
                                 <div className={styles.social__body}>
-                                    <span className={styles.social__domain}>FLYINSPECTORS.COM</span>
+                                    <span className={styles.social__domain}>FLYINSPECTORS.GE</span>
                                     <span className={styles.social__title}>{title}</span>
                                     <span className={styles.social__description}>{description}</span>
                                 </div>
                             </div>
                         </div>
+                        </>)}
                     </div>
                 </Content>
 

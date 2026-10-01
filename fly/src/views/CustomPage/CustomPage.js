@@ -1,4 +1,5 @@
 import styles from './CustomPage.module.scss'
+import { externalLinks } from '@/utils/externalLinks'
 
 export default function CustomPage({ page, locale }) {
     const title = page.title?.[locale] || page.title?.en || ''
@@ -20,7 +21,7 @@ export default function CustomPage({ page, locale }) {
                         გვერდის შექმნა მხოლოდ admin/editor როლებს შეუძლიათ. */}
                     <div
                         className={`${styles.page__content} rich-content`}
-                        dangerouslySetInnerHTML={{ __html: content }}
+                        dangerouslySetInnerHTML={{ __html: externalLinks(content) }}
                     />
                 </article>
             </div>
