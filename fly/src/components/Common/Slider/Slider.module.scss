@@ -11,6 +11,7 @@
         align-items: center;
 
         @media (max-width: 768px) {
+            grid-template-columns: 1fr;
             padding-block: 48px 56px;
             gap: 40px;
         }
@@ -82,19 +83,25 @@
 }
 
 .card {
-    padding: 32px;
-    border-radius: 20px;
+    padding: 16px 20px;
+    border-radius: 16px;
     background: #fff;
     color: #232536;
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+    // დესკტოპზე ბარათი ვიწროა და მარჯვნივაა მიწეული (დიზაინი); მობაილზე
+    // ერთ სვეტად დალაგებისას სრულ სიგანეზე იჭიმება, რომ ცარიელი ადგილი არ დარჩეს
+    max-width: 360px;
+    width: 100%;
+    justify-self: end;
 
     @media (max-width: 500px) {
-        padding: 24px 20px;
+        max-width: 100%;
+        justify-self: stretch;
     }
 
     &__title {
-        margin: 0 0 20px;
-        font-size: 18px;
+        margin: 0 0 6px;
+        font-size: 16px;
         font-weight: 700;
         color: #0d6693;
     }
@@ -108,7 +115,7 @@
         justify-content: space-between;
         align-items: baseline;
         gap: 16px;
-        padding: 18px 0;
+        padding: 6px 0;
         border-top: 1px solid #e2e3ea;
     }
 
@@ -121,15 +128,15 @@
 
     &__amount {
         margin: 0;
-        font-size: 32px;
+        font-size: 22px;
         font-weight: 800;
         letter-spacing: -0.5px;
         color: #0d6693;
     }
 
     &__note {
-        margin: 12px 0 0;
-        padding-top: 16px;
+        margin: 2px 0 0;
+        padding-top: 10px;
         border-top: 1px solid #e2e3ea;
         font-size: 13px;
         line-height: 1.6;

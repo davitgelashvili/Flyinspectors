@@ -1,14 +1,37 @@
 const express = require("express");
 const router = require("./router");
 const mongoose = require("mongoose");
+const fs = require("fs");
 const path = require("path");
-const bodyParser = require("body-parser");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 8000;
+
+// ✅ Next.js ფრონტენდი (../fly) — საჭიროა production build: cd fly && npm run build
+// ლოკალურად (next dev 3000-ზე) build არ არის, ამიტომ ბექი მხოლოდ API-ს ემსახურება.
+const FRONT_DIR = path.join(__dirname, "../fly");
+let handleFront = null;
+
+async function prepareFront() {
+  if (!fs.existsSync(path.join(FRONT_DIR, ".next", "BUILD_ID"))) {
+    console.log("ℹ️ fly-ის production build არ არის — მხოლოდ API");
+    return;
+  }
+  try {
+    // next fly-ის node_modules-დან, რომ ვერსია build-ს ემთხვეოდეს
+    const createNextApp = require(require.resolve("next", { paths: [FRONT_DIR] }));
+    const nextApp = createNextApp({ dev: false, dir: FRONT_DIR });
+    await nextApp.prepare();
+    handleFront = nextApp.getRequestHandler();
+    console.log("✅ Next.js frontend ready");
+  } catch (err) {
+    // ფრონტის შეცდომამ API არ უნდა გათიშოს
+    console.error("❌ Next.js start error — მხოლოდ API:", err);
+  }
+}
 
 // ✅ CORS whitelist (ფრონტენდ ჰოსტები — პროტოკოლისა და www-ს გარეშე)
 const allowedHosts = [
@@ -54,20 +77,18 @@ app.use(cors(corsOptions));
 app.options("*", cors(corsOptions)); // Preflight OPTIONS
 
 app.use(cookieParser());
-app.use(express.json({ limit: "100mb" }));
-app.use(express.urlencoded({ limit: "100mb", extended: true }));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
 
-// ✅ API როუტერები
-app.use("/api", router);
+// ✅ API როუტერები. body parser-ები მხოლოდ /api-ზეა: გლობალურად რომ იყოს, POST-ის body-ს
+// Next-ზე ადრე წაიკითხავდა და Next-ის route-ები (მაგ. /adminpanel/revalidate) ცარიელ body-ს მიიღებდა.
+app.use(
+  "/api",
+  express.json({ limit: "100mb" }),
+  express.urlencoded({ limit: "100mb", extended: true }),
+  router
+);
 
-// ✅ React build ფაილების სერვინგი (თუ Frontend ერთადაა ჰოსტზე)
-app.use(express.static(path.join(__dirname, "./../flyinspectors/build")));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./../flyinspectors/build", "index.html"));
-});
+// ✅ დანარჩენ ყველაფერს (გვერდები, _next სტატიკა, middleware, route-ები) Next ამუშავებს
+app.all("*", (req, res) => (handleFront ? handleFront(req, res) : res.status(404).send("Not found")));
 
 // ბადე უკანასკნელ შემთხვევისთვის: დაუჭერელი rejection Node 15+-ში პროცესს კლავს,
 // ანუ ერთი ცუდი მოთხოვნა მთელ API-ს ათიშებს. ვლოგავთ და ვრჩებით ფეხზე.
@@ -95,7 +116,9 @@ mongoose
     console.error("❌ MongoDB connection error:", err);
   });
 
-// ✅ სერვერის გაშვება
-app.listen(PORT, () => {
-  console.log(`🚀 Server is running on port ${PORT}`);
+// ✅ სერვერის გაშვება (Next-ის მომზადების შემდეგ)
+prepareFront().then(() => {
+  app.listen(PORT, () => {
+    console.log(`🚀 Server is running on port ${PORT}`);
+  });
 });

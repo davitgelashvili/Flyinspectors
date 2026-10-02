@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/davit.gelashvili/.claude/projects/d--Flyinspectors/1a131ed2-2f75-4164-aaa3-59bccd7e9332/tool-results/**)",
+      "Bash(F=\"/c/Users/davit.gelashvili/.claude/projects/d--Flyinspectors/1a131ed2-2f75-4164-aaa3-59bccd7e9332/tool-results/artifact-fb54c5ac-1790923568-1816.html\" *)",
+      "Bash(mkdir -p /tmp/design)",
+      "Bash(sed -n 382p /c/Users/davit.gelashvili/.claude/projects/d--Flyinspectors/1a131ed2-2f75-4164-aaa3-59bccd7e9332/tool-results/artifact-fb54c5ac-1790923568-1816.html)",
+      "Bash(python3 -)",
+      "Read(//tmp/design/**)",
+      "Bash(node -e ' *)",
+      "Read(//c/Users/davit.gelashvili/AppData/Local/Temp/claude/d--Flyinspectors/1a131ed2-2f75-4164-aaa3-59bccd7e9332/scratchpad/design/**)",
+      "Bash(curl -s -o /tmp/sl.html --max-time 10 http://localhost:3000/ka)",
+      "Read(//tmp/**)",
+      "Bash(break)",
+      "Bash(curl -s --max-time 60 http://localhost:3000/ka)",
+      "Bash(curl -s -o /dev/null -w \"ka:%{http_code}\\\\n\" --max-time 10 http://localhost:3000/ka)",
+      "Bash(chromium-cli --help)",
+      "Bash(npx --version)",
+      "Bash(npx playwright *)",
+      "Bash(SHOT_DIR=C:/Users/davit.gelashvili/AppData/Local/Temp/claude/d--Flyinspectors/1a131ed2-2f75-4164-aaa3-59bccd7e9332/scratchpad/shots node C:/Users/davit.gelashvili/AppData/Local/Temp/claude/d--Flyinspectors/1a131ed2-2f75-4164-aaa3-59bccd7e9332/scratchpad/shot.js)",
+      "Read(//c/Users/davit.gelashvili/AppData/Local/Temp/claude/d--Flyinspectors/1a131ed2-2f75-4164-aaa3-59bccd7e9332/scratchpad/**)",
+      "Bash(npm init *)",
+      "Bash(npm install *)",
+      "Bash(mkdir -p C:/Users/davit.gelashvili/AppData/Local/Temp/claude/d--Flyinspectors/1a131ed2-2f75-4164-aaa3-59bccd7e9332/scratchpad/shots)",
+      "Bash(SHOT_DIR=C:/Users/davit.gelashvili/AppData/Local/Temp/claude/d--Flyinspectors/1a131ed2-2f75-4164-aaa3-59bccd7e9332/scratchpad/shots node shot.js)",
+      "Read(//c/Users/davit.gelashvili/AppData/Local/Temp/claude/d--Flyinspectors/1a131ed2-2f75-4164-aaa3-59bccd7e9332/scratchpad/shots/**)",
+      "Bash(SHOT_DIR=C:/Users/davit.gelashvili/AppData/Local/Temp/claude/d--Flyinspectors/1a131ed2-2f75-4164-aaa3-59bccd7e9332/scratchpad/shots node shot2.js)",
+      "Bash(node measure.js)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\davit.gelashvili\\AppData\\Local\\Temp\\claude\\d--Flyinspectors\\1a131ed2-2f75-4164-aaa3-59bccd7e9332\\scratchpad"
+    ]
+  }
+}
