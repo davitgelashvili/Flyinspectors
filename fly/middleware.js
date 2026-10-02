@@ -2,24 +2,42 @@ import { NextResponse } from 'next/server'
 import { LOCALES, localeFromHost } from '@/i18n/locales'
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL
-const REDIRECTS_TTL = 60 * 1000
+const REDIRECTS_TTL = 10 * 1000
 
 // ადმინში (გადამისამართებები) შექმნილი 301/302 წესები. middleware-ს ბაზასთან პირდაპირ წვდომა არ აქვს,
-// ამიტომ API-დან ვკითხულობთ და 60 წამით ვიმახსოვრებთ (ცვლილება მაქსიმუმ 1 წუთში ამოქმედდება).
+// ამიტომ API-დან ვკითხულობთ და 10 წამით ვიმახსოვრებთ (ცვლილება მაქსიმუმ ~10 წამში ამოქმედდება).
+// სია ფონზე ახლდება (stale-while-revalidate): გვერდზე გადასვლა API-ს პასუხს არასოდეს ელოდება.
+// მხოლოდ პირველად ჩატვირთვაზე ველოდებით (მოკლე ლიმიტით), რომ პირველი მოთხოვნაც არ გამოგვრჩეს.
 // API-ს მიუწვდომლობისას ბოლო ცნობილი სია რჩება, საიტი კი ჩვეულებრივად მუშაობს.
-let redirectsCache = { at: 0, map: new Map() }
+let redirectsCache = { at: 0, loaded: false, map: new Map() }
+let refreshing = null
 
-async function getRedirects() {
+function refreshRedirects(timeout) {
+  if (!refreshing) {
+    refreshing = fetch(`${API_URL}/redirects`, { signal: AbortSignal.timeout(timeout) })
+      .then(async (res) => {
+        if (!res.ok) throw new Error(String(res.status))
+        const list = await res.json()
+        redirectsCache = { at: Date.now(), loaded: true, map: new Map(list.map((r) => [r.from, r])) }
+      })
+      .catch(() => {
+        // შეცდომისას ბოლო სია რჩება; ხელახლა ვცდით TTL-ის ნახევარში
+        redirectsCache = { ...redirectsCache, at: Date.now() - REDIRECTS_TTL / 2, loaded: true }
+      })
+      .finally(() => {
+        refreshing = null
+      })
+  }
+  return refreshing
+}
+
+async function getRedirects(event) {
   if (!API_URL || Date.now() - redirectsCache.at < REDIRECTS_TTL) return redirectsCache.map
 
-  try {
-    const res = await fetch(`${API_URL}/redirects`, { signal: AbortSignal.timeout(1500) })
-    if (!res.ok) throw new Error(String(res.status))
-    const list = await res.json()
-    redirectsCache = { at: Date.now(), map: new Map(list.map((r) => [r.from, r])) }
-  } catch {
-    // შეცდომისას 5 წამში ვცდით ხელახლა
-    redirectsCache = { ...redirectsCache, at: Date.now() - REDIRECTS_TTL + 5000 }
+  if (!redirectsCache.loaded) {
+    await refreshRedirects(800)
+  } else {
+    event.waitUntil(refreshRedirects(3000))
   }
   return redirectsCache.map
 }
@@ -30,7 +48,7 @@ function splitLocale(pathname) {
   return locale ? { locale, rest: pathname.slice(locale.length + 1) || '/' } : { locale: null, rest: pathname }
 }
 
-export async function middleware(request) {
+export async function middleware(request, event) {
   const { pathname } = request.nextUrl
 
   // ერთი redirect პირდაპირ სწორ მისამართზე (ჯაჭვის გარეშე):
@@ -50,7 +68,7 @@ export async function middleware(request) {
   // ადმინში მითითებული გადამისამართება (301/302): ძველი მისამართი → ახალი.
   // წესი "/old-page" მუშაობს ენის prefix-ითაც და მის გარეშეც; "/ka/old-page" მხოლოდ ზუსტად ამ ენაზე.
   const { locale, rest } = splitLocale(pathname)
-  const redirects = await getRedirects()
+  const redirects = await getRedirects(event)
   if (redirects.size) {
     const rule = redirects.get(pathname) || (locale && redirects.get(rest))
     if (rule) {

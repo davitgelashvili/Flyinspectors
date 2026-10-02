@@ -9,7 +9,7 @@ import styles from './Redirects.module.scss'
 const EMPTY = { from: '', to: '', type: 301, active: true }
 
 // 301/302 გადამისამართებები: ძველი, გაფუჭებული ან წაშლილი მისამართი → ახალი.
-// შენახვიდან მაქსიმუმ 1 წუთში საიტზე მუშაობს (middleware.js ინახავს სიას 60 წამით).
+// შენახვიდან მაქსიმუმ 10 წამში საიტზე მუშაობს (middleware.js ინახავს სიას 10 წამით).
 export default function Redirects() {
     const [list, setList] = useState([])
     const [values, setValues] = useState(EMPTY)
