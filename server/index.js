@@ -15,9 +15,11 @@ const PORT = process.env.PORT || 8000;
 // ლოკალურად (next dev 3000-ზე) build არ არის, ამიტომ ბექი მხოლოდ API-ს ემსახურება.
 const FRONT_DIR = path.join(__dirname, "../flyinspectors");
 let handleFront = null;
+let frontError = "not started yet";
 
 async function prepareFront() {
   if (!fs.existsSync(path.join(FRONT_DIR, ".next", "BUILD_ID"))) {
+    frontError = `build not found: ${path.join(FRONT_DIR, ".next", "BUILD_ID")}`;
     console.log("ℹ️ flyinspectors-ის production build არ არის — მხოლოდ API");
     return;
   }
@@ -30,6 +32,7 @@ async function prepareFront() {
     console.log("✅ Next.js frontend ready");
   } catch (err) {
     // ფრონტის შეცდომამ API არ უნდა გათიშოს
+    frontError = `next start failed: ${err.message}`;
     console.error("❌ Next.js start error — მხოლოდ API:", err);
   }
 }
@@ -89,7 +92,12 @@ app.use(
 );
 
 // ✅ დანარჩენ ყველაფერს (გვერდები, _next სტატიკა, middleware, route-ები) Next ამუშავებს
-app.all("*", (req, res) => (handleFront ? handleFront(req, res) : res.status(404).send("Not found")));
+// ლოგებზე წვდომა არ გვაქვს, ამიტომ მიზეზს პასუხშივე ვწერთ
+app.all("*", (req, res) =>
+  handleFront
+    ? handleFront(req, res)
+    : res.status(503).send(`Frontend not loaded (node ${process.version}): ${frontError}`)
+);
 
 // ბადე უკანასკნელ შემთხვევისთვის: დაუჭერელი rejection Node 15+-ში პროცესს კლავს,
 // ანუ ერთი ცუდი მოთხოვნა მთელ API-ს ათიშებს. ვლოგავთ და ვრჩებით ფეხზე.
