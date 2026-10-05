@@ -17,6 +17,28 @@ const FRONT_DIR = path.join(__dirname, "../flyinspectors");
 let handleFront = null;
 let frontError = "not started yet";
 
+// ჯერ flyinspectors-ის node_modules (ვერსია build-ს ემთხვევა). CloudLinux-ის nodevenv-ში npm
+// პაკეტებს აპის (server) virtualenv-ში აყენებს, ამიტომ მეორე ცდა server-ის საკუთარი resolve-ია.
+function resolveNext() {
+  try {
+    return require.resolve("next", { paths: [FRONT_DIR] });
+  } catch {
+    return require.resolve("next");
+  }
+}
+
+function describeFrontModules() {
+  const nm = path.join(FRONT_DIR, "node_modules");
+  let kind;
+  try {
+    const st = fs.lstatSync(nm);
+    kind = st.isSymbolicLink() ? `symlink -> ${fs.realpathSync(nm)}` : "dir";
+  } catch {
+    kind = "missing";
+  }
+  return `front node_modules: ${kind}, next/package.json: ${fs.existsSync(path.join(nm, "next", "package.json"))}`;
+}
+
 async function prepareFront() {
   if (!fs.existsSync(path.join(FRONT_DIR, ".next", "BUILD_ID"))) {
     frontError = `build not found: ${path.join(FRONT_DIR, ".next", "BUILD_ID")}`;
@@ -24,15 +46,14 @@ async function prepareFront() {
     return;
   }
   try {
-    // next fly-ის node_modules-დან, რომ ვერსია build-ს ემთხვეოდეს
-    const createNextApp = require(require.resolve("next", { paths: [FRONT_DIR] }));
+    const createNextApp = require(resolveNext());
     const nextApp = createNextApp({ dev: false, dir: FRONT_DIR });
     await nextApp.prepare();
     handleFront = nextApp.getRequestHandler();
     console.log("✅ Next.js frontend ready");
   } catch (err) {
     // ფრონტის შეცდომამ API არ უნდა გათიშოს
-    frontError = `next start failed: ${err.message}`;
+    frontError = `next start failed: ${err.message} | ${describeFrontModules()}`;
     console.error("❌ Next.js start error — მხოლოდ API:", err);
   }
 }
