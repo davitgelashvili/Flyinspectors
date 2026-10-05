@@ -1,38 +1,27 @@
-import { useState } from "react"
+import { getOffices } from "@/api/serverApi"
+import { LOCALES, DEFAULT_LOCALE } from "@/i18n/locales"
 import SendForm from "./SendForm"
-import SearchForm from "./SearchForm"
+import FormTabs from "./FormTabs"
 import styles from './form.module.scss'
 import ContactSubmitPage from "./ContactSubmitPage"
 import Map from "./Map"
-import { useTranslation } from "react-i18next"
-const Form = () => {
-    const [formActive, setFormActive] = useState(true)
-    const { t } = useTranslation()
+
+// სერვერ კომპონენტია: კონტაქტის ბლოკის ოფისები ბაზიდან იკითხება
+const Form = async ({ lang }) => {
+    const locale = LOCALES.includes(lang) ? lang : DEFAULT_LOCALE
+    const data = await getOffices()
 
     return (
         <div className="container" >
             <div className={`${styles['form']}`} style={{ marginTop: "20px", marginBottom: "40px" }}>
-                <div className={`${styles['form__head']}`}>
-                    <div className={`${styles['form__head--btn']} ${formActive && styles['active']}`} onClick={() => setFormActive(true)}>
-                        {t('submitForm.name1')}
-                    </div>
-                    <div className={`${styles['form__head--btn']} ${!formActive && styles['active']}`} onClick={() => setFormActive(false)}>
-                        {t('submitForm.name2')}
-                    </div>
-                </div>
+                <FormTabs active="form" />
                 <div className={`${styles['form__body']}`}>
-                    {
-                        formActive ? (
-                            <SendForm setFormActive={setFormActive} />
-                        ) : (
-                            <SearchForm />
-                        )
-                    }
+                    <SendForm />
                 </div>
             </div>
             <div className="row" style={{ marginBottom: "40px" }}>
                 <div className="col-lg-6">
-                    <ContactSubmitPage />
+                    <ContactSubmitPage offices={data?.offices} locale={locale} />
                 </div>
                 <div className="col-lg-6">
                     <Map />

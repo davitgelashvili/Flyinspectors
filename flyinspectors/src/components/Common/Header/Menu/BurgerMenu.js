@@ -1,5 +1,9 @@
-import { Link, useLocation } from "react-router-dom";
+'use client'
+
+import Link from '@/components/UI/LocaleLink'
+import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
+import { stripLocale } from "@/i18n/locales";
 import styles from "./BurgerMenu.module.scss";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,7 +14,7 @@ import geoFlag from "../../../../assetss/images/geo.jpg";
 
 const BurgerMenu = ({IsOpen, setIsOpen}) => {
   const [showDropdown, setShowDropdown] = useState(false);
-  const location = useLocation();
+  const pathname = stripLocale(usePathname());
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const { language } = useSelector((state) => state.translate);
@@ -21,7 +25,7 @@ const BurgerMenu = ({IsOpen, setIsOpen}) => {
 
   useEffect(() => {
     setIsOpen(false);
-  }, [location]);
+  }, [pathname]);
 
   const data = [
     {
@@ -55,17 +59,12 @@ const BurgerMenu = ({IsOpen, setIsOpen}) => {
   return (
     <div className={styles.container}>
       <nav>
-        
-
-        
-
-        {/* Menu */}
         <ul className={`${styles.nav} ${IsOpen ? styles.open : ""}`}>
           {data?.map((item) => {
             const isActive =
-              item.link === location.pathname ||
+              item.link === pathname ||
               item.dropdown?.some(
-                (subItem) => subItem.link === location.pathname
+                (subItem) => subItem.link === pathname
               );
 
             return (
@@ -78,13 +77,13 @@ const BurgerMenu = ({IsOpen, setIsOpen}) => {
                 onMouseLeave={() => item.dropdown && setShowDropdown(false)}
                 onClick={() => setShowDropdown(!showDropdown)}
               >
-                <div className={styles.dropdownTrigger}>
-                  <Link className={styles.pages} to={item.link}>
+                <div className={`${styles.dropdownTrigger} ${item.dropdown ? styles.hasDropdown : ""}`}>
+                  <Link className={styles.pages} href={item.link || '#'}>
                     {item.title}
                   </Link>
                   {item.dropdown && (
                     <img
-                      src={icon}
+                      src={icon.src || icon}
                       alt="Dropdown Arrow"
                       className={styles.arrow}
                     />
@@ -96,14 +95,14 @@ const BurgerMenu = ({IsOpen, setIsOpen}) => {
                       <li
                         key={subItem.title}
                         className={`${
-                          subItem.link === location.pathname
+                          subItem.link === pathname
                             ? styles.activeDropdownItem
                             : ""
                         }`}
                       >
                         <Link
                           className={styles.dropdown_item}
-                          to={subItem.link}
+                          href={subItem.link}
                         >
                           {subItem.title}
                         </Link>
@@ -114,7 +113,7 @@ const BurgerMenu = ({IsOpen, setIsOpen}) => {
               </li>
             );
           })}
-          
+
         </ul>
       </nav>
     </div>

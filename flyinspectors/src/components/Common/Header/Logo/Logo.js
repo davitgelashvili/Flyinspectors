@@ -1,14 +1,14 @@
-import { Link } from "react-router-dom";
-import logo from "./LogoPic/LogoFly.png";
+import Link from '@/components/UI/LocaleLink'
+import logo from "./LogoPic/logo-on-dark.png";
 import styles from './Logo.module.scss';
 
 const Logo = () => {
     return (
-        <h1 className={styles.logo}>
-            <Link to="/">
-                <img src={logo} alt="Logo" className={styles.logo__img} />
+        <div className={styles.logo}>
+            <Link href="/">
+                <img src={logo.src || logo} alt="Logo" className={styles.logo__img} />
             </Link>
-        </h1>
+        </div>
     );
 }
 

@@ -1,19 +1,20 @@
-const API_BASE = process.env.REACT_APP_API_URL;
+import adminFetch from './adminFetch'
+const API_BASE = process.env.NEXT_PUBLIC_API_URL;
 
 export const fetchClients = async (queryParams) => {
-    const response = await fetch(`${API_BASE}/client?${queryParams}`);
+    const response = await adminFetch(`${API_BASE}/client?${queryParams}`);
     const data = await response.json();
     return data;
 };
 
 export const fetchClientsFull = async (queryParams) => {
-    const response = await fetch(`${API_BASE}/clientfull?${queryParams}`);
+    const response = await adminFetch(`${API_BASE}/clientfull?${queryParams}`);
     const data = await response.json();
     return data;
 };
 
 export const fetchClientById = async (userId) => {
-    const response = await fetch(`${API_BASE}/id`, {
+    const response = await adminFetch(`${API_BASE}/id`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userId }),
@@ -23,13 +24,13 @@ export const fetchClientById = async (userId) => {
 };
 
 export const fetchClientsByCompanyId = async (queryParams) => {
-    const response = await fetch(`${API_BASE}/clientbycompany?${queryParams}`);
+    const response = await adminFetch(`${API_BASE}/clientbycompany?${queryParams}`);
     const data = await response.json();
     return data;
 };
 
 export const fetchClientsByDate = async (startDate, endDate) => {
-    const response = await fetch(`${API_BASE}/datetime`, {
+    const response = await adminFetch(`${API_BASE}/datetime`, {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify({ startDate, endDate }),
@@ -39,7 +40,7 @@ export const fetchClientsByDate = async (startDate, endDate) => {
 };
 
 export const deleteClient = async (userId) => {
-    const response = await fetch(`${API_BASE}/delete`, {
+    const response = await adminFetch(`${API_BASE}/delete`, {
         method: "PUT",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify({ userId }),
@@ -49,7 +50,7 @@ export const deleteClient = async (userId) => {
 };
 
 export const updateClientStatus = async (userId, status, oldStatus) => {
-    const response = await fetch(`${API_BASE}/client/id`, {
+    const response = await adminFetch(`${API_BASE}/client/id`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userId, status, oldStatus }),

@@ -1,5 +1,7 @@
+'use client'
+
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useRouter, usePathname } from "next/navigation";
 import { downloadExcel } from "react-export-table-to-excel";
 import { fetchClientById, updateClientStatus } from "../../../api/clientApi";
 import Loading from "../../Loading/Loading";
@@ -7,7 +9,8 @@ import Loading from "../../Loading/Loading";
 const UserEdit = () => {
     const [data, setData] = useState({});
     const [load, setLoad] = useState(false)
-    const { id } = useParams();
+    const pathname = usePathname();
+    const id = pathname.split('/').pop();
     const [value, setValue] = useState("");
     const [change, setChange] = useState(false)
 
@@ -47,10 +50,10 @@ const UserEdit = () => {
         }
     };
 
-    const navigate = useNavigate();
+    const router = useRouter();
 
     const goBack = () => {
-        navigate(-1);  // ეს აქ დაბრუნებას გულისხმობს
+        router.back();
     };
 
     return (
@@ -105,7 +108,7 @@ const UserEdit = () => {
                             }}
                         >
                             {load ? <Loading /> : 'Edit'}
-                        
+
                         </button>
                     </div>
                     <h2 style={{ fontSize: "16px", color: "green", marginBottom: "8px" }}>

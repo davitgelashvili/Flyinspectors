@@ -1,3 +1,5 @@
+'use client'
+
 import styles from './Search.module.scss'
 import { useEffect, useState } from "react"
 import TextInput from "../UI/TextInput"
@@ -13,7 +15,7 @@ const SearchForm = () => {
     function handleChange(e){
         e.preventDefault()
         setLoad(true)
-        fetch(`${process.env.REACT_APP_API_URL}/id`, {
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/id`, {
             method: "POST",
             headers: {
               'Content-type': 'application/json',

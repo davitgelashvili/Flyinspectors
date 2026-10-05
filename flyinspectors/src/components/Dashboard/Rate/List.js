@@ -1,6 +1,9 @@
+'use client'
+
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import Loading from "../../Loading/Loading";
+import adminFetch from '../../../api/adminFetch'
 
 const RateList = () => {
   const [data, setData] = useState([]);
@@ -9,7 +12,7 @@ const RateList = () => {
   useEffect(() => {
     setLoad(true)
 
-    fetch(`${process.env.REACT_APP_API_URL}/rate`, {
+    adminFetch(`${process.env.NEXT_PUBLIC_API_URL}/rate`, {
       method: "GET",
       headers: {
         "Content-type": "application/json",
@@ -53,7 +56,7 @@ const RateList = () => {
               e.currentTarget.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.1)";
             }}
           >
-            <Link to={item.id} style={{ textDecoration: "none", color: "inherit" }}>
+            <Link href={`/adminpanel/rate/${item.id}`} style={{ textDecoration: "none", color: "inherit" }}>
               <h3 style={{ color: "#007bff", marginBottom: "10px" }}>
                 <strong>Name:</strong> {item.description.en}
               </h3>

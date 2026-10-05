@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import Loading from "../../Loading/Loading";
 
 const Item = ({ item, handleDelete, load }) => {
@@ -16,7 +16,7 @@ const Item = ({ item, handleDelete, load }) => {
                 }}
             >
                 <Link
-                    to={`/adminpanel/userlist/${item.userId}` || "#"}
+                    href={`/adminpanel/userlist/${item.userId}` || "#"}
                     style={{
                         textDecoration: "none",
                         color: "inherit",

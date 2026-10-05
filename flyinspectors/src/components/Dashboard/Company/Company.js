@@ -1,6 +1,9 @@
+'use client'
+
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import Loading from '../../Loading/Loading';
+import adminFetch from '../../../api/adminFetch'
 
 export default function Company() {
   const [load, setLoad] = useState(false)
@@ -9,7 +12,7 @@ export default function Company() {
 
   useEffect(() => {
     setLoad(true)
-    fetch(`${process.env.REACT_APP_API_URL}/company`, {
+    adminFetch(`${process.env.NEXT_PUBLIC_API_URL}/company`, {
       method: "GET",
       headers: {
         "Content-type": "application/json",
@@ -28,7 +31,7 @@ export default function Company() {
     setLoad(true);
 
     try {
-      const res = await fetch(`${process.env.REACT_APP_API_URL}/company/delete`, {
+      const res = await adminFetch(`${process.env.NEXT_PUBLIC_API_URL}/company/delete`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -56,14 +59,14 @@ export default function Company() {
 
   return (
     <div className='container'>
-      <h3 style={{ color: "#007bff" }}><Link to={'add'}>add</Link></h3>
+      <h3 style={{ color: "#007bff" }}><Link href={'/adminpanel/company/add'}>add</Link></h3>
       {load && <Loading />}
       <div className='row'>
         {data?.map((item) => (
           <div className='col-2 d-flex align-items-start' style={{ position: 'relative' }} key={item._id}>
             <button style={{ position: "absolute", zIndex: 1 }} onClick={() => handleDelete(item.companyId)}>delete</button>
             <Link
-              to={item.companyId}
+              href={`/adminpanel/company/${item.companyId}`}
               className="d-flex justify-content-between"
               style={{
                 width: '100%',

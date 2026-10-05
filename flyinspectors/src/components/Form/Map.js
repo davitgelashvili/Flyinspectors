@@ -1,8 +1,10 @@
+'use client'
+
 import React, { useEffect, useState } from "react";
 import styles from "./Map.module.scss"
 const Map = () => {
   const [lang,setLang] = useState(true)
-  const windowUrl =  window.location.hostname
+  const windowUrl = typeof window !== 'undefined' ? window.location.hostname : ''
 
   useEffect(()=> {
     if(windowUrl == 'flyinspectors.com'){

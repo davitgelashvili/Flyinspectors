@@ -1,20 +1,43 @@
 .footer {
-    padding: 20px;
-    background-color: #394149;
+    background-color: #232536;
+    color: #fff;
 
-    &__left {
+    &__inner {
+        // ბუტსტრაპის .container სიგანესა და ჰორიზონტალურ დაშორებას აგვარებს; აქ მხოლოდ ვერტიკალურია
+        padding-block: 56px 40px;
+        display: grid;
+        // ლოგოს სვეტი + მენიუს სვეტები; ვიწრო ეკრანზე სვეტები ერთმანეთის ქვეშ ჩადის
+        grid-template-columns: minmax(200px, 260px) 1fr;
+        gap: 40px;
+        align-items: start;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+            padding-block: 40px 32px;
+        }
+    }
+
+    &__brand {
         width: 100%;
     }
 
-
     &__logo {
         display: block;
+        max-width: 220px;
 
-        @media (max-width: 991px) {
-            width: 300px;
-        }
         &--img {
+            display: block;
             width: 100%;
+        }
+    }
+
+    &__bottom {
+        // ბუტსტრაპის .container სიგანესა და ჰორიზონტალურ დაშორებას აგვარებს; აქ მხოლოდ ვერტიკალურია
+        padding-bottom: 32px;
+        font-size: 13px;
+
+        @media (max-width: 768px) {
+            padding-bottom: 28px;
         }
     }
 }
@@ -24,62 +47,61 @@
     height: 36px;
 }
 
+// ლოგოს ქვეშ სოც. ქსელები
 .socmedia {
     width: 100%;
 
     &__title {
-        font-size: 20px;
-        line-height: 22px;
-        margin: 0;
-        margin-top: 10px;
-        color: #FFFFFF;
+        margin: 18px 0 10px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #fd9b28;
     }
 
     &__list {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 16px;
+        margin: 0;
         padding: 0;
         list-style: none;
-        width: 100%;
 
-        &--item {
-            list-style: none;
-        }
-
-        &--link {
-
+        a {
+            display: block;
             text-decoration: none;
         }
-    }
-}
 
-.MainDiv {
-
-    ul.List {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        color: #FFFFFF;
-
-    }
-
-    .List__link {
-        font-weight: 500;
-        font-size: 17px;
-        line-height: 22px;
-        color: inherit;
-        text-decoration: none;
-        margin-bottom: 10px;
-
-        &:hover {
-            color: #007bff;
+        img {
+            display: block;
         }
     }
-
 }
 
-.SocialMedia {
+// ნავიგაციის სვეტები
+.links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+    gap: 40px;
 
-    text-align: center;
-    font-weight: 500;
-    font-size: 17px;
-    line-height: 22px;
+    &__column {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 14px;
+    }
+
+    &__link {
+        color: #fff;
+        text-decoration: none;
+        overflow-wrap: anywhere;
+        transition: color 0.2s ease;
+
+        &:hover {
+            color: #fd9b28;
+        }
+    }
 }

@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useState } from "react";
 import Item from "./Item";
 // import DateFilter from "./DateFilter";
@@ -8,7 +10,8 @@ import Pagination from "./Pagination";
 import { fetchClientsByCompanyId, fetchClientById, fetchClientsByDate, deleteClient } from "./../../../api/clientApi";
 import { useSelector } from "react-redux";
 import Loading from "../../Loading/Loading";
-import { useParams, useSearchParams } from "react-router-dom";
+import { usePathname } from "next/navigation";
+import adminFetch from '../../../api/adminFetch'
 
 const List = () => {
     const { userData } = useSelector(state => state.userData)
@@ -35,7 +38,8 @@ const List = () => {
     const [limit, setLimit] = useState(3);
     const [totalPages, setTotalPages] = useState(1);
     const [reverse] = useState(true);
-    const { id } = useParams();
+    const pathname = usePathname();
+    const id = pathname.split('/').pop();
 
     const excelHeader = [
         '_id', 'passportImage', 'ticketImage', 'otherImage', 'signature',
@@ -53,7 +57,7 @@ const List = () => {
 
     // useEffect(() => {
     //     setLoad(true)
-    //     fetch(`${process.env.REACT_APP_API_URL}/company`, {
+    //     adminFetch(`${process.env.NEXT_PUBLIC_API_URL}/company`, {
     //       method: "GET",
     //       headers: {
     //         "Content-type": "application/json",
@@ -70,7 +74,7 @@ const List = () => {
     //   }, []);
 
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_API_URL}/company`, {
+        adminFetch(`${process.env.NEXT_PUBLIC_API_URL}/company`, {
             method: "GET",
             headers: {
                 "Content-type": "application/json",

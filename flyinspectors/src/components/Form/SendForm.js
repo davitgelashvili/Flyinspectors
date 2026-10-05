@@ -1,12 +1,17 @@
+'use client'
+
 import { useEffect, useState } from "react"
 import SendFormBody from "./SendFormBody"
 import PopUp from "./PopUp"
 import { useSelector } from "react-redux"
 import { useTranslation } from "react-i18next";
-import { useSearchParams } from "react-router-dom";
+import { useRouter, useSearchParams } from "next/navigation";
+import useLocale from "@/i18n/useLocale";
 
-const SendForm = ({ setFormActive }) => {
-    const [searchParams] = useSearchParams();
+const SendForm = () => {
+    const searchParams = useSearchParams();
+    const router = useRouter();
+    const locale = useLocale();
     const ref = searchParams.get('ref');
     const { t } = useTranslation()
     var newDate = new Date()
@@ -23,7 +28,7 @@ const SendForm = ({ setFormActive }) => {
     }
     const fullDate = year + '-' + month + '-' + day
 
-    const windowUrl = window.location.host
+    const windowUrl = typeof window !== 'undefined' ? window.location.host : ''
     const { language } = useSelector(state => state.translate)
     const [load, setLoad] = useState(false)
     const [popup, setPopup] = useState(false)
@@ -124,7 +129,7 @@ const SendForm = ({ setFormActive }) => {
             setLoad(true);
 
             try {
-                const clientRes = await fetch(`${process.env.REACT_APP_API_URL}/client`, {
+                const clientRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/client`, {
                     method: "POST",
                     headers: {
                         'Content-type': 'application/json',
@@ -138,12 +143,12 @@ const SendForm = ({ setFormActive }) => {
 
                 // გაგზავნა ორივე მხარეს ერთდროულად
                 await Promise.all([
-                    fetch(`${process.env.REACT_APP_API_URL}/email`, {
+                    fetch(`${process.env.NEXT_PUBLIC_API_URL}/email`, {
                         method: "POST",
                         headers: { 'Content-type': 'application/json' },
                         body: JSON.stringify({ ...value, userId })
                     }),
-                    fetch(`${process.env.REACT_APP_API_URL}/sendtoclient`, {
+                    fetch(`${process.env.NEXT_PUBLIC_API_URL}/sendtoclient`, {
                         method: "POST",
                         headers: { 'Content-type': 'application/json' },
                         body: JSON.stringify({
@@ -184,7 +189,16 @@ const SendForm = ({ setFormActive }) => {
     return (
         <>
             <SendFormBody value={value} setValue={setValue} uploadFile={uploadFile} setAccept={setAccept} accept={accept} load={load} setLoad={setLoad} />
-            {popup && <PopUp load={load} setPopup={setPopup} unicueID={unicueID} setFormActive={setFormActive} />}
+            {popup && (
+                <PopUp
+                    load={load}
+                    unicueID={unicueID}
+                    onClose={() => {
+                        setPopup(false)
+                        router.push(`/${locale}/check-status`)
+                    }}
+                />
+            )}
             {message && (
                 <div className="message">
                     <div className="message__item">

@@ -1,6 +1,0 @@
-# https://www.robotstxt.org/robotstxt.html
-User-agent: *
-Disallow: /adminpanel/
-Disallow: /api/
-
-Sitemap: https://flyinspectors.ge/sitemap.xml

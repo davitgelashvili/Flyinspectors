@@ -1,14 +1,12 @@
-import React from "react";
+import Link from "@/components/UI/LocaleLink";
 import MainLogo from "../../Images/MainLogo.png";
 import style from "./Footer.module.scss";
+
 const Logo = () => {
   return (
-    <a
-        href="/"
-        className={style.footer__logo}
-      >
-        <img className={style['footer__logo--img']} src={MainLogo} alt="Main Logo"></img>
-      </a>
+    <Link href="/" className={style.footer__logo}>
+      <img className={style['footer__logo--img']} src={MainLogo} alt="Main Logo"></img>
+    </Link>
   );
 };
 

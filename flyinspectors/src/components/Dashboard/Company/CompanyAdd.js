@@ -1,8 +1,11 @@
+'use client'
+
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import CustomEditor from '../../CustomEditor/CustomEditor'
 import TextInput from '../../UI/TextInput'
 import Loading from '../../Loading/Loading'
+import adminFetch from '../../../api/adminFetch'
 
 export default function CompanyAdd() {
   const [load, setLoad] = useState(false)
@@ -32,7 +35,7 @@ export default function CompanyAdd() {
   
     setLoad(true);
   
-    fetch(`${process.env.REACT_APP_API_URL}/company`, {
+    adminFetch(`${process.env.NEXT_PUBLIC_API_URL}/company`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",

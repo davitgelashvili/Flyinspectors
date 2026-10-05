@@ -1,22 +1,16 @@
-import { useSelector } from "react-redux"
 import styles from "./ServicesOptions.module.scss"
-import { useEffect, useState } from "react"
 
-
-const Item = ({title, desc}) => {
-    const { language } = useSelector(state => state.translate)
-    const [lang, setLang] = useState('')
-
-    useEffect(() => {
-        setLang(language)
-    }, [language])
+// ნომერი მხოლოდ გაფორმებაა — თანმიმდევრობას <ol> გამოხატავს, ამიტომ ეკრანის
+// წამკითხველისთვის ვმალავთ, რომ "1, 01, სათაური" არ წაიკითხოს.
+const Item = ({ number, title, desc }) => {
     return (
-        <div className={styles.item}>
-            <h3 className={styles.item__title}>{title[lang]}</h3>
-            <p className={styles.item__desc}>
-                {desc[lang]}
-            </p>
-        </div>
+        <li className={styles.step}>
+            <span className={styles.step__number} aria-hidden="true">
+                {String(number).padStart(2, "0")}
+            </span>
+            <h3 className={styles.step__title}>{title}</h3>
+            {desc && <p className={styles.step__desc}>{desc}</p>}
+        </li>
     )
 }
 

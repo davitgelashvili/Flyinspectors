@@ -1,58 +1,68 @@
 .header {
     display: block;
-    background-color: #fff;
+    background-color: #232536;
+    // border-bottom: 3px solid #0056b3;
+    border-bottom: 3px solid #fd9b28;
     position: fixed;
     width: 100%;
+    height: 70px; // .site-shell-ის padding-top-ს უნდა ემთხვეოდეს
     top: 0;
     z-index: 5;
 
-    @media (max-width: 768px) {
-        padding: 15px 0;
-    }
-
     &__content {
         width: 100%;
+        height: 100%;
         margin: 0;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 16px; 
+        gap: 16px 28px;
     }
 
-    .container {
-        padding: 0 16px; 
+    &__container {
+        // სიგანეს და ჰორიზონტალურ დაშორებას ბუტსტრაპის .container აგვარებს
+        height: 100%;
     }
 
     &__right {
         display: flex;
         align-items: center;
-    }
+        gap: 26px;
+        height: 100%;
 
-    &__submitlink {
-        padding: 6px 31px;
-        font-size: 1rem; // Default font size
-        background-color: #007bff; // Example background color
-        border: none;
-        color: #fff;
-        border-radius: 4px;
-        transition: all 0.3s ease;
-    
-        &:hover {
-            background-color: #0056b3; // Example hover color
+        @media (max-width: 991px) {
+            gap: 12px;
         }
 
-        @media (max-width: 500px) {
-            padding: 6px 14px;
+        // SubmitLink.module.scss-ის .link-ზე მაღალი specificity
+        .header__submitlink {
+            padding: 11px 22px;
             font-size: 14px;
+            line-height: 1.2;
+            font-weight: 600;
+            background-color: #0056b3;
+            border: none;
+            color: #fff;
+            border-radius: 10px;
+            transition: background-color 0.2s ease;
+
+            &:hover {
+                background-color: #003f85;
+                color: #fff;
+            }
+
+            @media (max-width: 500px) {
+                padding: 8px 14px;
+            }
         }
     }
 
     &__burger {
-        margin-left: 15px;
+        margin-left: 0;
         cursor: pointer;
         display: none;
 
-        img{
+        img {
             height: 20px;
         }
 

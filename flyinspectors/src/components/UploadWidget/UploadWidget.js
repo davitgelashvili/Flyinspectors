@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from "react";
 import styles from './UploadWidget.module.scss';
 import Loading from "../Loading/Loading";

@@ -1,59 +1,56 @@
+import { getHow } from "@/api/serverApi";
+import { LOCALES, DEFAULT_LOCALE } from "@/i18n/locales";
 import styles from "./ServicesOptions.module.scss";
 import Item from "./Item";
-import cover from '../../assetss/images/rb_63991.png'
-import { useEffect, useState } from "react";
 
-const ServicesOptions = () => {
-  const [data,setData] = useState()
-  useEffect(()=>{
-    fetch(`${process.env.REACT_APP_API_URL}/services`, {
-      method: "GET",
-      headers: {
-        'Content-type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      }
-    })
-    .then((res) => res.json())
-    .then(res => {
-        setData(res)
-    })
-  }, [])
-  // const data = [
-  //   {
-  //     title: "SUBMIT CLAIM",
-  //     desc: "When having problems with your flight all you need to do is fill the compensation claim form on our website, you can even get compensation for up to 6 years prior. From there our experts will do all the necessary paper and routine works and present the complaint to the airline company.",
-  //   },
-  //   {
-  //     title: "SIT BACK AND RELAX",
-  //     desc: "After Flyinspectors engagement you do not have to do anything, except to wait for your flight compensation calmly.Yes, it's as easy as it sounds!",
-  //   },
-  //   {
-  //     title: "RECEIVE COMPENSATION",
-  //     desc: "After airlines transfer the compensation, we immediately transfer it to you, with the success fee of 25% deducted. If by any chance we are not successful you pay nothing.",
-  //   },
-  // ];
-  return (
-    <div className={styles.mainContainer}>
-      <img src={cover} alt="cover" className={styles.mainContainer__cover}/>
-      <div className="container"> 
-        <div className={styles.services}>
-          <h3>
-            <span>FLYINSPECTORS</span> HELPED MANY PASSENGERS
-          </h3>
-          <h3>WE CAN HELP YOU TOO</h3>
-        </div>
-        <div className="row">
-          {data?.map((item) => {
-            return (
-              <div className="col-lg-4" key={item.id}>
-                <Item title={item.title} desc={item.description} icon={item.icon} />
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </div>
-  );
+// სერვერ კომპონენტია: ტექსტი ბაზიდან სერვერზე იკითხება და მზა HTML-ში ჩაისმება,
+// ამიტომ Google-ი მას JavaScript-ის გარეშე ხედავს. შედეგი 60 წამით იკეშება.
+// ტექსტი მხოლოდ ბაზიდან მოდის (ადმინი → "როგორ მუშაობს"): ფრონტში ნაგულისხმევი
+// აღარ არის. საფეხურის გარეშე სექცია საერთოდ არ ჩანს.
+const ServicesOptions = async ({ lang }) => {
+    const locale = LOCALES.includes(lang) ? lang : DEFAULT_LOCALE;
+    const how = await getHow();
+
+    // საფეხური, რომელსაც ამ ენაზე სათაური არ აქვს, ამ ენის გვერდზე არ ჩანს
+    const steps = (Array.isArray(how?.items) ? how.items : [])
+        .map((item) => ({
+            key: item._id,
+            title: item.title?.[locale]?.trim(),
+            desc: item.desc?.[locale]?.trim(),
+        }))
+        .filter((step) => step.title);
+
+    if (!steps.length) return null;
+
+    const title = how?.sectionTitle?.[locale]?.trim();
+
+    // HowTo — schema.org-ის მარკირება. "<" ვაესკეიპებთ, რომ ტექსტმა <script> ვერ დახუროს.
+    const jsonLd = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        ...(title && { name: title }),
+        inLanguage: locale,
+        step: steps.map((step, i) => ({
+            "@type": "HowToStep",
+            position: i + 1,
+            name: step.title,
+            text: step.desc || step.title,
+        })),
+    }).replace(/</g, "\\u003c");
+
+    return (
+        <section className={styles.how} aria-labelledby={title ? "how-it-works-title" : undefined}>
+            <div className={`container ${styles.how__inner}`}>
+                {title && <h2 id="how-it-works-title" className={styles.how__title}>{title}</h2>}
+                <ol className={styles.how__steps}>
+                    {steps.map((step, i) => (
+                        <Item key={step.key} number={i + 1} title={step.title} desc={step.desc} />
+                    ))}
+                </ol>
+            </div>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
+        </section>
+    );
 };
 
 export default ServicesOptions;

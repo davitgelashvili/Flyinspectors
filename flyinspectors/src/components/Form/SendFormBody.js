@@ -1,3 +1,5 @@
+'use client'
+
 
 import { useEffect, useState } from "react";
 import UploadWidget from "../UploadWidget/UploadWidget";
@@ -6,7 +8,7 @@ import TextInput from "../UI/TextInput";
 import File from "../UploadWidget/File";
 import ReactSignatureCanvas from 'react-signature-canvas'
 import styles from './Signature.module.scss'
-import { Link } from "react-router-dom";
+import Link from '@/components/UI/LocaleLink'
 import { useTranslation } from "react-i18next";
 import imageToBase64 from 'image-to-base64/browser';
 import imageCompression from 'browser-image-compression';
@@ -269,7 +271,7 @@ const SendFormBody = ({ value, setValue, uploadFile, accept, setAccept, setLoad,
           <label>
             <input type="checkbox" />
             <span>
-              {t('submitForm.iagree')} <Link target="_blank" to={'/terms-and-conditions'}>{t('submitForm.terms')}</Link>
+              {t('submitForm.iagree')} <Link className="text-link" target="_blank" href={'/terms-and-conditions'}>{t('submitForm.terms')}</Link>
             </span>
           </label>
         </div>

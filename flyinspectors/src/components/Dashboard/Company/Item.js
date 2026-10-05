@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import Loading from "../../Loading/Loading";
 
 const Item = ({ item, handleDelete, load }) => {

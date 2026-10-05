@@ -1,11 +1,15 @@
+'use client'
+
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { usePathname } from "next/navigation";
 import TextInput from "../../UI/TextInput";
 import Loading from "../../Loading/Loading";
+import adminFetch from '../../../api/adminFetch'
 
 const RateEdit = () => {
   const [data, setData] = useState([]);
-  const { id } = useParams();
+  const pathname = usePathname();
+  const id = pathname.split('/').pop();
   const [update, setUpdate] = useState(true);
   const [valueTitle, setValueTitle] = useState({ en: "", ka: "" });
   const [valueDesc, setValueDesc] = useState({ en: "", ka: "" });
@@ -23,7 +27,7 @@ const RateEdit = () => {
   }, [data]);
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/rate`, {
+    adminFetch(`${process.env.NEXT_PUBLIC_API_URL}/rate`, {
       method: "GET",
       headers: {
         "Content-type": "application/json",
@@ -40,7 +44,7 @@ const RateEdit = () => {
   const handleClick = (e) => {
     e.preventDefault();
     setLoad(true);
-    fetch(`${process.env.REACT_APP_API_URL}/rate/id`, {
+    adminFetch(`${process.env.NEXT_PUBLIC_API_URL}/rate/id`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json",

@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useState } from "react";
 import Loading from "../../Loading/Loading";
 import Item from "./Item";

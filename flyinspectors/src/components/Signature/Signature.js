@@ -1,9 +1,11 @@
+'use client'
+
 import { useState, useRef, useEffect } from 'react'
 import styles from './Signature.module.scss'
 import { useTranslation } from 'react-i18next'
 import TextInput from '../UI/TextInput'
 import ReactSignatureCanvas from 'react-signature-canvas'
-import { Link } from 'react-router-dom'
+import Link from '@/components/UI/LocaleLink'
 import Loading from '../Loading/Loading'
 
 const Signature = () => {
@@ -66,7 +68,7 @@ const Signature = () => {
             value.signature !== ""
         ) {
             setLoad(true)
-            fetch(`${process.env.REACT_APP_API_URL}/email`, {
+            fetch(`${process.env.NEXT_PUBLIC_API_URL}/email`, {
                 method: "POST",
                 headers: {
                     'Content-type': 'application/json',
@@ -151,7 +153,7 @@ const Signature = () => {
                     <label>
                         <input type="checkbox" />
                         <span>
-                            {t('submitForm.iagree')} <Link target="_blank" to={'/terms-and-conditions'}>{t('submitForm.terms')}</Link>
+                            {t('submitForm.iagree')} <Link className="text-link" target="_blank" href={'/terms-and-conditions'}>{t('submitForm.terms')}</Link>
                         </span>
                     </label>
                 </div>

@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useState } from "react"
 import styles from './Progress.module.scss'
 import { useSelector } from "react-redux"

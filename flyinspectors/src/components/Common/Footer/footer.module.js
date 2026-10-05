@@ -1,35 +1,35 @@
+// ფუტერის სტატიკური წარწერები (ნავიგაციის სახელები). დინამიური გვერდების სათაურები ბაზიდან მოდის.
 module.exports = {
     en: {
-        footer: {
+        social: 'Social Media',
+        label: 'Footer',
+        main: {
             home: 'Home',
-            submitclaim: "Submit Claim",
+            submitclaim: 'Submit Claim',
+            checkstatus: 'Check Status',
+            faq: 'FAQ',
+        },
+        info: {
+            aboutus: 'About Us',
+            termsandconditions: 'Terms and Conditions',
+            blog: 'Blog',
             contactus: 'Contact Us',
-            aboutus:"About Us",
-            flightdelay:'Flight Delay',
-            flightcancellation:'Flight Cancellation',
-            overBookedflight:'OverBooked Flight',
-            missedconnection:'Missed Connection',
-            lostluggage:'Lost Luggage',
-            blog:"Blog",
-            termsandconditions:"Terms and Conditions",
-            faq:"FAQ",
-        }
-
+        },
     },
     ka: {
-        footer: {
+        social: 'სოციალური ქსელები',
+        label: 'ფუტერი',
+        main: {
             home: 'მთავარი',
-            submitclaim: "შეავსეთ განაცხადი",
+            submitclaim: 'შეავსე განაცხადი',
+            checkstatus: 'შეამოწმე სტატუსი',
+            faq: 'ხდკ',
+        },
+        info: {
+            aboutus: 'ჩვენს შესახებ',
+            termsandconditions: 'წესები და პირობები',
+            blog: 'ბლოგი',
             contactus: 'კონტაქტი',
-            aboutus:"ჩვენს შესახებ",
-            flightdelay:'დაგვიანებული ფრენა',
-            flightcancellation:'გაუქმებულია ფრენა',
-            overBookedflight:'გადაჯავშნილი ფრენა',
-            missedconnection:'დამაკავშირებელი ფრენა',
-            lostluggage:'დაკარგული ბარგი',
-            blog:"ბლოგი",
-            termsandconditions:"წესები და პირობები",
-            faq:"კითხვები",
-        }
-    }
+        },
+    },
 }

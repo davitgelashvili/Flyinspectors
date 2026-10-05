@@ -1,40 +1,109 @@
-.services {
-    padding: 40px 0;
-    background-color: #fff;
+.why {
+    background-color: #f6f6f8;
 
-    &__cover {
-        max-width: 100%;
+    &__inner {
+        // ბუტსტრაპის .container სიგანესა და ჰორიზონტალურ დაშორებას აგვარებს; აქ მხოლოდ ვერტიკალურია
+        padding-block: 88px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+        gap: 56px;
+        align-items: start;
 
-        @media (max-width: 994px) {
-            width: 100%;
+        @media (max-width: 768px) {
+            padding-block: 56px;
+            gap: 40px;
         }
     }
-}
 
-.mainDiv {
-    width: 100%;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 5px 5px 0 0;
-
-    p {
-        background-color: #fff;
-        padding: 20px;
-        margin: 0;
-        font-weight: 400;
-        font-size: 15px;
-        line-height: 22px;
-        color: #717171;
+    &__title {
+        margin: 0 0 24px;
+        color: #232536;
+        font-size: clamp(25px, 3.2vw, 36px);
+        font-weight: 800;
+        letter-spacing: -0.3px;
     }
 }
 
-.header {
-    margin: 0;
-    font-weight: 700;
-    background-color: #0D6693;
-    color: #ffffff;
-    padding: 20px;
-    border-radius: 9px 9px 0 0;
-    text-align: start;
-    font-size: 20px;
+// ადმინის რედაქტორიდან მოსული HTML
+.richText {
+    font-size: 15px;
+    line-height: 1.75;
+    color: #4a4d63;
+    text-wrap: pretty;
+
+    p {
+        margin: 0 0 16px;
+    }
+
+    strong {
+        color: #232536;
+        font-weight: 600;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        margin: 0 0 12px;
+        color: #232536;
+        line-height: 1.3;
+    }
+
+    ul, ol {
+        margin: 0 0 16px;
+        padding-left: 24px;
+    }
+
+    blockquote {
+        margin: 0 0 16px;
+        padding-left: 16px;
+        border-left: 3px solid #fd9b28;
+    }
+
+    a {
+        color: #0056b3;
+        text-decoration: underline;
+    }
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+}
+
+// მარჯვენა ბარათი (სტატიკური)
+.stat {
+    padding: 40px;
+    border-radius: 20px;
+    background-color: #232536;
+    color: #fff;
+
+    @media (max-width: 500px) {
+        padding: 28px 20px;
+    }
+
+    &__number {
+        margin: 0;
+        font-size: 65px;
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: -2px;
+        color: #fd9b28;
+    }
+
+    &__text {
+        margin: 16px 0 24px;
+        font-size: 16px;
+        line-height: 1.65;
+    }
+
+    &__divider {
+        height: 1px;
+        margin: 0 0 24px;
+        border: 0;
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    &__closing {
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.65;
+        font-weight: 600;
+    }
 }

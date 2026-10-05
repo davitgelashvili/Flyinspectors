@@ -1,22 +1,20 @@
 .dashboard {
-    margin-top: 30px;
-}
-
-.menu {
     display: flex;
-    justify-content: space-around;
-    background-color: #dedcdc;
-    padding: 0;
-    border-radius: 8px;
+    align-items: stretch;
+    gap: 0;
 
-    a {
-        text-decoration: none;
-        color: #000;
-        font-size: 16px;
-        padding: 11px 0;
+    @media (max-width: 991px) {
+        flex-direction: column;
+    }
 
-        &:hover {
-            color: #4e4e4e;
+    &__content {
+        flex: 1;
+        min-width: 0;
+        padding: 24px;
+        background-color: #F8FAFD;
+
+        @media (max-width: 991px) {
+            padding: 16px;
         }
     }
 }
