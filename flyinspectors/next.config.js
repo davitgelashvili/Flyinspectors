@@ -2,6 +2,9 @@
 const nextConfig = {
   // ბოლო '/'-ს middleware.js ასწორებს, რომ ზედმეტი '/'-ები ერთი redirect-ით მოიხსნას
   skipTrailingSlashRedirect: true,
+  // კეში მეხსიერებაში — სერვერზე .next-ში არაფერი იწერება, ამიტომ git pull აღარ ჩერდება
+  cacheHandler: require.resolve('./cache-handler.js'),
+  cacheMaxMemorySize: 0,
   sassOptions: {},
   images: {
     disableStaticImages: true,
