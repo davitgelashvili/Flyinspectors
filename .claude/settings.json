@@ -34,7 +34,8 @@
       "Bash(FILTER_BRANCH_SQUELCH_WARNING=1 git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch \"fly/.next/cache.zip\" \"flyinspectors/.next/cache\"' --prune-empty -- --all)",
       "Bash(git restore *)",
       "Bash(FILTER_BRANCH_SQUELCH_WARNING=1 git filter-branch --force --index-filter 'git rm -r --cached --ignore-unmatch \"fly/.next\" \"flyinspectors/.next\"' --prune-empty -- --all)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(npm run *)"
     ],
     "additionalDirectories": [
       "C:\\Users\\davit.gelashvili\\AppData\\Local\\Temp\\claude\\d--Flyinspectors\\1a131ed2-2f75-4164-aaa3-59bccd7e9332\\scratchpad"
