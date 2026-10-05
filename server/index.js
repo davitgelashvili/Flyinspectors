@@ -120,6 +120,17 @@ app.use(
   router
 );
 
+// ადმინი მხოლოდ flyinspectors.com-ზე: ბილდში API იქ წერია, და სხვა დომენიდან login-ის cookie
+// (sameSite: lax) არ იგზავნება — refresh-ზე გამოაგდებს. მხოლოდ GET/HEAD, რომ POST-ები არ დაირღვეს.
+const ADMIN_REDIRECT_HOSTS = ["flyinspectors.ge", "flyinspectors.co.uk"];
+app.use("/adminpanel", (req, res, next) => {
+  const host = (req.hostname || "").replace(/^www\./, "");
+  if ((req.method === "GET" || req.method === "HEAD") && ADMIN_REDIRECT_HOSTS.includes(host)) {
+    return res.redirect(302, `https://flyinspectors.com${req.originalUrl}`);
+  }
+  next();
+});
+
 // ✅ დანარჩენ ყველაფერს (გვერდები, _next სტატიკა, middleware, route-ები) Next ამუშავებს
 // ლოგებზე წვდომა არ გვაქვს, ამიტომ მიზეზს პასუხშივე ვწერთ
 app.all("*", (req, res) =>
