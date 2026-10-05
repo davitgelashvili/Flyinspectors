@@ -51,7 +51,14 @@
       "PowerShell($p = \\(Get-NetTCPConnection -LocalPort 8000 -State Listen -ErrorAction SilentlyContinue\\).OwningProcess; if \\($p\\) { Stop-Process -Id $p -Force; \"stopped $p\" })",
       "Bash(git commit -q -m ' *)",
       "Bash(git show *)",
-      "Bash(awk '{print $1, $2, $3}')"
+      "Bash(awk '{print $1, $2, $3}')",
+      "Bash(curl -s -o /tmp/a -D /tmp/ah -w \"HTTP %{http_code} | %{size_download}B\\\\n\" --max-time 25 https://flyinspectors.com/api/)",
+      "Bash(curl -s -o /tmp/p -D /tmp/ph -w \"HTTP %{http_code} | %{size_download}B\\\\n\" --max-time 25 https://flyinspectors.com/api/pages)",
+      "Bash(node -e \"const l=require\\('./flyinspectors/package-lock.json'\\);const p=Object.entries\\(l.packages\\).filter\\(\\([k,v]\\)=>k&&!v.dev\\);console.log\\(p.length, 'prod packages; next:', !!l.packages['node_modules/next']\\)\")",
+      "Bash(curl -s --max-time 40 https://flyinspectors.com/en)",
+      "Bash(grep -vE '^\\(node:|fs$|path$|url$|util$|crypto$|stream$|http$|https$|zlib$|os$|events$|buffer$|querystring$|async_hooks$|child_process$|net$|tls$|assert$|vm$|worker_threads$|module$|string_decoder$|perf_hooks$|process$|punycode$|dns$|constants$|timers$|tty$|v8$\\)')",
+      "Bash(grep -v \"^\\\\S*:\\\\s*//\")",
+      "Bash(grep -v \"//.*process.env\")"
     ],
     "additionalDirectories": [
       "C:\\Users\\davit.gelashvili\\AppData\\Local\\Temp\\claude\\d--Flyinspectors\\1a131ed2-2f75-4164-aaa3-59bccd7e9332\\scratchpad"
