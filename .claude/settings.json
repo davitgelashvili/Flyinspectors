@@ -25,7 +25,10 @@
       "Bash(SHOT_DIR=C:/Users/davit.gelashvili/AppData/Local/Temp/claude/d--Flyinspectors/1a131ed2-2f75-4164-aaa3-59bccd7e9332/scratchpad/shots node shot.js)",
       "Read(//c/Users/davit.gelashvili/AppData/Local/Temp/claude/d--Flyinspectors/1a131ed2-2f75-4164-aaa3-59bccd7e9332/scratchpad/shots/**)",
       "Bash(SHOT_DIR=C:/Users/davit.gelashvili/AppData/Local/Temp/claude/d--Flyinspectors/1a131ed2-2f75-4164-aaa3-59bccd7e9332/scratchpad/shots node shot2.js)",
-      "Bash(node measure.js)"
+      "Bash(node measure.js)",
+      "Bash(git rm *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
     ],
     "additionalDirectories": [
       "C:\\Users\\davit.gelashvili\\AppData\\Local\\Temp\\claude\\d--Flyinspectors\\1a131ed2-2f75-4164-aaa3-59bccd7e9332\\scratchpad"
