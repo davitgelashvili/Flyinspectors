@@ -1,5 +1,1 @@
-{
-  "headers": {
-    "x-next-cache-tags": "api:/hero,_N_T_/layout,_N_T_/[lang]/layout,_N_T_/[lang]/page,_N_T_/en,api:/options,api:/how,api:/why,api:/faq,api:/offices,api:/meta,api:/pages"
-  }
-}
+{"headers":{"x-next-cache-tags":"api:/hero,_N_T_/layout,_N_T_/[lang]/layout,_N_T_/[lang]/page,_N_T_/en,api:/options,api:/how,api:/why,api:/faq,api:/offices,api:/meta,api:/pages"},"status":200}

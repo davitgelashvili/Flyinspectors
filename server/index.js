@@ -5,19 +5,20 @@ const fs = require("fs");
 const path = require("path");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
-require("dotenv").config();
+// აბსოლუტური გზა: cPanel/Passenger პროცესს repo-ს root-იდან უშვებს და cwd-ზე მიბმული .env ვერ იპოვება
+require("dotenv").config({ path: path.join(__dirname, ".env") });
 
 const app = express();
 const PORT = process.env.PORT || 8000;
 
-// ✅ Next.js ფრონტენდი (../fly) — საჭიროა production build: cd fly && npm run build
+// ✅ Next.js ფრონტენდი (../flyinspectors) — საჭიროა production build: cd flyinspectors && npm run build
 // ლოკალურად (next dev 3000-ზე) build არ არის, ამიტომ ბექი მხოლოდ API-ს ემსახურება.
-const FRONT_DIR = path.join(__dirname, "../fly");
+const FRONT_DIR = path.join(__dirname, "../flyinspectors");
 let handleFront = null;
 
 async function prepareFront() {
   if (!fs.existsSync(path.join(FRONT_DIR, ".next", "BUILD_ID"))) {
-    console.log("ℹ️ fly-ის production build არ არის — მხოლოდ API");
+    console.log("ℹ️ flyinspectors-ის production build არ არის — მხოლოდ API");
     return;
   }
   try {

@@ -36,7 +36,16 @@
       "Bash(FILTER_BRANCH_SQUELCH_WARNING=1 git filter-branch --force --index-filter 'git rm -r --cached --ignore-unmatch \"fly/.next\" \"flyinspectors/.next\"' --prune-empty -- --all)",
       "Bash(git push *)",
       "Bash(npm run *)",
-      "Bash(grep -roh 'concat\\(\"[^\"]*\",\"/login\"\\)\\\\|\"[^\"]*\\\\/login\"' flyinspectors/.next/static/chunks/app/adminpanel/)"
+      "Bash(grep -roh 'concat\\(\"[^\"]*\",\"/login\"\\)\\\\|\"[^\"]*\\\\/login\"' flyinspectors/.next/static/chunks/app/adminpanel/)",
+      "Bash(node index.js)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code} | %{size_download} bytes | %{redirect_url}\\\\n\" http://localhost:8000/)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code} | %{size_download} bytes\\\\n\" http://localhost:8000/en)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" http://localhost:8000/api/pages)",
+      "Bash(curl -s http://localhost:8000/en)",
+      "PowerShell($p = \\(Get-NetTCPConnection -LocalPort 8000 -State Listen -ErrorAction SilentlyContinue\\).OwningProcess; if \\($p\\) { Stop-Process -Id $p -Force; \"killed PID $p\" } else { \"nothing on 8000\" })",
+      "Bash(timeout 15 node server/index.js)",
+      "Bash(timeout 18 node server/index.js)",
+      "Bash(node -p \"require\\('next/package.json'\\).version\")"
     ],
     "additionalDirectories": [
       "C:\\Users\\davit.gelashvili\\AppData\\Local\\Temp\\claude\\d--Flyinspectors\\1a131ed2-2f75-4164-aaa3-59bccd7e9332\\scratchpad"
