@@ -14,11 +14,7 @@ export const fetchClientsFull = async (queryParams) => {
 };
 
 export const fetchClientById = async (userId) => {
-    const response = await adminFetch(`${API_BASE}/id`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ userId }),
-    });
+    const response = await adminFetch(`${API_BASE}/client/${encodeURIComponent(userId)}`);
     if (!response.ok) throw new Error("Failed to fetch client by ID");
     return response.json();
 };

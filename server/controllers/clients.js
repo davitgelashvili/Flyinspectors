@@ -105,6 +105,18 @@ const getClientByDateTime = async (req, res) => {
     }
 };
 
+// ადმინი: სრული ჩანაწერი ნომრით. getID-ს ვერ ვიყენებთ — ის საჯაროა და მხოლოდ სტატუსს აბრუნებს.
+const getClientByUserId = async (req, res) => {
+    try {
+        const client = await ClientModal.findOne({ userId: req.params.userId });
+        if (!client) return res.status(404).send("Application not found.");
+
+        return res.status(200).send(client);
+    } catch (error) {
+        return sendError(res, error, "Something went wrong while getting the application!");
+    }
+};
+
 // საჯარო: კლიენტი განაცხადის ნომრით სტატუსს ამოწმებს.
 // ნომერი 5-ციფრიანია, ანუ გამოცნობადი — ამიტომ სრული ჩანაწერი არ ბრუნდება.
 const getID = async (req, res) => {
@@ -160,6 +172,7 @@ module.exports = {
     getClientsByCompanyId,
     getClientByDateTime,
     getID,
+    getClientByUserId,
     editStatus,
     deleteClient,
 };

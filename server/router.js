@@ -6,6 +6,7 @@ const {
   getClientsByCompanyId,
   getClientByDateTime,
   getID,
+  getClientByUserId,
   editStatus,
   deleteClient,
 } = require("./controllers/clients");
@@ -106,6 +107,7 @@ router.put("/redirects/delete", ...editor, deleteRedirect);
 /* ── განაცხადები: მხოლოდ admin ─────────────────────────── */
 const adminOnly = [requireAuth, requireRole()];
 router.get("/client", ...adminOnly, getClient);
+router.get("/client/:userId", ...adminOnly, getClientByUserId);   // სრული ჩანაწერი (/id საჯაროა — მხოლოდ status)
 router.get("/clientbycompany", ...adminOnly, getClientsByCompanyId);
 router.post("/datetime", ...adminOnly, getClientByDateTime);
 router.put("/client/id", ...adminOnly, editStatus);
