@@ -14,6 +14,14 @@ const PORT = process.env.PORT || 8000;
 // ✅ Next.js ფრონტენდი (../flyinspectors) — საჭიროა production build: cd flyinspectors && npm run build
 // ლოკალურად (next dev 3000-ზე) build არ არის, ამიტომ ბექი მხოლოდ API-ს ემსახურება.
 const FRONT_DIR = path.join(__dirname, "../flyinspectors");
+
+// CloudLinux-ზე next/react აპის virtualenv-შია (server/node_modules). .next/server-ის chunk-ები მათ
+// flyinspectors-იდან ეძებენ და ვერ პოულობენ, ამიტომ server/node_modules გლობალურ ძიებაში ემატება.
+process.env.NODE_PATH = [process.env.NODE_PATH, path.join(__dirname, "node_modules")]
+  .filter(Boolean)
+  .join(path.delimiter);
+require("module")._initPaths();
+
 let handleFront = null;
 let frontError = "not started yet";
 
