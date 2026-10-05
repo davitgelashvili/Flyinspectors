@@ -10,6 +10,10 @@ flyinspectors/.DS_Store
 flyinspectors/npm-debug.log
 flyinspectors/.vscode/
 flyinspectors/.env.local
+fly/node_modules/
+fly/.next/
+fly/.DS_Store
+fly/.env.local
 
 # React (tourclaimcom)
 tourclaimcom/node_modules/
