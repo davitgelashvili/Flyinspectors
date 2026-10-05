@@ -45,7 +45,11 @@
       "PowerShell($p = \\(Get-NetTCPConnection -LocalPort 8000 -State Listen -ErrorAction SilentlyContinue\\).OwningProcess; if \\($p\\) { Stop-Process -Id $p -Force; \"killed PID $p\" } else { \"nothing on 8000\" })",
       "Bash(timeout 15 node server/index.js)",
       "Bash(timeout 18 node server/index.js)",
-      "Bash(node -p \"require\\('next/package.json'\\).version\")"
+      "Bash(node -p \"require\\('next/package.json'\\).version\")",
+      "PowerShell(Get-NetTCPConnection -State Listen -ErrorAction SilentlyContinue | Where-Object { $_.LocalPort -in 3000,3001,8000 } | Select-Object LocalPort, OwningProcess | Sort-Object LocalPort -Unique | ForEach-Object { $pr = Get-Process -Id $_.OwningProcess -ErrorAction SilentlyContinue; \"$\\($_.LocalPort\\) -> PID $\\($_.OwningProcess\\) $\\($pr.ProcessName\\) started $\\($pr.StartTime\\)\" })",
+      "Bash(git ls-tree *)",
+      "PowerShell($p = \\(Get-NetTCPConnection -LocalPort 8000 -State Listen -ErrorAction SilentlyContinue\\).OwningProcess; if \\($p\\) { Stop-Process -Id $p -Force; \"stopped $p\" })",
+      "Bash(git commit -q -m ' *)"
     ],
     "additionalDirectories": [
       "C:\\Users\\davit.gelashvili\\AppData\\Local\\Temp\\claude\\d--Flyinspectors\\1a131ed2-2f75-4164-aaa3-59bccd7e9332\\scratchpad"
