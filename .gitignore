@@ -9,6 +9,8 @@ flyinspectors/node_modules/
 flyinspectors/.DS_Store
 flyinspectors/npm-debug.log
 flyinspectors/.vscode/
+# runtime-ში გაშვებული Next წერს — git-ში რომ იყოს, სერვერზე pull ჩავარდება
+flyinspectors/.next/cache/
 
 # React (tourclaimcom)
 tourclaimcom/node_modules/
