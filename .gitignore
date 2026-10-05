@@ -38,11 +38,7 @@ Thumbs.db
 *.swp
 
 # Environment files (never commit secrets)
-.env
 .env.local
-.env.production
-.env.development
 server/.env
-flyinspectors/.env.local
 
 .claude/
