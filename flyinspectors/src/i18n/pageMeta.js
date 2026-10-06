@@ -1,6 +1,7 @@
 import { getMeta } from '@/api/serverApi'
 import { LOCALES, DEFAULT_LOCALE, X_DEFAULT_LOCALE } from './locales'
 import { META_PAGES, GLOBAL_OG_PATH } from './metaPages'
+import { NOINDEX_ROBOTS } from '../../app/baseMetadata'
 
 const OG_IMAGE = {
   en: 'https://res.cloudinary.com/dluqxr8lw/image/upload/v1734813470/meta_en_zr0fxe.jpg',
@@ -156,6 +157,9 @@ export const PAGE_META = {
 const DB_PATHS = new Set(META_PAGES.map((page) => page.path))
 const HOME_PATH = '/'
 
+// პირადი განაცხადის ნაბიჯები: sitemap-შიც არ შედის და ძიებაშიც არ უნდა ჩანდეს
+const NOINDEX_PATHS = new Set(['/signature', '/check-status'])
+
 // ბაზიდან: ტექსტი ამ გვერდის ჩანაწერიდან; ფოტო — გვერდისა, თუ ცარიელია — გლობალური, მერე მთავარი გვერდისა.
 // ყველა გვერდის მეტა ერთი მოთხოვნითაა (იკეშება და ადმინში შენახვისას მყისიერად ახლდება).
 async function metaFromDb(path, locale) {
@@ -212,6 +216,7 @@ export async function buildMetadata(path, lang) {
 
   return {
     ...text,
+    ...(NOINDEX_PATHS.has(path) && { robots: NOINDEX_ROBOTS }),
     alternates: {
       canonical: url,
       languages: { ...languages, 'x-default': localePath(path, X_DEFAULT_LOCALE) },

@@ -1,7 +1,10 @@
+const { PHASE_DEVELOPMENT_SERVER } = require('next/constants')
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // ბოლო '/'-ს middleware.js ასწორებს, რომ ზედმეტი '/'-ები ერთი redirect-ით მოიხსნას
   skipTrailingSlashRedirect: true,
+
   // კეში მეხსიერებაში — სერვერზე .next-ში არაფერი იწერება, ამიტომ git pull აღარ ჩერდება
   cacheHandler: require.resolve('./cache-handler.js'),
   cacheMaxMemorySize: 0,
@@ -27,4 +30,11 @@ const nextConfig = {
   },
 }
 
-module.exports = nextConfig
+// dev და production ერთ საქაღალდეს არ უნდა იყენებდნენ: .next git-შია და სერვერზე pull-ით მიდის,
+// `next dev` კი იმავე .next-ში წერდა და აგებულ ბილდს აფუჭებდა (და პირიქითაც).
+// phase-ზე ვიყურებით და არა NODE_ENV-ზე: cPanel-ის "Application mode: Development" NODE_ENV-ს
+// development-ად აყენებს, phase კი `next dev`-ის გარეშე არასოდეს არის DEVELOPMENT_SERVER.
+module.exports = (phase) => ({
+  ...nextConfig,
+  distDir: phase === PHASE_DEVELOPMENT_SERVER ? '.next-dev' : '.next',
+})

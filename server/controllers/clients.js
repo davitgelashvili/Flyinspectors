@@ -1,7 +1,12 @@
 const ClientModal = require("../jsonModels/clientModal");
 const { sendError } = require("../utils/body");
+const { sendEvent } = require("../utils/metaCapi");
 
 const INITIAL_STATUS = "Application has received";
+
+// Meta-ს სტანდარტული მოვლენა განაცხადისთვის. შეცვლის შემთხვევაში ფრონტზეც უნდა შეიცვალოს
+// (flyinspectors/src/utils/metaPixel.js), თორემ Meta ბრაუზერისა და სერვერის მოვლენას ვერ გააერთიანებს.
+const CLAIM_EVENT = "Lead";
 
 const generateUniqueId = async () => {
     for (;;) {
@@ -13,13 +18,34 @@ const generateUniqueId = async () => {
 
 const createClient = async (req, res) => {
     try {
+        // Meta-ს მოვლენის ველები განაცხადის ნაწილი არ არის — ბაზაში არ უნდა ჩაიწეროს
+        const { fbp, fbc, eventId, eventSourceUrl, ...claim } = req.body || {};
+
         // სერვერის ველები spread-ის შემდეგ იწერება, ანუ კლიენტის გამოგზავნილს
         // გადააწერს — userId, status და oldStatus გარედან ვერ დაყენდება
         const client = await ClientModal.create({
-            ...req.body,
+            ...claim,
             userId: await generateUniqueId(),
             status: INITIAL_STATUS,
             oldStatus: INITIAL_STATUS,
+        });
+
+        // Meta Conversions API: განაცხადის მოვლენა სერვერიდან. პასუხს არ ვაყოვნებთ და
+        // შეცდომა განაცხადს არ აფუჭებს — sendEvent არასოდეს throw-ავს.
+        sendEvent(req, {
+            eventName: CLAIM_EVENT,
+            eventId,
+            eventSourceUrl,
+            user: {
+                email: client.email,
+                phone: client.phone,
+                firstName: client.firstName,
+                lastName: client.lastName,
+                city: client.city,
+                externalId: client.userId,
+                fbp,
+                fbc,
+            },
         });
 
         return res.status(200).send(client);

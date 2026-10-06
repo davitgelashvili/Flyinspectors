@@ -7,6 +7,7 @@ import { useSelector } from "react-redux"
 import { useTranslation } from "react-i18next";
 import { useRouter, useSearchParams } from "next/navigation";
 import useLocale from "@/i18n/useLocale";
+import { metaEventFields, trackClaimSubmitted } from "@/utils/metaPixel";
 
 const SendForm = () => {
     const searchParams = useSearchParams();
@@ -128,18 +129,24 @@ const SendForm = () => {
             setPopup(true);
             setLoad(true);
 
+            // Meta: ბრაუზერისა და სერვერის მოვლენა ერთი event_id-ით (დუბლს Meta აერთიანებს).
+            // fbp/fbc პიქსელის cookie-ებია — ბექიდან ვერ წაიკითხება, ამიტომ აქედან მიჰყვება.
+            const meta = metaEventFields();
+
             try {
                 const clientRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/client`, {
                     method: "POST",
                     headers: {
                         'Content-type': 'application/json',
                     },
-                    body: JSON.stringify(value)
+                    body: JSON.stringify({ ...value, ...meta })
                 });
 
                 const clientData = await clientRes.json();
                 const userId = clientData.userId;
                 setUnicueID(userId);
+                // მოვლენას მხოლოდ მაშინ ვაგზავნით, თუ განაცხადი მართლა შეიქმნა
+                if (userId) trackClaimSubmitted(meta.eventId);
 
                 // გაგზავნა ორივე მხარეს ერთდროულად
                 await Promise.all([

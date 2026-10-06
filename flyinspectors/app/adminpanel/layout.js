@@ -1,7 +1,10 @@
 import RootShell from '../RootShell'
-import { baseMetadata } from '../baseMetadata'
+import { baseMetadata, NOINDEX_ROBOTS } from '../baseMetadata'
 
-export const metadata = baseMetadata
+// ადმინი ძიებაში არ უნდა ჩანდეს
+export function generateMetadata() {
+  return { ...baseMetadata(), robots: NOINDEX_ROBOTS }
+}
 
 // ადმინს საკუთარი root layout აქვს (საიტისგან დამოუკიდებელი) და საკუთარი გარსი
 // (Sidebar) — საჯარო Header/Footer არ სჭირდება. ადმინის ინტერფეისი ქართულია.

@@ -58,7 +58,11 @@
       "Bash(curl -s --max-time 40 https://flyinspectors.com/en)",
       "Bash(grep -vE '^\\(node:|fs$|path$|url$|util$|crypto$|stream$|http$|https$|zlib$|os$|events$|buffer$|querystring$|async_hooks$|child_process$|net$|tls$|assert$|vm$|worker_threads$|module$|string_decoder$|perf_hooks$|process$|punycode$|dns$|constants$|timers$|tty$|v8$\\)')",
       "Bash(grep -v \"^\\\\S*:\\\\s*//\")",
-      "Bash(grep -v \"//.*process.env\")"
+      "Bash(grep -v \"//.*process.env\")",
+      "Bash(curl -s --max-time 40 -w \"\\\\nHTTP %{http_code}\\\\n\" https://flyinspectors.com/en)",
+      "Bash(git log *)",
+      "Bash(grep -rhoE '.{0,60}encodeURIComponent\\\\\\([a-z]\\\\\\).{0,10}' .next/static/chunks/)",
+      "Bash(echo \"exit code: $?\")"
     ],
     "additionalDirectories": [
       "C:\\Users\\davit.gelashvili\\AppData\\Local\\Temp\\claude\\d--Flyinspectors\\1a131ed2-2f75-4164-aaa3-59bccd7e9332\\scratchpad"

@@ -6,7 +6,7 @@ import RootShell from '../RootShell'
 import { getOffices } from '@/api/serverApi'
 import { getGlobalOgImage } from '@/i18n/pageMeta'
 import { JsonLd, organizationSchema, websiteSchema } from '@/seo/jsonLd'
-import { baseMetadata } from '../baseMetadata'
+import { baseMetadata, INDEX_ROBOTS } from '../baseMetadata'
 
 const SITE_META = {
   en: {
@@ -34,7 +34,8 @@ export async function generateMetadata({ params }) {
   // ადმინში მითითებული გლობალური ფოტო ჯობია ქვემოთ ჩაწერილ ნაგულისხმევს
   const image = (await getGlobalOgImage(params.lang)) || meta.image
   return {
-    ...baseMetadata,
+    ...baseMetadata(),
+    robots: INDEX_ROBOTS,
     title: meta.title,
     description: meta.description,
     openGraph: {

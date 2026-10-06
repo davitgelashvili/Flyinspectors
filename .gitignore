@@ -11,6 +11,8 @@ flyinspectors/npm-debug.log
 flyinspectors/.vscode/
 # runtime-ში გაშვებული Next წერს — git-ში რომ იყოს, სერვერზე pull ჩავარდება
 flyinspectors/.next/cache/
+# `next dev`-ის ბილდი (distDir) — git-ში არ გვჭირდება
+flyinspectors/.next-dev/
 
 # React (tourclaimcom)
 tourclaimcom/node_modules/

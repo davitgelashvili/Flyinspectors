@@ -1,14 +1,13 @@
 // schema.org (JSON-LD) სქემები: Organization, WebSite, AboutPage, ContactPage, BlogPosting.
 // ყველა სქემა ერთმანეთს @id-ით უკავშირდება (გვერდი → WebSite → Organization).
-// მისამართები მთავარი დომენისაა (baseMetadata.metadataBase) — canonical-თან ერთნაირი.
-import { baseMetadata } from '../../app/baseMetadata'
+// მისამართები მოთხოვნის დომენისაა (app/siteHost.js) — canonical-თან ერთნაირი.
+import { getSiteOrigin } from '../../app/siteHost'
 import { LOCALES } from '@/i18n/locales'
 import { normalizeOffices } from '@/components/Offices/officeUtils'
 import MainLogo from '@/components/Images/MainLogo.png'
 
-export const SITE_ORIGIN = baseMetadata.metadataBase.origin
-export const ORG_ID = `${SITE_ORIGIN}/#organization`
-export const WEBSITE_ID = `${SITE_ORIGIN}/#website`
+const orgId = () => `${getSiteOrigin()}/#organization`
+const websiteId = () => `${getSiteOrigin()}/#website`
 
 const SITE_NAME = 'Flyinspectors'
 const CONTACT_EMAIL = 'team@flyinspectors.com'
@@ -17,11 +16,11 @@ const SAME_AS = ['https://www.facebook.com/FlyinspectorsEng']
 
 const logoUrl = () => {
   const src = MainLogo.src || MainLogo
-  return src.startsWith('http') ? src : `${SITE_ORIGIN}${src}`
+  return src.startsWith('http') ? src : `${getSiteOrigin()}${src}`
 }
 
 export const pageUrl = (path, locale) =>
-  `${SITE_ORIGIN}/${locale}${path === '/' ? '' : path}`
+  `${getSiteOrigin()}/${locale}${path === '/' ? '' : path}`
 
 // ბაზიდან მოსული ოფისები (ადმინი → საკონტაქტო) → Organization-ის კონტაქტები და მისამართები
 export function organizationSchema(offices, locale) {
@@ -41,14 +40,14 @@ export function organizationSchema(offices, locale) {
 
   return {
     '@type': 'Organization',
-    '@id': ORG_ID,
+    '@id': orgId(),
     name: SITE_NAME,
-    url: SITE_ORIGIN,
+    url: getSiteOrigin(),
     sameAs: SAME_AS,
     email,
     logo: {
       '@type': 'ImageObject',
-      '@id': `${SITE_ORIGIN}/#logo`,
+      '@id': `${getSiteOrigin()}/#logo`,
       url: logoUrl(),
       contentUrl: logoUrl(),
       caption: SITE_NAME,
@@ -69,10 +68,10 @@ export function organizationSchema(offices, locale) {
 export function websiteSchema() {
   return {
     '@type': 'WebSite',
-    '@id': WEBSITE_ID,
-    url: SITE_ORIGIN,
+    '@id': websiteId(),
+    url: getSiteOrigin(),
     name: SITE_NAME,
-    publisher: { '@id': ORG_ID },
+    publisher: { '@id': orgId() },
     inLanguage: LOCALES,
   }
 }
@@ -94,9 +93,9 @@ export function webPageSchema({ type, path, locale, name, description, imageUrl,
     ...(name && { name }),
     ...(description && { description }),
     ...dates(rest),
-    isPartOf: { '@id': WEBSITE_ID },
+    isPartOf: { '@id': websiteId() },
     ...(imageUrl && { primaryImageOfPage: image(imageUrl) }),
-    ...(type === 'ContactPage' && { mainEntity: { '@id': ORG_ID } }),
+    ...(type === 'ContactPage' && { mainEntity: { '@id': orgId() } }),
     inLanguage: locale,
   }
 }
@@ -110,9 +109,9 @@ export function articleSchema({ path, locale, headline, description, imageUrl, .
     name: headline,
     ...(description && { description }),
     ...dates(rest),
-    author: { '@id': ORG_ID },
-    publisher: { '@id': ORG_ID },
-    isPartOf: { '@id': WEBSITE_ID },
+    author: { '@id': orgId() },
+    publisher: { '@id': orgId() },
+    isPartOf: { '@id': websiteId() },
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
     ...(imageUrl && { image: image(imageUrl) }),
     inLanguage: locale,

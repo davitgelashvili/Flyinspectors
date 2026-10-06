@@ -10,9 +10,8 @@ export default function RootShell({ lang, children }) {
   return (
     <html lang={lang}>
       <head>
-        {/* <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" /> */}
+        {/* robots ტეგს Next აწყობს metadata-დან: საჯარო გვერდები — index, ადმინი — noindex */}
         <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
-        <meta name="robots" content="nofollow, noindex" />
         <Script
           id="fb-pixel"
           strategy="afterInteractive"
