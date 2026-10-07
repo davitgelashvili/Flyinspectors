@@ -39,7 +39,7 @@ const SocialMedia = ({ locale }) => {
           </a>
         </li>
         <li>
-          <a href="mailto:team@flyinspectors.com">
+          <a href="mailto:info@flyinspectors.com">
             <img src={Gmail} alt="Email" />
           </a>
         </li>
