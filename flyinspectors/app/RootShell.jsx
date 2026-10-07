@@ -3,6 +3,8 @@
 import Script from 'next/script'
 import Providers from './providers'
 import ScrollToTop from './ScrollToTop'
+import MetaPageView from './MetaPageView'
+import { PIXEL_ID } from '@/utils/metaPixel'
 import 'bootstrap/dist/css/bootstrap-grid.min.css'
 import './globals.scss'
 
@@ -12,6 +14,8 @@ export default function RootShell({ lang, children }) {
       <head>
         {/* robots ტეგს Next აწყობს metadata-დან: საჯარო გვერდები — index, ადმინი — noindex */}
         <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+        {/* მხოლოდ fbq('init'). PageView-ს <MetaPageView /> აგზავნის — სერვერულ მოვლენასთან
+            დასაწყვილებლად event_id სჭირდება, inline სკრიპტს კი ის ვერ მიეცემა. */}
         <Script
           id="fb-pixel"
           strategy="afterInteractive"
@@ -25,8 +29,7 @@ export default function RootShell({ lang, children }) {
               t.src=v;s=b.getElementsByTagName(e)[0];
               s.parentNode.insertBefore(t,s)}(window,document,'script',
               'https://connect.facebook.net/en_US/fbevents.js');
-              fbq('init', '1400277778859172');
-              fbq('track', 'PageView');
+              fbq('init', '${PIXEL_ID}');
             `,
           }}
         />
@@ -54,6 +57,7 @@ export default function RootShell({ lang, children }) {
       <body>
         <Providers>
           <ScrollToTop />
+          <MetaPageView />
           {children}
         </Providers>
       </body>

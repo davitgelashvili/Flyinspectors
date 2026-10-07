@@ -1,14 +1,14 @@
 {
   "pages": {
     "/_not-found/page": [
-      "static/chunks/webpack-2492579ae3dad03c.js",
+      "static/chunks/webpack-793f2bcfaa2877dc.js",
       "static/chunks/fd9d1056-e59a37fc56d6e2f5.js",
       "static/chunks/2117-fad82ab731dbbab8.js",
       "static/chunks/main-app-e114fbdfefcc34fc.js",
       "static/chunks/app/_not-found/page-1d32c2d5eade14b3.js"
     ],
     "/adminpanel/[[...slug]]/page": [
-      "static/chunks/webpack-2492579ae3dad03c.js",
+      "static/chunks/webpack-793f2bcfaa2877dc.js",
       "static/chunks/fd9d1056-e59a37fc56d6e2f5.js",
       "static/chunks/2117-fad82ab731dbbab8.js",
       "static/chunks/main-app-e114fbdfefcc34fc.js",
@@ -23,7 +23,7 @@
       "static/chunks/app/adminpanel/[[...slug]]/page-ead07e39717806c5.js"
     ],
     "/adminpanel/layout": [
-      "static/chunks/webpack-2492579ae3dad03c.js",
+      "static/chunks/webpack-793f2bcfaa2877dc.js",
       "static/chunks/fd9d1056-e59a37fc56d6e2f5.js",
       "static/chunks/2117-fad82ab731dbbab8.js",
       "static/chunks/main-app-e114fbdfefcc34fc.js",
@@ -33,27 +33,19 @@
       "static/chunks/1250-d818fb04b2323c77.js",
       "static/chunks/1455-1d42073f92202109.js",
       "static/chunks/5709-db193406f8f4f395.js",
-      "static/chunks/4319-8b10610aeea4c4f3.js",
-      "static/chunks/app/adminpanel/layout-d2174fabeafafde7.js"
+      "static/chunks/1550-f6e7907ecc6ee62d.js",
+      "static/chunks/app/adminpanel/layout-d21aa43561793141.js"
     ],
-    "/[lang]/[...rest]/page": [
-      "static/chunks/webpack-2492579ae3dad03c.js",
+    "/[lang]/about-us/blog-page-more-pets/page": [
+      "static/chunks/webpack-793f2bcfaa2877dc.js",
       "static/chunks/fd9d1056-e59a37fc56d6e2f5.js",
       "static/chunks/2117-fad82ab731dbbab8.js",
       "static/chunks/main-app-e114fbdfefcc34fc.js",
-      "static/chunks/app/[lang]/[...rest]/page-b3879016a2cba437.js"
-    ],
-    "/[lang]/[...rest]/not-found": [
-      "static/chunks/webpack-2492579ae3dad03c.js",
-      "static/chunks/fd9d1056-e59a37fc56d6e2f5.js",
-      "static/chunks/2117-fad82ab731dbbab8.js",
-      "static/chunks/main-app-e114fbdfefcc34fc.js",
-      "static/css/1a34c8913326f5bd.css",
-      "static/chunks/2972-1d3fbe0b8ed2ccf4.js",
-      "static/chunks/app/[lang]/[...rest]/not-found-f5bee8b041a8a3d7.js"
+      "static/css/5c2cac787896727b.css",
+      "static/chunks/app/[lang]/about-us/blog-page-more-pets/page-8af4e1c219abbc27.js"
     ],
     "/[lang]/layout": [
-      "static/chunks/webpack-2492579ae3dad03c.js",
+      "static/chunks/webpack-793f2bcfaa2877dc.js",
       "static/chunks/fd9d1056-e59a37fc56d6e2f5.js",
       "static/chunks/2117-fad82ab731dbbab8.js",
       "static/chunks/main-app-e114fbdfefcc34fc.js",
@@ -64,35 +56,19 @@
       "static/chunks/1250-d818fb04b2323c77.js",
       "static/chunks/1455-1d42073f92202109.js",
       "static/chunks/5709-db193406f8f4f395.js",
-      "static/chunks/4319-8b10610aeea4c4f3.js",
-      "static/chunks/app/[lang]/layout-2a29ecfef147c1ef.js"
+      "static/chunks/1550-f6e7907ecc6ee62d.js",
+      "static/chunks/app/[lang]/layout-ec474574b21e8571.js"
     ],
-    "/[lang]/about-us/blog-page-more-airports/page": [
-      "static/chunks/webpack-2492579ae3dad03c.js",
+    "/[lang]/about-us/blog-page-more/page": [
+      "static/chunks/webpack-793f2bcfaa2877dc.js",
       "static/chunks/fd9d1056-e59a37fc56d6e2f5.js",
       "static/chunks/2117-fad82ab731dbbab8.js",
       "static/chunks/main-app-e114fbdfefcc34fc.js",
-      "static/css/6a5df5389b16dfac.css",
-      "static/chunks/app/[lang]/about-us/blog-page-more-airports/page-d120f0e2b1014680.js"
-    ],
-    "/[lang]/about-us/blog-page-more-pilots/page": [
-      "static/chunks/webpack-2492579ae3dad03c.js",
-      "static/chunks/fd9d1056-e59a37fc56d6e2f5.js",
-      "static/chunks/2117-fad82ab731dbbab8.js",
-      "static/chunks/main-app-e114fbdfefcc34fc.js",
-      "static/css/f8f783820e81b2be.css",
-      "static/chunks/app/[lang]/about-us/blog-page-more-pilots/page-4c70e68ac1359d66.js"
-    ],
-    "/[lang]/about-us/faq/page": [
-      "static/chunks/webpack-2492579ae3dad03c.js",
-      "static/chunks/fd9d1056-e59a37fc56d6e2f5.js",
-      "static/chunks/2117-fad82ab731dbbab8.js",
-      "static/chunks/main-app-e114fbdfefcc34fc.js",
-      "static/css/dd6907c75cdd06c5.css",
-      "static/chunks/app/[lang]/about-us/faq/page-9e16044fe8568511.js"
+      "static/css/676ea254fd159204.css",
+      "static/chunks/app/[lang]/about-us/blog-page-more/page-e7875cfdee5aa0f5.js"
     ],
     "/[lang]/[slug]/page": [
-      "static/chunks/webpack-2492579ae3dad03c.js",
+      "static/chunks/webpack-793f2bcfaa2877dc.js",
       "static/chunks/fd9d1056-e59a37fc56d6e2f5.js",
       "static/chunks/2117-fad82ab731dbbab8.js",
       "static/chunks/main-app-e114fbdfefcc34fc.js",
@@ -100,7 +76,7 @@
       "static/chunks/app/[lang]/[slug]/page-fd619c16b00f0fa1.js"
     ],
     "/[lang]/[slug]/not-found": [
-      "static/chunks/webpack-2492579ae3dad03c.js",
+      "static/chunks/webpack-793f2bcfaa2877dc.js",
       "static/chunks/fd9d1056-e59a37fc56d6e2f5.js",
       "static/chunks/2117-fad82ab731dbbab8.js",
       "static/chunks/main-app-e114fbdfefcc34fc.js",
@@ -108,26 +84,33 @@
       "static/chunks/2972-1d3fbe0b8ed2ccf4.js",
       "static/chunks/app/[lang]/[slug]/not-found-fbc854fbe6b8bb81.js"
     ],
-    "/[lang]/about-us/blog/page": [
-      "static/chunks/webpack-2492579ae3dad03c.js",
+    "/[lang]/about-us/blog-page-more-airports/page": [
+      "static/chunks/webpack-793f2bcfaa2877dc.js",
       "static/chunks/fd9d1056-e59a37fc56d6e2f5.js",
       "static/chunks/2117-fad82ab731dbbab8.js",
       "static/chunks/main-app-e114fbdfefcc34fc.js",
-      "static/css/2efc49f5405bb6ab.css",
-      "static/chunks/3949-7b62b3a660ed98f1.js",
-      "static/chunks/2972-1d3fbe0b8ed2ccf4.js",
-      "static/chunks/app/[lang]/about-us/blog/page-6c5b25e40c839494.js"
+      "static/css/6a5df5389b16dfac.css",
+      "static/chunks/app/[lang]/about-us/blog-page-more-airports/page-d120f0e2b1014680.js"
     ],
-    "/[lang]/about-us/blog-page-more/page": [
-      "static/chunks/webpack-2492579ae3dad03c.js",
+    "/[lang]/about-us/page": [
+      "static/chunks/webpack-793f2bcfaa2877dc.js",
       "static/chunks/fd9d1056-e59a37fc56d6e2f5.js",
       "static/chunks/2117-fad82ab731dbbab8.js",
       "static/chunks/main-app-e114fbdfefcc34fc.js",
-      "static/css/676ea254fd159204.css",
-      "static/chunks/app/[lang]/about-us/blog-page-more/page-e7875cfdee5aa0f5.js"
+      "static/css/1101c19a15171742.css",
+      "static/chunks/3949-7b62b3a660ed98f1.js",
+      "static/chunks/app/[lang]/about-us/page-0c0a75220403591e.js"
+    ],
+    "/[lang]/about-us/faq/page": [
+      "static/chunks/webpack-793f2bcfaa2877dc.js",
+      "static/chunks/fd9d1056-e59a37fc56d6e2f5.js",
+      "static/chunks/2117-fad82ab731dbbab8.js",
+      "static/chunks/main-app-e114fbdfefcc34fc.js",
+      "static/css/dd6907c75cdd06c5.css",
+      "static/chunks/app/[lang]/about-us/faq/page-9e16044fe8568511.js"
     ],
     "/[lang]/check-status/page": [
-      "static/chunks/webpack-2492579ae3dad03c.js",
+      "static/chunks/webpack-793f2bcfaa2877dc.js",
       "static/chunks/fd9d1056-e59a37fc56d6e2f5.js",
       "static/chunks/2117-fad82ab731dbbab8.js",
       "static/chunks/main-app-e114fbdfefcc34fc.js",
@@ -139,7 +122,7 @@
       "static/chunks/app/[lang]/check-status/page-d3a6fc26fdcfb7a5.js"
     ],
     "/[lang]/contact-us/page": [
-      "static/chunks/webpack-2492579ae3dad03c.js",
+      "static/chunks/webpack-793f2bcfaa2877dc.js",
       "static/chunks/fd9d1056-e59a37fc56d6e2f5.js",
       "static/chunks/2117-fad82ab731dbbab8.js",
       "static/chunks/main-app-e114fbdfefcc34fc.js",
@@ -148,24 +131,18 @@
       "static/chunks/3949-7b62b3a660ed98f1.js",
       "static/chunks/app/[lang]/contact-us/page-2321d3f497467252.js"
     ],
-    "/[lang]/about-us/blog-page-more-pets/page": [
-      "static/chunks/webpack-2492579ae3dad03c.js",
+    "/[lang]/about-us/blog/page": [
+      "static/chunks/webpack-793f2bcfaa2877dc.js",
       "static/chunks/fd9d1056-e59a37fc56d6e2f5.js",
       "static/chunks/2117-fad82ab731dbbab8.js",
       "static/chunks/main-app-e114fbdfefcc34fc.js",
-      "static/css/5c2cac787896727b.css",
-      "static/chunks/app/[lang]/about-us/blog-page-more-pets/page-8af4e1c219abbc27.js"
-    ],
-    "/[lang]/terms-and-conditions/page": [
-      "static/chunks/webpack-2492579ae3dad03c.js",
-      "static/chunks/fd9d1056-e59a37fc56d6e2f5.js",
-      "static/chunks/2117-fad82ab731dbbab8.js",
-      "static/chunks/main-app-e114fbdfefcc34fc.js",
-      "static/css/775c8348a4d98903.css",
-      "static/chunks/app/[lang]/terms-and-conditions/page-2959d5e1046a3dcd.js"
+      "static/css/2efc49f5405bb6ab.css",
+      "static/chunks/3949-7b62b3a660ed98f1.js",
+      "static/chunks/2972-1d3fbe0b8ed2ccf4.js",
+      "static/chunks/app/[lang]/about-us/blog/page-6c5b25e40c839494.js"
     ],
     "/[lang]/page": [
-      "static/chunks/webpack-2492579ae3dad03c.js",
+      "static/chunks/webpack-793f2bcfaa2877dc.js",
       "static/chunks/fd9d1056-e59a37fc56d6e2f5.js",
       "static/chunks/2117-fad82ab731dbbab8.js",
       "static/chunks/main-app-e114fbdfefcc34fc.js",
@@ -174,7 +151,7 @@
       "static/chunks/app/[lang]/page-39730c7979e16f04.js"
     ],
     "/[lang]/signature/page": [
-      "static/chunks/webpack-2492579ae3dad03c.js",
+      "static/chunks/webpack-793f2bcfaa2877dc.js",
       "static/chunks/fd9d1056-e59a37fc56d6e2f5.js",
       "static/chunks/2117-fad82ab731dbbab8.js",
       "static/chunks/main-app-e114fbdfefcc34fc.js",
@@ -185,67 +162,24 @@
       "static/chunks/9332-801dfb5923abee74.js",
       "static/chunks/app/[lang]/signature/page-048de2ab007111c6.js"
     ],
-    "/[lang]/your-rights/flight-cancellation/page": [
-      "static/chunks/webpack-2492579ae3dad03c.js",
+    "/[lang]/[...rest]/page": [
+      "static/chunks/webpack-793f2bcfaa2877dc.js",
       "static/chunks/fd9d1056-e59a37fc56d6e2f5.js",
       "static/chunks/2117-fad82ab731dbbab8.js",
       "static/chunks/main-app-e114fbdfefcc34fc.js",
-      "static/css/b7112d7b90c3adc6.css",
-      "static/chunks/3949-7b62b3a660ed98f1.js",
-      "static/chunks/app/[lang]/your-rights/flight-cancellation/page-041a5cb44b8ca9d3.js"
+      "static/chunks/app/[lang]/[...rest]/page-b3879016a2cba437.js"
     ],
-    "/[lang]/your-rights/lost-luggage/page": [
-      "static/chunks/webpack-2492579ae3dad03c.js",
+    "/[lang]/[...rest]/not-found": [
+      "static/chunks/webpack-793f2bcfaa2877dc.js",
       "static/chunks/fd9d1056-e59a37fc56d6e2f5.js",
       "static/chunks/2117-fad82ab731dbbab8.js",
       "static/chunks/main-app-e114fbdfefcc34fc.js",
-      "static/css/861594ffad1dc3e1.css",
-      "static/css/b7112d7b90c3adc6.css",
-      "static/chunks/3949-7b62b3a660ed98f1.js",
-      "static/chunks/app/[lang]/your-rights/lost-luggage/page-6599b1e90ae783ff.js"
-    ],
-    "/[lang]/about-us/page": [
-      "static/chunks/webpack-2492579ae3dad03c.js",
-      "static/chunks/fd9d1056-e59a37fc56d6e2f5.js",
-      "static/chunks/2117-fad82ab731dbbab8.js",
-      "static/chunks/main-app-e114fbdfefcc34fc.js",
-      "static/css/0b2c688114a928c2.css",
-      "static/css/b7112d7b90c3adc6.css",
-      "static/chunks/3949-7b62b3a660ed98f1.js",
-      "static/chunks/app/[lang]/about-us/page-04005cfbd2c27aaf.js"
-    ],
-    "/[lang]/your-rights/missed-connection/page": [
-      "static/chunks/webpack-2492579ae3dad03c.js",
-      "static/chunks/fd9d1056-e59a37fc56d6e2f5.js",
-      "static/chunks/2117-fad82ab731dbbab8.js",
-      "static/chunks/main-app-e114fbdfefcc34fc.js",
-      "static/css/1069de03a2a1590a.css",
-      "static/css/b7112d7b90c3adc6.css",
-      "static/chunks/3949-7b62b3a660ed98f1.js",
-      "static/chunks/app/[lang]/your-rights/missed-connection/page-3402fee27e26ebcb.js"
-    ],
-    "/[lang]/your-rights/flight-delay/page": [
-      "static/chunks/webpack-2492579ae3dad03c.js",
-      "static/chunks/fd9d1056-e59a37fc56d6e2f5.js",
-      "static/chunks/2117-fad82ab731dbbab8.js",
-      "static/chunks/main-app-e114fbdfefcc34fc.js",
-      "static/css/1069de03a2a1590a.css",
-      "static/css/b7112d7b90c3adc6.css",
-      "static/chunks/3949-7b62b3a660ed98f1.js",
-      "static/chunks/app/[lang]/your-rights/flight-delay/page-691983fa5fa7611c.js"
-    ],
-    "/[lang]/your-rights/overbooked-flight/page": [
-      "static/chunks/webpack-2492579ae3dad03c.js",
-      "static/chunks/fd9d1056-e59a37fc56d6e2f5.js",
-      "static/chunks/2117-fad82ab731dbbab8.js",
-      "static/chunks/main-app-e114fbdfefcc34fc.js",
-      "static/css/68273c8c4fa18c74.css",
-      "static/css/b7112d7b90c3adc6.css",
-      "static/chunks/3949-7b62b3a660ed98f1.js",
-      "static/chunks/app/[lang]/your-rights/overbooked-flight/page-f9448b920dbe5a92.js"
+      "static/css/1a34c8913326f5bd.css",
+      "static/chunks/2972-1d3fbe0b8ed2ccf4.js",
+      "static/chunks/app/[lang]/[...rest]/not-found-f5bee8b041a8a3d7.js"
     ],
     "/[lang]/submit-claim/page": [
-      "static/chunks/webpack-2492579ae3dad03c.js",
+      "static/chunks/webpack-793f2bcfaa2877dc.js",
       "static/chunks/fd9d1056-e59a37fc56d6e2f5.js",
       "static/chunks/2117-fad82ab731dbbab8.js",
       "static/chunks/main-app-e114fbdfefcc34fc.js",
@@ -256,7 +190,73 @@
       "static/chunks/1250-d818fb04b2323c77.js",
       "static/chunks/9332-801dfb5923abee74.js",
       "static/chunks/1611-d9d8e4f85cd6fec6.js",
-      "static/chunks/app/[lang]/submit-claim/page-f7c542b17a19fe75.js"
+      "static/chunks/app/[lang]/submit-claim/page-421bc6f709c54243.js"
+    ],
+    "/[lang]/about-us/blog-page-more-pilots/page": [
+      "static/chunks/webpack-793f2bcfaa2877dc.js",
+      "static/chunks/fd9d1056-e59a37fc56d6e2f5.js",
+      "static/chunks/2117-fad82ab731dbbab8.js",
+      "static/chunks/main-app-e114fbdfefcc34fc.js",
+      "static/css/f8f783820e81b2be.css",
+      "static/chunks/app/[lang]/about-us/blog-page-more-pilots/page-4c70e68ac1359d66.js"
+    ],
+    "/[lang]/terms-and-conditions/page": [
+      "static/chunks/webpack-793f2bcfaa2877dc.js",
+      "static/chunks/fd9d1056-e59a37fc56d6e2f5.js",
+      "static/chunks/2117-fad82ab731dbbab8.js",
+      "static/chunks/main-app-e114fbdfefcc34fc.js",
+      "static/css/775c8348a4d98903.css",
+      "static/chunks/app/[lang]/terms-and-conditions/page-2959d5e1046a3dcd.js"
+    ],
+    "/[lang]/your-rights/flight-cancellation/page": [
+      "static/chunks/webpack-793f2bcfaa2877dc.js",
+      "static/chunks/fd9d1056-e59a37fc56d6e2f5.js",
+      "static/chunks/2117-fad82ab731dbbab8.js",
+      "static/chunks/main-app-e114fbdfefcc34fc.js",
+      "static/css/1cce375b47b8eb3f.css",
+      "static/css/1101c19a15171742.css",
+      "static/chunks/3949-7b62b3a660ed98f1.js",
+      "static/chunks/app/[lang]/your-rights/flight-cancellation/page-ea34164988647448.js"
+    ],
+    "/[lang]/your-rights/flight-delay/page": [
+      "static/chunks/webpack-793f2bcfaa2877dc.js",
+      "static/chunks/fd9d1056-e59a37fc56d6e2f5.js",
+      "static/chunks/2117-fad82ab731dbbab8.js",
+      "static/chunks/main-app-e114fbdfefcc34fc.js",
+      "static/css/1069de03a2a1590a.css",
+      "static/css/1101c19a15171742.css",
+      "static/chunks/3949-7b62b3a660ed98f1.js",
+      "static/chunks/app/[lang]/your-rights/flight-delay/page-549018655bde24f1.js"
+    ],
+    "/[lang]/your-rights/lost-luggage/page": [
+      "static/chunks/webpack-793f2bcfaa2877dc.js",
+      "static/chunks/fd9d1056-e59a37fc56d6e2f5.js",
+      "static/chunks/2117-fad82ab731dbbab8.js",
+      "static/chunks/main-app-e114fbdfefcc34fc.js",
+      "static/css/861594ffad1dc3e1.css",
+      "static/css/1101c19a15171742.css",
+      "static/chunks/3949-7b62b3a660ed98f1.js",
+      "static/chunks/app/[lang]/your-rights/lost-luggage/page-24c54c6f2aad2209.js"
+    ],
+    "/[lang]/your-rights/overbooked-flight/page": [
+      "static/chunks/webpack-793f2bcfaa2877dc.js",
+      "static/chunks/fd9d1056-e59a37fc56d6e2f5.js",
+      "static/chunks/2117-fad82ab731dbbab8.js",
+      "static/chunks/main-app-e114fbdfefcc34fc.js",
+      "static/css/68273c8c4fa18c74.css",
+      "static/css/1101c19a15171742.css",
+      "static/chunks/3949-7b62b3a660ed98f1.js",
+      "static/chunks/app/[lang]/your-rights/overbooked-flight/page-ae561f64b3f55e08.js"
+    ],
+    "/[lang]/your-rights/missed-connection/page": [
+      "static/chunks/webpack-793f2bcfaa2877dc.js",
+      "static/chunks/fd9d1056-e59a37fc56d6e2f5.js",
+      "static/chunks/2117-fad82ab731dbbab8.js",
+      "static/chunks/main-app-e114fbdfefcc34fc.js",
+      "static/css/1069de03a2a1590a.css",
+      "static/css/1101c19a15171742.css",
+      "static/chunks/3949-7b62b3a660ed98f1.js",
+      "static/chunks/app/[lang]/your-rights/missed-connection/page-4e04401606a9273d.js"
     ]
   }
 }

@@ -1,12 +1,16 @@
 const ClientModal = require("../jsonModels/clientModal");
 const { sendError } = require("../utils/body");
-const { sendEvent } = require("../utils/metaCapi");
+const { sendEvents } = require("../utils/metaCapi");
 
 const INITIAL_STATUS = "Application has received";
 
-// Meta-ს სტანდარტული მოვლენა განაცხადისთვის. შეცვლის შემთხვევაში ფრონტზეც უნდა შეიცვალოს
-// (flyinspectors/src/utils/metaPixel.js), თორემ Meta ბრაუზერისა და სერვერის მოვლენას ვერ გააერთიანებს.
+// Meta-ს სტანდარტული მოვლენები განაცხადის გაგზავნაზე — ორივე ერთდროულად მიდის:
+//   Lead                 — სარეკლამო კამპანიების ოპტიმიზაცია
+//   CompleteRegistration — ფორმის ბოლომდე შევსება
+// შეცვლის შემთხვევაში ფრონტზეც უნდა შეიცვალოს (flyinspectors/src/utils/metaPixel.js),
+// თორემ Meta ბრაუზერისა და სერვერის მოვლენას ვერ გააერთიანებს.
 const CLAIM_EVENT = "Lead";
+const REGISTRATION_EVENT = "CompleteRegistration";
 
 const generateUniqueId = async () => {
     for (;;) {
@@ -19,7 +23,7 @@ const generateUniqueId = async () => {
 const createClient = async (req, res) => {
     try {
         // Meta-ს მოვლენის ველები განაცხადის ნაწილი არ არის — ბაზაში არ უნდა ჩაიწეროს
-        const { fbp, fbc, eventId, eventSourceUrl, ...claim } = req.body || {};
+        const { fbp, fbc, eventId, registrationEventId, eventSourceUrl, ...claim } = req.body || {};
 
         // სერვერის ველები spread-ის შემდეგ იწერება, ანუ კლიენტის გამოგზავნილს
         // გადააწერს — userId, status და oldStatus გარედან ვერ დაყენდება
@@ -30,23 +34,25 @@ const createClient = async (req, res) => {
             oldStatus: INITIAL_STATUS,
         });
 
-        // Meta Conversions API: განაცხადის მოვლენა სერვერიდან. პასუხს არ ვაყოვნებთ და
-        // შეცდომა განაცხადს არ აფუჭებს — sendEvent არასოდეს throw-ავს.
-        sendEvent(req, {
-            eventName: CLAIM_EVENT,
-            eventId,
-            eventSourceUrl,
-            user: {
-                email: client.email,
-                phone: client.phone,
-                firstName: client.firstName,
-                lastName: client.lastName,
-                city: client.city,
-                externalId: client.userId,
-                fbp,
-                fbc,
-            },
-        });
+        // Meta Conversions API: განაცხადის მოვლენები სერვერიდან. პასუხს არ ვაყოვნებთ და
+        // შეცდომა განაცხადს არ აფუჭებს — sendEvents არასოდეს throw-ავს.
+        // em/ph ბაზაში ჩაწერილიდან მიდის და არა ბრაუზერიდან — ჰეშირება ერთ ადგილას რჩება.
+        const user = {
+            email: client.email,
+            phone: client.phone,
+            firstName: client.firstName,
+            lastName: client.lastName,
+            city: client.city,
+            externalId: client.userId,
+            fbp,
+            fbc,
+        };
+
+        // თითო მოვლენას თავისი event_id აქვს — იმავეებით პიქსელიც აგზავნის ბრაუზერიდან
+        sendEvents(req, [
+            { eventName: CLAIM_EVENT, eventId, eventSourceUrl, user },
+            { eventName: REGISTRATION_EVENT, eventId: registrationEventId, eventSourceUrl, user },
+        ]);
 
         return res.status(200).send(client);
     } catch (error) {

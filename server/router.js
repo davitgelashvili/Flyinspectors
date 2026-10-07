@@ -28,6 +28,7 @@ const { getOffices, updateOffices } = require("./controllers/offices");
 const { emailSend } = require("./controllers/email");
 const { clientSendEmail } = require("./controllers/clientSendEmail");
 const { contact } = require("./controllers/contact");
+const { pageView } = require("./controllers/capi");
 const { getMailPassword, updateMailPassword, testMailPassword } = require("./controllers/mailSettings");
 const { requireAuth, requireRole } = require("./middleware/auth");
 
@@ -67,6 +68,7 @@ router.post("/id", getID);                      // სტატუსის შ�
 router.post("/contact", contact);               // საკონტაქტო ფორმა
 router.post("/email", emailSend);               // განაცხადის შეტყობინება გუნდს
 router.post("/sendtoclient", clientSendEmail);  // განაცხადის ნომერი კლიენტს
+router.post("/capi/pageview", pageView);        // Meta CAPI: PageView სერვერიდან (პიქსელის დუბლი)
 
 /* ── კონტენტის მართვა: editor ან admin ─────────────────── */
 const editor = [requireAuth, requireRole("editor")];

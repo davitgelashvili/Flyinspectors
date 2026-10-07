@@ -129,7 +129,8 @@ const SendForm = () => {
             setPopup(true);
             setLoad(true);
 
-            // Meta: ბრაუზერისა და სერვერის მოვლენა ერთი event_id-ით (დუბლს Meta აერთიანებს).
+            // Meta: Lead + CompleteRegistration. ბრაუზერისა და სერვერის თითო მოვლენას
+            // ერთი event_id აქვს (დუბლს Meta აერთიანებს).
             // fbp/fbc პიქსელის cookie-ებია — ბექიდან ვერ წაიკითხება, ამიტომ აქედან მიჰყვება.
             const meta = metaEventFields();
 
@@ -145,8 +146,8 @@ const SendForm = () => {
                 const clientData = await clientRes.json();
                 const userId = clientData.userId;
                 setUnicueID(userId);
-                // მოვლენას მხოლოდ მაშინ ვაგზავნით, თუ განაცხადი მართლა შეიქმნა
-                if (userId) trackClaimSubmitted(meta.eventId);
+                // მოვლენებს მხოლოდ მაშინ ვაგზავნით, თუ განაცხადი მართლა შეიქმნა
+                if (userId) trackClaimSubmitted(meta);
 
                 // გაგზავნა ორივე მხარეს ერთდროულად
                 await Promise.all([
