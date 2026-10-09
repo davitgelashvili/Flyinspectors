@@ -5,8 +5,9 @@ const { invalid, cleanLocalized } = require("../utils/localized");
 const MAX_TITLE = 200;
 const MAX_DESCRIPTION = 500;
 const MAX_IMAGE = 1000;
+const MAX_IMAGE_ALT = 300;
 
-// "/", "/about-us/faq" — ენის გარეშე, პატარა ლათინური ასოები, ციფრები, "-" და "/"
+// "/", "/your-rights/flight-delay" — ენის გარეშე, პატარა ლათინური ასოები, ციფრები, "-" და "/"
 const PATH_RE = /^\/[a-z0-9/-]*$/;
 const URL_RE = /^https?:\/\/\S+$/i;
 
@@ -26,7 +27,7 @@ const updateMeta = async (req, res) => {
         const body = req.body || {};
 
         if (typeof body.path !== "string" || !PATH_RE.test(body.path) || body.path.length > 200) {
-            throw invalid("path must look like /about-us/faq");
+            throw invalid("path must look like /your-rights/flight-delay");
         }
 
         const set = {};
@@ -34,6 +35,7 @@ const updateMeta = async (req, res) => {
             ["title", MAX_TITLE],
             ["description", MAX_DESCRIPTION],
             ["image", MAX_IMAGE],
+            ["imageAlt", MAX_IMAGE_ALT],
         ];
 
         for (const [name, limit] of fields) {

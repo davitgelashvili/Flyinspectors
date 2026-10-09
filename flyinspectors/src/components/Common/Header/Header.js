@@ -12,7 +12,8 @@ import Language from "./Language/Language";
 import iconMenu from "../../Images/iconMenu.png";
 import { siteTranslateAction } from "../../../store/translate";
 
-function Header() {
+// menuPages — ადმინიდან შექმნილი გვერდები ჰედერის ჩამოსაშლელებისთვის; layout-ში (სერვერზე) იკითხება
+function Header({ menuPages }) {
     const dispatch = useDispatch()
     const locale = useLocale()
     const [languageBtn, setLanguageBtn] = useState(true);
@@ -38,7 +39,7 @@ function Header() {
                     <div className={styles.header__content}>
                         <Logo />
                         <div className={styles.header__right} >
-                            <BurgerMenu setIsOpen={setIsOpen} IsOpen={IsOpen} />
+                            <BurgerMenu setIsOpen={setIsOpen} IsOpen={IsOpen} menuPages={menuPages} />
                             {
                                 languageBtn && (
                                     <Language language={locale} />

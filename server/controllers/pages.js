@@ -1,5 +1,6 @@
 const Page = require("../jsonModels/pageModal");
 const { sendError } = require("../utils/body");
+const { sanitizeRichField } = require("../utils/sanitizeHtml");
 
 // საჯარო: საიტს სჭირდება. ადმინს სრული სია, საიტს მხოლოდ გამოქვეყნებული.
 const getPages = async (req, res) => {
@@ -28,7 +29,7 @@ const getPageBySlug = async (req, res) => {
 
 const createPage = async (req, res) => {
     try {
-        const created = await Page.create(req.body);
+        const created = await Page.create(sanitizeRichField(req.body));
         return res.status(201).send(created);
     } catch (error) {
         if (error && error.code === 11000) {
@@ -41,7 +42,7 @@ const createPage = async (req, res) => {
 const updatePage = async (req, res) => {
     try {
         // _id საძიებო გასაღებია — განახლებაში არ უნდა მოხვდეს
-        const { _id, ...updates } = req.body;
+        const { _id, ...updates } = sanitizeRichField(req.body);
         if (!_id) return res.status(400).send("_id is required.");
 
         const updated = await Page.findByIdAndUpdate(_id, updates, {

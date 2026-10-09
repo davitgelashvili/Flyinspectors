@@ -44,49 +44,4 @@
         }
     }
 
-    &__content {
-        font-size: 17px;
-        line-height: 1.7;
-        color: #2c3a47;
-
-        :global(p) {
-            margin: 0 0 18px 0;
-        }
-
-        :global(h2),
-        :global(h3),
-        :global(h4) {
-            margin: 32px 0 12px 0;
-            line-height: 1.3;
-        }
-
-        :global(ul),
-        :global(ol) {
-            margin: 0 0 18px 0;
-            padding-left: 22px;
-        }
-
-        :global(li) {
-            margin: 6px 0;
-        }
-
-        :global(a) {
-            color: #2471a3;
-        }
-
-        :global(img) {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 12px 0;
-        }
-
-        :global(blockquote) {
-            margin: 18px 0;
-            padding: 12px 18px;
-            border-left: 3px solid #FD9B28;
-            background-color: #fff;
-            color: #4a5a6a;
-        }
-    }
 }

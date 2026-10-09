@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server'
 import { apiTag } from '@/api/tags'
 
 // მთავარი გვერდის სექციები, რომელთა კეშიც ადმინს შეუძლია გააუქმოს
-const ALLOWED = new Set(['hero', 'options', 'how', 'why', 'faq', 'meta', 'pages', 'terms', 'offices'])
+const ALLOWED = new Set(['hero', 'options', 'how', 'why', 'faq', 'meta', 'pages', 'posts', 'offices'])
 
 // ადმინში შენახვის შემდეგ იძახება, რომ საიტზე ცვლილება 60 წამის ლოდინის გარეშე გამოჩნდეს.
 // უფლებას ვამოწმებთ ბექის /me-ით (მომხმარებლის cookie-ს გადავცემთ): მხოლოდ admin/editor.

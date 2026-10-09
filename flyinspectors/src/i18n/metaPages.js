@@ -10,10 +10,19 @@
 // ეს ჩანაწერი მხოლოდ ფოტოს ინახავს (imageOnly) — საიტის გვერდი არ არის.
 export const GLOBAL_OG_PATH = '/default-og'
 
+// პირადი განაცხადის ნაბიჯები: sitemap-შიც არ შედის და ძიებაშიც არ უნდა ჩანდეს.
+// აქ არის და არა pageMeta.js-ში, რომ ადმინის ფორმაც იმავე სიას უყურებდეს და
+// ასეთ გვერდზე Google-ის პრევიუს არ აჩვენებდეს.
+export const NOINDEX_PATHS = new Set(['/signature', '/check-status'])
+
 export const META_PAGES = [
   { slug: 'home', path: '/', label: 'მთავარი გვერდი' },
-  { slug: 'faq', path: '/about-us/faq', label: 'ხშირად დასმული კითხვები' },
-  { slug: 'terms', path: '/terms-and-conditions', label: 'წესები და პირობები' },
+  // განაცხადის ნაბიჯები: /submit-claim ინდექსირდება, /check-status — არა (NOINDEX_PATHS)
+  { slug: 'submit-claim', path: '/submit-claim', label: 'განაცხადის შევსება' },
+  { slug: 'check-status', path: '/check-status', label: 'სტატუსის შემოწმება' },
+  { slug: 'faq', path: '/faq', label: 'ხშირად დასმული კითხვები' },
+  // ბლოგის სია; თითოეული სტატიის მეტა თეგები თვით სტატიის ფორმაშია (ადმინი → ბლოგი)
+  { slug: 'blog', path: '/blog', label: 'ბლოგი' },
   { slug: 'contact', path: '/contact-us', label: 'კონტაქტი' },
   { slug: 'global', path: GLOBAL_OG_PATH, label: 'გლობალური OG სურათი', imageOnly: true },
 ]

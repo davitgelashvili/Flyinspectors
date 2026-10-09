@@ -1,0 +1,79 @@
+.post {
+    display: block;
+    padding-bottom: 60px;
+
+    &__cover {
+        width: 100%;
+        max-height: 420px;
+        overflow: hidden;
+        background-color: #eef2f6;
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            max-height: 420px;
+            object-fit: cover;
+        }
+
+        @media (max-width: 991px) {
+            max-height: 240px;
+
+            img {
+                max-height: 240px;
+            }
+        }
+    }
+
+    // სიგანეს ბუტსტრაპის .container განსაზღვრავს (მაქს. 1200px)
+    &__article {
+        padding: 32px 0 0;
+
+        @media (max-width: 991px) {
+            padding-top: 20px;
+        }
+    }
+
+    &__back {
+        display: inline-block;
+        margin-bottom: 20px;
+        font-size: 15px;
+        color: #0d6693;
+        text-decoration: none;
+
+        &:hover,
+        &:focus-visible {
+            text-decoration: underline;
+        }
+    }
+
+    &__title {
+        margin: 0 0 12px;
+        font-size: 34px;
+        line-height: 1.25;
+
+        @media (max-width: 991px) {
+            font-size: 26px;
+        }
+    }
+
+    &__date {
+        display: block;
+        margin-bottom: 24px;
+        font-size: 14px;
+        color: #8a93a0;
+    }
+
+    &__lead {
+        margin: 0 0 28px;
+        padding-left: 16px;
+        border-left: 3px solid #FD9B28;
+        font-size: 19px;
+        line-height: 1.6;
+        color: #44546a;
+
+        @media (max-width: 991px) {
+            font-size: 17px;
+        }
+    }
+}

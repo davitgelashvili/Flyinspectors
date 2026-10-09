@@ -81,7 +81,9 @@ const dates = ({ datePublished, dateModified }) => ({
   ...(dateModified && { dateModified: new Date(dateModified).toISOString() }),
 })
 
-const image = (url) => (url ? { '@type': 'ImageObject', url } : undefined)
+// ფარდობითი მისამართი ("/blog/cover.jpg") JSON-LD-ში არ გამოდგება — დომენს ვუმატებთ
+const image = (url) =>
+  url ? { '@type': 'ImageObject', url: /^https?:\/\//i.test(url) ? url : `${getSiteOrigin()}${url}` } : undefined
 
 // type: 'AboutPage' | 'ContactPage'
 export function webPageSchema({ type, path, locale, name, description, imageUrl, ...rest }) {

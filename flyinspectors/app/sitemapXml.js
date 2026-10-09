@@ -1,32 +1,35 @@
 // XML საიტმეფი შაბლონის მიხედვით: მთავარი sitemap.xml ინდექსია და ორ ფაილზე მიუთითებს —
 // page-sitemap.xml (გვერდები) და post-sitemap.xml (ბლოგის სტატიები).
 // category-sitemap.xml არ გვაქვს: საიტზე კატეგორიები არ არსებობს.
-import { getPages } from '@/api/serverApi'
+import { getPages, getPosts } from '@/api/serverApi'
 import { LOCALES, X_DEFAULT_LOCALE } from '@/i18n/locales'
+import { postPath } from '@/utils/post'
 import { getSiteOrigin } from './siteHost'
 
+// მხოლოდ ის მარშრუტები, რომლებიც კოდშია და მუდმივად დარჩება.
+// ადმინიდან შექმნილი გვერდები customPages()-იდან თვითონ ემატება (slug-ის მიხედვით), ამიტომ
+// ასეთი გვერდი აქ არ იწერება — ხელით ჩაწერა მას გააორმაგებდა.
+// /your-rights/* აქ განზრახ არ არის: ეს გვერდები ქასთუმ გვერდებად გადადის და მაშინ
+// sitemap-ში ავტომატურად გამოჩნდება — ამ სიის ხელახალი რედაქტირება არ დაგჭირდება.
 // /signature და /check-status განზრახ არ შედის — პირადი განაცხადის ნაბიჯებია, ძიებაში არ უნდა ჩანდეს.
 const PAGE_PATHS = [
   '/',
   '/submit-claim',
   '/about-us',
-  '/about-us/blog',
-  '/about-us/faq',
+  '/blog',
+  '/faq',
   '/contact-us',
-  '/terms-and-conditions',
-  '/your-rights/flight-cancellation',
-  '/your-rights/flight-delay',
-  '/your-rights/lost-luggage',
-  '/your-rights/missed-connection',
-  '/your-rights/overbooked-flight',
 ]
 
-const POST_PATHS = [
-  '/about-us/blog-page-more',
-  '/about-us/blog-page-more-airports',
-  '/about-us/blog-page-more-pets',
-  '/about-us/blog-page-more-pilots',
-]
+// ბლოგის სტატიები ბაზიდან მოდის (ადმინი → ბლოგი); სტატიკური სია აღარ არის.
+// სიის მე-2+ გვერდი (/blog?page=2) განზრახ არ შედის — ბოტი მას სიიდან ისედაც მიჰყვება.
+async function blogPosts() {
+  const { items } = await getPosts()
+  return (Array.isArray(items) ? items : []).map((post) => ({
+    path: postPath(post.slug),
+    lastModified: post.updatedAt ? new Date(post.updatedAt) : null,
+  }))
+}
 
 const localePath = (path, lang) => `/${lang}${path === '/' ? '' : path}`
 
@@ -47,6 +50,12 @@ const xmlResponse = (body) =>
   })
 
 const lastmodTag = (date) => (date ? `<lastmod>${date.toISOString()}</lastmod>` : '')
+
+// ჩანაწერებიდან ყველაზე ახალი ცვლილების თარიღი (ყველა უთარიღოა → null)
+function newest(entries) {
+  const dates = entries.map((e) => e.lastModified).filter(Boolean)
+  return dates.length ? new Date(Math.max(...dates)) : null
+}
 
 // ადმინიდან შექმნილი გვერდები (/[slug]); getPages მხოლოდ გამოქვეყნებულს აბრუნებს
 async function customPages() {
@@ -76,17 +85,16 @@ export async function pageSitemap() {
   return urlset(getSiteOrigin(), entries)
 }
 
-export function postSitemap() {
-  return urlset(getSiteOrigin(), POST_PATHS.map((path) => ({ path, lastModified: null })))
+export async function postSitemap() {
+  return urlset(getSiteOrigin(), await blogPosts())
 }
 
 export async function sitemapIndex() {
   const origin = getSiteOrigin()
-  const dates = (await customPages()).map((p) => p.lastModified).filter(Boolean)
-  const pagesLastmod = dates.length ? new Date(Math.max(...dates)) : null
+  const pagesLastmod = newest(await customPages())
   const items = [
     { file: 'page-sitemap.xml', lastModified: pagesLastmod },
-    { file: 'post-sitemap.xml', lastModified: null },
+    { file: 'post-sitemap.xml', lastModified: newest(await blogPosts()) },
   ]
   return xmlResponse(
     `<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${items

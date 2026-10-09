@@ -6,12 +6,13 @@ import UsersList from "./Users/List"
 import UsersForm from "./Users/Form"
 import PagesList from "./Pages/List"
 import PagesForm from "./Pages/Form"
+import PostsList from "./Posts/List"
+import PostsForm from "./Posts/Form"
 import Redirects from "./Redirects/Redirects"
 import HeroForm from "./Hero/Hero"
 import OptionsForm from "./Options/Options"
 import HowForm from "./How/How"
 import WhyForm from "./Why/Why"
-import TermsForm from "./Terms/Terms"
 import ContactForm from "./Contact/Contact"
 import FaqList from "./Faq/List"
 import FaqForm from "./Faq/Form"
@@ -51,6 +52,9 @@ function getSection(path) {
     if (path === '/pages') return <PagesList />
     if (path.startsWith('/pages/')) return <PagesForm />
 
+    if (path === '/posts') return <PostsList />
+    if (path.startsWith('/posts/')) return <PostsForm />
+
     if (path === '/userlist') return <UserList />
     if (path.startsWith('/userlist/')) return <UserEdit />
 
@@ -59,7 +63,6 @@ function getSection(path) {
 
 
 
-    if (path === '/terms') return <TermsForm />
 
     if (path === '/contact') return <ContactForm />
 

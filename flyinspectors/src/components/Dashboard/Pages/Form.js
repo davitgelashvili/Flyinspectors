@@ -10,15 +10,19 @@ import Content from '../Content/Content'
 import Loading from '../../Loading/Loading'
 import adminFetch from '../../../api/adminFetch'
 import revalidateSite from '../../../api/revalidateSite'
+import { HEADER_SLOTS, FOOTER_SLOTS } from '@/utils/pageMenu'
 import styles from './Pages.module.scss'
 
 const EMPTY = {
     slug: '',
     cover: '',
+    coverAlt: { ka: '', en: '' },
     title: { ka: '', en: '' },
     metaTitle: { ka: '', en: '' },
     metaDescription: { ka: '', en: '' },
     content: { ka: '', en: '' },
+    menu: { header: 'none', footer: 'third' },
+    menuOrder: 0,
     published: true,
 }
 
@@ -43,7 +47,8 @@ export default function PagesForm() {
                 if (!res.ok) throw new Error(await res.text())
                 const found = (await res.json()).find(p => p._id === id)
                 if (!found) throw new Error('გვერდი ვერ მოიძებნა')
-                setValues({ ...EMPTY, ...found })
+                // ძველ ჩანაწერს menu ველი არ აქვს — ნაგულისხმევი რჩება
+                setValues({ ...EMPTY, ...found, menu: { ...EMPTY.menu, ...found.menu } })
             })
             .catch(e => setError(e.message))
             .finally(() => setLoad(false))
@@ -52,6 +57,14 @@ export default function PagesForm() {
     // ერთი ველი, მიმდინარე ენაზე
     const setLocalized = (field) => (e) =>
         setValues(v => ({ ...v, [field]: { ...v[field], [language]: e.target.value } }))
+
+    // მენიუს არჩევანი ენისგან დამოუკიდებელია
+    const setMenu = (where) => (e) =>
+        setValues(v => ({ ...v, menu: { ...v.menu, [where]: e.target.value } }))
+
+    // ქოვერის alt ენების ტაბების გარეთაა (ფოტოსთან ერთად), ამიტომ ენა პირდაპირ გადმოეცემა
+    const setCoverAlt = (lang) => (e) =>
+        setValues(v => ({ ...v, coverAlt: { ...v.coverAlt, [lang]: e.target.value } }))
 
     // CustomEditor იძახებს onChange(section, name, html)
     const setContent = (section, name, html) =>
@@ -118,10 +131,77 @@ export default function PagesForm() {
                     value={values}
                     setValue={setValues}
                     valueName="cover"
+                    preview
                 />
+                {/* ქოვერი ერთია ორივე ენისთვის, მისი alt კი ენაზეა დამოკიდებული — ამიტომ
+                    ორივე ველი ფოტოსთან ერთად ჩანს და ქვემოთ ტაბებზე არ არის დამოკიდებული */}
                 {values.cover && (
-                    <img src={values.cover} alt="cover" className={styles.pages__preview} />
+                    <div className={styles.pages__coveralt}>
+                        <p className={styles.pages__hint}>
+                            ფოტოს აღწერა (alt) — რა ჩანს ფოტოზე. Google-ისთვისაც და იმ
+                            მომხმარებლისთვისაც, რომელსაც ფოტო არ ჩაეტვირთა.
+                        </p>
+                        <CustomInput
+                            title="ქართულად"
+                            name="coverAltKa"
+                            value={values.coverAlt?.ka || ''}
+                            placeholder="მაგ. მგზავრები თბილისის აეროპორტის დარბაზში"
+                            onChange={setCoverAlt('ka')}
+                        />
+                        <CustomInput
+                            title="ინგლისურად"
+                            name="coverAltEn"
+                            value={values.coverAlt?.en || ''}
+                            placeholder="e.g. Passengers in the Tbilisi airport terminal"
+                            onChange={setCoverAlt('en')}
+                        />
+                    </div>
                 )}
+
+                <div className={styles.pages__menu}>
+                    <p className={styles.pages__menutitle}>სად ჩანდეს მენიუში</p>
+
+                    <label className={styles.pages__field}>
+                        <span className={styles.pages__fieldlabel}>ჰედერის მენიუ</span>
+                        <select
+                            className={styles.pages__select}
+                            value={values.menu?.header || 'none'}
+                            onChange={setMenu('header')}
+                        >
+                            {HEADER_SLOTS.map((slot) => (
+                                <option key={slot.value} value={slot.value}>{slot.label}</option>
+                            ))}
+                        </select>
+                    </label>
+
+                    <label className={styles.pages__field}>
+                        <span className={styles.pages__fieldlabel}>ფუტერის სექცია</span>
+                        <select
+                            className={styles.pages__select}
+                            value={values.menu?.footer || 'third'}
+                            onChange={setMenu('footer')}
+                        >
+                            {FOOTER_SLOTS.map((slot) => (
+                                <option key={slot.value} value={slot.value}>{slot.label}</option>
+                            ))}
+                        </select>
+                    </label>
+
+                    <label className={styles.pages__field}>
+                        <span className={styles.pages__fieldlabel}>რიგითობა</span>
+                        <input
+                            type="number"
+                            className={styles.pages__number}
+                            value={values.menuOrder ?? 0}
+                            onChange={(e) => setValues(v => ({ ...v, menuOrder: Number(e.target.value) || 0 }))}
+                        />
+                    </label>
+
+                    <p className={styles.pages__hint}>
+                        ნაკლები რიცხვი ზემოთ ჩანს. ერთნაირზე შექმნის რიგი რჩება.
+                        ფუტერის პირველი სექცია (მთავარი, განაცხადი, სტატუსი, ხდკ) არ იცვლება.
+                    </p>
+                </div>
 
                 <label className={styles.pages__check}>
                     <input

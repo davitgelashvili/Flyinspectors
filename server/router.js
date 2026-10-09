@@ -16,6 +16,7 @@ const { getRateSection, createRateSection, editRateSection } = require("./contro
 const { getContactList, createContact, editContactList } = require("./controllers/contactList");
 const { getConditions, createConditions, editConditions } = require("./controllers/conditions");
 const { getPages, getPageBySlug, createPage, updatePage, deletePage } = require("./controllers/pages");
+const { getPosts, getPostBySlug, createPost, updatePost, deletePost } = require("./controllers/posts");
 const { getActiveRedirects, getAllRedirects, createRedirect, updateRedirect, deleteRedirect } = require("./controllers/redirects");
 const { getHero, updateHero } = require("./controllers/hero");
 const { getOptions, updateOptions } = require("./controllers/options");
@@ -23,7 +24,6 @@ const { getHow, updateHow } = require("./controllers/how");
 const { getWhy, updateWhy } = require("./controllers/why");
 const { getFaqs, createFaq, updateFaq, deleteFaq } = require("./controllers/faq");
 const { getMeta, updateMeta } = require("./controllers/meta");
-const { getTerms, updateTerms } = require("./controllers/terms");
 const { getOffices, updateOffices } = require("./controllers/offices");
 const { emailSend } = require("./controllers/email");
 const { clientSendEmail } = require("./controllers/clientSendEmail");
@@ -56,10 +56,11 @@ router.get("/how", getHow);
 router.get("/why", getWhy);
 router.get("/faq", getFaqs);                // ?home=true — მხოლოდ მთავარზე მონიშნულები
 router.get("/meta", getMeta);
-router.get("/terms", getTerms);
 router.get("/offices", getOffices);
 router.get("/pages", getPages);            // ?all=true — ადმინისთვის, გამოუქვეყნებლებთან ერთად
 router.get("/pages/:slug", getPageBySlug);
+router.get("/posts", getPosts);              // ?page=2&limit=9 — გვერდებად; ?all=true — ადმინს, გამოუქვეყნებლებთან ერთად
+router.get("/posts/:slug", getPostBySlug);
 router.get("/redirects", getActiveRedirects);   // მხოლოდ ჩართულები — საიტის middleware იყენებს
 
 /* ── საჯარო: მომხმარებლის ფორმები ──────────────────────── */
@@ -94,12 +95,15 @@ router.put("/faq", ...editor, updateFaq);
 router.put("/faq/delete", ...editor, deleteFaq);
 
 router.put("/meta", ...editor, updateMeta);
-router.put("/terms", ...editor, updateTerms);
 router.put("/offices", ...editor, updateOffices);
 
 router.post("/pages", ...editor, createPage);
 router.put("/pages", ...editor, updatePage);
 router.put("/pages/delete", ...editor, deletePage);
+
+router.post("/posts", ...editor, createPost);
+router.put("/posts", ...editor, updatePost);
+router.put("/posts/delete", ...editor, deletePost);
 
 router.get("/redirects/all", ...editor, getAllRedirects);
 router.post("/redirects", ...editor, createRedirect);

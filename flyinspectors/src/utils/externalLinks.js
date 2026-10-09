@@ -1,3 +1,5 @@
+import { cloudinaryHtmlImages } from './cloudinary'
+
 // ადმინის რედაქტორით ჩაწერილ HTML-ში (FAQ, წესები, ქასთუმ გვერდები...) გარე ბმულებს
 // target="_blank" rel="nofollow noopener" ემატება. საიტის საკუთარი დომენების, mailto:/tel: და
 // შიდა ბმულები უცვლელი რჩება.
@@ -21,4 +23,11 @@ export function externalLinks(html) {
     const rest = attrs.replace(/\s*(target|rel)\s*=\s*("[^"]*"|'[^']*')/gi, '').trim()
     return `<a ${rest} target="_blank" rel="nofollow noopener">`
   })
+}
+
+// ადმინის რედაქტორიდან მოსული HTML საიტზე ხატვის წინ: გარე ბმულებს target/rel ემატება,
+// ფოტოებს კი Cloudinary-ის `f_auto` — ანუ WebP/AVIF იმ ბრაუზერებს, რომლებიც მათ იღებენ.
+// ტრანსფორმაცია ბაზაში არ ინახება, ამიტომ ძველ, უკვე ჩასმულ ფოტოებზეც მოქმედებს.
+export function richContent(html) {
+  return cloudinaryHtmlImages(externalLinks(html))
 }

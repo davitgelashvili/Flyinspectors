@@ -8,7 +8,7 @@ import Content from '../Content/Content'
 import Loading from '../../Loading/Loading'
 import adminFetch from '../../../api/adminFetch'
 import revalidateSite from '../../../api/revalidateSite'
-import { META_PAGES } from '@/i18n/metaPages'
+import { META_PAGES, NOINDEX_PATHS } from '@/i18n/metaPages'
 import pagesStyles from '../Pages/Pages.module.scss'
 import styles from './Meta.module.scss'
 
@@ -22,6 +22,7 @@ const normalize = (data) => ({
     title: { ...blank(), ...data?.title },
     description: { ...blank(), ...data?.description },
     image: { ...blank(), ...data?.image },
+    imageAlt: { ...blank(), ...data?.imageAlt },
 })
 
 export default function MetaForm() {
@@ -31,6 +32,9 @@ export default function MetaForm() {
     const isHome = page?.path === '/'
     // გლობალური OG სურათი: მხოლოდ ფოტოს ველი, ტექსტი და პრევიუ არ სჭირდება
     const imageOnly = Boolean(page?.imageOnly)
+    // პირადი განაცხადის ნაბიჯი: ძიებაში არ ჩანს, ანუ Google-ის პრევიუ მცდარი იქნებოდა.
+    // მეტა ტეგები მაინც საჭიროა — ბრაუზერის ტაბი და გაზიარების ბარათი noindex-ზეც მუშაობს.
+    const noindex = NOINDEX_PATHS.has(page?.path)
 
     const [values, setValues] = useState(() => normalize({}))
     const [language, setLanguage] = useState('ka')
@@ -68,7 +72,9 @@ export default function MetaForm() {
             const res = await adminFetch(`${process.env.NEXT_PUBLIC_API_URL}/meta`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(imageOnly ? { path: page.path, image: values.image } : { path: page.path, ...values }),
+                body: JSON.stringify(imageOnly
+                    ? { path: page.path, image: values.image, imageAlt: values.imageAlt }
+                    : { path: page.path, ...values }),
             })
 
             if (!res.ok) throw new Error(await res.text())
@@ -86,6 +92,7 @@ export default function MetaForm() {
     const title = values.title[language]
     const description = values.description[language]
     const image = values.image[language]
+    const imageAlt = values.imageAlt[language]
     const siteUrl = `flyinspectors.ge/${language}${page.path === '/' ? '' : page.path}`
 
     return (
@@ -98,6 +105,14 @@ export default function MetaForm() {
                     </a>
                 )}
             </div>
+
+            {noindex && (
+                <p className={styles.notice}>
+                    ეს გვერდი ძიებაში განზრახ არ ჩანს (noindex) და sitemap-შიც არ შედის —
+                    პირადი განაცხადის ნაბიჯია. მეტა ტეგები მაინც საჭიროა: სათაური ბრაუზერის
+                    ტაბზე ჩანს, სათაური და აღწერა კი გაზიარების ბარათზე (Facebook, Viber).
+                </p>
+            )}
 
             {error && <p className={pagesStyles.pages__error}>{error}</p>}
             {done && <p className={pagesStyles.pages__done}>{done}</p>}
@@ -132,9 +147,14 @@ export default function MetaForm() {
 
                         <UploadWidget
                             title="გაზიარების ფოტო (Facebook, Viber, Twitter...) — რეკომენდებული 1200×630"
-                            value={{}}
+                            value={{ image }}
                             setValue={(next) => setField('image', next.image)}
                             valueName="image"
+                            preview
+                            alt={imageAlt}
+                            setAlt={(text) => setField('imageAlt', text)}
+                            altTitle="ფოტოს აღწერა (og:image:alt) — რა ჩანს ფოტოზე"
+                            altPlaceholder="მაგ. Flyinspectors-ის ლოგო თვითმფრინავის ფონზე"
                         />
                         {imageOnly && (
                             <p className={styles.hint}>ამ ფოტოს გამოიყენებს ყველა გვერდი, რომელსაც საკუთარი გაზიარების ფოტო არ აქვს (ენების მიხედვით).</p>
@@ -142,27 +162,21 @@ export default function MetaForm() {
                         {!imageOnly && !isHome && !image && (
                             <p className={styles.hint}>ფოტოს გარეშე გლობალური (ან მთავარი გვერდის) ფოტო გამოიყენება.</p>
                         )}
-                        {image && (
-                            <div className={styles.image}>
-                                <img src={image} alt="" className={styles.image__preview} />
-                                <button type="button" className={styles.image__remove} onClick={() => setField('image', '')}>
-                                    ფოტოს მოშორება
-                                </button>
-                            </div>
-                        )}
-
                         {!imageOnly && (<>
                         <p className={styles.label}>პრევიუ</p>
                         <div className={styles.preview}>
+                            {/* Google-ის პრევიუ მხოლოდ ინდექსირებად გვერდზე — noindex-ზე მცდარი იქნებოდა */}
+                            {!noindex && (
                             <div className={styles.google}>
                                 <span className={styles.google__url}>{siteUrl}</span>
                                 <span className={styles.google__title}>{title || '(სათაური არ არის შევსებული)'}</span>
                                 <span className={styles.google__description}>{description}</span>
                             </div>
+                            )}
 
                             <div className={styles.social}>
                                 {image
-                                    ? <img src={image} alt="" className={styles.social__image} />
+                                    ? <img src={image} alt={imageAlt} className={styles.social__image} />
                                     : <div className={styles.social__noimage}>{isHome ? 'ფოტო არ არის' : 'მთავარის ფოტო'}</div>}
                                 <div className={styles.social__body}>
                                     <span className={styles.social__domain}>FLYINSPECTORS.GE</span>

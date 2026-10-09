@@ -22,10 +22,22 @@ const PageSchema = new mongoose.Schema(
             ],
         },
         cover: { type: String, default: "" },
+        coverAlt: localized(),
         title: localized(),
         metaTitle: localized(),
         metaDescription: localized(),
         content: localized(),
+        // მენიუში განლაგება. ნაგულისხმევი ზუსტად ძველი ქცევაა: ჰედერში არ ჩანს,
+        // ფუტერში მე-3 სექციაშია. ფუტერის პირველი სექცია (მთავარი, განაცხადი, სტატუსი,
+        // ხდკ) განზრახ არ ირჩევა — ის მხოლოდ საიტის ძირითად ნაბიჯებს ინახავს.
+        menu: {
+            // ჰედერის რომელ ჩამოსაშლელშია: rights — თქვენი უფლებები, about — ჩვენს შესახებ
+            header: { type: String, enum: ["none", "rights", "about"], default: "none" },
+            // ფუტერის რომელ სექციაშია: "second" — ჩვენს შესახებ/ბლოგი/კონტაქტი, "third" — გვერდების სვეტი
+            footer: { type: String, enum: ["none", "second", "third"], default: "third" },
+        },
+        // რიგითობა მენიუში (ერთნაირის შემთხვევაში შექმნის რიგი რჩება)
+        menuOrder: { type: Number, default: 0 },
         published: { type: Boolean, default: true },
     },
     { timestamps: true }

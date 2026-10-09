@@ -11,7 +11,6 @@ module.exports = {
         },
         info: {
             aboutus: 'About Us',
-            termsandconditions: 'Terms and Conditions',
             blog: 'Blog',
             contactus: 'Contact Us',
         },
@@ -27,7 +26,6 @@ module.exports = {
         },
         info: {
             aboutus: 'ჩვენს შესახებ',
-            termsandconditions: 'წესები და პირობები',
             blog: 'ბლოგი',
             contactus: 'კონტაქტი',
         },

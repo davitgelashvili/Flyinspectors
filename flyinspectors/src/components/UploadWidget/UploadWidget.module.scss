@@ -17,6 +17,7 @@
     }
 
     &__btn {
+        display: block;
         width: 100%;
         padding: 11px;
         text-align: center;
@@ -41,6 +42,79 @@
             background-color: orange;
             cursor:default;
             opacity: 1;
+        }
+    }
+
+    &__done {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    &__error {
+        margin: 6px 0 0;
+        font-size: 13px;
+        color: #c0392b;
+    }
+
+    // ატვირთულის პრევიუ და წაშლის ღილაკი
+    &__file {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-top: 10px;
+    }
+
+    &__preview {
+        display: block;
+        max-width: 160px;
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+        border: 1px solid #dfe3e8;
+    }
+
+    &__remove {
+        padding: 7px 12px;
+        background: none;
+        color: #c0392b;
+        font-size: 14px;
+        line-height: 18px;
+        border: 1px solid currentColor;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgba(#c0392b, .08);
+        }
+    }
+
+    // alt ტექსტის ველი
+    &__alt {
+        display: block;
+        margin-top: 12px;
+    }
+
+    &__altlabel {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #2c3043;
+    }
+
+    &__altinput {
+        width: 100%;
+        padding: 10px 12px;
+        font-size: 15px;
+        line-height: 20px;
+        color: #2c3043;
+        border: 1px solid #dfe3e8;
+        border-radius: 4px;
+        outline: none;
+
+        &:focus {
+            border-color: #0D6693;
         }
     }
 }

@@ -1,15 +1,18 @@
 import styles from './CustomPage.module.scss'
-import { externalLinks } from '@/utils/externalLinks'
+import { richContent } from '@/utils/externalLinks'
+import { cloudinaryImage } from '@/utils/cloudinary'
 
 export default function CustomPage({ page, locale }) {
     const title = page.title?.[locale] || page.title?.en || ''
     const content = page.content?.[locale] || page.content?.en || ''
+    // ადმინში შევსებული alt; არ არის → სათაური (ცარიელ alt-ს ჯობია)
+    const coverAlt = page.coverAlt?.[locale] || page.coverAlt?.en || title
 
     return (
         <main className={styles.page}>
             {page.cover && (
                 <div className={styles.page__cover}>
-                    <img src={page.cover} alt={title} />
+                    <img src={cloudinaryImage(page.cover)} alt={coverAlt} />
                 </div>
             )}
 
@@ -20,8 +23,8 @@ export default function CustomPage({ page, locale }) {
                     {/* კონტენტი ადმინის რედაქტორიდან მოდის HTML-ად.
                         გვერდის შექმნა მხოლოდ admin/editor როლებს შეუძლიათ. */}
                     <div
-                        className={`${styles.page__content} rich-content`}
-                        dangerouslySetInnerHTML={{ __html: externalLinks(content) }}
+                        className="rich-content article-content"
+                        dangerouslySetInnerHTML={{ __html: richContent(content) }}
                     />
                 </article>
             </div>

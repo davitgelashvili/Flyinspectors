@@ -12,7 +12,9 @@ import icon from "../../../Images/arrowIcon.png";
 import engFlag from "../../../../assetss/images/brtsh.jpg";
 import geoFlag from "../../../../assetss/images/geo.jpg";
 
-const BurgerMenu = ({IsOpen, setIsOpen}) => {
+// menuPages — ადმინიდან შექმნილი გვერდები ჩამოსაშლელებისთვის: { rights: [...], about: [...] }.
+// სიას layout სერვერზე კითხულობს და Header-ით გადმოგვცემს (src/utils/pageMenu.js).
+const BurgerMenu = ({IsOpen, setIsOpen, menuPages}) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const pathname = stripLocale(usePathname());
   const { t } = useTranslation();
@@ -40,21 +42,23 @@ const BurgerMenu = ({IsOpen, setIsOpen}) => {
         { link: "/your-rights/overbooked-flight", title: t("menu.overBookedflight") },
         { link: "/your-rights/missed-connection", title: t("menu.missedconnection") },
         { link: "/your-rights/lost-luggage", title: t("menu.lostluggage") },
+        ...(menuPages?.rights || []),
       ],
     },
     {
       title: t("menu.aboutus"),
       dropdown: [
         { link: "/about-us", title: t("menu.aboutus") },
-        { link: "/about-us/blog", title: t("menu.blog") },
-        { link: "/about-us/faq", title: t("menu.faq") },
+        { link: "/blog", title: t("menu.blog") },
+        { link: "/faq", title: t("menu.faq") },
+        ...(menuPages?.about || []),
       ],
     },
     {
       link: "/contact-us",
       title: t("menu.contactus"),
     },
-  ];
+  ].filter((item) => item.link || item.dropdown?.length);
 
   return (
     <div className={styles.container}>

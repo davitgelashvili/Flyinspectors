@@ -2,7 +2,7 @@ import Link from 'next/link'
 import translations from './Slider.module';
 import submitTranslations from '../../UI/SubmitLink.module';
 import styles from './Slider.module.scss';
-import { externalLinks } from '@/utils/externalLinks'
+import { richContent } from '@/utils/externalLinks'
 
 // რედაქტორი ცარიელზეც აბრუნებს "<p></p>"-ს — ტეგების გარეშე ვამოწმებთ
 const hasContent = (html) =>
@@ -29,7 +29,7 @@ const HeroText = ({ hero, locale }) => {
             )}
             {hasContent(text) && (
                 // ბექი HTML-ს შენახვისას ასუფთავებს და h1-ს h2-ად აქცევს (back/utils/sanitizeHtml.js)
-                <div className={`${styles.richText} rich-content`} dangerouslySetInnerHTML={{ __html: externalLinks(text) }} />
+                <div className={`${styles.richText} rich-content`} dangerouslySetInnerHTML={{ __html: richContent(text) }} />
             )}
             <div className={styles.actions}>
                 <Link href={`/${locale}/submit-claim`} className={styles.actions__claim}>

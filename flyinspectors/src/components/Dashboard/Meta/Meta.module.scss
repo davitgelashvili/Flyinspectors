@@ -24,32 +24,21 @@
     }
 }
 
+// გვერდი, რომელიც ძიებაში განზრახ არ ჩანს (noindex) — კონტექსტი, რომ ფორმა არ შეცდომაში შეიყვანოს
+.notice {
+    margin: 0 0 14px;
+    padding: 10px 14px;
+    background-color: #fdf6e3;
+    border: 1px solid #f0e0b8;
+    border-radius: 4px;
+    font-size: 13px;
+    line-height: 19px;
+    color: #7a5c00;
+}
 .hint {
     margin: 6px 0 0;
     font-size: 13px;
     color: #6b6f85;
-}
-
-.image {
-    margin-top: 10px;
-
-    &__preview {
-        display: block;
-        max-width: 320px;
-        width: 100%;
-        border: 1px solid #e3e9f0;
-        border-radius: 4px;
-    }
-
-    &__remove {
-        margin-top: 6px;
-        padding: 0;
-        border: 0;
-        background: transparent;
-        color: #c0392b;
-        font-size: 13px;
-        cursor: pointer;
-    }
 }
 
 .preview {

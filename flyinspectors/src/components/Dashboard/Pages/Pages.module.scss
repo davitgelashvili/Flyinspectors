@@ -153,13 +153,70 @@
         }
     }
 
-    &__preview {
-        display: block;
-        max-width: 260px;
-        width: 100%;
-        margin: 10px 0;
-        border-radius: 4px;
+    // ქოვერის alt: ფოტოს ქვეშ, ვიზუალურად მასთან შეკრული
+    &__coveralt {
+        margin: -6px 0 18px 0;
+        padding: 14px 16px 2px;
+        background-color: #f7f9fc;
         border: 1px solid #e3e9f0;
+        border-radius: 4px;
+    }
+
+    &__hint {
+        margin: 0 0 12px 0;
+        font-size: 13px;
+        line-height: 18px;
+        color: #5d6d7e;
+    }
+
+    // მენიუს განლაგება: გვერდის ფორმაში ერთ ბლოკად შეკრული
+    &__menu {
+        margin: 4px 0 18px;
+        padding: 14px 16px 2px;
+        background-color: #f7f9fc;
+        border: 1px solid #e3e9f0;
+        border-radius: 4px;
+    }
+
+    &__menutitle {
+        margin: 0 0 12px;
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    &__field {
+        display: block;
+        margin-bottom: 14px;
+    }
+
+    &__fieldlabel {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #2c3043;
+    }
+
+    &__select,
+    &__number {
+        width: 100%;
+        max-width: 420px;
+        padding: 10px 12px;
+        font-family: inherit;
+        font-size: 15px;
+        color: #2c3043;
+        background-color: #fff;
+        border: 1px solid #dfe3e8;
+        border-radius: 4px;
+        outline: none;
+
+        &:focus {
+            border-color: #0d6693;
+        }
+    }
+
+    &__number {
+        max-width: 120px;
     }
 
     &__check {

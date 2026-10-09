@@ -23,9 +23,6 @@ export const getOptions = () => getJson('/options', null);
 export const getHow = () => getJson('/how', null);
 export const getWhy = () => getJson('/why', null);
 
-// "წესები და პირობები" (ადმინი → წესები და პირობები)
-export const getTerms = () => getJson('/terms', null);
-
 // ოფისები: ქვეყანა, ტელეფონი, ელფოსტა, მისამართი (ადმინი → საკონტაქტო)
 export const getOffices = () => getJson('/offices', null);
 
@@ -42,3 +39,18 @@ export async function getPage(slug) {
     // ტეგი საერთოა /pages-თან: ადმინში შენახვა ფუტერის სიასაც და თვით გვერდსაც ერთად ანახლებს
     return getJson(`/pages/${encodeURIComponent(slug)}`, null, '/pages');
 }
+
+// ბლოგის სტატიები (ადმინი → ბლოგი). პასუხის ფორმა: { items, total, page, pages }.
+// page-ის გარეშე ყველა გამოქვეყნებული ბრუნდება — sitemap-ს სრული სია სჭირდება.
+// ტეგი ყველა ვარიანტზე საერთოა, რომ ადმინში შენახვამ სიაც და თვით სტატიაც ერთად განაახლოს.
+const EMPTY_POSTS = { items: [], total: 0, page: 1, pages: 1 };
+
+export const getPosts = ({ page, limit } = {}) =>
+    getJson(
+        page ? `/posts?page=${page}&limit=${limit || 9}` : '/posts',
+        EMPTY_POSTS,
+        '/posts'
+    );
+
+export const getPost = (slug) =>
+    getJson(`/posts/${encodeURIComponent(slug)}`, null, '/posts');

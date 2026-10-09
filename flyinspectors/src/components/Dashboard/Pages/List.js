@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Loading from '../../Loading/Loading'
 import adminFetch from '../../../api/adminFetch'
 import revalidateSite from '../../../api/revalidateSite'
+import { cloudinaryImage } from '@/utils/cloudinary'
 import styles from './Pages.module.scss'
 
 export default function PagesList() {
@@ -62,7 +63,7 @@ export default function PagesList() {
                     <div className={styles.pages__card} key={item._id}>
                         <div className={styles.pages__cover}>
                             {item.cover
-                                ? <img src={item.cover} alt={item.title?.ka || item.slug} />
+                                ? <img src={cloudinaryImage(item.cover)} alt={item.coverAlt?.ka || item.title?.ka || item.slug} />
                                 : <span className={styles.pages__nocover}>ფოტოს გარეშე</span>}
                         </div>
 

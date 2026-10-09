@@ -85,10 +85,14 @@ export async function middleware(request, event) {
 
   if (locale) return NextResponse.next()
 
+  // ენის prefix-ის გარეშე მოსული მისამართი დომენის ენაზე გადადის: flyinspectors.ge/ → /ka/.
+  // 308 და არა ჩაშენებული 307: 307 დროებითია და Google canonical სიგნალს სრულად არ გადასცემს,
+  // ხოლო მთავარ გვერდზე ყველა გარე ბმული სწორედ ამ გადამისამართებას გადის.
+  // 308 (და არა 301) ზემოთ მდგარი ნორმალიზაციის გადამისამართების იდენტურია და მეთოდსაც ინახავს.
   const defaultLocale = localeFromHost(request.headers.get('host') || '')
   const url = request.nextUrl.clone()
   url.pathname = `/${defaultLocale}${pathname === '/' ? '' : pathname}`
-  return NextResponse.redirect(url)
+  return NextResponse.redirect(url, 308)
 }
 
 // სტატიკური ფაილები (სურათი, ფონტი, css/js...) middleware-ს არ გადის; დანარჩენი — "old.html", "index.php" და

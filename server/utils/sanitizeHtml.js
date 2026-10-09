@@ -1,4 +1,5 @@
 const sanitizeHtml = require("sanitize-html");
+const { LANGS } = require("./localized");
 
 // ადმინის რედაქტორი (TipTap, fly/src/components/RichEditor) HTML-ს აგენერირებს, რომელსაც საიტი
 // dangerouslySetInnerHTML-ით ხატავს ყველა ვიზიტორისთვის. ამიტომ შენახვისას ვტოვებთ მხოლოდ იმ თეგებს,
@@ -73,4 +74,20 @@ const options = {
 
 const clean = (html) => sanitizeHtml(String(html ?? ""), options);
 
-module.exports = { sanitizeHtml: clean };
+// body-ს ორენოვან რედაქტორის ველს ასუფთავებს: { en, ka } → გასუფთავებული HTML.
+// არგადმოცემული ენა ხელუხლებელი რჩება (ნაწილობრივი განახლება არ უნდა გააცარიელოს).
+// გვერდებიც და ბლოგის სტატიებიც ამას იყენებენ — ლოგიკა ერთ ადგილას რომ იყოს.
+const sanitizeRichField = (body, field = "content") => {
+    const value = body && body[field];
+    if (!value || typeof value !== "object") return { ...body };
+
+    return {
+        ...body,
+        [field]: Object.fromEntries(
+            LANGS.filter((lang) => value[lang] !== undefined)
+                .map((lang) => [lang, clean(value[lang])])
+        ),
+    };
+};
+
+module.exports = { sanitizeHtml: clean, sanitizeRichField };

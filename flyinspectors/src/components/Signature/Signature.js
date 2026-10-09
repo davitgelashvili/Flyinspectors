@@ -153,6 +153,8 @@ const Signature = () => {
                     <label>
                         <input type="checkbox" />
                         <span>
+                            {/* "წესები და პირობები" ქასთუმ გვერდია (ადმინი → გვერდის შექმნა) და /[lang]/[slug]-ით
+                                იხატება. slug უნდა იყოს "terms-and-conditions", თორემ ეს ბმული 404-ზე გავა. */}
                             {t('submitForm.iagree')} <Link className="text-link" target="_blank" href={'/terms-and-conditions'}>{t('submitForm.terms')}</Link>
                         </span>
                     </label>
