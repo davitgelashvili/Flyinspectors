@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next";
 import { useRouter, useSearchParams } from "next/navigation";
 import useLocale from "@/i18n/useLocale";
 import { metaEventFields, trackClaimSubmitted } from "@/utils/metaPixel";
+import { RECAPTCHA_ACTIONS, preloadRecaptcha, recaptchaHeaders } from "@/utils/recaptcha";
 
 const SendForm = () => {
     const searchParams = useSearchParams();
@@ -65,6 +66,11 @@ const SendForm = () => {
     useEffect(() => {
         setTimeout(() => setMessage(false), 3000);
     }, [message])
+
+    // reCAPTCHA-ს სკრიპტი ფორმის გახსნისთანავე ჩაიტვირთოს, რომ გაგზავნაზე ლოდინი არ დაემატოს
+    useEffect(() => {
+        preloadRecaptcha();
+    }, [])
 
 
     useEffect(() => {
@@ -135,10 +141,13 @@ const SendForm = () => {
             const meta = metaEventFields();
 
             try {
+                // reCAPTCHA v3: ტოკენი ერთჯერადია, ამიტომ სამივე მოთხოვნას
+                // ცალკე, საკუთარი action-ით მოაქვს (იხ. server/router.js).
                 const clientRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/client`, {
                     method: "POST",
                     headers: {
                         'Content-type': 'application/json',
+                        ...(await recaptchaHeaders(RECAPTCHA_ACTIONS.claim)),
                     },
                     body: JSON.stringify({ ...value, ...meta })
                 });
@@ -150,15 +159,20 @@ const SendForm = () => {
                 if (userId) trackClaimSubmitted(meta);
 
                 // გაგზავნა ორივე მხარეს ერთდროულად
+                const [notifyCaptcha, receiptCaptcha] = await Promise.all([
+                    recaptchaHeaders(RECAPTCHA_ACTIONS.claimNotify),
+                    recaptchaHeaders(RECAPTCHA_ACTIONS.claimReceipt),
+                ]);
+
                 await Promise.all([
                     fetch(`${process.env.NEXT_PUBLIC_API_URL}/email`, {
                         method: "POST",
-                        headers: { 'Content-type': 'application/json' },
+                        headers: { 'Content-type': 'application/json', ...notifyCaptcha },
                         body: JSON.stringify({ ...value, userId })
                     }),
                     fetch(`${process.env.NEXT_PUBLIC_API_URL}/sendtoclient`, {
                         method: "POST",
-                        headers: { 'Content-type': 'application/json' },
+                        headers: { 'Content-type': 'application/json', ...receiptCaptcha },
                         body: JSON.stringify({
                             email: value.email,
                             text: language === 'ka'

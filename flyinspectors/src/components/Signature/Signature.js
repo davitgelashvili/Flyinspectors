@@ -7,6 +7,7 @@ import TextInput from '../UI/TextInput'
 import ReactSignatureCanvas from 'react-signature-canvas'
 import Link from '@/components/UI/LocaleLink'
 import Loading from '../Loading/Loading'
+import { RECAPTCHA_ACTIONS, preloadRecaptcha, recaptchaHeaders } from '@/utils/recaptcha'
 
 const Signature = () => {
     const { t } = useTranslation()
@@ -60,7 +61,12 @@ const Signature = () => {
         });
     }
 
-    const uploadFile = (e) => {
+    // reCAPTCHA-ს სკრიპტი წინასწარ ჩაიტვირთოს, რომ გაგზავნაზე ლოდინი არ დაემატოს
+    useEffect(() => {
+        preloadRecaptcha()
+    }, [])
+
+    const uploadFile = async (e) => {
         e.preventDefault()
         if (
             value.firstName !== "" &&
@@ -68,11 +74,14 @@ const Signature = () => {
             value.signature !== ""
         ) {
             setLoad(true)
+            const captcha = await recaptchaHeaders(RECAPTCHA_ACTIONS.signature)
+
             fetch(`${process.env.NEXT_PUBLIC_API_URL}/email`, {
                 method: "POST",
                 headers: {
                     'Content-type': 'application/json',
-                    'Access-Control-Allow-Origin': '*'
+                    'Access-Control-Allow-Origin': '*',
+                    ...captcha
                 },
                 body: JSON.stringify({
                     ...value,

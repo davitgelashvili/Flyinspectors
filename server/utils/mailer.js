@@ -3,8 +3,10 @@ const MailSettings = require("../jsonModels/mailSettingsModal");
 const { encrypt, decrypt, canEncrypt } = require("./secret");
 
 // ბაზას ყოველ წერილზე არ ვეკითხებით — პაროლი წუთით იკეშება.
-// ადმინის მიერ შენახვისას კეში მაშინვე იყრება, ანუ ახალი პაროლი იმავე
-// ინსტანციაზე მყისვე მოქმედებს, სხვა ინსტანციებზე — მაქსიმუმ წუთში.
+// კეში პროცესის მეხსიერებაშია და resetCache() მხოლოდ იმ პროცესს უშლის,
+// რომელმაც შენახვა დაამუშავა. Passenger აპს რამდენიმე worker-ად უშვებს,
+// ანუ სხვა worker-ს ძველი პაროლი შეიძლება შერჩეს — ამას sendMail() ხსნის:
+// ავთენტიფიკაციის შეცდომაზე კეშს იყრის და ბაზიდან ახალს იღებს.
 const CACHE_MS = 60 * 1000;
 
 // გამგზავნი ყუთი. პაროლი აქ არ წერია — ის მხოლოდ ბაზაშია და პანელიდან იცვლება.
@@ -58,6 +60,46 @@ function resetCache() {
     cache = null;
 }
 
+function createTransport(pass) {
+    return nodemailer.createTransport({
+        host: SMTP.host,
+        port: SMTP.port,
+        secure: SMTP.secure,
+        auth: { user: SMTP.user, pass },
+    });
+}
+
+// Gmail არასწორ პაროლს EAUTH-ით (SMTP 535) აბრუნებს. ქსელის ან მიმღების
+// შეცდომას ამით არ ავურევთ — ხელახალი ცდა მხოლოდ პაროლის გულისთვისაა.
+function isAuthError(error) {
+    return Boolean(error) && (error.code === "EAUTH" || error.responseCode === 535);
+}
+
+/**
+ * ყველა წერილი აქედან იგზავნება. თუ პანელიდან პაროლი შეიცვალა, მაგრამ ამ
+ * worker-ს ძველი კეშში შერჩა, ავთენტიფიკაცია ჩავარდება — კეშს ვიყრით,
+ * ბაზიდან ახალს ვიღებთ და ერთხელ ხელახლა ვცდით. ანუ პაროლის ცვლილება
+ * კლიენტის ფორმაზე მაშინვე აისახება და Node-ის restart აღარ სჭირდება.
+ */
+async function sendMail(mailOptions) {
+    const stale = await getMailPassword();
+
+    try {
+        return await createTransport(stale).sendMail(mailOptions);
+    } catch (error) {
+        if (!isAuthError(error)) throw error;
+
+        resetCache();
+        const fresh = await getMailPassword();
+
+        // პაროლი თუ არ შეცვლილა, მეორე ცდა იმავე შეცდომით დასრულდებოდა
+        if (fresh === stale) throw error;
+
+        console.warn("⚠️ მეილის პაროლი მოძველებული იყო — ბაზიდან განახლდა და ხელახლა ვცდი");
+        return await createTransport(fresh).sendMail(mailOptions);
+    }
+}
+
 async function savePassword(pass) {
     const value = String(pass);
     const encrypted = encrypt(value);
@@ -97,14 +139,12 @@ async function readStatus() {
  * წერილსაც აგზავნის — ადმინს ცოცხალ ფორმამდე დარწმუნების საშუალება აქვს.
  */
 async function verifyPassword(to) {
+    // ადმინის შემოწმება ყოველთვის ბაზის ახალ მნიშვნელობაზე უნდა გადიოდეს,
+    // თორემ ამ worker-ის კეში „წარმატებას" აჩვენებდა ძველი პაროლით
+    resetCache();
     const pass = await getMailPassword();
 
-    const transporter = nodemailer.createTransport({
-        host: SMTP.host,
-        port: SMTP.port,
-        secure: SMTP.secure,
-        auth: { user: SMTP.user, pass },
-    });
+    const transporter = createTransport(pass);
 
     await transporter.verify();
 
@@ -121,6 +161,7 @@ async function verifyPassword(to) {
 
 module.exports = {
     getMailPassword,
+    sendMail,
     savePassword,
     readStatus,
     verifyPassword,

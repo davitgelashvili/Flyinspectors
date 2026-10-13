@@ -1,6 +1,5 @@
 const fs = require('fs');
-const nodemailer = require('nodemailer');
-const { getMailPassword } = require('../utils/mailer');
+const { sendMail } = require('../utils/mailer');
 
 const clientSendEmail = async (req, res) => {
     try {
@@ -14,19 +13,6 @@ const clientSendEmail = async (req, res) => {
         // Gmail/Outlook ეჭვით უყურებს და spam-ში უფრო ადვილად აგდებს.
         const plainText = String(text || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
 
-        const transporter = nodemailer.createTransport({
-            // host: 'business66.web-hosting.com',
-            host: 'smtp.gmail.com', // SMTP server address (e.g., smtp.gmail.com for Gmail)
-            port: 465, // 465 for SSL or 587 for STARTTLS
-            secure: true, // Use true for 465, false for other ports
-            auth: {
-                user: 'info@flyinspectors.com',
-                pass: await getMailPassword(),
-                // user: 'mailsend@flyinspectors.com', // Your email
-                // pass: '-VV6jcEThhWT', // Your email password or app password
-            },
-        });
-
         const mailOptions = {
             // ჩანს "Flyinspectors", არა შიშველი მისამართი — ეს ნდობას მატებს
             from: '"Flyinspectors" <info@flyinspectors.com>',
@@ -38,15 +24,10 @@ const clientSendEmail = async (req, res) => {
             html: text,
         };
 
-        transporter.sendMail(mailOptions, function(error, info){
-            if (error) {
-                console.log(error);
-                return res.status(500).send('Error sending email');
-            } else {
-                console.log('Email sent: ' + info.response);
-                return res.status(200).send('Email sent successfully');
-            }
-        });
+        // SMTP კონფიგურაცია და პაროლი utils/mailer.js-შია
+        const info = await sendMail(mailOptions);
+        console.log('Email sent: ' + info.response);
+        return res.status(200).send('Email sent successfully');
     } catch (error) {
         console.error('Error:', error);
         return res.status(500).send("Something went wrong while sending the email!");

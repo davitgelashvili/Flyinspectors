@@ -31,6 +31,8 @@ const { contact } = require("./controllers/contact");
 const { pageView } = require("./controllers/capi");
 const { getMailPassword, updateMailPassword, testMailPassword } = require("./controllers/mailSettings");
 const { requireAuth, requireRole } = require("./middleware/auth");
+const { requireRecaptcha } = require("./middleware/recaptcha");
+const { getRecaptchaConfig } = require("./controllers/recaptcha");
 
 const router = require("express").Router();
 
@@ -64,11 +66,17 @@ router.get("/posts/:slug", getPostBySlug);
 router.get("/redirects", getActiveRedirects);   // მხოლოდ ჩართულები — საიტის middleware იყენებს
 
 /* ── საჯარო: მომხმარებლის ფორმები ──────────────────────── */
-router.post("/client", createClient);           // განაცხადის შევსება
+// ფრონტი აქედან იღებს reCAPTCHA-ს საიტის გასაღებს (საიდუმლო არ არის)
+router.get("/recaptcha", getRecaptchaConfig);
+
+// reCAPTCHA v3 — ტოკენი ფრონტიდან მოდის; action-ის სახელები აქ და
+// flyinspectors/src/utils/recaptcha.js-ში იდენტური უნდა იყოს.
+// RECAPTCHA_SECRET_KEY-ის გარეშე შემოწმება გამოტოვდება (იხ. middleware).
+router.post("/client", requireRecaptcha("claim_submit"), createClient);           // განაცხადის შევსება
 router.post("/id", getID);                      // სტატუსის შემოწმება (მხოლოდ status)
-router.post("/contact", contact);               // საკონტაქტო ფორმა
-router.post("/email", emailSend);               // განაცხადის შეტყობინება გუნდს
-router.post("/sendtoclient", clientSendEmail);  // განაცხადის ნომერი კლიენტს
+router.post("/contact", requireRecaptcha("contact_submit"), contact);             // საკონტაქტო ფორმა
+router.post("/email", requireRecaptcha("claim_notify"), emailSend);               // განაცხადის შეტყობინება გუნდს
+router.post("/sendtoclient", requireRecaptcha("claim_receipt"), clientSendEmail); // განაცხადის ნომერი კლიენტს
 router.post("/capi/pageview", pageView);        // Meta CAPI: PageView სერვერიდან (პიქსელის დუბლი)
 
 /* ── კონტენტის მართვა: editor ან admin ─────────────────── */

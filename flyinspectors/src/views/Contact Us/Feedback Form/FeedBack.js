@@ -5,6 +5,7 @@ import TextInput from "../../../components/UI/TextInput";
 import styles from "./FeedBack.module.scss";
 import Loading from "../../../components/Loading/Loading";
 import { useTranslation } from "react-i18next";
+import { RECAPTCHA_ACTIONS, preloadRecaptcha, recaptchaHeaders } from "@/utils/recaptcha";
 
 function FeedBack() {
   const { t } = useTranslation()
@@ -15,7 +16,12 @@ function FeedBack() {
   const [text, setText] = useState('')
   const [isDisable, setIsDisable] = useState(false)
 
-  function handlClick(e) {
+  // reCAPTCHA-ს სკრიპტი წინასწარ ჩაიტვირთოს, რომ გაგზავნაზე ლოდინი არ დაემატოს
+  useEffect(() => {
+    preloadRecaptcha();
+  }, []);
+
+  async function handlClick(e) {
     e.preventDefault();
 
     // ✅ ვალიდაცია — ცარიელ ველებს არ უშვებს
@@ -26,28 +32,35 @@ function FeedBack() {
     setIsDisable(true);
     setLoad(true);
 
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/contact`, {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        name,
-        email,
-        subject,
-        description: text
-      })
-    })
-      .then(res => res.json())
-      .catch(err => console.error(err))
-      .finally(() => {
-        setLoad(false);
-        setIsDisable(false);
-        setName('');
-        setEmail('');
-        setSubject('');
-        setText('');
+    try {
+      // ტოკენი header-ით მიდის — body უცვლელი რჩება
+      const captcha = await recaptchaHeaders(RECAPTCHA_ACTIONS.contact);
+
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/contact`, {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          ...captcha
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          subject,
+          description: text
+        })
       });
+
+      await res.json();
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoad(false);
+      setIsDisable(false);
+      setName('');
+      setEmail('');
+      setSubject('');
+      setText('');
+    }
   }
 
   return (

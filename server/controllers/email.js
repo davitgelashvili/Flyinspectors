@@ -1,6 +1,5 @@
 const fs = require('fs');
-const nodemailer = require('nodemailer');
-const { getMailPassword } = require('../utils/mailer');
+const { sendMail } = require('../utils/mailer');
 
 const emailSend = async (req, res) => {
     try {
@@ -25,20 +24,6 @@ const emailSend = async (req, res) => {
             description,
         } = req.body;
         
-        const transporter = nodemailer.createTransport({
-            // host: 'smtp.example.com', // SMTP server address (e.g., smtp.gmail.com for Gmail)
-            // host: 'business66.web-hosting.com',
-            host: 'smtp.gmail.com',
-            port: 465,
-            secure: true,
-            auth: {
-                user: 'info@flyinspectors.com',
-                pass: await getMailPassword(),
-                // user: 'mailsend@flyinspectors.com', 
-                // pass: '-VV6jcEThhWT',
-            },
-        });
-
         const mailOptions = {
             from: '"Flyinspectors" <info@flyinspectors.com>',
             replyTo: `${email}`,
@@ -85,15 +70,10 @@ const emailSend = async (req, res) => {
             `
         };
 
-        transporter.sendMail(mailOptions, function(error, info){
-            if (error) {
-                console.log(error);
-                return res.status(500).send('Error sending email');
-            } else {
-                console.log('Email sent: ' + info.response);
-                return res.status(200).send('Email sent successfully');
-            }
-        });
+        // SMTP კონფიგურაცია და პაროლი utils/mailer.js-შია
+        const info = await sendMail(mailOptions);
+        console.log('Email sent: ' + info.response);
+        return res.status(200).send('Email sent successfully');
     } catch (error) {
         console.error('Error:', error);
         return res.status(500).send("Something went wrong while sending the email!");

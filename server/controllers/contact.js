@@ -1,22 +1,10 @@
 const fs = require('node:fs');
-const { getMailPassword } = require('../utils/mailer');
+const { sendMail } = require('../utils/mailer');
 
 const contact = async (req, res) => {
     try {
         const { name, email, subject, description } = req.body;
         console.log(req.body);
-
-        const nodemailer = require("nodemailer");
-
-        const transporter = nodemailer.createTransport({
-            host: "smtp.gmail.com",
-            port: 465,
-            secure: true,
-            auth: {
-                user: "info@flyinspectors.com",
-                pass: await getMailPassword(), // აპლიკაციის პაროლი ბაზიდან
-            },
-        });
 
         const mailOptions = {
             // from ყოველთვის საკუთარი, ავთენტიფიცირებული დომენია — თორემ ვიზიტორის
@@ -35,8 +23,9 @@ const contact = async (req, res) => {
         `,
         };
 
-        // ✅ await-ით გაგზავნა
-        const info = await transporter.sendMail(mailOptions);
+        // SMTP კონფიგურაცია და პაროლი utils/mailer.js-შია; პაროლის ცვლილებაზე
+        // sendMail თავად იღებს ახალს ბაზიდან (იხ. isAuthError-ის ხელახალი ცდა).
+        const info = await sendMail(mailOptions);
         console.log("Email sent:", info.response);
 
         // ✅ აუცილებლად დაბრუნე პასუხი
