@@ -58,12 +58,15 @@ export default function RichEditor({ value = '', onChange, title, placeholder })
   const toggleSource = () => {
     if (!editor) return
 
+    // lastHtml — მიმდინარე HTML უცვლელად: HTML რეჟიმში ჩაწერილი კოდი, ან ვიზუალურ რეჟიმში რეალური
+    // რედაქტირების შემდეგ მიღებული. ამიტომ ვიზუალურ რეჟიმში გადართვა თავისით არაფერს ცვლის.
     if (!source) {
-      setSourceText(editor.getHTML())
+      setSourceText(lastHtml.current)
       setSource(true)
     } else {
-      // რედაქტორი ტექსტს ნორმალიზებს (უცნობ თეგებს აცილებს), შედეგი parent-საც გადაეცემა
-      editor.commands.setContent(sourceText, true)
+      // რედაქტორის ნორმალიზება (უცნობი თეგების მოცილება) parent-ს არ გადაეცემა — ჩაწერილი კოდი ისე შეინახება,
+      // როგორც ჩაწერეს. ნორმალიზება მხოლოდ ვიზუალურ რედაქტირებაზე ხდება (onUpdate).
+      editor.commands.setContent(sourceText, false)
       setSource(false)
     }
   }

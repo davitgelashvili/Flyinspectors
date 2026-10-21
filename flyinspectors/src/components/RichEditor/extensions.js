@@ -90,14 +90,93 @@ const ImageWithLayout = Image.extend({
   },
 })
 
+// ---------- style-ის შენარჩუნება ----------
+// HTML რეჟიმში ჩაწერილი style ატრიბუტი (<p style="margin:0">, <span style="background-color:...">) რედაქტორში
+// ინახება და ბექამდე მიდის. რედაქტორის სხვა ატრიბუტები (text-align, color, font-*) თავის თავს მართავს,
+// ამიტომ style-იდან ისინი იშლება — წინააღმდეგ შემთხვევაში ერთი და იგივე წესი ორჯერ გროვდება.
+const TEXT_ALIGN_STYLE = /text-align\s*:[^;]*;?/gi
+const TEXT_STYLE_OWNED = /(?<![-\w])(color|font-family|font-size)\s*:[^;]*;?/gi
+
+const KeepStyle = Extension.create({
+  name: 'keepStyle',
+
+  addGlobalAttributes() {
+    const keptStyle = (owned = null) => ({
+      default: null,
+      parseHTML: (element) => {
+        const style = element.getAttribute('style') ?? ''
+        return (owned ? style.replace(owned, '') : style).trim() || null
+      },
+      renderHTML: (attributes) => (attributes.style ? { style: attributes.style } : {}),
+    })
+
+    return [
+      {
+        types: ['paragraph', 'heading', 'blockquote', 'bulletList', 'orderedList', 'listItem', 'table', 'tableRow', 'tableHeader', 'tableCell', 'image', 'codeBlock', 'horizontalRule'],
+        attributes: { style: keptStyle(TEXT_ALIGN_STYLE) },
+      },
+      {
+        types: ['textStyle'],
+        attributes: { style: keptStyle(TEXT_STYLE_OWNED) },
+      },
+      {
+        types: ['bold', 'italic', 'underline', 'strike', 'code', 'subscript', 'superscript', 'link'],
+        attributes: { style: keptStyle() },
+      },
+    ]
+  },
+})
+
+// სტილიანი კონტეინერი: <div style="..."> (ან section, article, header...) — ბლოკი, რომელიც შიგთავსს
+// აჯგუფებს და სტილს ინარჩუნებს. თეგის სახელი ინახება, რომ <section> <section>-ად დარჩეს.
+// სვეტებისა და YouTube-ის გარსებს საკუთარი node აქვთ, ამიტომ მათ აქ არ ვიღებთ.
+const CONTAINER_TAGS = ['div', 'section', 'article', 'header', 'footer', 'aside', 'main', 'figure']
+
+const Container = Node.create({
+  name: 'container',
+  group: 'block',
+  content: 'block+',
+  defining: true,
+
+  addAttributes() {
+    return {
+      tag: {
+        default: 'div',
+        parseHTML: (element) => element.tagName.toLowerCase(),
+        renderHTML: () => ({}),
+      },
+      style: {
+        default: null,
+        parseHTML: (element) => element.getAttribute('style') || null,
+        renderHTML: (attributes) => (attributes.style ? { style: attributes.style } : {}),
+      },
+    }
+  },
+
+  parseHTML() {
+    return CONTAINER_TAGS.map((tag) => ({
+      tag,
+      priority: 10, // ნაგულისხმევ (50) წესებს ქვემოთ, რომ სვეტები და YouTube თავისი წესით დამუშავდეს
+      getAttrs: (element) =>
+        element.hasAttribute('data-youtube-video') || element.hasAttribute('data-columns') || element.hasAttribute('data-column')
+          ? false
+          : {},
+    }))
+  },
+
+  renderHTML({ node, HTMLAttributes }) {
+    return [node.attrs.tag, mergeAttributes(HTMLAttributes), 0]
+  },
+})
+
 // ---------- სვეტები ----------
 // ორსვეტიანი განლაგება: <div data-columns="2"><div data-column>...</div><div data-column>...</div></div>.
 // თითოეულ სვეტში ნებისმიერი შიგთავსი შეიძლება (ტექსტი, სათაური, სია, ცხრილი, YouTube, ციტატა, კოდი,
-// ხაზი; სურათი ტექსტის შიგნითაა). სვეტში სვეტი (ჩალაგება) განზრახ აკრძალულია.
+// ხაზი, კონტეინერი; სურათი ტექსტის შიგნითაა). სვეტში სვეტი (ჩალაგება) განზრახ აკრძალულია.
 //   ratio — მარცხენა სვეტის წილი პროცენტებში: 33 | 50 (ნაგულისხმევი) | 67
 // ატრიბუტები data-* სახითაა: ბექი მათ მხოლოდ დაშვებულ მნიშვნელობებზე უშვებს, საიტზე კი CSS
 // (app/globals.scss, .rich-content) მობილურზე სვეტებს ერთმანეთის ქვეშ აწყობს.
-const COLUMN_CONTENT = '(paragraph | heading | bulletList | orderedList | blockquote | codeBlock | horizontalRule | table | youtube)+'
+const COLUMN_CONTENT = '(paragraph | heading | bulletList | orderedList | blockquote | codeBlock | horizontalRule | table | youtube | container | rawBlock)+'
 
 const Column = Node.create({
   name: 'column',
@@ -208,6 +287,138 @@ const Columns = Node.create({
   },
 })
 
+// ---------- სხვა ატრიბუტები ----------
+// class, id, role, data-*, lang... რედაქტორის node-ები თავად არ ინახავენ. ამიტომ ყველა ატრიბუტი, რომელსაც
+// რედაქტორი სხვაგან არ მართავს (MANAGED_ATTRS), უცვლელად ინახება და უკან იწერება.
+const MANAGED_ATTRS = new Set([
+  'style', 'href', 'target', 'rel', 'src', 'alt', 'width', 'height', 'colspan', 'rowspan', 'colwidth', 'start',
+  'data-align', 'data-size', 'data-color', 'data-youtube-video', 'data-columns', 'data-column', 'data-ratio',
+])
+
+const HtmlAttrs = Extension.create({
+  name: 'htmlAttrs',
+
+  addGlobalAttributes() {
+    return [
+      {
+        types: [
+          'paragraph', 'heading', 'blockquote', 'bulletList', 'orderedList', 'listItem', 'table', 'tableRow',
+          'tableHeader', 'tableCell', 'image', 'codeBlock', 'horizontalRule', 'container', 'hardBreak',
+          'bold', 'italic', 'underline', 'strike', 'code', 'subscript', 'superscript', 'link', 'highlight', 'textStyle',
+        ],
+        attributes: {
+          htmlAttrs: {
+            default: null,
+            parseHTML: (element) => {
+              const attrs = Object.fromEntries(
+                [...element.attributes].filter((attr) => !MANAGED_ATTRS.has(attr.name)).map((attr) => [attr.name, attr.value])
+              )
+              return Object.keys(attrs).length ? attrs : null
+            },
+            renderHTML: (attributes) => attributes.htmlAttrs ?? {},
+          },
+        },
+      },
+    ]
+  },
+})
+
+// ---------- უცნობი ელემენტები ----------
+// რედაქტორს ყველა თეგის სქემა არ აქვს (nav, button, video, details, font...). ასეთი ელემენტი აქ უცვლელად
+// ინახება თავისი HTML-ით და ისე იხატება, როგორც ჩაიწერა. ბლოკური ელემენტები (nav, details...) და ხაზშიდა
+// (font, label, small...) ცალკე node-ებია, რომ აბზაცი არ გატყდეს.
+// SCHEMA_TAGS — თეგები, რომლებსაც რედაქტორი თავად ამუშავებს (ან სტრუქტურულია და მისი შიგთავსი იკითხება).
+const SCHEMA_TAGS = new Set([
+  'p', 'br', 'hr', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'blockquote', 'pre', 'code',
+  'strong', 'b', 'em', 'i', 'u', 's', 'strike', 'del', 'ins', 'sub', 'sup', 'mark', 'a', 'span', 'img',
+  'div', 'section', 'article', 'header', 'footer', 'aside', 'main', 'figure',
+  'table', 'caption', 'colgroup', 'col', 'thead', 'tbody', 'tfoot', 'tr', 'th', 'td',
+])
+const BLOCK_RAW_TAGS = new Set([
+  'nav', 'details', 'summary', 'form', 'fieldset', 'legend', 'center', 'address', 'dl', 'dt', 'dd', 'menu', 'hgroup', 'dialog', 'noscript',
+])
+
+const rawParseRules = (blockLevel) => [
+  {
+    tag: '*',
+    priority: 1, // ყველა სხვა წესის შემდეგ — მხოლოდ იმას იჭერს, რაც სხვამ არ აიღო
+    getAttrs: (element) => {
+      const tag = element.tagName.toLowerCase()
+      if (SCHEMA_TAGS.has(tag) || BLOCK_RAW_TAGS.has(tag) !== blockLevel) return false
+      return { html: element.outerHTML }
+    },
+  },
+]
+
+// ელემენტი DOM-ად: შაბლონიდან, რომ სკრიპტები და სხვა შიგთავსი არ გაეშვას რედაქტორის გარეთ
+const rawDom = (html) => {
+  const template = document.createElement('template')
+  template.innerHTML = html
+  return template.content.firstElementChild
+}
+
+const rawNodeView = {
+  addNodeView() {
+    return ({ node }) => {
+      const dom = rawDom(node.attrs.html)
+      dom.setAttribute('contenteditable', 'false')
+      return { dom }
+    }
+  },
+}
+
+const RawBlock = Node.create({
+  name: 'rawBlock',
+  group: 'block',
+  atom: true,
+  selectable: true,
+
+  addAttributes() {
+    return { html: { default: '' } }
+  },
+
+  parseHTML() {
+    return [
+      // ცხრილი სათაურით, ქვედა კოლონტიტულით, ან სურათის/სვეტის განსაზღვრებით მთლიანად ინახება,
+      // რომ thead/tfoot და მათი სტილი არ დაიკარგოს
+      {
+        tag: 'table',
+        priority: 60,
+        getAttrs: (element) => (element.querySelector('thead, tfoot, caption, colgroup') ? { html: element.outerHTML } : false),
+      },
+      ...rawParseRules(true),
+    ]
+  },
+
+  renderHTML({ node }) {
+    return rawDom(node.attrs.html)
+  },
+
+  ...rawNodeView,
+})
+
+const RawInline = Node.create({
+  name: 'rawInline',
+  group: 'inline',
+  inline: true,
+  atom: true,
+  selectable: true,
+
+  addAttributes() {
+    return { html: { default: '' } }
+  },
+
+  parseHTML() {
+    return rawParseRules(false)
+  },
+
+  renderHTML({ node }) {
+    return rawDom(node.attrs.html)
+  },
+
+  ...rawNodeView,
+})
+
 // დოკუმენტის ბოლოს ყოველთვის აბზაცი უნდა იყოს: ცხრილის, ვიდეოს ან სვეტების შემდეგ
 // კურსორი სადმე რომ დაიდოს და ტექსტის დაწერა გაგრძელდეს
 const TrailingParagraph = Extension.create({
@@ -221,6 +432,8 @@ const TrailingParagraph = Extension.create({
           const { doc, tr, schema } = newState
           const last = doc.lastChild
           if (!last || last.type.name === 'paragraph') return null
+          // setContent-ით (emitUpdate=false) შემოსული ცვლილება parent-ს არ უნდა გადაეცეს
+          if (transactions.some((t) => t.getMeta('preventUpdate'))) tr.setMeta('preventUpdate', true)
           return tr.insert(doc.content.size, schema.nodes.paragraph.create())
         },
       }),
@@ -228,11 +441,10 @@ const TrailingParagraph = Extension.create({
   },
 })
 
-// რედაქტორის გაფართოებების სია. H1 განზრახ არ არის: გვერდის სათაური (h1) საიტის კოდშია,
-// ხოლო ბექი ტექსტში მოსულ h1-ს ყოველ შემთხვევაში h2-ად აქცევს.
+// რედაქტორის გაფართოებების სია (ყველა თეგი და სტილი შენარჩუნდება).
 export function buildExtensions({ placeholder } = {}) {
   return [
-    StarterKit.configure({ heading: { levels: [2, 3, 4, 5, 6] } }),
+    StarterKit.configure({ heading: { levels: [1, 2, 3, 4, 5, 6] } }),
     UnderlineCompat,
     Subscript,
     Superscript,
@@ -248,7 +460,7 @@ export function buildExtensions({ placeholder } = {}) {
       // target/rel ხელით იწერება (ბმულის პანელი): საკუთარ გვერდზე მიმავალ ბმულს nofollow არ სჭირდება
       HTMLAttributes: { target: null, rel: null },
     }),
-    ImageWithLayout.configure({ inline: true, allowBase64: false }),
+    ImageWithLayout.configure({ inline: true, allowBase64: true }),
     Youtube.configure({ nocookie: true, width: 640, height: 360, controls: true }),
     Table.configure({ resizable: false }),
     TableRow,
@@ -256,6 +468,11 @@ export function buildExtensions({ placeholder } = {}) {
     TableCell,
     Columns,
     Column,
+    Container,
+    KeepStyle,
+    HtmlAttrs,
+    RawBlock,
+    RawInline,
     TrailingParagraph,
     Placeholder.configure({ placeholder: placeholder || 'დაწერეთ ტექსტი...' }),
     CharacterCount,
