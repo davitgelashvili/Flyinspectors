@@ -8,7 +8,7 @@ module.exports = {
             tier1: "Up to 1500 km",
             tier2: "1500 – 3500 km",
             tier3: "Over 3500 km",
-            cardNote: "Delay at the final destination should be more than 3 hours."
+            cardNote: "The delay at the final destination airport must be at least 3 hours."
         }
     },
     ka: {
@@ -18,7 +18,7 @@ module.exports = {
             tier1: "1500 კმ-მდე",
             tier2: "1500 – 3500 კმ",
             tier3: "3500 კმ-ზე მეტი",
-            cardNote: "საბოლოო დანიშნულების ადგილას დაგვიანება 3 საათზე მეტი უნდა იყოს."
+            cardNote: "საბოლოო დანიშნულების აეროპორტში დაგვიანების ხანგრძლივობა უნდა შეადგენდეს მინიმუმ 3 საათს."
         }
     }
 }

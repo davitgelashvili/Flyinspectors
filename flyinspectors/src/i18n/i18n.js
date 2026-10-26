@@ -1,14 +1,7 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import header from '../components/Common/Header/header.module'
-import CompensationInfoModule from "../views/FlightDelay/CompensationInfo/CompensationInfo.module";
-import CompensationIfModule from "../views/FlightDelay/CompensationIf/CompensationIf.module";
-import CompensationHowMuchModule from "../views/FlightDelay/CompensationHowMuch/CompensationHowMuch.module";
 import BeAwareModule from "../views/FlightDelay/BeAware/BeAware.module";
-import FlightCancellationCompensationInfo from "../views/FlightCancellation/CompensationInfo/CompensationInfo.module";
-import FlightCancellationCompensationif from "../views/FlightCancellation/CompensationIf/CompensationIf.module";
-import FlightCancellationCompensationHowMuch from "../views/FlightCancellation/CompensationHowMuch/CompensationHowMuch.module";
-import FlightCancellationBeAware from "../views/FlightCancellation/BeAware/BeAware.module";
 
 import AboutUsSectionModule from "../views/About Us/ABout Us Section/AboutUsSection.module";
 import OurCoreValuesModule from "../views/About Us/Our core values/OurCoreValues.module";
@@ -44,15 +37,8 @@ i18n
                 translation: {
                     ...header.en,
 
-                    ...CompensationInfoModule.en,
-                    ...CompensationIfModule.en,
-                    ...CompensationHowMuchModule.en,
                     ...BeAwareModule.en,
 
-                    ...FlightCancellationCompensationInfo.en,
-                    ...FlightCancellationCompensationif.en,
-                    ...FlightCancellationCompensationHowMuch.en,
-                    ...FlightCancellationBeAware.en,
 
                     ...AboutUsSectionModule.en,
                     ...OurCoreValuesModule.en,
@@ -88,15 +74,8 @@ i18n
                 translation: {
                     ...header.ka,
 
-                    ...CompensationInfoModule.ka,
-                    ...CompensationIfModule.ka,
-                    ...CompensationHowMuchModule.ka,
                     ...BeAwareModule.ka,
 
-                    ...FlightCancellationCompensationInfo.ka,
-                    ...FlightCancellationCompensationif.ka,
-                    ...FlightCancellationCompensationHowMuch.ka,
-                    ...FlightCancellationBeAware.ka,
 
                     ...AboutUsSectionModule.ka,
                     ...OurCoreValuesModule.ka,

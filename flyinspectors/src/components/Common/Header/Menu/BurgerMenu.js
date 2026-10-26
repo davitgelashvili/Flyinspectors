@@ -37,8 +37,6 @@ const BurgerMenu = ({IsOpen, setIsOpen, menuPages}) => {
     {
       title: t("menu.yourrights"),
       dropdown: [
-        { link: "/your-rights/flight-delay", title: t("menu.flightdelay") },
-        { link: "/your-rights/flight-cancellation", title: t("menu.flightcancellation") },
         { link: "/your-rights/overbooked-flight", title: t("menu.overBookedflight") },
         { link: "/your-rights/missed-connection", title: t("menu.missedconnection") },
         { link: "/your-rights/lost-luggage", title: t("menu.lostluggage") },

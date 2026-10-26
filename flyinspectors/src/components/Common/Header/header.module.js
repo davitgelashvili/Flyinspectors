@@ -3,8 +3,6 @@ module.exports = {
         menu: {
             home: 'Home',
             yourrights: 'Your Rights',
-            flightdelay:'Flight Delay',
-            flightcancellation:'Flight Cancellation',
             overBookedflight:'OverBooked Flight',
             missedconnection:'Missed Connection',
             lostluggage:'Lost Luggage',
@@ -20,8 +18,6 @@ module.exports = {
         menu: {
             home: 'მთავარი',
             yourrights: 'თქვენი უფლებები',
-            flightdelay:'დაგვიანებული ფრენა',
-            flightcancellation:'გაუქმებულია ფრენა',
             overBookedflight:'გადაჯავშნილი ფრენა',
             missedconnection:'დამაკავშირებელი ფრენა',
             lostluggage:'დაკარგული ბარგი',
