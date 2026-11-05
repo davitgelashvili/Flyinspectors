@@ -9,8 +9,8 @@ import { getSiteOrigin } from './siteHost'
 // მხოლოდ ის მარშრუტები, რომლებიც კოდშია და მუდმივად დარჩება.
 // ადმინიდან შექმნილი გვერდები customPages()-იდან თვითონ ემატება (slug-ის მიხედვით), ამიტომ
 // ასეთი გვერდი აქ არ იწერება — ხელით ჩაწერა მას გააორმაგებდა.
-// /your-rights/* აქ განზრახ არ არის: ეს გვერდები ქასთუმ გვერდებად გადადის და მაშინ
-// sitemap-ში ავტომატურად გამოჩნდება — ამ სიის ხელახალი რედაქტირება არ დაგჭირდება.
+// /your-rights/* კოდის მარშრუტებია (app/[lang]/your-rights) და 200-ს აბრუნებს, ამიტომ აქაა.
+// თუ რომელიმე ქასთუმ გვერდად გადავა, აქედან წაშალე (pageSitemap დუბლს მაინც ფილტრავს).
 // /signature და /check-status განზრახ არ შედის — პირადი განაცხადის ნაბიჯებია, ძიებაში არ უნდა ჩანდეს.
 const PAGE_PATHS = [
   '/',
@@ -19,6 +19,9 @@ const PAGE_PATHS = [
   '/blog',
   '/faq',
   '/contact-us',
+  '/your-rights/missed-connection',
+  '/your-rights/lost-luggage',
+  '/your-rights/overbooked-flight',
 ]
 
 // ბლოგის სტატიები ბაზიდან მოდის (ადმინი → ბლოგი); სტატიკური სია აღარ არის.
@@ -81,7 +84,13 @@ function urlset(origin, entries) {
 }
 
 export async function pageSitemap() {
-  const entries = [...PAGE_PATHS.map((path) => ({ path, lastModified: null })), ...(await customPages())]
+  // ქასთუმ გვერდს თავისი lastModified აქვს, ამიტომ იმავე path-ზე ის ჯობია სტატიკურ ჩანაწერს
+  const custom = await customPages()
+  const customPaths = new Set(custom.map((page) => page.path))
+  const entries = [
+    ...PAGE_PATHS.filter((path) => !customPaths.has(path)).map((path) => ({ path, lastModified: null })),
+    ...custom,
+  ]
   return urlset(getSiteOrigin(), entries)
 }
 

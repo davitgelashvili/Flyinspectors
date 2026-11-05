@@ -46,6 +46,7 @@ export default function RootShell({ lang, children }) {
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'AW-18089922391');
+              gtag('config', 'G-ZVDJD39W09');
             `,
           }}
         />
